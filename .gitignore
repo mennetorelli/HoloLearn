@@ -1,9 +1,9 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+HoloLearn-Unity/[Ll]ibrary/
+HoloLearn-Unity/[Tt]emp/
+HoloLearn-Unity/[Oo]bj/
+HoloLearn-Unity/[Bb]uild/
+HoloLearn-Unity/[Bb]uilds/
+HoloLearn-Unity/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/
