@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+
+# Other
+HoloLearn-Unity/Assets/WSATestCertificate.pfx
+
+HoloLearn-Unity/Assets/WSATestCertificate.pfx.meta
