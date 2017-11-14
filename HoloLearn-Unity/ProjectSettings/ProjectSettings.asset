@@ -528,11 +528,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: HoloLearn-Unity
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 809d80ed3f7cd401
   metroApplicationDescription: HoloLearn-Unity
   wsaImages: {}
   metroTileShortName: 
