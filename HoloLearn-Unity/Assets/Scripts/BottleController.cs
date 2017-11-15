@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanController : MonoBehaviour {
+public class BottleController : MonoBehaviour {
     private Rigidbody rb;
 	// Use this for initialization
 	void Start ()
@@ -17,17 +17,17 @@ public class CanController : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
         rb.AddForce(movement);
+		
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if (other.gameObject.CompareTag("Cylinder"))
-       
+        if(other.gameObject.CompareTag("Cylinder"))
         {
-            gameObject.SetActive(false);
-        }        
-    } 
+            Vector3 pos = other.transform.position;
+            rb.transform.position = pos; 
+
+        }
+    }
 }

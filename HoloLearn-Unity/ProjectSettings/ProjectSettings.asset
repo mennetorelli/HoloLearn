@@ -532,7 +532,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 809d80ed3f7cd401
+  metroCertificateNotAfter: 80d1b7ba337dd401
   metroApplicationDescription: HoloLearn-Unity
   wsaImages: {}
   metroTileShortName: 
