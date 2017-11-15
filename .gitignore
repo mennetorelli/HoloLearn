@@ -38,3 +38,11 @@ sysinfo.txt
 HoloLearn-Unity/Assets/WSATestCertificate.pfx
 HoloLearn-Unity/Assets/WSATestCertificate.pfx.meta
 HoloLearn-Unity/.vs/
+HoloLearn-Unity/Assets/HoloToolkit/Utilities/Scripts/GpuTiming/Plugins/x86/GpuTiming.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/Utilities/Scripts/GpuTiming/Plugins/x64/GpuTiming.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/Utilities/Scripts/GpuTiming/Plugins/WSA/x86/GpuTiming.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/Utilities/Scripts/GpuTiming/Plugins/WSA/x64/GpuTiming.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/SpatialUnderstanding/Plugins/x86/SpatialUnderstanding.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/SpatialUnderstanding/Plugins/x64/SpatialUnderstanding.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/SpatialUnderstanding/Plugins/WSA/x86/SpatialUnderstanding.pdb.meta
+HoloLearn-Unity/Assets/HoloToolkit/SpatialUnderstanding/Plugins/WSA/x64/SpatialUnderstanding.pdb.meta
