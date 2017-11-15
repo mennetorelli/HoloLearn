@@ -155,7 +155,7 @@ Prefab:
         type: 2}
       propertyPath: RoomModel
       value: 
-      objectReference: {fileID: 100002, guid: 881b1bb3efe7ade47acaff32123fdada, type: 3}
+      objectReference: {fileID: 100006, guid: 4c085440179d25c4099ba7227231aa04, type: 3}
     - target: {fileID: 114000011154029958, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
         type: 2}
       propertyPath: surfaceMaterial
