@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4390138844879886}
   - component: {fileID: 33303270423208032}
   - component: {fileID: 23923089814749212}
+  - component: {fileID: 64777967488051834}
   m_Layer: 0
   m_Name: WaterBottleWater
   m_TagString: Untagged
@@ -39,7 +40,6 @@ GameObject:
   - component: {fileID: 114373202426813552}
   - component: {fileID: 114986945402049320}
   - component: {fileID: 54088299215442112}
-  - component: {fileID: 65690154550127674}
   m_Layer: 0
   m_Name: WaterBottle
   m_TagString: Untagged
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4917910900468148}
   - component: {fileID: 33008059844870436}
   - component: {fileID: 23666340859856350}
+  - component: {fileID: 64852173100937490}
   m_Layer: 0
   m_Name: WaterBottleSPA
   m_TagString: Untagged
@@ -74,6 +75,7 @@ GameObject:
   - component: {fileID: 4825341473100136}
   - component: {fileID: 33196956233424448}
   - component: {fileID: 23563027985258522}
+  - component: {fileID: 64375368974435666}
   m_Layer: 0
   m_Name: WaterBottleBottle
   m_TagString: Untagged
@@ -274,18 +276,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65690154550127674
-BoxCollider:
+--- !u!64 &64375368974435666
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760894586291264}
+  m_GameObject: {fileID: 1966972337559602}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09866299, y: 0.28857702, z: 0.1076808}
-  m_Center: {x: -0.04468604, y: 0.14815444, z: -0.079493284}
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: f5f20f6b7fa866547a8158791766ed16, type: 3}
+--- !u!64 &64777967488051834
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694034141960068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: f5f20f6b7fa866547a8158791766ed16, type: 3}
+--- !u!64 &64852173100937490
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931726716057230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: f5f20f6b7fa866547a8158791766ed16, type: 3}
 --- !u!114 &114373202426813552
 MonoBehaviour:
   m_ObjectHideFlags: 1
