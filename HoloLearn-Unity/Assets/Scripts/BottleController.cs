@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BottleController : MonoBehaviour {
     private Rigidbody rb;
-	// Use this for initialization
-	void Start ()
+    private Vector3 newPos;
+   
+    // Use this for initialization
+    void Start ()
     {
         rb = GetComponent<Rigidbody>();
 	}
@@ -25,9 +27,8 @@ public class BottleController : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("Cylinder"))
         {
-            Vector3 pos = other.transform.position;
-            rb.transform.position = pos; 
-
+            Vector3 newPos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
+            transform.position = newPos;
         }
     }
 }
