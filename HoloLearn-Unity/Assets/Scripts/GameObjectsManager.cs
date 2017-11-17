@@ -12,18 +12,15 @@ public class GameObjectsManager : MonoBehaviour {
 	void Start () {
         LEVEL_SETTINGS = 2;
 
+        //Per scegliere il livello
         Transform selectedLevel = layTheTableObjects.transform.GetChild(LEVEL_SETTINGS - 1);
 
+        //Da mandare ad un metodo apposito
         Transform objectsToBePlaced = selectedLevel.transform.GetChild(0);
-        foreach (Transform item in objectsToBePlaced)
-        {
-            Instantiate(item.gameObject, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
-        }
+        Instantiate(objectsToBePlaced.gameObject, objectsToBePlaced.position, objectsToBePlaced.rotation);
 
+        //Da mandare ad un metodo apposito
         Transform placements = selectedLevel.transform.GetChild(1);
-        foreach (Transform item in placements)
-        {
-            Instantiate(item.gameObject, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
-        }
-    }
+        Instantiate(placements.gameObject, placements.position, placements.rotation);
+     }
 }
