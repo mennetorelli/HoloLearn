@@ -13,6 +13,7 @@ TagManager:
   - Metal
   - Plastic
   - Paper
+  - Organic
   layers:
   - Default
   - TransparentFX
