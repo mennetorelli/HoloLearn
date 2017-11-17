@@ -10,6 +10,9 @@ TagManager:
   - Tablespoon
   - Fork
   - Glass
+  - Metal
+  - Plastic
+  - Paper
   layers:
   - Default
   - TransparentFX
