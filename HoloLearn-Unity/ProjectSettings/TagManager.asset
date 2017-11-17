@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cylinder
+  - Bottle
+  - Plate
+  - Tablespoon
+  - Fork
+  - Glass
   layers:
   - Default
   - TransparentFX
