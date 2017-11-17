@@ -14,6 +14,9 @@ public class PlacementController : MonoBehaviour {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
             gameObject.SetActive(false);
+
+            gameObject.GetComponentInParent<Counter>().Decrement();
+
         }
     }
 }
