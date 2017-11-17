@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CanController : MonoBehaviour {
+public class BinController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
