@@ -8,13 +8,13 @@ public class Counter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        objectsToPositionate = GetComponentsInChildren<GameObject>().Length;
+        objectsToPositionate = GetComponentsInChildren<Rigidbody>().Length;
         Debug.Log(objectsToPositionate);
 	}
 
     public void Decrement()
     {
-        objectsToPositionate = objectsToPositionate--;
+        objectsToPositionate--;
         Debug.Log(objectsToPositionate);
     }
 }
