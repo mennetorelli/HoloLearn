@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HoloToolkit.Unity.InputModule;
+using UnityEngine;
 
 public class PlacementController : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class PlacementController : MonoBehaviour {
         {
             Vector3 newPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             other.gameObject.transform.position = newPos;
+
+            other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
             gameObject.SetActive(false);
         }
