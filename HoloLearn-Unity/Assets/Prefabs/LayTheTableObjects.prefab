@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 54427445230891060}
   - component: {fileID: 64372186386459900}
   - component: {fileID: 114843058942960920}
+  - component: {fileID: 114591720367064592}
   m_Layer: 0
   m_Name: CanFanta
   m_TagString: Bottle
@@ -553,6 +554,7 @@ GameObject:
   - component: {fileID: 54769109895071300}
   - component: {fileID: 64642639306907806}
   - component: {fileID: 114253918162125348}
+  - component: {fileID: 114621858051037582}
   m_Layer: 0
   m_Name: Glass_1
   m_TagString: Glass
@@ -4216,6 +4218,17 @@ MonoBehaviour:
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
   isDragging: 0
+--- !u!114 &114591720367064592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107111893241980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f54ac32596309d46a26d3784aabe13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114591927364425996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4267,6 +4280,17 @@ MonoBehaviour:
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
   isDragging: 0
+--- !u!114 &114621858051037582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1583560837935806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f54ac32596309d46a26d3784aabe13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114633104861487390
 MonoBehaviour:
   m_ObjectHideFlags: 1
