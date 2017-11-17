@@ -1,25 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameObjectsManager : MonoBehaviour {
 
     public static int LEVEL_SETTINGS;
-    public List<GameObject> objectsToBePlaced = new List<GameObject>();
-    public List<GameObject> placements = new List<GameObject>();
+    public GameObject layTheTableObjects;
 
 	// Use this for initialization
 	void Start () {
-        LEVEL_SETTINGS = 1;
+        LEVEL_SETTINGS = 2;
 
-        foreach (GameObject item in objectsToBePlaced)
+        Transform selectedLevel = layTheTableObjects.transform.GetChild(LEVEL_SETTINGS - 1);
+
+        Transform objectsToBePlaced = selectedLevel.transform.GetChild(0);
+        foreach (Transform item in objectsToBePlaced)
         {
-            Instantiate(item, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
+            Instantiate(item.gameObject, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
         }
 
-        foreach (GameObject item in placements)
+        Transform placements = selectedLevel.transform.GetChild(1);
+        foreach (Transform item in placements)
         {
-            Instantiate(item, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
+            Instantiate(item.gameObject, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
         }
     }
 }

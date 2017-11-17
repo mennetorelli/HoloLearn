@@ -432,10 +432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49efa5b09752f3349a4dbf80da5bb40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToBePlaced:
-  - {fileID: 0}
-  placements:
-  - {fileID: 0}
+  layTheTableObjects: {fileID: 1056405569958844, guid: 2973adb6feca547438dffd4d9acc3123,
+    type: 2}
 --- !u!4 &1918659277
 Transform:
   m_ObjectHideFlags: 0
