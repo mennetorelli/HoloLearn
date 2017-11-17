@@ -433,9 +433,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToBePlaced:
-  - {fileID: 1076424798332596, guid: ffcb00f76ed0e62469eb0104021e823b, type: 2}
+  - {fileID: 0}
   placements:
-  - {fileID: 1291670468042060, guid: 6073c8f25e2d67146a7cf24ceae86256, type: 2}
+  - {fileID: 0}
 --- !u!4 &1918659277
 Transform:
   m_ObjectHideFlags: 0

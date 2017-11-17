@@ -22,9 +22,4 @@ public class GameObjectsManager : MonoBehaviour {
             Instantiate(item, item.GetComponent<Transform>().position, item.GetComponent<Transform>().rotation);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
