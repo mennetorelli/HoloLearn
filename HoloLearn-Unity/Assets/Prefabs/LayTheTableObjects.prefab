@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1067116320763138
 GameObject:
   m_ObjectHideFlags: 1
@@ -171,10 +171,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4533476505691190}
-  - component: {fileID: 114158327748211542}
   - component: {fileID: 54929931551103364}
   - component: {fileID: 114205610205055334}
   - component: {fileID: 114304369028907388}
+  - component: {fileID: 64294075243067122}
   m_Layer: 0
   m_Name: WaterBottle
   m_TagString: Bottle
@@ -3468,6 +3468,20 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64294075243067122
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067145193343406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!64 &64301397982048974
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3936,23 +3950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69e654a05187f8478b7b1b3c9c27305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114158327748211542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1067145193343406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d5a0a60fbe897549ad0bfe2039f12b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HostTransform: {fileID: 0}
-  DistanceScale: 2
-  RotationMode: 0
-  PositionLerpSpeed: 0.2
-  RotationLerpSpeed: 0.2
-  IsDraggingEnabled: 1
 --- !u!114 &114161101137112062
 MonoBehaviour:
   m_ObjectHideFlags: 1

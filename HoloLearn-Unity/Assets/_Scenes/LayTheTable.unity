@@ -317,6 +317,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1440158798
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059301393198052, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056405569958844, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2973adb6feca547438dffd4d9acc3123, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1668766621
 Prefab:
   m_ObjectHideFlags: 0
@@ -415,7 +461,7 @@ GameObject:
   - component: {fileID: 1918659277}
   - component: {fileID: 1918659276}
   m_Layer: 0
-  m_Name: GameObjectsManager
+  m_Name: LayTheTableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
