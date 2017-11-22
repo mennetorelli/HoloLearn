@@ -10,7 +10,7 @@ public class LayTheTableManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        LAY_THE_TABLE_LEVEL = 1;
+        LAY_THE_TABLE_LEVEL = 2;
 
         //Per scegliere a seconda del livello
         Transform selectedLevel = layTheTableObjects.transform.GetChild(LAY_THE_TABLE_LEVEL - 1);
