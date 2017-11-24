@@ -22,18 +22,15 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         //Per scegliere a seconda del livello
         Transform selectedLevel = layTheTableObjects.transform.GetChild(LAY_THE_TABLE_LEVEL - 1);
 
+        //Seleziono il primo tavolo per ora, in futuro si potrebbe selezionare il più vicino
         GameObject table = tables.ElementAt(0);
 
         //Da creare un metodo per posizionare gli oggetti
         Transform objectsToBePlaced = selectedLevel.transform.GetChild(0);
-        Vector3 pos = table.transform.position;
-        Debug.Log(pos);
-        pos.y= pos.y + 0.1f;
-        Debug.Log(pos);
-        Instantiate(objectsToBePlaced.gameObject, pos, table.transform.rotation);
+        Instantiate(objectsToBePlaced.gameObject, objectsToBePlaced.transform.position + new Vector3(0.0f, 0.1f, 0.0f), objectsToBePlaced.transform.rotation);
 
         //Da creare un metodo per posizionare gli oggetti
         Transform placements = selectedLevel.transform.GetChild(1);
-        Instantiate(placements.gameObject, table.transform.position, table.transform.rotation);
+        Instantiate(placements.gameObject, table.transform.position, placements.transform.rotation);
     }
 }
