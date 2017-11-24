@@ -28,7 +28,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform objectsToBePlaced = selectedLevel.transform.GetChild(0);
         Vector3 pos = table.transform.position;
         Debug.Log(pos);
-        pos.y= pos.y + 10f;
+        pos.y= pos.y + 0.1f;
         Debug.Log(pos);
         Instantiate(objectsToBePlaced.gameObject, pos, table.transform.rotation);
 
