@@ -21,6 +21,10 @@ namespace HoloToolkit.Unity.SpatialMapping
         [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
         public uint minimumFloors = 1;
 
+        //Da togliere nelle task senza tavolo
+        [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
+        public uint minimumTables = 1;
+
         /// <summary>
         /// Indicates if processing of the surface meshes is complete.
         /// </summary>
@@ -84,8 +88,12 @@ namespace HoloToolkit.Unity.SpatialMapping
             List<GameObject> floors = new List<GameObject>();
             floors = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Floor);
 
+            // Collection of floor planes that we can use to set horizontal items on. - DA RIMUOVERE NELLE TASK SENZA TAVOLO
+            List<GameObject> tables = new List<GameObject>();
+            tables = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Table);
+
             // Check to see if we have enough floors (minimumFloors) to start processing.
-            if (floors.Count >= minimumFloors)
+            if (floors.Count >= minimumFloors && tables.Count >= minimumTables)
             {
                 // Reduce our triangle count by removing any triangles
                 // from SpatialMapping meshes that intersect with active planes.
@@ -95,7 +103,7 @@ namespace HoloToolkit.Unity.SpatialMapping
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
                 //QUI CHIAMO IL MANAGER PER INSTANZIARE GLI OGGETTI
-                LayTheTableManager.Instance.GenerateObjectsInWorls(floors);
+                LayTheTableManager.Instance.GenerateObjectsInWorls(floors, tables);
             }
             else
             {
