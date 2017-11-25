@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 64487472951996722}
   m_Layer: 0
   m_Name: WaterBottleWater
-  m_TagString: Untagged
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 64985083744869714}
   m_Layer: 0
   m_Name: WaterBottleBottle
-  m_TagString: Untagged
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 64599455745099334}
   m_Layer: 0
   m_Name: WaterBottleSPA
-  m_TagString: Untagged
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
