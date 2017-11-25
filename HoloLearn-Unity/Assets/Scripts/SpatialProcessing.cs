@@ -103,7 +103,7 @@ namespace HoloToolkit.Unity.SpatialMapping
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
                 //QUI CHIAMO IL MANAGER PER INSTANZIARE GLI OGGETTI
-                LayTheTableManager.Instance.GenerateObjectsInWorls(floors, tables);
+                LayTheTableManager.Instance.GenerateObjectsInWorld(floors, tables);
             }
             else
             {
