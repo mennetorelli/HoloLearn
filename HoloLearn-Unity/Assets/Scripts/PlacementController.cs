@@ -9,7 +9,7 @@ public class PlacementController : MonoBehaviour {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             Vector3 newPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            other.gameObject.transform.position = newPos;
+            other.gameObject.transform.position = gameObject.transform.position;
 
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 

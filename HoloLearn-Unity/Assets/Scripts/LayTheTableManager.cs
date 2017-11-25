@@ -15,8 +15,8 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
 	// Use this for initialization
 	void Start () {
-        layTheTableLevel = 2;
-        numberOfPeople = 3;
+        layTheTableLevel = 1;
+        numberOfPeople = 2;
 
         GenerateObjectsInWorld(null, null);
     }
@@ -63,9 +63,25 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Instantiate(can.gameObject, tableCorner + new Vector3(-0.1f, 0.1f, 0.2f), can.transform.rotation);
 
 
+        Vector3 tableCenter = new Vector3(1.0f, -0.2f, 4.0f);
+
+        Transform counter = layTheTableObjects.transform.GetChild(1).Find("Counter");
+
 
         //Da creare un metodo per posizionare gli oggetti
-        Transform placements = layTheTableObjects.transform.GetChild(1);
-        Instantiate(placements.gameObject, placements.transform.position, placements.transform.rotation);
+        Transform placements = layTheTableObjects.transform.GetChild(1).GetChild(layTheTableLevel-1);
+
+        Transform tableMatesPlacements = placements.Find("TableMatesPlacements");
+        Vector3 offset = new Vector3(0f, 0f, -0.2f);
+        for (int i=0; i<numberOfPeople; i++)
+        {
+            Instantiate(tableMatesPlacements.gameObject, tableCenter + offset, tableMatesPlacements.transform.rotation, counter);
+            offset = offset + new Vector3(0.5f, 0f, 0f);
+        }
+
+        Transform beveragesPlacements = placements.Find("BeveragesPlacements");
+        Instantiate(beveragesPlacements.gameObject, tableCenter, beveragesPlacements.transform.rotation, counter);
+
+        Instantiate(counter.gameObject);
     }
 }
