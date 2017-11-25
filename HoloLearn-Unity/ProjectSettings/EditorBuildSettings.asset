@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/StartGame.unity
     guid: 7e234bb21b5956a4ba74b095e8b7dc74
   - enabled: 1
     path: Assets/_Scenes/LayTheTable.unity
     guid: 0525174ae9c455f4eb15c2b12259661a
+  - enabled: 1
+    path: Assets/_Scenes/GarbageCollection.unity
+    guid: 8dc88782476783947ad420be6f946b27
