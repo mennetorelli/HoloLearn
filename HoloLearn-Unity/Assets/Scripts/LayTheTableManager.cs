@@ -34,9 +34,10 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         System.Random rnd = new System.Random();
 
         Transform plates = objectsToBePlaced.Find("Plates");
+        Transform plate = plates.GetChild(0);
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(plates.gameObject, tableCorner + new Vector3(0.0f, 0.1f, 0.0f), plates.transform.rotation);
+            Instantiate(plate.gameObject, tableCorner + new Vector3(0.0f, 0.1f, 0.0f), plate.transform.rotation);
         }
         
         Transform glasses = objectsToBePlaced.Find("Glasses");
@@ -51,8 +52,8 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform cutleryType2 = cutlery.GetChild(rnd.Next(1, 3));
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(cutleryType1.gameObject, tableCorner + new Vector3(-0.3f, 0.0f, 0.0f), cutleryType1.transform.rotation);
-            Instantiate(cutleryType2.gameObject, tableCorner + new Vector3(-0.4f, 0.2f, 0.0f), cutleryType2.transform.rotation);
+            Instantiate(cutleryType1.gameObject, tableCorner + new Vector3(-0.3f, 0.01f, 0.0f), cutleryType1.transform.rotation);
+            Instantiate(cutleryType2.gameObject, tableCorner + new Vector3(-0.35f, 0.2f, 0.0f), cutleryType2.transform.rotation);
         }
         
         Transform beverages = objectsToBePlaced.Find("Beverages");
