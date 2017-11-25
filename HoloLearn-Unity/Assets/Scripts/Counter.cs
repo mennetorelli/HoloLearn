@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour {
 
     private int objectsToPositionate;
-    public Text countText;
 
 
 
@@ -20,7 +19,6 @@ public class Counter : MonoBehaviour {
     {
         objectsToPositionate--;
         Debug.Log(objectsToPositionate);
-        countText.text = objectsToPositionate.ToString();
     }
 
     
