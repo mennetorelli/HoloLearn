@@ -8,8 +8,8 @@ using System;
 
 public class LayTheTableManager : Singleton<LayTheTableManager>
 {
-    public GameObject LevelsPrefab;
-    public GameObject ObjectsPrefab;
+    public GameObject LevelsPrefabs;
+    public GameObject ObjectsPrefabs;
 
     private int numberOfPeople;
     private int numberOfLevel;
@@ -21,7 +21,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         numberOfLevel = 1;
         numberOfPeople = 3;
 
-        selectedLevel = LevelsPrefab.transform.GetChild(numberOfLevel-1);
+        selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
     }
 
     internal void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
@@ -53,7 +53,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
 
 
-        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<LayTheTableObjectsGeneratorLvl1>().GenerateObjects(ObjectsPrefab.transform, numberOfPeople);
+        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<LayTheTableObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, numberOfPeople);
         objectsToBePlaced.Translate(tableEdge1);
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
 
