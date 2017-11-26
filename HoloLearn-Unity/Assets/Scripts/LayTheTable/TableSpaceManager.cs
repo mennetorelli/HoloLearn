@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 
-public class LayTheTableManager : Singleton<LayTheTableManager>
+public class TableSpaceManager : Singleton<TableSpaceManager>
 {
     public GameObject LevelsPrefabs;
     public GameObject ObjectsPrefabs;
@@ -62,11 +62,11 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1), rotations.ElementAt(i+1));
+            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1) + new Vector3(0f, 0.01f, 0f), rotations.ElementAt(i+1));
         }
 
         Transform beveragesPlacements = selectedLevel.Find("BeveragesPlacement");
-        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center, beveragesPlacements.transform.rotation);
+        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation);
 
         FindObjectOfType<Counter>().InitializeCounter(objectsToBePlaced);
     }
