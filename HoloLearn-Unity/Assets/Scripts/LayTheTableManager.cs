@@ -30,26 +30,17 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Vector3 tableCenter = tableColliderBounds.center;
         Vector3 tableExtents = tableColliderBounds.extents;
 
-        Vector3 tableCenterInLocalCoordinates = tableCenter.InverseTransformPoint(table.position, table.transform.rotation, new Vector3(1f, 1f, 1f));
-
-        Vector3 tableEdge1InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(tableColliderBounds.extents.x - 0.5f, 0f, 0f);
-        Debug.Log(tableEdge1InLocalCoordinates);
-        Vector3 tableEdge1 = tableEdge1InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+       
+        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 , 0f, 0f);
         Debug.Log(tableEdge1);
-
-        Vector3 tableEdge2InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(- tableColliderBounds.extents.x + 0.5f, 0f, 0f);
-        Debug.Log(tableEdge2InLocalCoordinates);
-        Vector3 tableEdge2 = tableEdge2InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+ 
+        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 , 0f, 0f);
         Debug.Log(tableEdge2);
-
-        Vector3 tableEdge3InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(0f, 0f, tableColliderBounds.extents.z - 0.5f);
-        Debug.Log(tableEdge3InLocalCoordinates);
-        Vector3 tableEdge3 = tableEdge3InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+       
+        Vector3 tableEdge3 = table.TransformPoint(0f, 0f, tableColliderBounds.extents.z / 2);
         Debug.Log(tableEdge3);
 
-        Vector3 tableEdge4InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(0f, 0f, - tableColliderBounds.extents.z + 0.5f);
-        Debug.Log(tableEdge4InLocalCoordinates);
-        Vector3 tableEdge4 = tableEdge4InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+        Vector3 tableEdge4 = table.TransformPoint(0f, 0f, -tableColliderBounds.extents.z / 2);
         Debug.Log(tableEdge4);
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
@@ -60,12 +51,9 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
         for (int i=0; i<tableEdges.Count; i++)
         {
-            Vector3 relativeDirectionInLocalCoordinates = tableEdges.ElementAt(i) - tableCenterInLocalCoordinates;
-            Vector3 relativeDirectionInGlobalCoordinates = table.TransformDirection(relativeDirectionInLocalCoordinates);
-            Quaternion rotation = Quaternion.LookRotation(relativeDirectionInGlobalCoordinates);
-            //rotations.Add(rotation);
-            Quaternion v = new Quaternion(0, 0, 0, 0);
-            rotations.Add(v);
+            Vector3 relativeDirection = tableEdges.ElementAt(i) - tableCenter;
+            Quaternion rotation = Quaternion.LookRotation(relativeDirection);
+            rotations.Add(rotation);
         }
         
         Debug.Log(rotations.ElementAt(0));
