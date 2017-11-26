@@ -102,7 +102,7 @@ namespace HoloToolkit.Unity.SpatialMapping
                 // After scanning is over, switch to the secondary (occlusion) material.
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
-                //QUI CHIAMO IL MANAGER PER INSTANZIARE GLI OGGETTI
+                //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
                 LayTheTableManager.Instance.GenerateObjectsInWorld(floors, tables);
             }
             else
