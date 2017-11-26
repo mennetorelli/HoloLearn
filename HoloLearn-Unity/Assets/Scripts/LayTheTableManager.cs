@@ -30,17 +30,49 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Vector3 tableCenter = tableColliderBounds.center;
         Vector3 tableExtents = tableColliderBounds.extents;
 
-
         Vector3 tableCenterInLocalCoordinates = tableCenter.InverseTransformPoint(table.position, table.transform.rotation, new Vector3(1f, 1f, 1f));
-        Vector3 tableEdgeInLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(tableColliderBounds.extents.x - 0.5f, 0f, 0f);
-        Vector3 tableEdge = tableEdgeInLocalCoordinates.TransformPoint(table.position, table.transform.rotation, new Vector3(1f, 1f, 1f));
-        Debug.Log(tableEdge);
+
+        Vector3 tableEdge1InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(tableColliderBounds.extents.x - 0.5f, 0f, 0f);
+        Debug.Log(tableEdge1InLocalCoordinates);
+        Vector3 tableEdge1 = tableEdge1InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+        Debug.Log(tableEdge1);
+
+        Vector3 tableEdge2InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(- tableColliderBounds.extents.x + 0.5f, 0f, 0f);
+        Debug.Log(tableEdge2InLocalCoordinates);
+        Vector3 tableEdge2 = tableEdge2InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+        Debug.Log(tableEdge2);
+
+        Vector3 tableEdge3InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(0f, 0f, tableColliderBounds.extents.z - 0.5f);
+        Debug.Log(tableEdge3InLocalCoordinates);
+        Vector3 tableEdge3 = tableEdge3InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+        Debug.Log(tableEdge3);
+
+        Vector3 tableEdge4InLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(0f, 0f, - tableColliderBounds.extents.z + 0.5f);
+        Debug.Log(tableEdge4InLocalCoordinates);
+        Vector3 tableEdge4 = tableEdge4InLocalCoordinates.TransformPoint(table.position, table.rotation, new Vector3(1f, 1f, 1f));
+        Debug.Log(tableEdge4);
+
+        List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
 
 
-        Vector3 relativeDirectionInLocalCoordinates = tableEdgeInLocalCoordinates - tableCenterInLocalCoordinates;
-        Vector3 relativeDirectionInGlobalCoordinates = table.TransformDirection(relativeDirectionInLocalCoordinates);
-        Quaternion rotation = Quaternion.LookRotation(relativeDirectionInGlobalCoordinates);
-        Debug.Log(rotation);
+
+        List<Quaternion> rotations = new List<Quaternion>();
+
+        for (int i=0; i<tableEdges.Count; i++)
+        {
+            Vector3 relativeDirectionInLocalCoordinates = tableEdges.ElementAt(i) - tableCenterInLocalCoordinates;
+            Vector3 relativeDirectionInGlobalCoordinates = table.TransformDirection(relativeDirectionInLocalCoordinates);
+            Quaternion rotation = Quaternion.LookRotation(relativeDirectionInGlobalCoordinates);
+            //rotations.Add(rotation);
+            Quaternion v = new Quaternion(0, 0, 0, 0);
+            rotations.Add(v);
+        }
+        
+        Debug.Log(rotations.ElementAt(0));
+        Debug.Log(rotations.ElementAt(1));
+        Debug.Log(rotations.ElementAt(2));
+        Debug.Log(rotations.ElementAt(3));
+
 
 
         //Da creare un metodo per posizionare gli oggetti
@@ -52,14 +84,14 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform plate = plates.GetChild(0);
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(plate.gameObject, tableEdge + new Vector3(0.0f, 0.1f, 0.0f), rotation);
+            Instantiate(plate.gameObject, tableEdge1 + new Vector3(0.0f, 0.1f, 0.0f), rotations.ElementAt(0));
         }
         
         Transform glasses = objectsToBePlaced.Find("Glasses");
         Transform glassType = glasses.GetChild(rnd.Next(0, glasses.childCount - 1));
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(glassType.gameObject, tableEdge + new Vector3(0.1f, 0.1f, 0.0f), rotation);
+            Instantiate(glassType.gameObject, tableEdge1 + new Vector3(0.1f, 0.1f, 0.0f), rotations.ElementAt(0));
         }
         
         Transform cutlery = objectsToBePlaced.Find("Cutlery");
@@ -67,15 +99,15 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform cutleryType2 = cutlery.GetChild(rnd.Next(1, 3));
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(cutleryType1.gameObject, tableEdge + new Vector3(-0.3f, 0.01f, 0.0f), rotation);
-            Instantiate(cutleryType2.gameObject, tableEdge + new Vector3(-0.35f, 0.2f, 0.0f), rotation);
+            Instantiate(cutleryType1.gameObject, tableEdge1 + new Vector3(-0.3f, 0.01f, 0.0f), rotations.ElementAt(0));
+            Instantiate(cutleryType2.gameObject, tableEdge1 + new Vector3(-0.35f, 0.2f, 0.0f), rotations.ElementAt(0));
         }
         
         Transform beverages = objectsToBePlaced.Find("Beverages");
         //Transform bottle = beverages.Find("WaterBottle");
         //Instantiate(bottle.gameObject, tableCorner + new Vector3(-0.1f, 0.1f, 0.2f), bottle.transform.rotation);
         Transform can = beverages.GetChild(rnd.Next(1, 3));
-        Instantiate(can.gameObject, tableEdge + new Vector3(-0.1f, 0.1f, 0.2f), rotation);
+        Instantiate(can.gameObject, tableEdge1 + new Vector3(-0.1f, 0.1f, 0.2f), rotations.ElementAt(0));
 
 
 
@@ -86,11 +118,9 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform placements = layTheTableObjects.transform.GetChild(1).GetChild(layTheTableLevel-1);
 
         Transform tableMatesPlacements = placements.Find("TableMatesPlacements");
-        Vector3 offset = new Vector3(0f, 0f, -0.2f);
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(tableMatesPlacements.gameObject, tableCenter + offset, tableMatesPlacements.transform.rotation, counter);
-            offset = offset + new Vector3(0.5f, 0f, 0f);
+            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1), rotations.ElementAt(i+1), counter);
         }
 
         Transform beveragesPlacements = placements.Find("BeveragesPlacements");
