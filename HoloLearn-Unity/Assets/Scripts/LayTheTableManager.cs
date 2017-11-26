@@ -32,9 +32,15 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
 
         Vector3 tableCenterInLocalCoordinates = tableCenter.InverseTransformPoint(table.position, table.transform.rotation, new Vector3(1f, 1f, 1f));
-        Vector3 tableEdgeInLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(tableColliderBounds.extents.x, 0f, 0f);
+        Vector3 tableEdgeInLocalCoordinates = tableCenterInLocalCoordinates + new Vector3(tableColliderBounds.extents.x - 0.5f, 0f, 0f);
         Vector3 tableEdge = tableEdgeInLocalCoordinates.TransformPoint(table.position, table.transform.rotation, new Vector3(1f, 1f, 1f));
         Debug.Log(tableEdge);
+
+
+        Vector3 relativeDirectionInLocalCoordinates = tableEdgeInLocalCoordinates - tableCenterInLocalCoordinates;
+        Vector3 relativeDirectionInGlobalCoordinates = table.TransformDirection(relativeDirectionInLocalCoordinates);
+        Quaternion rotation = Quaternion.LookRotation(relativeDirectionInGlobalCoordinates);
+        Debug.Log(rotation);
 
 
         //Da creare un metodo per posizionare gli oggetti
@@ -46,14 +52,14 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform plate = plates.GetChild(0);
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(plate.gameObject, tableEdge + new Vector3(0.0f, 0.1f, 0.0f), plate.transform.rotation);
+            Instantiate(plate.gameObject, tableEdge + new Vector3(0.0f, 0.1f, 0.0f), rotation);
         }
         
         Transform glasses = objectsToBePlaced.Find("Glasses");
         Transform glassType = glasses.GetChild(rnd.Next(0, glasses.childCount - 1));
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(glassType.gameObject, tableEdge + new Vector3(0.1f, 0.1f, 0.0f), glassType.transform.rotation);
+            Instantiate(glassType.gameObject, tableEdge + new Vector3(0.1f, 0.1f, 0.0f), rotation);
         }
         
         Transform cutlery = objectsToBePlaced.Find("Cutlery");
@@ -61,15 +67,15 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform cutleryType2 = cutlery.GetChild(rnd.Next(1, 3));
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(cutleryType1.gameObject, tableEdge + new Vector3(-0.3f, 0.01f, 0.0f), cutleryType1.transform.rotation);
-            Instantiate(cutleryType2.gameObject, tableEdge + new Vector3(-0.35f, 0.2f, 0.0f), cutleryType2.transform.rotation);
+            Instantiate(cutleryType1.gameObject, tableEdge + new Vector3(-0.3f, 0.01f, 0.0f), rotation);
+            Instantiate(cutleryType2.gameObject, tableEdge + new Vector3(-0.35f, 0.2f, 0.0f), rotation);
         }
         
         Transform beverages = objectsToBePlaced.Find("Beverages");
         //Transform bottle = beverages.Find("WaterBottle");
         //Instantiate(bottle.gameObject, tableCorner + new Vector3(-0.1f, 0.1f, 0.2f), bottle.transform.rotation);
         Transform can = beverages.GetChild(rnd.Next(1, 3));
-        Instantiate(can.gameObject, tableEdge + new Vector3(-0.1f, 0.1f, 0.2f), can.transform.rotation);
+        Instantiate(can.gameObject, tableEdge + new Vector3(-0.1f, 0.1f, 0.2f), rotation);
 
 
 
@@ -77,7 +83,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform counter = layTheTableObjects.transform.GetChild(1).Find("Counter");
 
         //Da creare un metodo per posizionare gli oggetti
-        /*Transform placements = layTheTableObjects.transform.GetChild(1).GetChild(layTheTableLevel-1);
+        Transform placements = layTheTableObjects.transform.GetChild(1).GetChild(layTheTableLevel-1);
 
         Transform tableMatesPlacements = placements.Find("TableMatesPlacements");
         Vector3 offset = new Vector3(0f, 0f, -0.2f);
@@ -90,6 +96,6 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Transform beveragesPlacements = placements.Find("BeveragesPlacements");
         Instantiate(beveragesPlacements.gameObject, tableCenter, beveragesPlacements.transform.rotation, counter);
 
-        Instantiate(counter.gameObject);*/
+        Instantiate(counter.gameObject);
     }
 }
