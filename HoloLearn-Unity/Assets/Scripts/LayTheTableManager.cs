@@ -21,7 +21,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         numberOfLevel = 1;
         numberOfPeople = 3;
 
-        selectedLevel = LevelsPrefab.transform.GetChild(numberOfLevel);
+        selectedLevel = LevelsPrefab.transform.GetChild(numberOfLevel-1);
     }
 
     internal void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
@@ -41,7 +41,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
 
-
+        
 
         List<Quaternion> rotations = new List<Quaternion>();
 
@@ -52,10 +52,10 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
             rotations.Add(rotation);
         }
 
-        Transform objectsToBePlaced = new LayTheTableObjectsGeneratorLvl1().GenerateObjects(ObjectsPrefab.transform, numberOfPeople);
+
+        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<LayTheTableObjectsGeneratorLvl1>().GenerateObjects(ObjectsPrefab.transform, numberOfPeople);
         objectsToBePlaced.Translate(tableEdge1);
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
-        
 
 
         Transform counter = LevelsPrefab.transform.Find("Counter");

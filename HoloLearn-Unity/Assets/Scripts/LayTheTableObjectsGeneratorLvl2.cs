@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class LayTheTableObjectsGeneratorLvl2 : MonoBehaviour {
 
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
     internal Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
         System.Random rnd = new System.Random();

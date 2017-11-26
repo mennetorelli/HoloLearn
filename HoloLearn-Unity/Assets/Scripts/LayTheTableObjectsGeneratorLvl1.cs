@@ -4,7 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LayTheTableObjectsGeneratorLvl1 : MonoBehaviour {
-    
+
+    // Use this for initialization
+    void Start()
+    {
+        
+    }
+
     internal Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
         System.Random rnd = new System.Random();
