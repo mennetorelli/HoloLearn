@@ -37,10 +37,10 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 , 0f, 0f);
         Debug.Log(tableEdge2);
        
-        Vector3 tableEdge3 = table.TransformPoint(0f, 0f, tableColliderBounds.extents.z / 2);
+        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
         Debug.Log(tableEdge3);
 
-        Vector3 tableEdge4 = table.TransformPoint(0f, 0f, -tableColliderBounds.extents.z / 2);
+        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
         Debug.Log(tableEdge4);
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
@@ -51,7 +51,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
         for (int i=0; i<tableEdges.Count; i++)
         {
-            Vector3 relativeDirection = tableEdges.ElementAt(i) - tableCenter;
+            Vector3 relativeDirection = tableCenter - tableEdges.ElementAt(i);
             Quaternion rotation = Quaternion.LookRotation(relativeDirection);
             rotations.Add(rotation);
         }
