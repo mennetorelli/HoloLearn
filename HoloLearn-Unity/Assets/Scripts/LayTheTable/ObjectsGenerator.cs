@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface LayTheTableObjectsGenerator {
+public interface ObjectsGenerator {
 
     // Use this for initialization
     void Start();

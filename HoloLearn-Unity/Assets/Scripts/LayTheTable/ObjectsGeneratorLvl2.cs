@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LayTheTableObjectsGeneratorLvl2 : MonoBehaviour, LayTheTableObjectsGenerator { 
+public class ObjectsGeneratorLvl2 : MonoBehaviour, ObjectsGenerator { 
 
     // Use this for initialization
-    void LayTheTableObjectsGenerator.Start()
+    void ObjectsGenerator.Start()
     {
 
     }
 
     // Update is called once per frame
-    void LayTheTableObjectsGenerator.Update()
+    void ObjectsGenerator.Update()
     {
 
     }
 
-    Transform LayTheTableObjectsGenerator.GenerateObjects(Transform objectsPrefab, int numberOfPeople)
+    Transform ObjectsGenerator.GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
         System.Random rnd = new System.Random();
 

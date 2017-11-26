@@ -53,7 +53,7 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
 
 
 
-        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<LayTheTableObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, numberOfPeople);
+        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<ObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, numberOfPeople);
         objectsToBePlaced.Translate(tableEdge1);
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
 
