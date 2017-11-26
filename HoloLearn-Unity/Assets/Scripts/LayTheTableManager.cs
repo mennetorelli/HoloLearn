@@ -35,12 +35,11 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         
        
         Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.2f, 0f, 0f);
-        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 , 0f, 0f);
-        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
-        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
+        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0.1f, 0f, 0f);
+        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.1f, 0f);
+        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.1f, 0f);
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
-
         
 
         List<Quaternion> rotations = new List<Quaternion>();
@@ -53,22 +52,22 @@ public class LayTheTableManager : Singleton<LayTheTableManager>
         }
 
 
+
         Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<LayTheTableObjectsGeneratorLvl1>().GenerateObjects(ObjectsPrefab.transform, numberOfPeople);
         objectsToBePlaced.Translate(tableEdge1);
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
 
 
-        Transform counter = LevelsPrefab.transform.Find("Counter");
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
         for (int i=0; i<numberOfPeople; i++)
         {
-            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1), rotations.ElementAt(i+1), counter);
+            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1), rotations.ElementAt(i+1));
         }
 
         Transform beveragesPlacements = selectedLevel.Find("BeveragesPlacement");
-        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center, beveragesPlacements.transform.rotation, counter);
+        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center, beveragesPlacements.transform.rotation);
 
-        Instantiate(counter.gameObject);
+        FindObjectOfType<Counter>().InitializeCounter(objectsToBePlaced);
     }
 }

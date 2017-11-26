@@ -1,24 +1,31 @@
-﻿using System.Collections;
+﻿using HoloToolkit.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Counter : MonoBehaviour {
+public class Counter : Singleton<Counter> {
 
-    private int objectsToPositionate;
+    private int count;
 
 
 
 	// Use this for initialization
-	void Start () {
-        objectsToPositionate = GetComponentsInChildren<Rigidbody>().Length;
-        Debug.Log(objectsToPositionate);
+	void Start ()
+    {
+        
 	}
 
     public void Decrement()
     {
-        objectsToPositionate--;
-        Debug.Log(objectsToPositionate);
+        count--;
+        Debug.Log(count);
+    }
+
+    public void InitializeCounter(Transform objectsToBePlaced)
+    {
+        count = objectsToBePlaced.GetComponentsInChildren<Rigidbody>().Length;
+        Debug.Log(count);
     }
 
     
