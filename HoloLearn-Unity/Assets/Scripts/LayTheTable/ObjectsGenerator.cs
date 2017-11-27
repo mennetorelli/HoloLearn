@@ -1,14 +1,15 @@
-﻿using System.Collections;
+﻿using HoloToolkit.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ObjectsGenerator {
+public abstract class ObjectsGenerator : Singleton<ObjectsGenerator> {
 
     // Use this for initialization
-    void Start();
+    public abstract void Start();
 
     // Update is called once per frame
-    void Update();
+    public abstract void Update();
 
-    Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople);
+    public abstract Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople);
 }

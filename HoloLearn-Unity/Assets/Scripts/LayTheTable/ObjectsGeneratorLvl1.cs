@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectsGeneratorLvl1 : MonoBehaviour, ObjectsGenerator {
+public class ObjectsGeneratorLvl1 : ObjectsGenerator {
 
     // Use this for initialization
-    void ObjectsGenerator.Start()
+    public override void Start()
     {
 
     }
 
     // Update is called once per frame
-    void ObjectsGenerator.Update()
+    public override void Update()
     {
 
     }
 
-    Transform ObjectsGenerator.GenerateObjects(Transform objectsPrefab, int numberOfPeople)
+    public override Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
         System.Random rnd = new System.Random();
 
