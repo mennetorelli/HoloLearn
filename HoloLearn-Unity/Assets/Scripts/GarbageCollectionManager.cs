@@ -34,7 +34,6 @@ public class GarbageCollectionManager : MonoBehaviour
         System.Random rnd = new System.Random();
 
 
-        //DA TOGLIERE IL BIDONE SE è GIà STATO MESSO
         for (int i=1; i<=numberOfBins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
