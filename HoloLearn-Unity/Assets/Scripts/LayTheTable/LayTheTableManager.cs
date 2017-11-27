@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 
-public class TableSpaceManager : Singleton<TableSpaceManager>
+public class LayTheTableManager : ObjectsManager
 {
     public GameObject LevelsPrefabs;
     public GameObject ObjectsPrefabs;
@@ -17,14 +17,20 @@ public class TableSpaceManager : Singleton<TableSpaceManager>
     private Transform selectedLevel;
 
     // Use this for initialization
-    void Start () {
+    public override void Start() {
         numberOfLevel = 1;
         numberOfPeople = 3;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
     }
 
-    internal void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
+    // Update is called once per frame
+    public override void Update()
+    {
+    
+    }
+
+    public override void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
     {
         //Seleziono il primo tavolo per ora, in futuro si potrebbe selezionare il più vicino
         Transform table = tables.ElementAt(0).transform;
@@ -70,4 +76,6 @@ public class TableSpaceManager : Singleton<TableSpaceManager>
 
         FindObjectOfType<Counter>().InitializeCounter(objectsToBePlaced);
     }
+
+    
 }

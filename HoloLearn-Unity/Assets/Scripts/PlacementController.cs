@@ -15,7 +15,7 @@ public class PlacementController : MonoBehaviour {
 
             gameObject.SetActive(false);
 
-            FindObjectOfType<Counter>().Decrement();
+            Counter.Instance.Decrement();
 
         }
     }
