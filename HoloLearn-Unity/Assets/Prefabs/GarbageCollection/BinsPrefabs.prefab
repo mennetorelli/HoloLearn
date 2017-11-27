@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95828630262015792}
   m_Layer: 0
   m_Name: rubbishBin2
-  m_TagString: Untagged
+  m_TagString: Paper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 95987314592958608}
   m_Layer: 0
   m_Name: rubbishBin1
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 95256278912392964}
   m_Layer: 0
   m_Name: rubbishBin3
-  m_TagString: Untagged
+  m_TagString: Organic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

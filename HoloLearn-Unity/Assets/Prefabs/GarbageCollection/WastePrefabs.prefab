@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 54171935507895722}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Glass
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 114128711768597028}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Plastic
+  m_TagString: Organic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
