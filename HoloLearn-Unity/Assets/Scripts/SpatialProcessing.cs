@@ -21,8 +21,7 @@ namespace HoloToolkit.Unity.SpatialMapping
         [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
         public uint minimumFloors = 1;
 
-        //Da togliere nelle task senza tavolo
-        [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
+        [Tooltip("Minimum number of table planes required in order to exit scanning/processing mode.")]
         public uint minimumTables = 1;
 
         /// <summary>

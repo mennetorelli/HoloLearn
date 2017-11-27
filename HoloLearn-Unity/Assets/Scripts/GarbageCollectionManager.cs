@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GarbageCollectionManager : MonoBehaviour
+public class GarbageCollectionManager : ObjectsManager
 {
 
     public GameObject BinsPrefabs;
@@ -16,23 +16,27 @@ public class GarbageCollectionManager : MonoBehaviour
     private List<string> activeBins = new List<string>();
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
         numberOfBins = 2;
         numberOfObjects = 10;
-
-        GenerateObjectsInWorld(null, null);
     }
 
-    internal void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
+    // Update is called once per frame
+    public override void Update()
+    {
+
+    }
+
+    public override void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
     {
         //Seleziono il pavimento
-        //Transform floor = floors.ElementAt(0).transform;
-
-        Transform bins = new GameObject("Bins").transform;
+        Transform floor = floors.ElementAt(0).transform;
 
         System.Random rnd = new System.Random();
 
+
+        Transform bins = new GameObject("Bins").transform;
 
         for (int i=1; i<=numberOfBins;)
         {
@@ -47,13 +51,15 @@ public class GarbageCollectionManager : MonoBehaviour
         }
 
 
+        Transform waste = new GameObject("Waste").transform;
+
         for (int i=0; i<numberOfObjects;)
         {
-            Transform waste = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
-            String currentWasteTag = waste.gameObject.tag;
+            Transform currentWaste = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
+            String currentWasteTag = currentWaste.gameObject.tag;
             if (activeBins.Contains(currentWasteTag))
             {
-                Instantiate(waste, new Vector3(0f, 0f, 1f), waste.rotation);
+                Instantiate(currentWaste.gameObject, new Vector3(0f, 0f, 1f), currentWaste.rotation);
                 i++;
             }
         }
