@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoloToolkit.Unity.SpatialMapping;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +33,23 @@ public class GarbageCollectionManager : ObjectsManager
     {
         //Seleziono il pavimento
         Transform floor = floors.ElementAt(0).transform;
+        SurfacePlane plane = floor.GetComponent<SurfacePlane>();
 
         System.Random rnd = new System.Random();
+
+
+      
+        Vector3 position = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
+        Debug.Log(position);
+        position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+        Debug.Log(position);
+        Quaternion rotation = Camera.main.transform.localRotation;
+        Debug.Log(rotation);
+
+        rotation = Quaternion.LookRotation(Camera.main.transform.position);
+        rotation.x = 0f;
+        rotation.z = 0f;
+        Debug.Log(rotation);
 
 
         Transform bins = new GameObject("Bins").transform;
@@ -44,11 +60,14 @@ public class GarbageCollectionManager : ObjectsManager
             String currentBinTag = bin.gameObject.tag;
             if (!activeBins.Contains(currentBinTag))
             {
-                Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 4f), bin.rotation, bins);
+                Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), bin.rotation, bins);
                 activeBins.Add(bin.gameObject.tag);
                 i++;
             }
         }
+
+        bins.Translate(position);
+        bins.Rotate(rotation.eulerAngles);
 
 
         Transform waste = new GameObject("Waste").transform;
@@ -59,10 +78,36 @@ public class GarbageCollectionManager : ObjectsManager
             String currentWasteTag = currentWaste.gameObject.tag;
             if (activeBins.Contains(currentWasteTag))
             {
-                Instantiate(currentWaste.gameObject, new Vector3(0f, 0f, 1f), currentWaste.rotation);
+                Instantiate(currentWaste.gameObject, new Vector3(0f, 0f, 0f), currentWaste.rotation, waste);
                 i++;
             }
         }
-    
+
+        waste.Translate(position);
+        waste.Rotate(rotation.eulerAngles);
+
+    }
+
+
+    /// <summary>
+    /// Adjusts the initial position of the object if it is being occluded by the spatial map.
+    /// </summary>
+    /// <param name="position">Position of object to adjust.</param>
+    /// <param name="surfaceNormal">Normal of surface that the object is positioned against.</param>
+    /// <returns></returns>
+    private Vector3 AdjustPositionWithSpatialMap(Vector3 position, Vector3 surfaceNormal)
+    {
+        Vector3 newPosition = position;
+        RaycastHit hitInfo;
+        float distance = 0.5f;
+
+        // Check to see if there is a SpatialMapping mesh occluding the object at its current position.
+        if (Physics.Raycast(position, surfaceNormal, out hitInfo, distance, SpatialMappingManager.Instance.LayerMask))
+        {
+            // If the object is occluded, reset its position.
+            newPosition = hitInfo.point;
+        }
+
+        return newPosition;
     }
 }
