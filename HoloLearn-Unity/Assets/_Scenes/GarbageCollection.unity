@@ -187,7 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa9f0d91572b6d48a032c0a763d795c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  garbageCollectionObjects: {fileID: 1119175879015290, guid: 734bc539ad22cb445b5ec68747983c79,
+  BinsPrefabs: {fileID: 1692875364980988, guid: fd6231651f435b849809fa82cc136cc4,
+    type: 2}
+  WastePrefabs: {fileID: 1872193288092466, guid: 7c191ce96513db94ea9ff89b5f71d86d,
     type: 2}
 --- !u!4 &495993588
 Transform:
@@ -371,7 +373,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682352222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.41, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
