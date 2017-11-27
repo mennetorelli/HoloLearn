@@ -18,8 +18,8 @@ public class GarbageCollectionManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        numberOfBins = 3;
-        numberOfObjects = 4;
+        numberOfBins = 2;
+        numberOfObjects = 10;
 
         GenerateObjectsInWorld(null, null);
     }
@@ -39,7 +39,6 @@ public class GarbageCollectionManager : MonoBehaviour
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
             String currentBinTag = bin.gameObject.tag;
-            Debug.Log(currentBinTag);
             if (!activeBins.Contains(currentBinTag))
             {
                 Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 4f), bin.rotation, bins);
@@ -49,10 +48,15 @@ public class GarbageCollectionManager : MonoBehaviour
         }
 
 
-        for (int i=0; i<numberOfObjects; i++)
+        for (int i=0; i<numberOfObjects;)
         {
             Transform waste = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
-            Instantiate(waste, new Vector3(0f, 0f, 1f), waste.rotation);
+            String currentWasteTag = waste.gameObject.tag;
+            if (activeBins.Contains(currentWasteTag))
+            {
+                Instantiate(waste, new Vector3(0f, 0f, 1f), waste.rotation);
+                i++;
+            }
         }
     
     }
