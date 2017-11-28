@@ -9,6 +9,9 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject pausePanel;	                        //Store a reference to the Game Object PausePanel 
     public GameObject settingPanel;
     public GameObject settingPanel2;
+    public GameObject lttMenu;
+    public GameObject gcMenu;
+    public GameObject mtbMenu;
 
 	//Call this function to activate and display the Options panel during the main menu
 	public void ShowOptionsPanel()
@@ -75,4 +78,39 @@ public class ShowPanels : MonoBehaviour {
         settingPanel2.SetActive(false);
         optionsTint.SetActive(false);
     }
+
+    public void ShowLTTMenu()
+    {
+        lttMenu.SetActive(true);
+        optionsTint.SetActive(true);
+
+    }
+    public void ShowGCMenu()
+    {
+        gcMenu.SetActive(true);
+        optionsTint.SetActive(true);
+
+    }
+    public void ShowMTBMenu()
+    {
+        mtbMenu.SetActive(true);
+        optionsTint.SetActive(true);
+
+    }
+    public void HideLTTMenu()
+    {
+        lttMenu.SetActive(false);
+        optionsTint.SetActive(false);
+    }
+    public void HideGCMenu()
+    {
+        gcMenu.SetActive(false);
+        optionsTint.SetActive(false);
+    }
+    public void HideMTBMenu()
+    {
+        mtbMenu.SetActive(false);
+        optionsTint.SetActive(false);
+    }
+
 }
