@@ -19,8 +19,8 @@ public class GarbageCollectionManager : ObjectsManager
     // Use this for initialization
     public override void Start()
     {
-        numberOfBins = 2;
-        numberOfObjects = 10;
+        numberOfBins = SetSettingsSL.Instance.collectors;
+        numberOfObjects = SetSettingsSL.Instance.objects;
     }
 
     // Update is called once per frame
