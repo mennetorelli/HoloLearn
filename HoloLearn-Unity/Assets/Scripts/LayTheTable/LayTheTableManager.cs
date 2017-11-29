@@ -18,8 +18,8 @@ public class LayTheTableManager : ObjectsManager
 
     // Use this for initialization
     public override void Start() {
-        numberOfLevel = SetSettingsFL.Instance.level;
-        numberOfPeople = SetSettingsFL.Instance.people;
+        numberOfLevel = 2;
+        numberOfPeople = 2;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
     }

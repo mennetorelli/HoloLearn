@@ -1100,7 +1100,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 275013384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 431.5, y: 446.5, z: 0}
+  m_LocalPosition: {x: 355, y: 274.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8033,8 +8033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e30edf51cd6b6c4e84160f2896385d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  people: 0
+  level: 2
+  people: 2
 --- !u!114 &1926796973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8046,8 +8046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536ec57cfefdec642914441be9dba830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectors: 0
-  objects: 0
+  collectors: 2
+  objects: 3
 --- !u!1001 &1929679985
 Prefab:
   m_ObjectHideFlags: 0
