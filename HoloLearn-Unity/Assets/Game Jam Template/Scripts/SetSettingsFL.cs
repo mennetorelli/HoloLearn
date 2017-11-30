@@ -32,4 +32,13 @@ public class SetSettingsFL : Singleton<SetSettingsFL>
     {
         people = 3;
     }
+
+    /*public void UpdateColor()
+    {
+        Transform buttons = gameObject.transform.Find("Levels");
+        Debug.Log(gameObject.name);
+        Debug.Log(buttons.GetChild(0));
+        buttons.GetChild(0).GetComponent<Material>().color = new Color(0, 0, 1);
+
+    }*/
 }
