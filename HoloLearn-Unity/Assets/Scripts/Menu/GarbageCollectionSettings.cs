@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetSettingsSL : Singleton<SetSettingsSL>
+public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
 {
 
     public int collectors = 2;

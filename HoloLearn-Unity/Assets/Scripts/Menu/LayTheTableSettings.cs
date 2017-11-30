@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public class SetSettingsFL : Singleton<SetSettingsFL>
+public class LayTheTableSettings : Singleton<LayTheTableSettings>
 {
     public int level = 1;
     public int people = 1;
