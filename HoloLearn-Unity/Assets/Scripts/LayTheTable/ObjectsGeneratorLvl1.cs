@@ -32,7 +32,7 @@ public class ObjectsGeneratorLvl1 : ObjectsGenerator {
         }
 
         Transform glasses = objectsPrefab.Find("Glasses");
-        Transform glassType = glasses.GetChild(rnd.Next(0, glasses.childCount - 1));
+        Transform glassType = glasses.Find("Glass_2");
         for (int i = 0; i < numberOfPeople; i++)
         {
             Instantiate(glassType.gameObject, new Vector3(0.1f, 0.1f, 0.0f), glassType.transform.rotation, objectsToBePlaced);
@@ -40,7 +40,7 @@ public class ObjectsGeneratorLvl1 : ObjectsGenerator {
 
         Transform cutlery = objectsPrefab.Find("Cutlery");
         Transform cutleryType1 = cutlery.Find("Fork");
-        Transform cutleryType2 = cutlery.GetChild(rnd.Next(1, 3));
+        Transform cutleryType2 = cutlery.Find("Tablespoon");
         for (int i = 0; i < numberOfPeople; i++)
         {
             Instantiate(cutleryType1.gameObject, new Vector3(-0.3f, 0.01f, 0.0f), cutleryType1.transform.rotation, objectsToBePlaced);
