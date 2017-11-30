@@ -18,7 +18,7 @@ public class LayTheTableManager : ObjectsManager
 
     // Use this for initialization
     public override void Start() {
-        numberOfLevel = 2;
+        numberOfLevel = 1;
         numberOfPeople = 2;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
@@ -65,14 +65,18 @@ public class LayTheTableManager : ObjectsManager
 
 
 
+        Transform tablePositions = new GameObject().transform;
+
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
-        for (int i=0; i<numberOfPeople; i++)
+        for (int i=1; i<=numberOfPeople; i++)
         {
-            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i+1) + new Vector3(0f, 0.01f, 0f), rotations.ElementAt(i+1));
+            Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i) + new Vector3(0f, 0.01f, 0f), rotations.ElementAt(i), tablePositions);
+            tableMatesPlacements.Translate(tableEdges.ElementAt(i));
         }
 
         Transform beveragesPlacements = selectedLevel.Find("BeveragesPlacement");
-        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation);
+        Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation, tablePositions);
+        Debug.Log(beveragesPlacements.position);
 
         FindObjectOfType<Counter>().InitializeCounter(objectsToBePlaced);
     }
