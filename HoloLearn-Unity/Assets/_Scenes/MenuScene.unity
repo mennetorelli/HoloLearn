@@ -4059,7 +4059,7 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1926796969}
+      - m_Target: {fileID: 0}
         m_MethodName: StartLTT
         m_Mode: 1
         m_Arguments:
@@ -8313,13 +8313,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926796966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a5fa76fe0a547ee842d7fecb84c442, type: 3}
+  m_Script: {fileID: 11500000, guid: 1623dd3a43bc08c4ca45b844e8c125ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToStart: 1
   sceneToStart2: 2
   changeScenes: 0
-  inMainMenu: 1
 --- !u!1 &1939977337
 GameObject:
   m_ObjectHideFlags: 0

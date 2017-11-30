@@ -15,12 +15,12 @@ namespace HoloLearn
         public int sceneToStart2 = 2;
         public bool changeScenes;                                           //If true, load a new scene when Start is pressed, if false, fade out UI and continue in single scene
                                                                             //public bool changeMusicOnStart;										//Choose whether to continue playing menu music or start a new music clip
-        private ShowPanels showPanels;
-        [HideInInspector] public bool inMainMenu = true;    //If true, pause button disabled in main menu (Cancel in input manager, default escape key)
+        //private ShowPanels showPanels;
+        //[HideInInspector] public bool inMainMenu = true;    //If true, pause button disabled in main menu (Cancel in input manager, default escape key)
 
         public void StartLTT()
         {
-            inMainMenu = false;
+            //inMainMenu = false;
 
             //Hide the main menu UI element
             //  showPanels.HideMenu();
