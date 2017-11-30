@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class SetSettingsFL : Singleton<SetSettingsFL>
 {
-    public int level;
-    public int people;
+    public int level = 1;
+    public int people = 1;
    
  public void setLevelToEasy()
     {
