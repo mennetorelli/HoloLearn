@@ -6,8 +6,8 @@ using UnityEngine;
 public class SetSettingsSL : Singleton<SetSettingsSL>
 {
 
-    public int collectors;
-    public int objects;
+    public int collectors = 2;
+    public int objects = 5;
 
    
     public void setCollectorsThree()
