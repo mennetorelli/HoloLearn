@@ -12,5 +12,5 @@ public abstract class ObjectsManager : Singleton<ObjectsManager>
     // Update is called once per frame
     public abstract void Update();
 
-    public abstract void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables);
+    public abstract void GenerateObjectsInWorld(List<GameObject> planes);
 }

@@ -30,7 +30,7 @@ public class LayTheTableManager : ObjectsManager
     
     }
 
-    public override void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
+    public override void GenerateObjectsInWorld(List<GameObject> tables)
     {
         //Seleziono il primo tavolo per ora, in futuro si potrebbe selezionare il più vicino
         Transform table = tables.ElementAt(0).transform;

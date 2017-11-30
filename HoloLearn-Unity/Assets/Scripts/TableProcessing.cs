@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace HoloToolkit.Unity.SpatialMapping
@@ -7,7 +8,7 @@ namespace HoloToolkit.Unity.SpatialMapping
     /// The SpatialProcessingTest class allows applications to scan the environment for a specified amount of time 
     /// and then process the Spatial Mapping Mesh (find planes, remove vertices) after that time has expired.
     /// </summary>
-    public class SpatialProcessing : Singleton<SpatialProcessing>
+    public class TableProcessing : Singleton<TableProcessing>
     {
         [Tooltip("How much time (in seconds) that the SurfaceObserver will run after being started; used when 'Limit Scanning By Time' is checked.")]
         public float scanTime = 30.0f;
@@ -17,9 +18,6 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         [Tooltip("Optional Material to use when rendering Spatial Mapping meshes after the observer has been stopped.")]
         public Material secondaryMaterial;
-
-        [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
-        public uint minimumFloors = 1;
 
         [Tooltip("Minimum number of table planes required in order to exit scanning/processing mode.")]
         public uint minimumTables = 1;
@@ -83,16 +81,13 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// <param name="args">Args for the event.</param>
         private void SurfaceMeshesToPlanes_MakePlanesComplete(object source, System.EventArgs args)
         {
-            // Collection of floor planes that we can use to set horizontal items on.
-            List<GameObject> floors = new List<GameObject>();
-            floors = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Floor);
 
-            // Collection of floor planes that we can use to set horizontal items on. - DA RIMUOVERE NELLE TASK SENZA TAVOLO
+            // Collection of table planes that we can use to set horizontal items on. - DA RIMUOVERE NELLE TASK SENZA TAVOLO
             List<GameObject> tables = new List<GameObject>();
             tables = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Table);
 
             // Check to see if we have enough floors (minimumFloors) to start processing.
-            if (floors.Count >= minimumFloors && tables.Count >= minimumTables)
+            if (tables.Count >= minimumTables)
             {
                 // Reduce our triangle count by removing any triangles
                 // from SpatialMapping meshes that intersect with active planes.
@@ -102,7 +97,7 @@ namespace HoloToolkit.Unity.SpatialMapping
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
                 //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                ObjectsManager.Instance.GenerateObjectsInWorld(floors, tables);
+                ObjectsManager.Instance.GenerateObjectsInWorld(tables);
             }
             else
             {

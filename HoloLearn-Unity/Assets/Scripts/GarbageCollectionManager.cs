@@ -29,7 +29,7 @@ public class GarbageCollectionManager : ObjectsManager
 
     }
 
-    public override void GenerateObjectsInWorld(List<GameObject> floors, List<GameObject> tables)
+    public override void GenerateObjectsInWorld(List<GameObject> floors)
     {
         //Seleziono il pavimento
         Transform floor = floors.ElementAt(0).transform;
