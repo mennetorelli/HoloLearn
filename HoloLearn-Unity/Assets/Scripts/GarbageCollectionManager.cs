@@ -39,10 +39,15 @@ public class GarbageCollectionManager : ObjectsManager
 
 
       
-        Vector3 position = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
-        Debug.Log(position);
-        position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
-        Debug.Log(position);
+        Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
+        Debug.Log(floorPosition);
+        floorPosition = AdjustPositionWithSpatialMap(floorPosition, plane.SurfaceNormal);
+        Debug.Log(floorPosition);
+
+        Vector3 binsPosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 2f));
+        binsPosition.y = floorPosition.y + 0.2f;
+        Debug.Log(binsPosition);
+
         Quaternion rotation = Camera.main.transform.localRotation;
         Debug.Log(rotation);
 
@@ -66,7 +71,7 @@ public class GarbageCollectionManager : ObjectsManager
             }
         }
 
-        bins.Translate(position);
+        bins.Translate(binsPosition);
         bins.Rotate(rotation.eulerAngles);
 
 
@@ -83,7 +88,10 @@ public class GarbageCollectionManager : ObjectsManager
             }
         }
 
-        waste.Translate(position);
+        Vector3 wastePosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 1f));
+        wastePosition.y = floorPosition.y + 0.2f;
+
+        waste.Translate(wastePosition);
         waste.Rotate(rotation.eulerAngles);
 
     }
