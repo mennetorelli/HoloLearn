@@ -36,17 +36,23 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
         InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
-            button.SetSelection(false);
+            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                button.SetSelection(false);
+            }
         }
         selectedButton.GetComponent<InteractiveToggle>().SetSelection(true);
     }
 
     public void RefreshPeopleButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
-            button.SetSelection(false);
+            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                button.SetSelection(false);
+            }
         }
         selectedButton.GetComponent<InteractiveToggle>().SetSelection(true);
     }
