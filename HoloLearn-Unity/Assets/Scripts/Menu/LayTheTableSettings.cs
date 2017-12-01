@@ -1,10 +1,8 @@
-﻿using HoloToolkit.Unity;
+﻿using HoloLearn;
+using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
 
 public class LayTheTableSettings : Singleton<LayTheTableSettings>
 {
@@ -33,12 +31,23 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
         people = 3;
     }
 
-    /*public void UpdateColor()
+    public void RefreshLevelsButtons(GameObject selectedButton)
     {
-        Transform buttons = gameObject.transform.Find("Levels");
-        Debug.Log(gameObject.name);
-        Debug.Log(buttons.GetChild(0));
-        buttons.GetChild(0).GetComponent<Material>().color = new Color(0, 0, 1);
+        InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in buttons)
+        {
+            button.SetSelection(false);
+        }
+        selectedButton.GetComponent<InteractiveToggle>().SetSelection(true);
+    }
 
-    }*/
+    public void RefreshPeopleButtons(GameObject selectedButton)
+    {
+        InteractiveToggle[] buttons = gameObject.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in buttons)
+        {
+            button.SetSelection(false);
+        }
+        selectedButton.GetComponent<InteractiveToggle>().SetSelection(true);
+    }
 }

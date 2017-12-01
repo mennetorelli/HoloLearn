@@ -78,7 +78,7 @@ namespace HoloLearn
         /// We can update visual feedback based on state change, all the logic is already done, making InteractiveEffects behaviors less complex then comparing selected + Disabled.
         /// </summary>
         public enum ButtonStateEnum { Default, Focus, Press, Selected, FocusSelected, PressSelected, Disabled, DisabledSelected }
-        protected ButtonStateEnum mState = ButtonStateEnum.Default;
+        public ButtonStateEnum mState = ButtonStateEnum.Default;
 
         /// <summary>
         /// Timers
