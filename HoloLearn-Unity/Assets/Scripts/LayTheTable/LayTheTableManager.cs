@@ -14,6 +14,7 @@ public class LayTheTableManager : ObjectsManager
 
     private int numberOfPeople;
     private int numberOfLevel;
+    private GameObject virtualAssistant;
 
     private Transform selectedLevel;
 
@@ -23,6 +24,8 @@ public class LayTheTableManager : ObjectsManager
         numberOfPeople = 2;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
+
+        virtualAssistant = VirtualAssistantPrefabs;
     }
 
     // Update is called once per frame
@@ -66,7 +69,7 @@ public class LayTheTableManager : ObjectsManager
 
 
 
-        Transform tablePlacements = new GameObject().transform;
+        Transform tablePlacements = new GameObject("TableMates").transform;
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
         for (int i=1; i<=numberOfPeople; i++)
@@ -78,7 +81,17 @@ public class LayTheTableManager : ObjectsManager
         Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation, tablePlacements);
 
         Counter.Instance.InitializeCounter(objectsToBePlaced);
+        
+
+
+        Quaternion assistantRotation = Quaternion.LookRotation(Camera.main.transform.position);
+        assistantRotation.x = 0f;
+        assistantRotation.z = 0f;
+
+        if (virtualAssistant != null)
+        {
+            Instantiate(virtualAssistant.gameObject, tableColliderBounds.center + new Vector3(0.3f, 0f, 0f), assistantRotation);
+        }
     }
 
-    
 }

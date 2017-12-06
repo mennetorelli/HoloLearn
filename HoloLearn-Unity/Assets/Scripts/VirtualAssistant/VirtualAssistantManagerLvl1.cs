@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Scripts.VirtualAssistant
 {
@@ -21,7 +22,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         public void Jump()
         {
-
+            gameObject.GetComponent<Animator>();
         }
     }
 }
