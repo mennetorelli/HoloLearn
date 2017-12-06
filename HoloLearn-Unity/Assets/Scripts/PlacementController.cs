@@ -15,6 +15,8 @@ public class PlacementController : MonoBehaviour {
 
             gameObject.SetActive(false);
 
+            VirtualAssistantManager.Instance.Jump();
+
             Counter.Instance.Decrement();
 
         }

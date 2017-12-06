@@ -20,9 +20,9 @@ namespace Assets.Scripts.VirtualAssistant
 
         }
 
-        public void Jump()
+        public override void Jump()
         {
-            gameObject.GetComponent<Animator>();
+            gameObject.GetComponent<Animator>().SetTrigger("Jump");
         }
     }
 }
