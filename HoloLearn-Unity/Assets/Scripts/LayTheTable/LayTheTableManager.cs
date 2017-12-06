@@ -10,6 +10,7 @@ public class LayTheTableManager : ObjectsManager
 {
     public GameObject LevelsPrefabs;
     public GameObject ObjectsPrefabs;
+    public GameObject VirtualAssistantPrefabs;
 
     private int numberOfPeople;
     private int numberOfLevel;
