@@ -17,12 +17,16 @@ namespace Assets.Scripts.VirtualAssistant
         // Update is called once per frame
         public override void Update()
         {
-            Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos);
-            rotation.x = 0f;
-            rotation.z = 0f;
+            if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+            {
+                Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos);
+                rotation.x = 0f;
+                rotation.z = 0f;
 
-            gameObject.transform.rotation = rotation;
+                gameObject.transform.rotation = rotation;
+            }
 
         }
 
@@ -33,6 +37,8 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
+
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
@@ -56,6 +62,7 @@ namespace Assets.Scripts.VirtualAssistant
             rotation.z = 0f;
 
             gameObject.transform.rotation = rotation;
+            
         }
     }
 }
