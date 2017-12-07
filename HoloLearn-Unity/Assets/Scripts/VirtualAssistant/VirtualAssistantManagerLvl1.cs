@@ -9,12 +9,15 @@ namespace Assets.Scripts.VirtualAssistant
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
         private Vector3 targetPosition;
+        private Vector3 assistantPosition;
         private float lerpPosition;
 
         // Use this for initialization
         public override void Start()
         {
             targetPosition = Camera.main.transform.position;
+            assistantPosition = gameObject.transform.position;
+            lerpPosition = 0f;
         }
 
         // Update is called once per frame
@@ -34,11 +37,12 @@ namespace Assets.Scripts.VirtualAssistant
 
             gameObject.transform.rotation = rotation;
 
-            lerpPosition = Time.deltaTime / 5f;
+            lerpPosition += Time.deltaTime / 50f;
             if (targetPosition != Camera.main.transform.position)
             {
                 transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
             }
+
         }
 
         public override void Jump()
@@ -48,6 +52,8 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
+            lerpPosition = 0f;
+
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
