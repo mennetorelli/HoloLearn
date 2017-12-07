@@ -70,6 +70,7 @@ public class LayTheTableManager : ObjectsManager
 
 
         Transform tablePlacements = new GameObject("TableMates").transform;
+        tablePlacements.tag = "Placements";
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
         for (int i=1; i<=numberOfPeople; i++)

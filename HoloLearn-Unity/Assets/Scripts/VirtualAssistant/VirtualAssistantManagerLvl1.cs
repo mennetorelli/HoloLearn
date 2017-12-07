@@ -35,7 +35,16 @@ namespace Assets.Scripts.VirtualAssistant
         {
             String tag = draggedObject.tag;
 
-            GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+            Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
+            List<GameObject> targets = new List<GameObject>();
+            foreach (Transform target in placements)
+            {
+                if (target.gameObject.tag == tag)
+                {
+                    targets.Add(target.gameObject);
+                }
+            }
+            Debug.Log(targets.Count);
 
             GameObject closestTarget = targets[0];
             Debug.Log(closestTarget);
