@@ -23,6 +23,7 @@ namespace Assets.Scripts.VirtualAssistant
             rotation.z = 0f;
 
             gameObject.transform.rotation = rotation;
+
         }
 
         public override void Jump()
