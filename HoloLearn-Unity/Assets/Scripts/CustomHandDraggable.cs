@@ -147,6 +147,10 @@ namespace HoloToolkit.Unity.InputModule
             draggingPosition = initialDraggingPosition;
 
             StartedDragging.RaiseEvent();
+
+
+            //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
+            VirtualAssistantManager.Instance.Walk(gameObject);
         }
 
         /// <summary>

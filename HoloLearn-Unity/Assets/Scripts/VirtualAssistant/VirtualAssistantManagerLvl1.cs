@@ -30,5 +30,23 @@ namespace Assets.Scripts.VirtualAssistant
         {
             gameObject.GetComponent<Animator>().SetTrigger("Jump");
         }
+
+        public override void Walk(GameObject draggedObject)
+        {
+            String tag = draggedObject.tag;
+
+            GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+
+            GameObject closestTarget = targets[0];
+            Debug.Log(closestTarget);
+
+
+            Vector3 relativePos = closestTarget.transform.position - gameObject.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos);
+            rotation.x = 0f;
+            rotation.z = 0f;
+
+            gameObject.transform.rotation = rotation;
+        }
     }
 }

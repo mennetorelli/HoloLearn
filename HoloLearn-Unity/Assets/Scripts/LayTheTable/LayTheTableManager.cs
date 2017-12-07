@@ -91,5 +91,5 @@ public class LayTheTableManager : ObjectsManager
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
         }
     }
-
+    
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManager>
 {
@@ -13,4 +14,6 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     public abstract void Update();
 
     public abstract void Jump();
+
+    public abstract void Walk(GameObject draggedObject);
 }
