@@ -8,10 +8,13 @@ namespace Assets.Scripts.VirtualAssistant
 {
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
+        private Vector3 targetPosition;
+        private float lerpPosition;
+
         // Use this for initialization
         public override void Start()
         {
-
+            targetPosition = Camera.main.transform.position;
         }
 
         // Update is called once per frame
@@ -20,14 +23,22 @@ namespace Assets.Scripts.VirtualAssistant
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
-                Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
-                Quaternion rotation = Quaternion.LookRotation(relativePos);
-                rotation.x = 0f;
-                rotation.z = 0f;
-
-                gameObject.transform.rotation = rotation;
+                targetPosition = Camera.main.transform.position;
             }
 
+
+            Vector3 relativePos = targetPosition - gameObject.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos);
+            rotation.x = 0f;
+            rotation.z = 0f;
+
+            gameObject.transform.rotation = rotation;
+
+            lerpPosition = Time.deltaTime / 5f;
+            if (targetPosition != Camera.main.transform.position)
+            {
+                transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
+            }
         }
 
         public override void Jump()
@@ -37,8 +48,6 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Walk");
-
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
@@ -55,14 +64,10 @@ namespace Assets.Scripts.VirtualAssistant
             GameObject closestTarget = targets[0];
             Debug.Log(closestTarget);
 
+            targetPosition = closestTarget.transform.position;
 
-            Vector3 relativePos = closestTarget.transform.position - gameObject.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos);
-            rotation.x = 0f;
-            rotation.z = 0f;
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
 
-            gameObject.transform.rotation = rotation;
-            
         }
     }
 }
