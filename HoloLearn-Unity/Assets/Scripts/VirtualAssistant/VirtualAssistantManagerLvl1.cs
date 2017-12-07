@@ -26,22 +26,34 @@ namespace Assets.Scripts.VirtualAssistant
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
-                targetPosition = Camera.main.transform.position;
+                Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos);
+                rotation.x = 0f;
+                rotation.z = 0f;
+
+                gameObject.transform.rotation = rotation;
             }
-
-
-            Vector3 relativePos = targetPosition - gameObject.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos);
-            rotation.x = 0f;
-            rotation.z = 0f;
-
-            gameObject.transform.rotation = rotation;
-
-            lerpPosition += Time.deltaTime / 50f;
-            if (targetPosition != Camera.main.transform.position)
+            else
             {
-                transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
-            }
+                Vector3 relativePos = targetPosition - gameObject.transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos);
+                rotation.x = 0f;
+                rotation.z = 0f;
+
+                gameObject.transform.rotation = rotation;
+
+
+                
+                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+                {
+                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
+                }
+                else
+                {
+                    lerpPosition += Time.deltaTime / 100f;
+                    transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
+                }
+            }       
 
         }
 
