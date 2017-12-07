@@ -81,16 +81,14 @@ public class LayTheTableManager : ObjectsManager
         Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation, tablePlacements);
 
         Counter.Instance.InitializeCounter(objectsToBePlaced);
-        
 
 
-        Quaternion assistantRotation = Quaternion.LookRotation(Camera.main.transform.position);
-        assistantRotation.x = 0f;
-        assistantRotation.z = 0f;
+
+        Vector3 assistantPosition = tableColliderBounds.center + new Vector3(0.3f, 0f, 0f);
 
         if (virtualAssistant != null)
         {
-            Instantiate(virtualAssistant.gameObject, tableColliderBounds.center + new Vector3(0.3f, 0f, 0f), assistantRotation);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
         }
     }
 

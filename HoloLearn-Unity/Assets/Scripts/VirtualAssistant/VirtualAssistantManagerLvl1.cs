@@ -17,7 +17,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Update is called once per frame
         public override void Update()
         {
-
+            gameObject.transform.LookAt(Camera.main.transform.position);
         }
 
         public override void Jump()
