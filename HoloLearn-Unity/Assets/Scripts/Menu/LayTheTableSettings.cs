@@ -15,28 +15,11 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
         this.level = level;
     }
 
- public void setLevelToEasy()
+    public void SetPeople(int people)
     {
-        level = 1;
+        this.people = people;
     }
-
-    public void setLevelToHard()
-    {
-        level = 2;
-    }
-    public void setPeopleOne()
-    {
-        people = 1;
-    }
-    public void setPeopleTwo()
-    {
-        people = 2;
-    }
-    public void setPeopleThree()
-    {
-        people = 3;
-    }
-
+ 
     public void RefreshLevelsButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();

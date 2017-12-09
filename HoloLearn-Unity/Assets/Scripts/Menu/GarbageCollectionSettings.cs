@@ -1,4 +1,5 @@
-﻿using HoloToolkit.Unity;
+﻿using HoloLearn;
+using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,28 +7,40 @@ using UnityEngine;
 public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
 {
 
-    public int collectors = 2;
-    public int objects = 5;
+    public int bins = 2;
+    public int waste = 5;
 
    
-    public void setCollectorsThree()
+    public void SetBins(int bins)
     {
-        collectors = 3;
+       this.bins = bins;
     }
-    public void setCollectorsTwo()
+
+    public void SetWaste(int waste)
     {
-        collectors = 2;
+        this.waste = waste;
     }
-    public void setObjectsFive()
+
+    public void RefreshBinsButtons(GameObject selectedButton)
     {
-        objects = 5;
+        InteractiveToggle[] buttons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in buttons)
+        {
+            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                button.SetSelection(false);
+            }
+        }
     }
-    public void setObjectsSeven()
+    public void RefreshWasteButtons(GameObject selectedButton)
     {
-        objects = 7;
-    }
-    public void setObjectsTen()
-    {
-        objects = 10;
+        InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in buttons)
+        {
+            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                button.SetSelection(false);
+            }
+        }
     }
 }
