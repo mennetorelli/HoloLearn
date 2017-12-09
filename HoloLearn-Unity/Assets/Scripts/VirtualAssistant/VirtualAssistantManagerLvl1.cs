@@ -32,7 +32,7 @@ namespace Assets.Scripts.VirtualAssistant
                 rotation.x = 0f;
                 rotation.z = 0f;
 
-                gameObject.transform.rotation = rotation;
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
             }
             // Altrimenti deve guardare il target (cioè il placement)
             else
@@ -42,7 +42,7 @@ namespace Assets.Scripts.VirtualAssistant
                 rotation.x = 0f;
                 rotation.z = 0f;
 
-                gameObject.transform.rotation = rotation;
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
 
 
                 // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
@@ -50,6 +50,7 @@ namespace Assets.Scripts.VirtualAssistant
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
                 }
+                // Altrimenti cammina verso il target
                 else
                 {
                     lerpPosition += Time.deltaTime / 100f;
