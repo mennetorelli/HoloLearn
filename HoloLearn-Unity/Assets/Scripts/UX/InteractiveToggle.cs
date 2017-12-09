@@ -98,7 +98,8 @@ namespace HoloLearn
             {
                 if (AllowDeselect && IsSelected)
                 {
-                    IsSelected = false;
+                    //Per far rimanere sempre selezionato il bottone
+                    IsSelected = true;
                     if (!PassiveMode)
                     {
                         OnDeselection.Invoke();

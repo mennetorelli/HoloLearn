@@ -9,6 +9,12 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
     public int level = 1;
     public int people = 1;
    
+
+    public void SetLevel(int level)
+    {
+        this.level = level;
+    }
+
  public void setLevelToEasy()
     {
         level = 1;
@@ -36,12 +42,13 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
         InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
+          //  if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            //{
                 button.SetSelection(false);
-            }
+            //}
         }
         selectedButton.GetComponent<InteractiveToggle>().SetSelection(true);
+        Debug.Log(selectedButton.GetComponent<InteractiveToggle>().IsSelected);
     }
 
     public void RefreshPeopleButtons(GameObject selectedButton)
