@@ -15,5 +15,7 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
 
     public abstract void Jump();
 
+    public abstract void ShakeHead();
+
     public abstract void Walk(GameObject draggedObject);
 }

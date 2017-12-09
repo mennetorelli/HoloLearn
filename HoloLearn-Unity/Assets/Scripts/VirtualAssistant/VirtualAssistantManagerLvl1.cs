@@ -68,6 +68,11 @@ namespace Assets.Scripts.VirtualAssistant
             gameObject.GetComponent<Animator>().SetTrigger("Jump");
         }
 
+        public override void ShakeHead()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+        }
+
         public override void Walk(GameObject draggedObject)
         {
             String tag = draggedObject.tag;
