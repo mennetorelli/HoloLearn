@@ -9,14 +9,15 @@ namespace Assets.Scripts.VirtualAssistant
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
         private Vector3 targetPosition;
-        private Vector3 assistantPosition;
+
+        private float distanceFromTarget;
         private float lerpPosition;
+
 
         // Use this for initialization
         public override void Start()
         {
             targetPosition = Camera.main.transform.position;
-            assistantPosition = gameObject.transform.position;
             lerpPosition = 0f;
         }
 
@@ -33,6 +34,8 @@ namespace Assets.Scripts.VirtualAssistant
                 rotation.z = 0f;
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
+
+                gameObject.GetComponent<Animator>().ResetTrigger("TargetReached");
             }
             // Altrimenti deve guardare il target (cioè il placement)
             else
@@ -48,12 +51,12 @@ namespace Assets.Scripts.VirtualAssistant
                 // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
                 if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
                 {
-                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
+                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");  
                 }
                 // Altrimenti cammina verso il target
                 else
                 {
-                    lerpPosition += Time.deltaTime / 100f;
+                    lerpPosition += Time.deltaTime / distanceFromTarget * 0.005f;
                     transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
                 }
             }       
@@ -65,10 +68,13 @@ namespace Assets.Scripts.VirtualAssistant
             gameObject.GetComponent<Animator>().SetTrigger("Jump");
         }
 
+        public override void ShakeHead()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+        }
+
         public override void Walk(GameObject draggedObject)
         {
-            lerpPosition = 0f;
-
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
@@ -86,6 +92,9 @@ namespace Assets.Scripts.VirtualAssistant
             Debug.Log(closestTarget);
 
             targetPosition = closestTarget.transform.position;
+
+            distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
+            lerpPosition = 0;
 
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
 

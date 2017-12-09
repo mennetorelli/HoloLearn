@@ -20,5 +20,9 @@ public class PlacementController : MonoBehaviour {
             Counter.Instance.Decrement();
 
         }
+        else
+        {
+            VirtualAssistantManager.Instance.ShakeHead();
+        }
     }
 }
