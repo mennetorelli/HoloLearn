@@ -9,8 +9,8 @@ namespace Assets.Scripts.VirtualAssistant
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
         private Vector3 targetPosition;
-        private Vector3 assistantPosition;
 
+        private float distanceFromTarget;
         private float lerpPosition;
 
 
@@ -18,8 +18,6 @@ namespace Assets.Scripts.VirtualAssistant
         public override void Start()
         {
             targetPosition = Camera.main.transform.position;
-            assistantPosition = gameObject.transform.position;
-
             lerpPosition = 0f;
         }
 
@@ -58,7 +56,7 @@ namespace Assets.Scripts.VirtualAssistant
                 // Altrimenti cammina verso il target
                 else
                 {
-                    lerpPosition += Time.deltaTime / 100f;
+                    lerpPosition += Time.deltaTime / distanceFromTarget * 0.005f;
                     transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
                 }
             }       
@@ -72,8 +70,6 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
-            lerpPosition = 0;
-
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
@@ -91,6 +87,9 @@ namespace Assets.Scripts.VirtualAssistant
             Debug.Log(closestTarget);
 
             targetPosition = closestTarget.transform.position;
+
+            distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
+            lerpPosition = 0;
 
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
 
