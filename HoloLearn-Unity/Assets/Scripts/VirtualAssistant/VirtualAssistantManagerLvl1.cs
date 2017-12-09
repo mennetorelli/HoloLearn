@@ -10,13 +10,16 @@ namespace Assets.Scripts.VirtualAssistant
     {
         private Vector3 targetPosition;
         private Vector3 assistantPosition;
+
         private float lerpPosition;
+
 
         // Use this for initialization
         public override void Start()
         {
             targetPosition = Camera.main.transform.position;
             assistantPosition = gameObject.transform.position;
+
             lerpPosition = 0f;
         }
 
@@ -33,6 +36,8 @@ namespace Assets.Scripts.VirtualAssistant
                 rotation.z = 0f;
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
+
+                gameObject.GetComponent<Animator>().ResetTrigger("TargetReached");
             }
             // Altrimenti deve guardare il target (cioè il placement)
             else
@@ -48,7 +53,7 @@ namespace Assets.Scripts.VirtualAssistant
                 // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
                 if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
                 {
-                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
+                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");  
                 }
                 // Altrimenti cammina verso il target
                 else
@@ -67,7 +72,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
-            lerpPosition = 0f;
+            lerpPosition = 0;
 
             String tag = draggedObject.tag;
 
