@@ -23,6 +23,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Update is called once per frame
         public override void Update()
         {
+            // Se siamo negli stati Idle o Jump, allora l'assistente guarda verso di te
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
@@ -33,6 +34,7 @@ namespace Assets.Scripts.VirtualAssistant
 
                 gameObject.transform.rotation = rotation;
             }
+            // Altrimenti deve guardare il target (cioè il placement)
             else
             {
                 Vector3 relativePos = targetPosition - gameObject.transform.position;
@@ -43,7 +45,7 @@ namespace Assets.Scripts.VirtualAssistant
                 gameObject.transform.rotation = rotation;
 
 
-                
+                // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
                 if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
