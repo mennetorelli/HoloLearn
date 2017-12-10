@@ -9,6 +9,7 @@ namespace Assets.Scripts.VirtualAssistant
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
         private Vector3 targetPosition;
+        private Vector3 assistantPosition;
 
         private float distanceFromTarget;
         private float lerpPosition;
@@ -26,7 +27,7 @@ namespace Assets.Scripts.VirtualAssistant
         {
             // Se siamo negli stati Idle o Jump, allora l'assistente guarda verso di te
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
-                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping") || 
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Shaking Head No"))
             {
                 Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
@@ -50,19 +51,19 @@ namespace Assets.Scripts.VirtualAssistant
 
 
                 // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
-                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+                if (Vector3.Distance(transform.position, targetPosition) < 0.00001f)
                 {
-                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");  
+                    gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
                 }
                 // Altrimenti cammina verso il target
                 else
                 {
-                    lerpPosition += Time.deltaTime / distanceFromTarget * 0.005f;
-                    transform.position = Vector3.Lerp(transform.position, targetPosition, lerpPosition);
+                    lerpPosition += Time.deltaTime / 5f;
+                    transform.position = Vector3.Lerp(assistantPosition, targetPosition, lerpPosition);
                 }
-            }       
-
+            }
         }
+
 
 
         public override void Idle()
@@ -100,11 +101,18 @@ namespace Assets.Scripts.VirtualAssistant
             GameObject closestTarget = targets[0];
             Debug.Log(closestTarget);
 
-            targetPosition = closestTarget.transform.position;
+            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
 
+
+            /*GameObject cube = GameObject.Find("Cube");
+            Instantiate(cube, closestTarget.transform.position, cube.transform.rotation);
+            Instantiate(cube, targetPosition, cube.transform.rotation);*/
+
+
+            assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
-
+            
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
 
         }
