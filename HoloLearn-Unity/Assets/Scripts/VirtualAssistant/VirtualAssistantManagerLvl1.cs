@@ -26,7 +26,8 @@ namespace Assets.Scripts.VirtualAssistant
         {
             // Se siamo negli stati Idle o Jump, allora l'assistente guarda verso di te
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
-                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping") || 
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Shaking Head No"))
             {
                 Vector3 relativePos = Camera.main.transform.position - gameObject.transform.position;
                 Quaternion rotation = Quaternion.LookRotation(relativePos);
@@ -63,6 +64,12 @@ namespace Assets.Scripts.VirtualAssistant
 
         }
 
+
+        public override void Idle()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Stop");
+        }
+
         public override void Jump()
         {
             gameObject.GetComponent<Animator>().SetTrigger("Jump");
@@ -75,6 +82,8 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
+            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
+
             String tag = draggedObject.tag;
 
             Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();

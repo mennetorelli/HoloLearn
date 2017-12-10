@@ -250,6 +250,10 @@ namespace HoloToolkit.Unity.InputModule
             isDragging = false;
             currentInputSource = null;
             StoppedDragging.RaiseEvent();
+
+
+            //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
+            VirtualAssistantManager.Instance.Idle();
         }
 
         public void OnFocusEnter()
