@@ -1,13 +1,19 @@
-﻿using System;
+﻿using HoloToolkit.Unity.InputModule;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.VirtualAssistant
 {
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
+
+        private int patience;
+
         private Vector3 targetPosition;
         private Vector3 assistantPosition;
 
@@ -21,6 +27,8 @@ namespace Assets.Scripts.VirtualAssistant
             targetPosition = Camera.main.transform.position;
             assistantPosition = transform.position;
             lerpPosition = 0f;
+
+            patience = 3;
         }
 
         // Update is called once per frame
@@ -55,7 +63,6 @@ namespace Assets.Scripts.VirtualAssistant
                 if (Vector3.Distance(transform.position, targetPosition) < 0.05f)
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
-                    Debug.Log(targetPosition);
                 }
                 // Altrimenti cammina verso il target
                 else
@@ -71,6 +78,25 @@ namespace Assets.Scripts.VirtualAssistant
         public override void Idle()
         {
             gameObject.GetComponent<Animator>().SetTrigger("Stop");
+
+            Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
+            List<GameObject> targets = new List<GameObject>();
+            foreach (Rigidbody target in remainingObjects)
+            {
+                if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
+                {
+                    targets.Add(target.gameObject);
+                    Debug.Log(target);
+                }
+            }
+            Debug.Log(targets.Count);
+
+            GameObject closestTarget = targets[0];
+            Debug.Log(closestTarget);
+
+            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+
+            StartCoroutine(WaitForWalking());
         }
 
         public override void Jump()
@@ -85,17 +111,20 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Walk(GameObject draggedObject)
         {
+            StartCoroutine(WaitForWalking());
+
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
 
             String tag = draggedObject.tag;
 
-            Transform[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Transform>();
+            Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
             List<GameObject> targets = new List<GameObject>();
-            foreach (Transform target in placements)
+            foreach (Rigidbody target in placements)
             {
                 if (target.gameObject.tag == tag)
                 {
                     targets.Add(target.gameObject);
+                    Debug.Log(target);
                 }
             }
             Debug.Log(targets.Count);
@@ -107,9 +136,15 @@ namespace Assets.Scripts.VirtualAssistant
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
-            
-            gameObject.GetComponent<Animator>().SetTrigger("Walk");
-
+    
         }
+
+
+        private IEnumerator WaitForWalking()
+        {
+            yield return new WaitForSeconds(patience);
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
+        }
+
     }
 }

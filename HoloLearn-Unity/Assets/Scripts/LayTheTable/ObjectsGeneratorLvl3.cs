@@ -20,6 +20,7 @@ public class ObjectsGeneratorLvl3 : ObjectsGenerator{
         System.Random rnd = new System.Random();
 
         Transform objectsToBePlaced = new GameObject("ObjectsToBePlaced").transform;
+        objectsToBePlaced.tag = "ObjectsToBePlaced";
 
         Transform plates = objectsPrefab.Find("Plates");
         Transform plate = plates.GetChild(0);

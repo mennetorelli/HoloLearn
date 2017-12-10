@@ -1,7 +1,7 @@
 ﻿using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
-public class PlacementController : MonoBehaviour {
+public class CollisionManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
