@@ -19,6 +19,7 @@ namespace Assets.Scripts.VirtualAssistant
         public override void Start()
         {
             targetPosition = Camera.main.transform.position;
+            assistantPosition = transform.position;
             lerpPosition = 0f;
         }
 
@@ -51,14 +52,15 @@ namespace Assets.Scripts.VirtualAssistant
 
 
                 // Se è arrivato a meno di 10 cm dal target, scatta il trigger TargetReached
-                if (Vector3.Distance(transform.position, targetPosition) < 0.00001f)
+                if (Vector3.Distance(transform.position, targetPosition) < 0.05f)
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
+                    Debug.Log(targetPosition);
                 }
                 // Altrimenti cammina verso il target
                 else
                 {
-                    lerpPosition += Time.deltaTime / 5f;
+                    lerpPosition += Time.deltaTime / (distanceFromTarget * 6f);
                     transform.position = Vector3.Lerp(assistantPosition, targetPosition, lerpPosition);
                 }
             }
@@ -102,13 +104,6 @@ namespace Assets.Scripts.VirtualAssistant
             Debug.Log(closestTarget);
 
             targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
-
-
-            /*GameObject cube = GameObject.Find("Cube");
-            Instantiate(cube, closestTarget.transform.position, cube.transform.rotation);
-            Instantiate(cube, targetPosition, cube.transform.rotation);*/
-
-
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
