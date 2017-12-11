@@ -77,16 +77,12 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Idle()
         {
-            if (!gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") &&
-                !gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
-            {
-                FindNextObjectToPlace();
-                StartCoroutine(WaitForWalking());
-            }
-            else
+            if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Stop");
             }
+            StartCoroutine(WalkToNextObject());
         }
 
         public override void Jump()
@@ -99,41 +95,18 @@ namespace Assets.Scripts.VirtualAssistant
             gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
         }
 
-        public override void Walk()
-        {
-            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
-            StartCoroutine(WaitForWalking());
+
+        public override void TargetChanged(GameObject draggedObject)
+        {         
+            StartCoroutine(WalkToNearestPlacement(draggedObject));
         }
 
 
-        private Vector3 FindNextObjectToPlace()
+        private IEnumerator WalkToNearestPlacement(GameObject draggedObject)
         {
-            Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
-            List<GameObject> targets = new List<GameObject>();
-            foreach (Rigidbody target in remainingObjects)
-            {
-                if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
-                {
-                    targets.Add(target.gameObject);
-                    Debug.Log(target);
-                }
-            }
-            Debug.Log(targets.Count);
-
-            GameObject closestTarget = targets[0];
-            Debug.Log(closestTarget);
-
-            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
-            assistantPosition = transform.position;
-            distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
-            lerpPosition = 0;
-
-            return targetPosition;
-        }
+            yield return new WaitForSeconds(patience);
 
 
-        public override void FindNearestPlacement(GameObject draggedObject)
-        {
             String tag = draggedObject.tag;
 
             Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
@@ -156,14 +129,39 @@ namespace Assets.Scripts.VirtualAssistant
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
 
-            Walk();
+
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
+            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
 
-
-        private IEnumerator WaitForWalking()
+        private IEnumerator WalkToNextObject()
         {
             yield return new WaitForSeconds(patience);
+
+
+            Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
+            List<GameObject> targets = new List<GameObject>();
+            foreach (Rigidbody target in remainingObjects)
+            {
+                if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
+                {
+                    targets.Add(target.gameObject);
+                    Debug.Log(target);
+                }
+            }
+            Debug.Log(targets.Count);
+
+            GameObject closestTarget = targets[0];
+            Debug.Log(closestTarget);
+
+            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+            assistantPosition = transform.position;
+            distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
+            lerpPosition = 0;
+
+
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
+            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
 
     }
