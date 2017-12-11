@@ -150,7 +150,7 @@ namespace HoloToolkit.Unity.InputModule
 
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
-            VirtualAssistantManager.Instance.Walk(gameObject);
+            VirtualAssistantManager.Instance.FindNearestPlacement(gameObject);
         }
 
         /// <summary>

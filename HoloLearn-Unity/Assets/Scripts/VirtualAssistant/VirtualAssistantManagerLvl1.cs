@@ -77,8 +77,37 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void Idle()
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Stop");
+            if (!gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") &&
+                !gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
+            {
+                FindNextObjectToPlace();
+                StartCoroutine(WaitForWalking());
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Stop");
+            }
+        }
 
+        public override void Jump()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Jump");
+        }
+
+        public override void ShakeHead()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+        }
+
+        public override void Walk()
+        {
+            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
+            StartCoroutine(WaitForWalking());
+        }
+
+
+        private Vector3 FindNextObjectToPlace()
+        {
             Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
             List<GameObject> targets = new List<GameObject>();
             foreach (Rigidbody target in remainingObjects)
@@ -95,26 +124,16 @@ namespace Assets.Scripts.VirtualAssistant
             Debug.Log(closestTarget);
 
             targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+            assistantPosition = transform.position;
+            distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
+            lerpPosition = 0;
 
-            StartCoroutine(WaitForWalking());
+            return targetPosition;
         }
 
-        public override void Jump()
+
+        public override void FindNearestPlacement(GameObject draggedObject)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Jump");
-        }
-
-        public override void ShakeHead()
-        {
-            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
-        }
-
-        public override void Walk(GameObject draggedObject)
-        {
-            StartCoroutine(WaitForWalking());
-
-            gameObject.GetComponent<Animator>().ResetTrigger("Stop");
-
             String tag = draggedObject.tag;
 
             Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
@@ -136,7 +155,8 @@ namespace Assets.Scripts.VirtualAssistant
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
-    
+
+            Walk();
         }
 
 
