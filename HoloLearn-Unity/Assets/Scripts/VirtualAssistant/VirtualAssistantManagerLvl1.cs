@@ -14,17 +14,20 @@ namespace Assets.Scripts.VirtualAssistant
 
         private int patience;
 
+        private Transform targetObject;
         private Vector3 targetPosition;
         private Vector3 assistantPosition;
 
         private float distanceFromTarget;
         private float lerpPosition;
 
+        private bool isColliding;
+        private bool isBusy;
+
 
         // Use this for initialization
         public override void Start()
         {
-            targetPosition = Camera.main.transform.position;
             assistantPosition = transform.position;
             lerpPosition = 0f;
 
@@ -51,7 +54,7 @@ namespace Assets.Scripts.VirtualAssistant
             // Altrimenti deve guardare il target (cioè il placement)
             else
             {
-                Vector3 relativePos = targetPosition - gameObject.transform.position;
+                Vector3 relativePos = targetObject.position - gameObject.transform.position;
                 Quaternion rotation = Quaternion.LookRotation(relativePos);
                 rotation.x = 0f;
                 rotation.z = 0f;
@@ -67,8 +70,35 @@ namespace Assets.Scripts.VirtualAssistant
                 // Altrimenti cammina verso il target
                 else
                 {
-                    lerpPosition += Time.deltaTime / (distanceFromTarget * 6f);
-                    transform.position = Vector3.Lerp(assistantPosition, targetPosition, lerpPosition);
+                    Vector3 assistantDirection;
+                    if (false)
+                    {
+
+                        Debug.Log("ciao");
+
+                        Vector3 tangent = targetObject.transform.position - transform.position;
+                        Vector3 up = transform.TransformVector(Vector3.up);
+                        Vector3 perpendicular = Vector3.Cross(tangent, up);
+
+                        rotation = Quaternion.LookRotation(perpendicular);
+                        rotation.x = 0f;
+                        rotation.z = 0f;
+
+                        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
+
+                        assistantDirection = perpendicular;
+                        Vector3 targetPoint = transform.position + assistantDirection * 1f;
+                        lerpPosition += Time.deltaTime / 5f;
+                        transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
+                    }
+                    else
+                    {
+                        targetPosition = targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+                        assistantDirection = targetPosition - transform.position;
+                        Vector3 targetPoint = transform.position + assistantDirection * 1f;
+                        lerpPosition += Time.deltaTime / 5f;
+                        transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
+                    }
                 }
             }
         }
@@ -116,17 +146,15 @@ namespace Assets.Scripts.VirtualAssistant
                 if (target.gameObject.tag == tag)
                 {
                     targets.Add(target.gameObject);
-                    Debug.Log(target);
                 }
             }
-            Debug.Log(targets.Count);
 
             SortByDistance(targets);
 
             GameObject closestTarget = targets[0];
-            Debug.Log(closestTarget);
 
-            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+            targetObject = closestTarget.transform;
+            targetPosition = targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
@@ -148,17 +176,15 @@ namespace Assets.Scripts.VirtualAssistant
                 if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
                 {
                     targets.Add(target.gameObject);
-                    Debug.Log(target);
                 }
             }
-            Debug.Log(targets.Count);
 
             SortByDistance(targets);
 
             GameObject closestTarget = targets[0];
-            Debug.Log(closestTarget);
 
-            targetPosition = closestTarget.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
+            targetObject = closestTarget.transform;
+            targetPosition = targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
@@ -184,9 +210,13 @@ namespace Assets.Scripts.VirtualAssistant
                         targets[j] = temp;
                     }
                 }
-
             }
         }
-    }
 
+        void OnTriggerEnter(Collider other)
+        {
+            Debug.Log(other.name);
+        }
+
+    }
 }

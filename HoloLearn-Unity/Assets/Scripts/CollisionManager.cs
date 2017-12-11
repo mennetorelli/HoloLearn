@@ -22,7 +22,10 @@ public class CollisionManager : MonoBehaviour {
         }
         else
         {
-            VirtualAssistantManager.Instance.ShakeHead();
+            if (other.gameObject.tag != "VirtualAssistant")
+            {
+                VirtualAssistantManager.Instance.ShakeHead();
+            }
         }
     }
 }

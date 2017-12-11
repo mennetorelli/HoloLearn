@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1058893228342398
 GameObject:
   m_ObjectHideFlags: 1
@@ -245,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4767334973236010}
   - component: {fileID: 137903384791062616}
+  - component: {fileID: 54135400377166274}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1267,9 +1268,10 @@ GameObject:
   - component: {fileID: 4342646959589626}
   - component: {fileID: 95460414271638186}
   - component: {fileID: 114979058970088888}
+  - component: {fileID: 64811706350386804}
   m_Layer: 0
   m_Name: MinionLvl2
-  m_TagString: Untagged
+  m_TagString: VirtualAssistant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1328,6 +1330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040590097224132}
   - component: {fileID: 137017020858975152}
+  - component: {fileID: 54052669928541888}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1465,9 +1468,10 @@ GameObject:
   - component: {fileID: 4342463258778758}
   - component: {fileID: 95203956502073518}
   - component: {fileID: 114206807003662408}
+  - component: {fileID: 64911003629934814}
   m_Layer: 0
   m_Name: MinionLvl1
-  m_TagString: Untagged
+  m_TagString: VirtualAssistant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3013,6 +3017,64 @@ Transform:
   m_Father: {fileID: 4433814676441718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54052669928541888
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853482411819380}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54135400377166274
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115043279348678}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &64811706350386804
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777208049416004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 63aeac78ca817974a9c4e34d34f6bd42, type: 3}
+--- !u!64 &64911003629934814
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907704196838108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 63aeac78ca817974a9c4e34d34f6bd42, type: 3}
 --- !u!95 &95203956502073518
 Animator:
   serializedVersion: 3
