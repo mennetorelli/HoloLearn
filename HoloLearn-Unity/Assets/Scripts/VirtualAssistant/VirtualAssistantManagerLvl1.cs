@@ -11,15 +11,17 @@ namespace Assets.Scripts.VirtualAssistant
 {
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
-
         private int patience;
 
         private Transform targetObject;
         private Vector3 targetPosition;
         private Vector3 assistantPosition;
+        private Vector3 assistantDirection;
 
         private float distanceFromTarget;
         private float lerpPosition;
+
+        private Transform obstacle;
 
         private bool isColliding;
         private bool isBusy;
@@ -37,6 +39,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Update is called once per frame
         public override void Update()
         {
+            Debug.DrawRay(transform.position, targetPosition, Color.cyan, 3f);
             // Se siamo negli stati Idle o Jump, allora l'assistente guarda verso di te
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping") ||
@@ -47,7 +50,7 @@ namespace Assets.Scripts.VirtualAssistant
                 rotation.x = 0f;
                 rotation.z = 0f;
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 100f);
 
                 gameObject.GetComponent<Animator>().ResetTrigger("TargetReached");
             }
@@ -70,23 +73,17 @@ namespace Assets.Scripts.VirtualAssistant
                 // Altrimenti cammina verso il target
                 else
                 {
-                    Vector3 assistantDirection;
-                    if (false)
+                    
+                    if (isColliding)
                     {
+                        
 
-                        Debug.Log("ciao");
-
-                        Vector3 tangent = targetObject.transform.position - transform.position;
-                        Vector3 up = transform.TransformVector(Vector3.up);
-                        Vector3 perpendicular = Vector3.Cross(tangent, up);
-
-                        rotation = Quaternion.LookRotation(perpendicular);
+                        rotation = Quaternion.LookRotation(assistantDirection);
                         rotation.x = 0f;
                         rotation.z = 0f;
 
-                        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
+                        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5f);
 
-                        assistantDirection = perpendicular;
                         Vector3 targetPoint = transform.position + assistantDirection * 1f;
                         lerpPosition += Time.deltaTime / 5f;
                         transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
@@ -95,6 +92,7 @@ namespace Assets.Scripts.VirtualAssistant
                     {
                         targetPosition = targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
                         assistantDirection = targetPosition - transform.position;
+                        Debug.DrawRay(transform.position, assistantDirection, Color.blue, 3f);
                         Vector3 targetPoint = transform.position + assistantDirection * 1f;
                         lerpPosition += Time.deltaTime / 5f;
                         transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
@@ -166,7 +164,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         private IEnumerator WalkToNextObject()
         {
-            yield return new WaitForSeconds(patience * 2);
+            yield return new WaitForSeconds(patience);
 
 
             Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
@@ -213,9 +211,35 @@ namespace Assets.Scripts.VirtualAssistant
             }
         }
 
+
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name);
+            StartCoroutine(NewCollision(other));
+        }
+
+
+        private IEnumerator NewCollision(Collider other)
+        {
+            if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") && !isColliding)
+            {
+                isColliding = true;
+                obstacle = other.transform;
+                lerpPosition = 0;
+                Debug.Log(isColliding);
+
+                Vector3 obstacleDirection = obstacle.transform.position - transform.position;
+                Debug.DrawRay(transform.position, obstacleDirection, Color.green, 10f);
+                Vector3 up = transform.TransformVector(Vector3.up);
+                Debug.DrawRay(transform.position, up, Color.black, 10f);
+                assistantDirection = Vector3.Cross(obstacleDirection, up);
+                Debug.DrawRay(transform.position, assistantDirection, Color.red, 10f);
+
+                yield return new WaitForSeconds(0.1f);
+                isColliding = false;
+                assistantPosition = transform.position;
+
+            }
+
         }
 
     }
