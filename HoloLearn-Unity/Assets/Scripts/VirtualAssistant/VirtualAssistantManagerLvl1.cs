@@ -97,7 +97,7 @@ namespace Assets.Scripts.VirtualAssistant
 
 
         public override void TargetChanged(GameObject draggedObject)
-        {         
+        {
             StartCoroutine(WalkToNearestPlacement(draggedObject));
         }
 
@@ -120,6 +120,8 @@ namespace Assets.Scripts.VirtualAssistant
                 }
             }
             Debug.Log(targets.Count);
+
+            SortByDistance(targets);
 
             GameObject closestTarget = targets[0];
             Debug.Log(closestTarget);
@@ -151,6 +153,8 @@ namespace Assets.Scripts.VirtualAssistant
             }
             Debug.Log(targets.Count);
 
+            SortByDistance(targets);
+
             GameObject closestTarget = targets[0];
             Debug.Log(closestTarget);
 
@@ -164,5 +168,25 @@ namespace Assets.Scripts.VirtualAssistant
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
 
+
+        private void SortByDistance(List<GameObject> targets)
+        {
+            GameObject temp;
+            for (int i = 0; i < targets.Count; i++)
+            {
+                for (int j = 0; j < targets.Count - 1; j++)
+                {
+                    if (Vector3.Distance(targets.ElementAt(j).transform.position, transform.position)
+                        > Vector3.Distance(targets.ElementAt(j + 1).transform.position, transform.position))
+                    {
+                        temp = targets[j + 1];
+                        targets[j + 1] = targets[j];
+                        targets[j] = temp;
+                    }
+                }
+
+            }
+        }
     }
+
 }

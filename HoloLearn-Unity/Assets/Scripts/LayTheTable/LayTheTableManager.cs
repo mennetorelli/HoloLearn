@@ -24,7 +24,6 @@ public class LayTheTableManager : ObjectsManager
         numberOfPeople = 2;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
-
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
     }
 
