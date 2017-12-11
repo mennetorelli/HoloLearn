@@ -136,7 +136,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         private IEnumerator WalkToNextObject()
         {
-            yield return new WaitForSeconds(patience);
+            yield return new WaitForSeconds(patience * 2);
 
 
             Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();

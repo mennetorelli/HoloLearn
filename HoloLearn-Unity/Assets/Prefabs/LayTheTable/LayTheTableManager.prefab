@@ -55,3 +55,5 @@ MonoBehaviour:
     type: 2}
   ObjectsPrefabs: {fileID: 1009877187314458, guid: e568ba6ec03758e4eb697849f6dec35b,
     type: 2}
+  VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
+    type: 2}
