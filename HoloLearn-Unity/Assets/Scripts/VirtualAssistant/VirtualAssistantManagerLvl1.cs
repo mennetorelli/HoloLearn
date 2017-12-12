@@ -16,7 +16,8 @@ namespace Assets.Scripts.VirtualAssistant
         public override void Start()
         {
             patience = 2;
-            isBusy = false;
+
+            StartCoroutine(WalkToNearestObject());
         }
 
         // Update is called once per frame
@@ -25,9 +26,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         }
 
-
         
-
         public override void Jump()
         {
             gameObject.GetComponent<Animator>().SetTrigger("Jump");
@@ -57,7 +56,7 @@ namespace Assets.Scripts.VirtualAssistant
                 Debug.Log("dropped: preparing to walk to object");
                 gameObject.GetComponent<Animator>().SetTrigger("Stop");
             }
-            StartCoroutine(WalkToNextObject());
+            StartCoroutine(WalkToNearestObject());
         }
 
 
@@ -86,7 +85,7 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        private IEnumerator WalkToNextObject()
+        private IEnumerator WalkToNearestObject()
         {
             yield return new WaitForSeconds(patience);
 
