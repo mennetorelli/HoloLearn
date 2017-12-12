@@ -51,7 +51,7 @@ namespace Assets.Scripts.VirtualAssistant
 
                 gameObject.GetComponent<Animator>().ResetTrigger("TargetReached");
             }
-            // Altrimenti deve guardare il target (cioè il placement)
+            // Altrimenti deve guardare il target
             else
             {
                 Vector3 relativePos = targetObject.position - gameObject.transform.position;
@@ -66,35 +66,37 @@ namespace Assets.Scripts.VirtualAssistant
                 if (Vector3.Distance(transform.position, targetPosition) < 0.05f)
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
+                    isBusy = false;
                 }
                 // Altrimenti cammina verso il target
                 else
                 {
-                    Vector3 assistantDirection;
-                    if (false)
+                    /*RaycastHit hit;
+                    // check for forward raycast
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 0.3f) &&
+                        hit.collider.transform != targetObject)
                     {
+                        Debug.DrawLine(transform.position, hit.point, Color.blue, 3f);
 
-                        Debug.Log("ciao");
-
-                        Vector3 tangent = targetObject.transform.position - transform.position;
+                        Vector3 obstacleDirection = targetObject.transform.position - transform.position;
                         Vector3 up = transform.TransformVector(Vector3.up);
-                        Vector3 perpendicular = Vector3.Cross(tangent, up);
+                        Vector3 tangent = Vector3.Cross(obstacleDirection, up);
 
-                        rotation = Quaternion.LookRotation(perpendicular);
+                        rotation = Quaternion.LookRotation(tangent);
                         rotation.x = 0f;
                         rotation.z = 0f;
 
                         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 2f);
 
-                        assistantDirection = perpendicular;
-                        Vector3 targetPoint = transform.position + assistantDirection * 1f;
+
+                        Vector3 targetPoint = transform.position + tangent * 1f;
                         lerpPosition += Time.deltaTime / 5f;
-                        transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
+                        transform.position = Vector3.Lerp(transform.position, targetPoint, lerpPosition);
                     }
-                    else
+                    else*/
                     {
                         targetPosition = targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(transform.position);
-                        assistantDirection = targetPosition - transform.position;
+                        Vector3 assistantDirection = targetPosition - transform.position;
                         Vector3 targetPoint = transform.position + assistantDirection * 1f;
                         lerpPosition += Time.deltaTime / 5f;
                         transform.position = Vector3.Lerp(assistantPosition, targetPoint, lerpPosition);
@@ -111,6 +113,7 @@ namespace Assets.Scripts.VirtualAssistant
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Stop");
+                isBusy = false;
             }
             StartCoroutine(WalkToNextObject());
         }
@@ -128,14 +131,16 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void TargetChanged(GameObject draggedObject)
         {
-            StartCoroutine(WalkToNearestPlacement(draggedObject));
+            if (!isBusy)
+            {
+                StartCoroutine(WalkToNearestPlacement(draggedObject));
+            }
         }
 
 
         private IEnumerator WalkToNearestPlacement(GameObject draggedObject)
         {
             yield return new WaitForSeconds(patience);
-
 
             String tag = draggedObject.tag;
 
@@ -160,6 +165,7 @@ namespace Assets.Scripts.VirtualAssistant
             lerpPosition = 0;
 
 
+            isBusy = true;
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
@@ -167,7 +173,6 @@ namespace Assets.Scripts.VirtualAssistant
         private IEnumerator WalkToNextObject()
         {
             yield return new WaitForSeconds(patience * 2);
-
 
             Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
             List<GameObject> targets = new List<GameObject>();
@@ -188,8 +193,9 @@ namespace Assets.Scripts.VirtualAssistant
             assistantPosition = transform.position;
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
+            
 
-
+            isBusy = true;
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
@@ -211,11 +217,6 @@ namespace Assets.Scripts.VirtualAssistant
                     }
                 }
             }
-        }
-
-        void OnTriggerEnter(Collider other)
-        {
-            Debug.Log(other.name);
         }
 
     }
