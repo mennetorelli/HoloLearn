@@ -44,7 +44,7 @@ namespace Assets.Scripts.VirtualAssistant
 
 
 
-        public override void PrepareToWalkToNextObject()
+        public override void ObjectDropped()
         {
             gameObject.GetComponent<Animator>().SetTrigger("Stop");
         }
@@ -60,7 +60,7 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void PrepareToWalkToTarget(GameObject draggedObject)
+        public override void ObjectDragged(GameObject draggedObject)
         {         
             // Nothing to do
         }

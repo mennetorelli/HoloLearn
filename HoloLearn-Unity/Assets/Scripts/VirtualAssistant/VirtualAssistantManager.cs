@@ -20,7 +20,7 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
 
     public abstract void ShakeHead();
 
-    public abstract void PrepareToWalkToTarget(GameObject draggedObject);
+    public abstract void ObjectDragged(GameObject draggedObject);
 
-    public abstract void PrepareToWalkToNextObject();
+    public abstract void ObjectDropped();
 }

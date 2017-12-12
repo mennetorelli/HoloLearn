@@ -26,27 +26,7 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void PrepareToWalkToTarget(GameObject draggedObject)
-        {
-            if (!isBusy)
-            {
-                Debug.Log("preparing to walk to next placement");
-                gameObject.GetComponent<Animator>().ResetTrigger("Stop");
-                StartCoroutine(WalkToNearestPlacement(draggedObject));
-            }
-        }
-
-
-        public override void PrepareToWalkToNextObject()
-        {
-            if (isBusy)
-            {
-                Debug.Log("dropped: preparing to walk to object");
-                gameObject.GetComponent<Animator>().SetTrigger("Stop");
-            }
-            StartCoroutine(WalkToNextObject());
-        }
-
+        
 
         public override void Jump()
         {
@@ -59,11 +39,30 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
+        public override void ObjectDragged(GameObject draggedObject)
+        {
+            if (!isBusy)
+            {
+                Debug.Log("preparing to walk to next placement");
+                gameObject.GetComponent<Animator>().ResetTrigger("Stop");
+                StartCoroutine(WalkToNearestPlacement(draggedObject));
+            }
+        }
+
+
+        public override void ObjectDropped()
+        {
+            if (isBusy)
+            {
+                Debug.Log("dropped: preparing to walk to object");
+                gameObject.GetComponent<Animator>().SetTrigger("Stop");
+            }
+            StartCoroutine(WalkToNextObject());
+        }
+
+
         private IEnumerator WalkToNearestPlacement(GameObject draggedObject)
         {
-            yield return new WaitForSeconds(patience);
-
-
             String tag = draggedObject.tag;
 
             Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
@@ -79,10 +78,13 @@ namespace Assets.Scripts.VirtualAssistant
             SortByDistance(targets);
             targetObject = targets[0].transform;
 
-            
+
+            yield return new WaitForSeconds(patience);
+
             Debug.Log("walking to next placement " + targetObject);
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
         }
+
 
         private IEnumerator WalkToNextObject()
         {

@@ -150,7 +150,7 @@ namespace HoloToolkit.Unity.InputModule
 
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
-            VirtualAssistantManager.Instance.PrepareToWalkToTarget(gameObject);
+            VirtualAssistantManager.Instance.ObjectDragged(gameObject);
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace HoloToolkit.Unity.InputModule
 
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
-            VirtualAssistantManager.Instance.PrepareToWalkToNextObject();
+            VirtualAssistantManager.Instance.ObjectDropped();
         }
 
         public void OnFocusEnter()
