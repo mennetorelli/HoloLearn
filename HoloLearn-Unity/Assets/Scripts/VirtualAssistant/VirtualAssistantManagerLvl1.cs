@@ -34,7 +34,10 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ShakeHead()
         {
-            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+            if (!isBusy)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+            }
         }
 
 
@@ -43,7 +46,6 @@ namespace Assets.Scripts.VirtualAssistant
             if (!isBusy)
             {
                 Debug.Log("preparing to walk to next placement");
-                gameObject.GetComponent<Animator>().ResetTrigger("Stop");
                 StartCoroutine(WalkToNearestPlacement(draggedObject));
             }
         }
