@@ -106,22 +106,33 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void PrepareToWalkToNextObject()
         {
-            if (isBusy || 
-                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") || 
-                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
+            if (isBusy)
             {
-                Debug.Log("sto già facendo cose");
-                gameObject.GetComponent<Animator>().SetTrigger("Stop");
+                return;
             }
             else
             {
-                Debug.Log("dropped: preparing to walk to object");
-                gameObject.GetComponent<Animator>().ResetTrigger("Stop");
-                isBusy = true;
-                StartCoroutine(WalkToNextObject());
-                isBusy = false;
+                if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking") ||
+                gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing"))
+                {
+                    Debug.Log("sto già facendo cose");
+                    gameObject.GetComponent<Animator>().SetTrigger("Stop");
+                    isBusy = true;
+                    StartCoroutine(WalkToNextObject());
+                    isBusy = false;
+                }
+                else
+                {
+                    Debug.Log("dropped: preparing to walk to object");
+                    gameObject.GetComponent<Animator>().ResetTrigger("Stop");
+                    isBusy = true;
+                    StartCoroutine(WalkToNextObject());
+                    isBusy = false;
+                }
             }
+                
         }
+
 
         public override void Jump()
         {
