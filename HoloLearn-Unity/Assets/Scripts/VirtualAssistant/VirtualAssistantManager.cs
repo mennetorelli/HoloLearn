@@ -13,11 +13,11 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     // Update is called once per frame
     public abstract void Update();
 
-    public abstract void Idle();
+    public abstract void PrepareToWalkToNextObject();
 
     public abstract void Jump();
 
     public abstract void ShakeHead();
 
-    public abstract void TargetChanged(GameObject draggedObject);
+    public abstract void PrepareToWalkToTarget(GameObject draggedObject);
 }

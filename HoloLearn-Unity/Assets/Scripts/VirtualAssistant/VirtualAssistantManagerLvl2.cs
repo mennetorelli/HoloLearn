@@ -44,7 +44,7 @@ namespace Assets.Scripts.VirtualAssistant
 
 
 
-        public override void Idle()
+        public override void PrepareToWalkToNextObject()
         {
             gameObject.GetComponent<Animator>().SetTrigger("Stop");
         }
@@ -60,7 +60,7 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void TargetChanged(GameObject draggedObject)
+        public override void PrepareToWalkToTarget(GameObject draggedObject)
         {         
             // Nothing to do
         }
