@@ -16,7 +16,6 @@ TagManager:
   - Organic
   - Placements
   - ObjectsToBePlaced
-  - VirtualAssistant
   layers:
   - Default
   - TransparentFX

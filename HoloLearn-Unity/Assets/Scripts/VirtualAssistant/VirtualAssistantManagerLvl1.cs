@@ -32,11 +32,14 @@ namespace Assets.Scripts.VirtualAssistant
             lerpPosition = 0f;
 
             patience = 3;
+            isBusy = false;
         }
 
         // Update is called once per frame
         public override void Update()
         {
+            Debug.DrawLine(transform.position, targetPosition, Color.blue, 5f);
+
             // Se siamo negli stati Idle o Jump, allora l'assistente guarda verso di te
             if (gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle") ||
                 gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping") ||
@@ -67,6 +70,8 @@ namespace Assets.Scripts.VirtualAssistant
                 {
                     gameObject.GetComponent<Animator>().SetTrigger("TargetReached");
                     isBusy = false;
+                    Debug.Log("target reached");
+                    return;
                 }
                 // Altrimenti cammina verso il target
                 else
@@ -115,7 +120,11 @@ namespace Assets.Scripts.VirtualAssistant
                 gameObject.GetComponent<Animator>().SetTrigger("Stop");
                 isBusy = false;
             }
-            StartCoroutine(WalkToNextObject());
+            if (!isBusy)
+            {
+                Debug.Log("preparing to walk to object");
+                StartCoroutine(WalkToNextObject());
+            }
         }
 
         public override void Jump()
@@ -133,6 +142,7 @@ namespace Assets.Scripts.VirtualAssistant
         {
             if (!isBusy)
             {
+                Debug.Log("preparing to walk to next placement");
                 StartCoroutine(WalkToNearestPlacement(draggedObject));
             }
         }
@@ -164,8 +174,8 @@ namespace Assets.Scripts.VirtualAssistant
             distanceFromTarget = Vector3.Distance(transform.position, targetPosition);
             lerpPosition = 0;
 
-
             isBusy = true;
+            Debug.Log("walking to next placement " + targetObject);
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
@@ -196,6 +206,7 @@ namespace Assets.Scripts.VirtualAssistant
             
 
             isBusy = true;
+            Debug.Log("walking to next object " + targetObject);
             gameObject.GetComponent<Animator>().SetTrigger("Walk");
             gameObject.GetComponent<Animator>().ResetTrigger("Stop");
         }
