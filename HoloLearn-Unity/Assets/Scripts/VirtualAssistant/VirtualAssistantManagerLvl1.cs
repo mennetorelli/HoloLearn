@@ -48,17 +48,26 @@ namespace Assets.Scripts.VirtualAssistant
                 Debug.Log("preparing to walk to next placement");
                 StartCoroutine(WalkToNearestPlacement(draggedObject));
             }
+            else
+            {
+                Debug.Log("busy");
+            }
         }
 
 
         public override void ObjectDropped()
         {
-            if (isBusy)
+            if (!isBusy)
             {
-                Debug.Log("dropped: preparing to walk to object");
+                Debug.Log("busy");
+                StartCoroutine(WalkToNearestObject());
+            }
+            else
+            {
+                Debug.Log("drag stopped: preparing to walk to nearest object");
                 gameObject.GetComponent<Animator>().SetTrigger("Stop");
             }
-            StartCoroutine(WalkToNearestObject());
+            
         }
 
 
