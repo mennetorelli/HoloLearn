@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WalkingState : StateMachineBehaviour {
 
-    private Vector3 startingPosition;
     private Vector3 targetPosition;
     private float lerpPercentage;
 
@@ -28,6 +27,7 @@ public class WalkingState : StateMachineBehaviour {
 
 
         Vector3 targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
+        targetPosition.y = VirtualAssistantManager.Instance.transform.position.y;
 
         float step = Time.deltaTime * 0.1f;
         VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, step);
