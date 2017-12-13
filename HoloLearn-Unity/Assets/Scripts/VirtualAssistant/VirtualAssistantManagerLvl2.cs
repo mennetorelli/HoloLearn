@@ -32,10 +32,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ShakeHead()
         {
-            if (!isBusy)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
-            }
+            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
         }
 
 
@@ -46,7 +43,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ObjectDropped()
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Stop");
+            // Nothing to do
         }
 
 
