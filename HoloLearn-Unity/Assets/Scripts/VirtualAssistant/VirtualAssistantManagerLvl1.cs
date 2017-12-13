@@ -16,8 +16,6 @@ namespace Assets.Scripts.VirtualAssistant
         public override void Start()
         {
             patience = 2;
-
-            StartCoroutine(WalkToNearestObject());
         }
 
         // Update is called once per frame
@@ -34,109 +32,20 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ShakeHead()
         {
-            if (!isBusy)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
-            }
+            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
         }
 
 
         public override void ObjectDragged(GameObject draggedObject)
         {
-            if (!isBusy)
-            {
-                Debug.Log("preparing to walk to next placement");
-                StartCoroutine(WalkToNearestPlacement(draggedObject));
-            }
-            else
-            {
-                Debug.Log("busy");
-            }
+            targetObject = draggedObject.transform;
+            gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
         }
-
 
         public override void ObjectDropped()
         {
-            if (!isBusy)
-            {
-                Debug.Log("busy");
-                StartCoroutine(WalkToNearestObject());
-            }
-            else
-            {
-                Debug.Log("drag stopped: preparing to walk to nearest object");
-                gameObject.GetComponent<Animator>().SetTrigger("Stop");
-            }
-            
+            gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
         }
-
-
-        private IEnumerator WalkToNearestPlacement(GameObject draggedObject)
-        {
-            String tag = draggedObject.tag;
-
-            Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
-            List<GameObject> targets = new List<GameObject>();
-            foreach (Rigidbody target in placements)
-            {
-                if (target.gameObject.tag == tag)
-                {
-                    targets.Add(target.gameObject);
-                }
-            }
-
-            SortByDistance(targets);
-            targetObject = targets[0].transform;
-
-
-            yield return new WaitForSeconds(patience);
-
-            Debug.Log("walking to next placement " + targetObject);
-            gameObject.GetComponent<Animator>().SetTrigger("Walk");
-        }
-
-
-        private IEnumerator WalkToNearestObject()
-        {
-            yield return new WaitForSeconds(patience);
-
-
-            Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
-            List<GameObject> targets = new List<GameObject>();
-            foreach (Rigidbody target in remainingObjects)
-            {
-                if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
-                {
-                    targets.Add(target.gameObject);
-                }
-            }
-
-            SortByDistance(targets);
-            targetObject = targets[0].transform;
-            
-
-            Debug.Log("walking to next object " + targetObject);
-            gameObject.GetComponent<Animator>().SetTrigger("Walk");
-        }
-
-
-        private void SortByDistance(List<GameObject> targets)
-        {
-            GameObject temp;
-            for (int i = 0; i < targets.Count; i++)
-            {
-                for (int j = 0; j < targets.Count - 1; j++)
-                {
-                    if (Vector3.Distance(targets.ElementAt(j).transform.position, transform.position)
-                        > Vector3.Distance(targets.ElementAt(j + 1).transform.position, transform.position))
-                    {
-                        temp = targets[j + 1];
-                        targets[j + 1] = targets[j];
-                        targets[j] = temp;
-                    }
-                }
-            }
-        }
-
+        
     }
 }
