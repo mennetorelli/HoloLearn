@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WalkingState : StateMachineBehaviour {
 
-    private Vector3 targetPosition;
     private float lerpPercentage;
 
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -17,7 +16,8 @@ public class WalkingState : StateMachineBehaviour {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.DrawLine(VirtualAssistantManager.Instance.transform.position, VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position), Color.blue, 5f);
+        Vector3 targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
+        targetPosition.y = VirtualAssistantManager.Instance.transform.position.y;
 
         Vector3 relativePos = VirtualAssistantManager.Instance.targetObject.position - VirtualAssistantManager.Instance.transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
@@ -27,15 +27,15 @@ public class WalkingState : StateMachineBehaviour {
         VirtualAssistantManager.Instance.transform.rotation = Quaternion.Lerp(VirtualAssistantManager.Instance.transform.rotation, rotation, Time.deltaTime * 2f);
 
 
-        Vector3 targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
-        targetPosition.y = VirtualAssistantManager.Instance.transform.position.y;
-
-        float step = Time.deltaTime * 0.1f;
-        VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, step);
-
-
-        if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, targetPosition) < 0.1f)
+        if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, targetPosition) > 0.05f)
         {
+            Debug.DrawLine(VirtualAssistantManager.Instance.transform.position, VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position), Color.blue, 5f);
+            
+            float step = Time.deltaTime * 0.1f;
+            VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, step);
+        }
+        else
+        {      
             animator.SetTrigger("TargetReached");
         }
     }
