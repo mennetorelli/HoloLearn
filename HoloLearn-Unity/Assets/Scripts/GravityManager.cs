@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityController : MonoBehaviour {
+public class GravityManager : MonoBehaviour {
 
     private Rigidbody rb;
     private CustomHandDraggable hd;
