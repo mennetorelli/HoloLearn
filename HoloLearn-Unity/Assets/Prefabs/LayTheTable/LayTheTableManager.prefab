@@ -57,3 +57,5 @@ MonoBehaviour:
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
+  PlacementsManagerPrefabs: {fileID: 1525975831328444, guid: 22bb2ef25799ef44c9fc292f5c8496fe,
+    type: 2}

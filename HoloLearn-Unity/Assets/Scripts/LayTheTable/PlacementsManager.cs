@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class LevelPrefabDisappear : Singleton<LevelPrefabDisappear> {
+public abstract class PlacementsManager : Singleton<PlacementsManager> {
 
     // Use this for initialization
     public abstract void Start();

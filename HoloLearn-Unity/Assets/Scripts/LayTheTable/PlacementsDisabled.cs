@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelPrefabDisappearLvl1 : LevelPrefabDisappear {
+public class PlacementsDisabled : PlacementsManager {
    
 
     // Use this for initialization
@@ -17,7 +17,7 @@ public class LevelPrefabDisappearLvl1 : LevelPrefabDisappear {
 
     public override void MakeLevelPrefabDisappear(GameObject draggedObject)
     {
-        Rigidbody[] disappearingObjects = GameObject.Find("TableMatePlacement").GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] disappearingObjects = GameObject.Find("TableMates").GetComponentsInChildren<Rigidbody>();
         
         foreach (Rigidbody rb in disappearingObjects)
         {

@@ -11,10 +11,12 @@ public class LayTheTableManager : ObjectsManager
     public GameObject LevelsPrefabs;
     public GameObject ObjectsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
+    public GameObject PlacementsManagerPrefabs;
 
     private int numberOfPeople;
     private int numberOfLevel;
     private Transform virtualAssistant;
+    private Transform placementManager;
 
     private Transform selectedLevel;
 
@@ -25,6 +27,8 @@ public class LayTheTableManager : ObjectsManager
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
+        placementManager = PlacementsManagerPrefabs.transform.GetChild(1);
+        Instantiate(placementManager);
     }
 
     // Update is called once per frame
