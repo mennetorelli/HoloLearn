@@ -12,5 +12,6 @@ public abstract class PlacementsManager : Singleton<PlacementsManager> {
     public abstract void Update();
 
     public abstract void MakeLevelPrefabDisappear(GameObject draggedObject);
-    
+
+    public abstract void MakeLevelPrefabReapper();
 }

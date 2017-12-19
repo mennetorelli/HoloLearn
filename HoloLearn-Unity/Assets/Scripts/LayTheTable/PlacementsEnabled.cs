@@ -19,4 +19,9 @@ public class PlacementsEnabled : PlacementsManager
     {
         return;
     }
+
+    public override void MakeLevelPrefabReapper()
+    {
+        return;
+    }
 }
