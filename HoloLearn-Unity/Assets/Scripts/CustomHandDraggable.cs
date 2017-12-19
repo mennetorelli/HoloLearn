@@ -148,6 +148,9 @@ namespace HoloToolkit.Unity.InputModule
 
             StartedDragging.RaiseEvent();
 
+            //METODO PER FAR SCOMPARIRE L' OGGETTO
+            LevelPrefabDisappear.Instance.MakeLevelPrefabDisappear(gameObject);
+            
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
             VirtualAssistantManager.Instance.ObjectDragged(gameObject);
