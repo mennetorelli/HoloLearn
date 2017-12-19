@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GarbageCollectionManager : ObjectsManager
+public class GarbageCollectionManager : TaskManager
 {
 
     public GameObject BinsPrefabs;

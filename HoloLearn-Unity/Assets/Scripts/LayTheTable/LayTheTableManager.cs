@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 
-public class LayTheTableManager : ObjectsManager
+public class LayTheTableManager : TaskManager
 {
     public GameObject LevelsPrefabs;
     public GameObject ObjectsPrefabs;

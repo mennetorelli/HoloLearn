@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ObjectsManager : Singleton<ObjectsManager>
+public abstract class TaskManager : Singleton<TaskManager>
 {
 
     // Use this for initialization

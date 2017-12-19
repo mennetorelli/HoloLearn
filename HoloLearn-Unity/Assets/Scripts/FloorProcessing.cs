@@ -95,7 +95,7 @@ namespace HoloToolkit.Unity.SpatialMapping
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
                 //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                ObjectsManager.Instance.GenerateObjectsInWorld(floors);
+                TaskManager.Instance.GenerateObjectsInWorld(floors);
             }
             else
             {
