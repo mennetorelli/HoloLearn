@@ -9,11 +9,11 @@ public class CollisionManager : MonoBehaviour {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             other.gameObject.transform.position = gameObject.transform.position;
+            other.gameObject.transform.rotation = gameObject.transform.rotation;
 
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
-            //other.gameObject.GetComponent<CustomHandDraggable>().isDragging = false;
 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
             VirtualAssistantManager.Instance.Jump();
 
