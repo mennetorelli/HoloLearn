@@ -250,10 +250,15 @@ namespace HoloToolkit.Unity.InputModule
             // Remove self as a modal input handler
             InputManager.Instance.PopModalInputHandler();
 
+           
+
+
             isDragging = false;
             currentInputSource = null;
             StoppedDragging.RaiseEvent();
 
+            //METODO CHE SERVE A FAR TORNARE GLI OGGETTI DA POSIZIONARE
+            PlacementsManager.Instance.MakeLevelPrefabReapper();
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
             VirtualAssistantManager.Instance.ObjectDropped();

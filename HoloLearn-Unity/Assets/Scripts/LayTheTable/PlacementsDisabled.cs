@@ -27,4 +27,16 @@ public class PlacementsDisabled : PlacementsManager {
             }
         }
     }
+
+    public override void MakeLevelPrefabReapper()
+    {
+        Rigidbody[] remainedObjects = GameObject.Find("TableMates").GetComponentsInChildren<Rigidbody>(true);
+        Debug.Log(remainedObjects.Length);
+
+        foreach (Rigidbody rb in remainedObjects)
+        {
+            rb.gameObject.SetActive(true);
+        }
+
+    }
 }
