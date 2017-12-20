@@ -16,6 +16,8 @@ TagManager:
   - Organic
   - Placements
   - ObjectsToBePlaced
+  - Tip
+  - Menu
   layers:
   - Default
   - TransparentFX

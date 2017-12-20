@@ -37,6 +37,8 @@ public class LayTheTableManager : TaskManager
     
     }
 
+
+
     public override void GenerateObjectsInWorld(List<GameObject> tables)
     {
         //Seleziono il primo tavolo per ora, in futuro si potrebbe selezionare il più vicino
