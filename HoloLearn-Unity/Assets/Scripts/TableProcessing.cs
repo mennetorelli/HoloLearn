@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace HoloToolkit.Unity.SpatialMapping
 {
@@ -27,6 +29,12 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// </summary>
         private bool meshesProcessed = false;
 
+        public Text text;
+        public GameObject menu;
+
+       
+
+
         /// <summary>
         /// GameObject initialization.
         /// </summary>
@@ -37,6 +45,8 @@ namespace HoloToolkit.Unity.SpatialMapping
 
             // Register for the MakePlanesComplete event.
             SurfaceMeshesToPlanes.Instance.MakePlanesComplete += SurfaceMeshesToPlanes_MakePlanesComplete;
+
+            
         }
 
         /// <summary>
@@ -93,11 +103,23 @@ namespace HoloToolkit.Unity.SpatialMapping
                 // from SpatialMapping meshes that intersect with active planes.
                 RemoveVertices(SurfaceMeshesToPlanes.Instance.ActivePlanes);
 
-                // After scanning is over, switch to the secondary (occlusion) material.
-                SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
+                //QUI FACCIO SPARIRE LA SCRITTA
+                text.transform.gameObject.SetActive(false);
 
-                //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                TaskManager.Instance.GenerateObjectsInWorld(tables);
+                //qui  faccio apparire il bottone per far partire il gioco
+              
+                    menu.SetActive(true);
+                
+                
+                    // After scanning is over, switch to the secondary (occlusion) material.
+                    SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
+
+                    //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
+                    TaskManager.Instance.GenerateObjectsInWorld(tables);
+                
+             
+
+               
             }
             else
             {
@@ -106,6 +128,7 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 // Re-process spatial data after scanning completes.
                 meshesProcessed = false;
+                SceneManager.LoadScene("LayTheTable");
             }
         }
 
