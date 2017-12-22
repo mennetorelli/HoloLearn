@@ -47,5 +47,10 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
+        public override void Count()
+        {
+            return;
+        }
+
     }
 }

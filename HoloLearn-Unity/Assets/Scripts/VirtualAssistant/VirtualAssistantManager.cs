@@ -22,4 +22,6 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     public abstract void ObjectDragged(GameObject draggedObject);
 
     public abstract void ObjectDropped();
+
+    public abstract void Count();
 }

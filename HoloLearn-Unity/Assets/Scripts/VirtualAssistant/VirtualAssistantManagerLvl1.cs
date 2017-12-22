@@ -46,6 +46,17 @@ namespace Assets.Scripts.VirtualAssistant
         {
             gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
         }
-        
+
+        public override void Count()
+        {
+            StartCoroutine(Count2());
+        }
+
+        private IEnumerator Count2()
+        {
+            VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
+            yield return new WaitForSeconds(5f);
+            
+        }
     }
 }
