@@ -29,12 +29,11 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// </summary>
         private bool meshesProcessed = false;
 
-        public Text text;
-        public GameObject menu;
 
-       
+        //Menu di conferma
+        public GameObject Menu;
 
-
+      
         /// <summary>
         /// GameObject initialization.
         /// </summary>
@@ -102,23 +101,20 @@ namespace HoloToolkit.Unity.SpatialMapping
                 // Reduce our triangle count by removing any triangles
                 // from SpatialMapping meshes that intersect with active planes.
                 RemoveVertices(SurfaceMeshesToPlanes.Instance.ActivePlanes);
+                
+                // After scanning is over, switch to the secondary (occlusion) material.
+                SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
+
+
 
                 //QUI FACCIO SPARIRE LA SCRITTA
-                text.transform.gameObject.SetActive(false);
+                GameObject.Find("Canvas").SetActive(false);
 
-                //qui  faccio apparire il bottone per far partire il gioco
-              
-                    menu.SetActive(true);
-                
-                
-                    // After scanning is over, switch to the secondary (occlusion) material.
-                    SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
+                //qui faccio apparire il bottone per far partire il gioco
+                Menu.SetActive(true);
 
-                    //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                    TaskManager.Instance.GenerateObjectsInWorld(tables);
-                
-             
-
+                //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
+                TaskManager.Instance.GenerateObjectsInWorld(tables);
                
             }
             else
