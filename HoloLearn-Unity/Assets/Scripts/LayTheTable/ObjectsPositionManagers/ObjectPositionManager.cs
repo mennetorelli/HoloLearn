@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPositionManager : MonoBehaviour {
+public abstract class ObjectPositionManager : MonoBehaviour {
 
     private float lerpPercentage;
     private bool hasCollided;
 
-    private Vector3 finalPosition;
-    private Quaternion finalRotation;
+    protected Vector3 finalPosition;
+    protected Quaternion finalRotation;
 
     // Use this for initialization
     public void Start()
@@ -29,14 +29,18 @@ public class ObjectPositionManager : MonoBehaviour {
         }
     }
 
-    public void AdjustTransform(Transform target)
+    public void HasCollided(Transform target)
     {
-        hasCollided = true;
-
         finalPosition = target.position;
         transform.position = target.position;
 
         finalRotation = target.rotation;
 
+        AdjustTransform();
+    }
+
+    public virtual void AdjustTransform()
+    {
+        return;
     }
 }
