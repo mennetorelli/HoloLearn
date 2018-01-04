@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutleryPositionManager : ObjectPositionManager
+public class GlassPositionManager : ObjectPositionManager
 {
     
     public override void AdjustTransform()
     {
-        finalRotation.x += 180f;
+        finalRotation.x = -90f;
     }
 }
