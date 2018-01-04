@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HoloLearn;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,11 +29,7 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// Indicates if processing of the surface meshes is complete.
         /// </summary>
         private bool meshesProcessed = false;
-
-
-        //Menu di conferma
-        public GameObject Menu;
-
+        
       
         /// <summary>
         /// GameObject initialization.
@@ -108,10 +105,11 @@ namespace HoloToolkit.Unity.SpatialMapping
 
 
                 //QUI FACCIO SPARIRE LA SCRITTA
-                GameObject.Find("Canvas").SetActive(false);
+                GameObject.Find("Label").GetComponent<TextMesh>().text = "Look at the nearest table, " +
+                                                                         "then press OK";
 
                 //qui faccio apparire il bottone per far partire il gioco
-                Menu.SetActive(true);
+                GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
 
                 //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
                 TaskManager.Instance.GenerateObjectsInWorld(tables);

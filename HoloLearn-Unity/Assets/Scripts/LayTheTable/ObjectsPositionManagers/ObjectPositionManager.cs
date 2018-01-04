@@ -23,7 +23,6 @@ public abstract class ObjectPositionManager : MonoBehaviour {
         if (hasCollided && lerpPercentage < 1)
         {
             lerpPercentage += Time.deltaTime * 2;
-            //transform.position = Vector3.Lerp(transform.position, finalPosition, lerpPercentage);
             transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation, lerpPercentage);
             Debug.Log(lerpPercentage);
         }
@@ -32,11 +31,11 @@ public abstract class ObjectPositionManager : MonoBehaviour {
     public void HasCollided(Transform target)
     {
         finalPosition = target.position;
-        transform.position = target.position;
-
         finalRotation = target.rotation;
 
         AdjustTransform();
+
+        transform.position = target.position;
     }
 
     public virtual void AdjustTransform()
