@@ -49,7 +49,7 @@ public class GarbageCollectionManager : TaskManager
         Debug.Log(floorPosition);
 
         Vector3 binsPosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 2f));
-        binsPosition.y = floorPosition.y + 0.2f;
+        binsPosition.y = floorPosition.y;
         Debug.Log(binsPosition);
 
         Quaternion rotation = Camera.main.transform.localRotation;

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CollisionManager : MonoBehaviour {
+public class PlacementCollisionManager : MonoBehaviour {
 
     // Use this for initialization
     void Start()
