@@ -148,10 +148,14 @@ namespace HoloToolkit.Unity.InputModule
 
             StartedDragging.RaiseEvent();
 
-            //METODO PER FAR SCOMPARIRE L' OGGETTO
-            PlacementsManager.Instance.MakeLevelPrefabDisappear(gameObject);
-            
 
+
+            //METODO PER FAR SCOMPARIRE L' OGGETTO
+            if (PlacementsManager.Instance != null)
+            {
+                PlacementsManager.Instance.MakeLevelPrefabDisappear(gameObject);
+            }
+            
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
             VirtualAssistantManager.Instance.ObjectDragged(gameObject);
         }
@@ -258,7 +262,11 @@ namespace HoloToolkit.Unity.InputModule
             StoppedDragging.RaiseEvent();
 
             //METODO CHE SERVE A FAR TORNARE GLI OGGETTI DA POSIZIONARE
-            PlacementsManager.Instance.MakeLevelPrefabReapper();
+            if (PlacementsManager.Instance != null)
+            {
+                PlacementsManager.Instance.MakeLevelPrefabReapper();
+            }
+            
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
             VirtualAssistantManager.Instance.ObjectDropped();

@@ -81,6 +81,7 @@ public class GarbageCollectionManager : TaskManager
 
 
         Transform waste = new GameObject("Waste").transform;
+        waste.tag = "ObjectsToBePlaced";
 
         for (int i=0; i<numberOfObjects;)
         {
@@ -103,7 +104,8 @@ public class GarbageCollectionManager : TaskManager
 
 
 
-        Vector3 assistantPosition = wastePosition + new Vector3(0.3f, 0f, 0f);
+        Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, 0f);
+        assistantPosition.y = floor.position.y;
 
         if (virtualAssistant != null)
         {
