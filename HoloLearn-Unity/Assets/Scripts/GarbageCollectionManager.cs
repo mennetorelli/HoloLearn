@@ -79,7 +79,9 @@ public class GarbageCollectionManager : TaskManager
 
         for (int i=0; i<numberOfObjects;)
         {
-            Transform currentWaste = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
+            Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
+            int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
+            Transform currentWaste = wasteGroup.GetChild(rnd.Next(0, groupSize));
             String currentWasteTag = currentWaste.gameObject.tag;
             if (activeBins.Contains(currentWasteTag))
             {
@@ -93,7 +95,7 @@ public class GarbageCollectionManager : TaskManager
 
         waste.Translate(wastePosition);
         waste.Rotate(rotation.eulerAngles);
-
+        
     }
 
 
