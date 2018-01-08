@@ -19,7 +19,6 @@ public class ObjectsGeneratorLvl1 : ObjectsGenerator {
 
     public override Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
-        System.Random rnd = new System.Random();
 
         Transform objectsToBePlaced = new GameObject("ObjectsToBePlaced").transform;
         objectsToBePlaced.tag = "ObjectsToBePlaced";
