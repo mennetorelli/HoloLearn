@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4431058214314300}
   - component: {fileID: 114815588423701704}
+  - component: {fileID: 114960338499541070}
   m_Layer: 0
   m_Name: GarbageCollectionManager
   m_TagString: Untagged
@@ -55,3 +56,14 @@ MonoBehaviour:
     type: 2}
   WastePrefabs: {fileID: 1872193288092466, guid: 7c191ce96513db94ea9ff89b5f71d86d,
     type: 2}
+--- !u!114 &114960338499541070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811402435107438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5015be9d8682bc40b4bace7e6949b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

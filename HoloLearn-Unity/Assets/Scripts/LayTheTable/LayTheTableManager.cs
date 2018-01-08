@@ -75,7 +75,7 @@ public class LayTheTableManager : TaskManager
 
 
         Transform tablePlacements = new GameObject("TableMates").transform;
-        tablePlacements.tag = "Placements";
+        tablePlacements.tag = "Targets";
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
         for (int i=1; i<=numberOfPeople; i++)

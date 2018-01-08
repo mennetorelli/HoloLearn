@@ -12,7 +12,7 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
         GameObject draggedObject = VirtualAssistantManager.Instance.targetObject.gameObject;
         String tag = draggedObject.tag;
 
-        Rigidbody[] placements = GameObject.FindGameObjectWithTag("Placements").GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] placements = GameObject.FindGameObjectWithTag("Targets").GetComponentsInChildren<Rigidbody>();
         List<GameObject> targets = new List<GameObject>();
         foreach (Rigidbody target in placements)
         {
