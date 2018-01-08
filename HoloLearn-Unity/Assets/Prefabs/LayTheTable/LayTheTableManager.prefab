@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4750096435058976}
   - component: {fileID: 114557621253447402}
+  - component: {fileID: 114603835999274066}
   m_Layer: 0
   m_Name: LayTheTableManager
   m_TagString: Untagged
@@ -59,3 +60,14 @@ MonoBehaviour:
     type: 2}
   PlacementsManagerPrefabs: {fileID: 1525975831328444, guid: 22bb2ef25799ef44c9fc292f5c8496fe,
     type: 2}
+--- !u!114 &114603835999274066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931866485075700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5015be9d8682bc40b4bace7e6949b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
