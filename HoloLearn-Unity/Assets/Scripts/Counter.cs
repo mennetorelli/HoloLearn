@@ -22,9 +22,9 @@ public class Counter : Singleton<Counter> {
         Debug.Log(count);
     }
 
-    public void InitializeCounter(Transform objectsToBePlaced)
+    public void InitializeCounter(Transform remainingObjects)
     {
-        count = objectsToBePlaced.GetComponentsInChildren<Rigidbody>().Length;
+        count = remainingObjects.GetComponentsInChildren<Rigidbody>().Length;
         Debug.Log(count);
     }
 

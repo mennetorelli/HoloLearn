@@ -103,6 +103,9 @@ public class GarbageCollectionManager : TaskManager
         waste.Rotate(rotation.eulerAngles);
 
 
+        Counter.Instance.InitializeCounter(waste);
+
+
 
         Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, 0f);
         assistantPosition.y = floor.position.y;
