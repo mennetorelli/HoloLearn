@@ -23,10 +23,13 @@ public class PlacementCollisionManager : MonoBehaviour {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
-            
-            VirtualAssistantManager.Instance.Jump();
 
             Counter.Instance.Decrement();
+
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.Jump();
+            }
             
             if (other.gameObject.GetComponent<ObjectPositionManager>() != null)
             {
@@ -37,10 +40,7 @@ public class PlacementCollisionManager : MonoBehaviour {
         }
         else
         {
-            if (other.gameObject.tag != "VirtualAssistant")
-            {
-                VirtualAssistantManager.Instance.ShakeHead();
-            }
+            VirtualAssistantManager.Instance.ShakeHead();
         }
     }
     

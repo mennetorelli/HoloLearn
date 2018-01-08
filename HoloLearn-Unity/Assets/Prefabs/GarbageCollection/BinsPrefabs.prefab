@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4352978425936240}
   - component: {fileID: 33547145488592022}
   - component: {fileID: 23295604395763828}
-  - component: {fileID: 95828630262015792}
   - component: {fileID: 54413550854595102}
-  - component: {fileID: 64340390839258138}
+  - component: {fileID: 65539993204656508}
+  - component: {fileID: 65341287880124980}
   - component: {fileID: 114464708316997482}
   m_Layer: 0
   m_Name: rubbishBin2
@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 4478259183868802}
   - component: {fileID: 33824408461869528}
   - component: {fileID: 23715881069925226}
-  - component: {fileID: 95987314592958608}
   - component: {fileID: 54920715449339596}
-  - component: {fileID: 64780726455204380}
+  - component: {fileID: 65933037739019200}
+  - component: {fileID: 65357691033661486}
   - component: {fileID: 114290865511800154}
   m_Layer: 0
   m_Name: rubbishBin1
@@ -63,9 +63,9 @@ GameObject:
   - component: {fileID: 4753141361841668}
   - component: {fileID: 33885999817034816}
   - component: {fileID: 23190900305603610}
-  - component: {fileID: 95256278912392964}
   - component: {fileID: 54074473308010304}
-  - component: {fileID: 64433197536456478}
+  - component: {fileID: 65812973603996614}
+  - component: {fileID: 65444906050553294}
   - component: {fileID: 114905959476641212}
   m_Layer: 0
   m_Name: rubbishBin3
@@ -278,7 +278,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -293,7 +293,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -308,12 +308,48 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64340390839258138
-MeshCollider:
+--- !u!65 &65341287880124980
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102530395279368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
+--- !u!65 &65357691033661486
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172731658331156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
+--- !u!65 &65444906050553294
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454075450199860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
+--- !u!65 &65539993204656508
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -322,12 +358,10 @@ MeshCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
---- !u!64 &64433197536456478
-MeshCollider:
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
+--- !u!65 &65812973603996614
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -336,12 +370,10 @@ MeshCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
---- !u!64 &64780726455204380
-MeshCollider:
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
+--- !u!65 &65933037739019200
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -350,61 +382,8 @@ MeshCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
---- !u!95 &95256278912392964
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454075450199860}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95828630262015792
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1102530395279368}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95987314592958608
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1172731658331156}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 394e2e1220258e54db7bcc45e06748c9, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Size: {x: 0.5230142, y: 0.5765214, z: 0.60309184}
+  m_Center: {x: -0.00064846873, y: 0.093786456, z: 0.30675793}
 --- !u!114 &114290865511800154
 MonoBehaviour:
   m_ObjectHideFlags: 1

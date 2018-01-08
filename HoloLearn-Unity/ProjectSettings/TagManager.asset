@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cylinder
   - Bottle
   - Plate
   - Tablespoon
@@ -12,10 +11,7 @@ TagManager:
   - Glass
   - Plastic
   - Paper
-  - Placements
   - ObjectsToBePlaced
-  - Tip
-  - Menu
   - Targets
   layers:
   - Default

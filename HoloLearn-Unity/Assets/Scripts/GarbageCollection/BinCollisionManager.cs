@@ -25,15 +25,19 @@ public class BinCollisionManager : MonoBehaviour
         {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
-            VirtualAssistantManager.Instance.Jump();
-
             Counter.Instance.Decrement();
 
-            Destroy(other);
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.Jump();
+            }
+
+            other.gameObject.SetActive(false);
         }
         else
         {
-            if (other.gameObject.tag != "VirtualAssistant")
+            GarbageCollectionManager manager = (GarbageCollectionManager)TaskManager.Instance;
+            if (manager.activeBins.Contains(other.tag))
             {
                 VirtualAssistantManager.Instance.ShakeHead();
             }

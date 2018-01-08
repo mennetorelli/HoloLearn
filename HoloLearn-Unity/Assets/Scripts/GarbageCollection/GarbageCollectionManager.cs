@@ -16,7 +16,7 @@ public class GarbageCollectionManager : TaskManager
     private int numberOfObjects;
     private Transform virtualAssistant;
 
-    private List<string> activeBins = new List<string>();
+    public List<string> activeBins = new List<string>();
 
     // Use this for initialization
     public override void Start()
@@ -97,7 +97,7 @@ public class GarbageCollectionManager : TaskManager
         }
 
         Vector3 wastePosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 1f));
-        wastePosition.y = floorPosition.y + 0.2f;
+        wastePosition.y = floorPosition.y + 0.1f;
 
         waste.Translate(wastePosition);
         waste.Rotate(rotation.eulerAngles);
