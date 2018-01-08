@@ -17,7 +17,6 @@ public class LayTheTableManager : TaskManager
     private int numberOfLevel;
     private Transform virtualAssistant;
     private Transform placementManager;
-
     private Transform selectedLevel;
 
     // Use this for initialization

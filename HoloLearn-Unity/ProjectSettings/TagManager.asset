@@ -10,14 +10,13 @@ TagManager:
   - Tablespoon
   - Fork
   - Glass
-  - Metal
   - Plastic
   - Paper
-  - Organic
   - Placements
   - ObjectsToBePlaced
   - Tip
   - Menu
+  - Targets
   layers:
   - Default
   - TransparentFX

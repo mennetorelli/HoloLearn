@@ -10,9 +10,11 @@ public class GarbageCollectionManager : TaskManager
 
     public GameObject BinsPrefabs;
     public GameObject WastePrefabs;
+    public GameObject VirtualAssistantsPrefabs;
 
     private int numberOfBins;
     private int numberOfObjects;
+    private Transform virtualAssistant;
 
     private List<string> activeBins = new List<string>();
 
@@ -21,6 +23,8 @@ public class GarbageCollectionManager : TaskManager
     {
         numberOfBins = 2;
         numberOfObjects = 4;
+
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -58,6 +62,7 @@ public class GarbageCollectionManager : TaskManager
 
 
         Transform bins = new GameObject("Bins").transform;
+        bins.tag = "Targets";
 
         for (int i=1; i<=numberOfBins;)
         {
@@ -95,7 +100,16 @@ public class GarbageCollectionManager : TaskManager
 
         waste.Translate(wastePosition);
         waste.Rotate(rotation.eulerAngles);
-        
+
+
+
+        Vector3 assistantPosition = wastePosition + new Vector3(0.3f, 0f, 0f);
+
+        if (virtualAssistant != null)
+        {
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+        }
+
     }
 
 

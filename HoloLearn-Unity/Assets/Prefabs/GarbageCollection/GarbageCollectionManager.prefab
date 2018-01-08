@@ -56,6 +56,8 @@ MonoBehaviour:
     type: 2}
   WastePrefabs: {fileID: 1872193288092466, guid: 7c191ce96513db94ea9ff89b5f71d86d,
     type: 2}
+  VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
+    type: 2}
 --- !u!114 &114960338499541070
 MonoBehaviour:
   m_ObjectHideFlags: 1

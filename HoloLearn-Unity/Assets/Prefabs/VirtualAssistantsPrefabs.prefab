@@ -3058,6 +3058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbc72b049ff5b84f94c9a0f6eb22117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patience: 0
+  targetObject: {fileID: 0}
 --- !u!114 &114979058970088888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3069,6 +3071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b305a80370db504f8e59b793d9eb80b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patience: 0
+  targetObject: {fileID: 0}
 --- !u!137 &137017020858975152
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
