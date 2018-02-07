@@ -9,6 +9,7 @@ public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
 
     public int bins = 2;
     public int waste = 5;
+    public int assistant = 0;
 
    
     public void SetBins(int bins)
@@ -19,6 +20,11 @@ public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
     public void SetWaste(int waste)
     {
         this.waste = waste;
+    }
+
+    public void SetAssistant(int assistant)
+    {
+        this.assistant = assistant;
     }
 
     public void RefreshBinsButtons(GameObject selectedButton)
@@ -35,6 +41,18 @@ public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
     public void RefreshWasteButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in buttons)
+        {
+            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                button.SetSelection(false);
+            }
+        }
+    }
+
+    public void RefreshAssistantButtons(GameObject selectedButton)
+    {
+        InteractiveToggle[] buttons = gameObject.transform.Find("AssistantButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
