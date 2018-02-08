@@ -406,9 +406,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114557621253447402, guid: bc3257faa81cfc94cbc9585c56b247c1,
+      - m_Target: {fileID: 114011394856022052, guid: 8416f306554ae274ca037fa046caf09e,
           type: 2}
-        m_MethodName: GenerateObjectsInWorld
+        m_MethodName: StartPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

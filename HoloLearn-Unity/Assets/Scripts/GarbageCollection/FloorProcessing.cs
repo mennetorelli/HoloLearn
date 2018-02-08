@@ -21,6 +21,10 @@ namespace HoloToolkit.Unity.SpatialMapping
         [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
         public uint minimumFloors = 1;
 
+
+        // LISTA DI PAVIMENTI
+        public List<GameObject> floors = new List<GameObject>();
+
         /// <summary>
         /// Indicates if processing of the surface meshes is complete.
         /// </summary>
@@ -81,7 +85,6 @@ namespace HoloToolkit.Unity.SpatialMapping
         private void SurfaceMeshesToPlanes_MakePlanesComplete(object source, System.EventArgs args)
         {
             // Collection of floor planes that we can use to set horizontal items on.
-            List<GameObject> floors = new List<GameObject>();
             floors = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Floor);
 
             // Check to see if we have enough floors (minimumFloors) to start processing.
@@ -93,9 +96,6 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 // After scanning is over, switch to the secondary (occlusion) material.
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
-
-                //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                TaskManager.Instance.GenerateObjectsInWorld(floors);
             }
             else
             {
@@ -145,5 +145,13 @@ namespace HoloToolkit.Unity.SpatialMapping
 
             base.OnDestroy();
         }
+
+
+        // PER CHIAMARE IL GENERATEOBJECTS
+        public void StartPlay()
+        {
+            TaskManager.Instance.GenerateObjectsInWorld();
+        }
     }
+
 }

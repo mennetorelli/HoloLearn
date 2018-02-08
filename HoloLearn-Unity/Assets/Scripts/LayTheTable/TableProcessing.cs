@@ -25,6 +25,10 @@ namespace HoloToolkit.Unity.SpatialMapping
         [Tooltip("Minimum number of table planes required in order to exit scanning/processing mode.")]
         public uint minimumTables = 1;
 
+
+        // LISTA DI TAVOLI
+        public List<GameObject> tables = new List<GameObject>();
+
         /// <summary>
         /// Indicates if processing of the surface meshes is complete.
         /// </summary>
@@ -88,8 +92,7 @@ namespace HoloToolkit.Unity.SpatialMapping
         private void SurfaceMeshesToPlanes_MakePlanesComplete(object source, System.EventArgs args)
         {
 
-            // Collection of table planes that we can use to set horizontal items on. - DA RIMUOVERE NELLE TASK SENZA TAVOLO
-            List<GameObject> tables = new List<GameObject>();
+            // Collection of table planes that we can use to set horizontal items on.
             tables = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Table);
 
             // Check to see if we have enough floors (minimumFloors) to start processing.
@@ -110,10 +113,6 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 //qui faccio apparire il bottone per far partire il gioco
                 GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
-
-                //QUI CHIAMO IL MANAGER PER GESTIRE IL LIVELLO
-                TaskManager.Instance.GenerateObjectsInWorld(tables);
-               
             }
             else
             {
@@ -122,7 +121,7 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 // Re-process spatial data after scanning completes.
                 meshesProcessed = false;
-                SceneManager.LoadScene("LayTheTable");
+                //SceneManager.LoadScene("LayTheTable");
             }
         }
 
@@ -163,6 +162,13 @@ namespace HoloToolkit.Unity.SpatialMapping
             }
 
             base.OnDestroy();
+        }
+
+
+        // PER CHIAMARE IL GENERATEOBJECTS
+        public void StartPlay()
+        {
+            TaskManager.Instance.GenerateObjectsInWorld();
         }
     }
 }
