@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Counter : Singleton<Counter> {
 
     private int count;
+    public GameObject endMenu;
 
 
 
@@ -19,6 +20,11 @@ public class Counter : Singleton<Counter> {
     public void Decrement()
     {
         count--;
+        if (count == 0)
+        {
+            endMenu = GameObject.Find("EndMenu");
+            endMenu.SetActive(true); 
+        }
         Debug.Log(count);
     }
 
@@ -26,8 +32,11 @@ public class Counter : Singleton<Counter> {
     {
         count = remainingObjects.GetComponentsInChildren<Rigidbody>().Length;
         Debug.Log(count);
+        
     }
 
-    
+   
+     
+        
 
 }
