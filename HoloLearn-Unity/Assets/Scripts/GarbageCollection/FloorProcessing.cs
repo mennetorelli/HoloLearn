@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HoloLearn;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HoloToolkit.Unity.SpatialMapping
@@ -96,6 +97,15 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 // After scanning is over, switch to the secondary (occlusion) material.
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
+
+                
+
+                //QUI FACCIO SPARIRE LA SCRITTA
+                GameObject.Find("Label").GetComponent<TextMesh>().text = "Look at the floor, " +
+                                                                         "then press OK";
+
+                //qui faccio apparire il bottone per far partire il gioco
+                GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
             }
             else
             {
