@@ -22,8 +22,7 @@ public class Counter : Singleton<Counter> {
         count--;
         if (count == 0)
         {
-            endMenu = GameObject.Find("EndMenu");
-            endMenu.SetActive(true); 
+          GameObject.Find("UX").transform.GetChild(1).gameObject.SetActive(true);   
         }
         Debug.Log(count);
     }

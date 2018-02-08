@@ -1150,7 +1150,7 @@ MonoBehaviour:
   mState: 0
   AllowSelection: 1
   AllowDeselect: 1
-  HasSelection: 0
+  HasSelection: 1
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
@@ -6711,7 +6711,7 @@ MonoBehaviour:
   mState: 0
   AllowSelection: 1
   AllowDeselect: 1
-  HasSelection: 0
+  HasSelection: 1
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
@@ -8250,7 +8250,7 @@ MonoBehaviour:
   mState: 0
   AllowSelection: 1
   AllowDeselect: 1
-  HasSelection: 0
+  HasSelection: 1
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:

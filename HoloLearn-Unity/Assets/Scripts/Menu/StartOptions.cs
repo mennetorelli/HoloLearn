@@ -10,7 +10,7 @@ namespace HoloLearn
     {
 
 
-
+        public int initialScene = 0;
         public int sceneToStart = 1;                                        //Index number in build settings of scene to load if changeScenes is true
         public int sceneToStart2 = 2;
         public bool changeScenes;                                           //If true, load a new scene when Start is pressed, if false, fade out UI and continue in single scene
@@ -37,6 +37,10 @@ namespace HoloLearn
 
             //Load the selected scene, by scene index number in build settings
             SceneManager.LoadScene(sceneToStart2);
+        }
+        public void StartMM()
+        {
+            SceneManager.LoadScene(initialScene);
         }
         /*  
 
