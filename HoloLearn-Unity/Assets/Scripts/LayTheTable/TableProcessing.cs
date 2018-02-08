@@ -106,12 +106,9 @@ namespace HoloToolkit.Unity.SpatialMapping
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
 
-
-                //QUI FACCIO SPARIRE LA SCRITTA
-                GameObject.Find("Label").GetComponent<TextMesh>().text = "Look at the nearest table, " +
-                                                                         "then press OK";
-
-                //qui faccio apparire il bottone per far partire il gioco
+                // MESSAGGIO DI CONFERMA PER INIZIARE IL GIOCO
+                GameObject.Find("LoadingLabel").SetActive(false);
+                GameObject.Find("StartMenu").transform.GetChild(2).gameObject.SetActive(true);
                 GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
             }
             else
