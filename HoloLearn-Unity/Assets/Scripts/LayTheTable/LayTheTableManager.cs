@@ -39,10 +39,10 @@ public class LayTheTableManager : TaskManager
 
 
 
-    public override void GenerateObjectsInWorld(List<GameObject> tables)
+    public override void GenerateObjectsInWorld()
     {
-        //Seleziono il primo tavolo per ora, in futuro si potrebbe selezionare il più vicino
-        Transform table = tables.ElementAt(0).transform;
+        //Seleziono il primo tavolo
+        Transform table = TableProcessing.Instance.tables.ElementAt(0).transform;
 
 
         Bounds tableColliderBounds = table.GetColliderBounds();
@@ -65,7 +65,6 @@ public class LayTheTableManager : TaskManager
             Quaternion rotation = Quaternion.LookRotation(relativeDirection);
             rotations.Add(rotation);
         }
-
 
 
         Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<ObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, numberOfPeople);

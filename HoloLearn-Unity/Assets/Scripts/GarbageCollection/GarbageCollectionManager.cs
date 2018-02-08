@@ -1,4 +1,5 @@
-﻿using HoloToolkit.Unity.SpatialMapping;
+﻿using HoloToolkit.Unity;
+using HoloToolkit.Unity.SpatialMapping;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,10 +34,10 @@ public class GarbageCollectionManager : TaskManager
 
     }
 
-    public override void GenerateObjectsInWorld(List<GameObject> floors)
+    public override void GenerateObjectsInWorld()
     {
         //Seleziono il pavimento
-        Transform floor = floors.ElementAt(0).transform;
+        Transform floor = FloorProcessing.Instance.floors.ElementAt(0).transform;
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
 
         System.Random rnd = new System.Random();
