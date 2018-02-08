@@ -12,6 +12,7 @@ public class LayTheTableManager : TaskManager
     public GameObject ObjectsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
     public GameObject PlacementsManagerPrefabs;
+    
 
     private int numberOfPeople;
     private int numberOfLevel;
@@ -21,8 +22,8 @@ public class LayTheTableManager : TaskManager
 
     // Use this for initialization
     public override void Start() {
-        numberOfLevel = 1;
-        numberOfPeople = 2;
+        numberOfLevel = LayTheTableSettings.Instance.level;
+        numberOfPeople = LayTheTableSettings.Instance.people;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
