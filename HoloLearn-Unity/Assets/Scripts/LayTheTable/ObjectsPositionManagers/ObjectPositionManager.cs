@@ -13,29 +13,19 @@ public abstract class ObjectPositionManager : MonoBehaviour {
     // Use this for initialization
     public void Start()
     {
-        hasCollided = false;
-        lerpPercentage = 0f;
+
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (hasCollided && lerpPercentage < 1)
-        {
-            lerpPercentage += Time.deltaTime * 2;
-            transform.rotation = Quaternion.Lerp(transform.rotation, finalRotation, lerpPercentage);
-            Debug.Log(lerpPercentage);
-        }
+        
     }
 
     public void HasCollided(Transform target)
     {
-        
-        finalPosition = target.position;
-        finalRotation = target.rotation;
-
-        transform.position = finalPosition;
-        transform.rotation = finalRotation;
+        transform.position = target.position;
+        transform.rotation = target.rotation;
 
         AdjustTransform();
     }

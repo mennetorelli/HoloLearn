@@ -7,6 +7,6 @@ public class CanPositionManager : ObjectPositionManager
     
     public override void AdjustTransform()
     {
-        finalRotation.y = -90f;
+        transform.Rotate(new Vector3(-90f, 0, 0f));
     }
 }
