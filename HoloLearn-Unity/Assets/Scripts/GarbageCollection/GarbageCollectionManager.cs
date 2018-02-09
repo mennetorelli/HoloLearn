@@ -25,7 +25,7 @@ public class GarbageCollectionManager : TaskManager
         numberOfBins = 2;
         numberOfObjects = 4;
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(1);
     }
 
     // Update is called once per frame

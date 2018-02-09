@@ -26,7 +26,7 @@ public class LayTheTableManager : TaskManager
         numberOfPeople = LayTheTableSettings.Instance.people;
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(0);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(1);
         placementManager = PlacementsManagerPrefabs.transform.GetChild(1);
         Instantiate(placementManager);
     }
