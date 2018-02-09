@@ -5,25 +5,22 @@ using UnityEngine;
 
 public class GravityManager : MonoBehaviour {
 
-    private Rigidbody rb;
-    private CustomHandDraggable hd;
+    public bool IsFixed;
 
 	// Use this for initialization
 	void Start () {
-        rb = gameObject.GetComponent<Rigidbody>();
-        hd = gameObject.GetComponent<CustomHandDraggable>();
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (hd.isDragging)
+        if (gameObject.GetComponent<CustomHandDraggable>().isDragging && !IsFixed)
         {
-            rb.useGravity = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-
-        if (!hd.isDragging)
+        else
         {
-            rb.useGravity = true;
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
