@@ -98,14 +98,9 @@ namespace HoloToolkit.Unity.SpatialMapping
                 // After scanning is over, switch to the secondary (occlusion) material.
                 SpatialMappingManager.Instance.SetSurfaceMaterial(secondaryMaterial);
 
-                
 
-                //QUI FACCIO SPARIRE LA SCRITTA
-                GameObject.Find("Label").GetComponent<TextMesh>().text = "Look at the floor, " +
-                                                                         "then press OK";
-
-                //qui faccio apparire il bottone per far partire il gioco
-                GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
+                // MESSAGGIO DI CONFERMA PER INIZIARE IL GIOCO
+                GameObject.Find("UX").GetComponent<MenuHandler>().ScanningComplete();
             }
             else
             {

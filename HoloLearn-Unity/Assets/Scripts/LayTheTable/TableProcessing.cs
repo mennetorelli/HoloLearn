@@ -107,9 +107,8 @@ namespace HoloToolkit.Unity.SpatialMapping
 
 
                 // MESSAGGIO DI CONFERMA PER INIZIARE IL GIOCO
-                GameObject.Find("LoadingLabel").SetActive(false);
-                GameObject.Find("StartMenu").transform.GetChild(2).gameObject.SetActive(true);
-                GameObject.Find("StartMenu").GetComponentInChildren<Interactive>(true).gameObject.SetActive(true);
+                GameObject.Find("UX").GetComponent<MenuHandler>().ScanningComplete();
+                
             }
             else
             {
@@ -118,7 +117,6 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 // Re-process spatial data after scanning completes.
                 meshesProcessed = false;
-                //SceneManager.LoadScene("LayTheTable");
             }
         }
 
