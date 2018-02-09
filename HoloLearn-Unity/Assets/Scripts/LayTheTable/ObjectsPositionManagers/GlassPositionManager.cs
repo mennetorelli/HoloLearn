@@ -7,6 +7,6 @@ public class GlassPositionManager : ObjectPositionManager
     
     public override void AdjustTransform()
     {
-        finalRotation.x = -90f;
+        transform.Rotate(new Vector3(-90f, 0f, 0f), Space.Self);
     }
 }

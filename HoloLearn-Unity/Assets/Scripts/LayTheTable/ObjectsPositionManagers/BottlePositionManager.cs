@@ -7,6 +7,6 @@ public class BottlePositionManager : ObjectPositionManager
     
     public override void AdjustTransform()
     {
-        finalRotation.x = 180f;
+        transform.Rotate(new Vector3(180f, 0f, 0f), Space.Self);
     }
 }

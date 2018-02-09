@@ -7,6 +7,6 @@ public class CutleryPositionManager : ObjectPositionManager
     
     public override void AdjustTransform()
     {
-        finalRotation.x += 180f;
+        transform.Rotate(new Vector3(0f, 180f, 0f), Space.Self);
     }
 }

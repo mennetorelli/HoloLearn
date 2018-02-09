@@ -30,12 +30,14 @@ public abstract class ObjectPositionManager : MonoBehaviour {
 
     public void HasCollided(Transform target)
     {
+        
         finalPosition = target.position;
         finalRotation = target.rotation;
 
-        AdjustTransform();
+        transform.position = finalPosition;
+        transform.rotation = finalRotation;
 
-        transform.position = target.position;
+        AdjustTransform();
     }
 
     public virtual void AdjustTransform()
