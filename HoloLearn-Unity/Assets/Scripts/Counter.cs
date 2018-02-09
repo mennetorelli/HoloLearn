@@ -24,14 +24,13 @@ public class Counter : Singleton<Counter> {
         {
           GameObject.Find("UX").transform.GetChild(1).gameObject.SetActive(true);   
         }
-        Debug.Log(count);
+        //Debug.Log(count);
     }
 
     public void InitializeCounter(Transform remainingObjects)
     {
         count = remainingObjects.GetComponentsInChildren<Rigidbody>().Length;
-        Debug.Log(count);
-        
+        //Debug.Log(count);
     }
 
    

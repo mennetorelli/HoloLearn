@@ -19,7 +19,7 @@ public class PlacementCollisionManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     { 
-        Debug.Log(gameObject.tag + " " + other.tag);
+        //Debug.Log(gameObject.tag + " " + other.tag);
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
@@ -40,7 +40,10 @@ public class PlacementCollisionManager : MonoBehaviour {
         }
         else
         {
-            VirtualAssistantManager.Instance.ShakeHead();
+            if (other.gameObject.tag != "Untagged")
+            {
+                VirtualAssistantManager.Instance.ShakeHead();
+            }
         }
     }
     

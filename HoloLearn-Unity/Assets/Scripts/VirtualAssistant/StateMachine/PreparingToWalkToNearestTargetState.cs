@@ -25,7 +25,7 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
         SortByDistance(targets);
         VirtualAssistantManager.Instance.targetObject = targets[0].transform;
 
-        Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
+        //Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
         VirtualAssistantManager.Instance.Count();
         
     }

@@ -7482,6 +7482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1623dd3a43bc08c4ca45b844e8c125ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialScene: 0
   sceneToStart: 1
   sceneToStart2: 2
   changeScenes: 0
