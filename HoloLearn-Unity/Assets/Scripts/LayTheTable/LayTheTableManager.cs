@@ -44,10 +44,7 @@ public class LayTheTableManager : TaskManager
         //Seleziono il primo tavolo
         Transform table = TableProcessing.Instance.tables.ElementAt(0).transform;
 
-
         Bounds tableColliderBounds = table.GetColliderBounds();
-        Debug.Log(tableColliderBounds);
-        
        
         Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.2f, 0f, 0f);
         Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0.1f, 0f, 0f);
@@ -55,7 +52,10 @@ public class LayTheTableManager : TaskManager
         Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.1f, 0f);
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
-        
+        Debug.DrawLine(tableEdge1, tableColliderBounds.center, Color.black, 30f);
+        Debug.DrawLine(tableEdge2, tableColliderBounds.center, Color.black, 30f);
+        Debug.DrawLine(tableEdge3, tableColliderBounds.center, Color.black, 30f);
+        Debug.DrawLine(tableEdge4, tableColliderBounds.center, Color.black, 30f);
 
         List<Quaternion> rotations = new List<Quaternion>();
 
