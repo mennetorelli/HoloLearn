@@ -19,6 +19,7 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
             if (target.gameObject.tag == tag)
             {
                 targets.Add(target.gameObject);
+                Debug.Log(target);
             }
         }
 
@@ -26,8 +27,8 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
         VirtualAssistantManager.Instance.targetObject = targets[0].transform;
 
         //Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
-        VirtualAssistantManager.Instance.Count();
-        
+        VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

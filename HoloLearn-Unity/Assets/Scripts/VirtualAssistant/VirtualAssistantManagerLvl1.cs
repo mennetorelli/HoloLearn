@@ -11,11 +11,11 @@ namespace Assets.Scripts.VirtualAssistant
 {
     class VirtualAssistantManagerLvl1 : VirtualAssistantManager
     {
-
         // Use this for initialization
         public override void Start()
         {
             patience = 2;
+            IsDragging = false;
         }
 
         // Update is called once per frame
@@ -38,21 +38,22 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ObjectDragged(GameObject draggedObject)
         {
-            if (targetObject.gameObject.GetInstanceID() == draggedObject.gameObject.GetInstanceID())
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
-            }
             if (!gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing") &&
                 !gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking"))
             {
                 targetObject = draggedObject.transform;
-                gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
             }
+            
+            gameObject.GetComponent<Animator>().ResetTrigger("DraggingStopped");
+            gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
+            IsDragging = true;
         }
 
         public override void ObjectDropped()
         {
+            gameObject.GetComponent<Animator>().ResetTrigger("DraggingStarted");
             gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
+            IsDragging = false;
         }
 
         public override void Count()

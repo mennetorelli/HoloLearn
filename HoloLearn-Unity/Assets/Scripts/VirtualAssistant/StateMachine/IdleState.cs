@@ -8,7 +8,14 @@ public class IdleState : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         VirtualAssistantManager.Instance.GetComponent<Animator>().ResetTrigger("Walk");
-        VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStopped");
+        if (VirtualAssistantManager.Instance.IsDragging)
+        {
+            VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStarted");
+        }
+        else
+        {
+            VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStopped");
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -7,6 +7,7 @@ using System;
 public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManager>
 {
     public int patience;
+    public bool IsDragging;
     public Transform targetObject;
 
     // Use this for initialization
