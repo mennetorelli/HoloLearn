@@ -10,6 +10,7 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject draggedObject = VirtualAssistantManager.Instance.targetObject.gameObject;
+        Debug.Log(draggedObject);
         String tag = draggedObject.tag;
 
         Rigidbody[] placements = GameObject.FindGameObjectWithTag("Targets").GetComponentsInChildren<Rigidbody>();
@@ -19,14 +20,13 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
             if (target.gameObject.tag == tag)
             {
                 targets.Add(target.gameObject);
-                Debug.Log(target);
             }
         }
 
         SortByDistance(targets);
         VirtualAssistantManager.Instance.targetObject = targets[0].transform;
 
-        //Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
+        Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
         VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
 
     }

@@ -38,12 +38,7 @@ namespace Assets.Scripts.VirtualAssistant
 
         public override void ObjectDragged(GameObject draggedObject)
         {
-            if (!gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pointing") &&
-                !gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Walking"))
-            {
-                targetObject = draggedObject.transform;
-            }
-            
+            targetObject = draggedObject.transform;
             gameObject.GetComponent<Animator>().ResetTrigger("DraggingStopped");
             gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
             IsDragging = true;

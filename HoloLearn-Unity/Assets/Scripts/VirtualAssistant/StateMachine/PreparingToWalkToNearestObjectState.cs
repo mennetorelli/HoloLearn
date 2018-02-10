@@ -22,7 +22,7 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
         SortByDistance(targets);
         VirtualAssistantManager.Instance.targetObject = targets[0].transform;
 
-        //Debug.Log("walking to next object " + VirtualAssistantManager.Instance.targetObject);
+        Debug.Log("walking to next object " + VirtualAssistantManager.Instance.targetObject);
         VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
     }
 
