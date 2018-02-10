@@ -4,7 +4,6 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 ## TODO
 - assistente cammina verso l'oggetto che viene preso
 - tempo di attesa assistente
-- mettere le bevande al centro della tavola
 - aggiustare colori oggetti
 - cambiare texture bidoni
 - riconoscere la rotazione del tavolo

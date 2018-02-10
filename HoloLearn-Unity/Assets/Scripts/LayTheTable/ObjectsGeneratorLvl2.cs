@@ -50,7 +50,7 @@ public class ObjectsGeneratorLvl2 : ObjectsGenerator {
         Transform beverages = objectsPrefab.Find("Beverages");
         Transform bottle = beverages.Find("WaterBottle");
         Instantiate(bottle.gameObject, new Vector3(-0.1f, 0.1f, 0.2f), bottle.transform.rotation);
-        Transform bottle1 = beverages.Find("Water");
+        Transform bottle1 = beverages.Find("WaterBottle");
         Instantiate(bottle1.gameObject,new Vector3(-0.15f, 0.1f, 0.25f), bottle.transform.rotation);
         Transform can = beverages.GetChild(rnd.Next(1,3));
         Instantiate(can.gameObject, new Vector3(-0.1f, 0.1f, 0.2f), can.transform.rotation, objectsToBePlaced);
