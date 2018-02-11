@@ -5,7 +5,6 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 - aggiustare macchina a stati
 - timer spatial mapping
 - emissività oggetto puntato
-- tempo di attesa assistente
 - aggiustare colori oggetti
 - cambiare texture bidoni
 - riconoscere la rotazione del tavolo
