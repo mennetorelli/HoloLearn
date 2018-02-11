@@ -2,6 +2,7 @@
 Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnico di Milano AA 2017-2018
 
 ## TODO
+- aggiustare macchina a stati
 - timer spatial mapping
 - emissività oggetto puntato
 - tempo di attesa assistente
@@ -11,7 +12,6 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 - messaggio di conferma per iniziare la partita
 - salvataggio parametri
 - bottoni menu
-- fine partita: macchina a stati assistente
 - fine partita: cambio scena
 - bug posizionamento oggetti in lay the table
 - dimensione assistente in garbage collection

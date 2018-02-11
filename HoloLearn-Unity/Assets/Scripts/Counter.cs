@@ -22,7 +22,7 @@ public class Counter : Singleton<Counter> {
         count--;
         if (count == 0)
         {
-          GameObject.Find("UX").transform.GetChild(1).gameObject.SetActive(true);   
+            VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("EndGame");
         }
         //Debug.Log(count);
     }
