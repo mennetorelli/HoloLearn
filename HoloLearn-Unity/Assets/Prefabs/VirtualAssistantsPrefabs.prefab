@@ -3068,7 +3068,7 @@ Animator:
   m_GameObject: {fileID: 1777208049416004}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 63aeac78ca817974a9c4e34d34f6bd42, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3f525d4c82ab16c4a95715cebc30651b, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7ac48842bf2e08479afdfb4b0d60d97, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3088,6 +3088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patience: 0
+  IsDragging: 0
   targetObject: {fileID: 0}
 --- !u!114 &114979058970088888
 MonoBehaviour:
@@ -3101,6 +3102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patience: 0
+  IsDragging: 0
   targetObject: {fileID: 0}
 --- !u!137 &137017020858975152
 SkinnedMeshRenderer:

@@ -174,8 +174,11 @@ namespace HoloToolkit.Unity.InputModule
                 PlacementsManager.Instance.MakeLevelPrefabDisappear(gameObject);
             }
 
-            //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
-            VirtualAssistantManager.Instance.ObjectDragged(gameObject);
+            //METODO CHE SERVE PER L'ASSISTENTE VIRTUALe
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.ObjectDragged(gameObject);
+            }
         }
 
         /// <summary>
@@ -317,7 +320,10 @@ namespace HoloToolkit.Unity.InputModule
             }
 
             //METODO CHE SERVE PER L'ASSISTENTE VIRTUALE
-            VirtualAssistantManager.Instance.ObjectDropped();
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.ObjectDropped();
+            }
         }
 
         public void OnFocusEnter()
