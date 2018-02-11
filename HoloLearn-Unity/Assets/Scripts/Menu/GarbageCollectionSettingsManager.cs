@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSettingsManager>
 {
@@ -12,6 +13,8 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     private int waste;
     private int assistant;
     private int patience;
+    private int visibility;
+    
 
     public void Start()
     {
@@ -22,7 +25,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     {
        this.bins = bins;
     }
-
+    
     public void SetWaste(int waste)
     {
         this.waste = waste;
@@ -37,7 +40,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     {
         this.patience = patience;
     }
-
+   
     public void RefreshBinsButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();

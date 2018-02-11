@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 {
@@ -13,8 +14,13 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     private int targetsVisibility;
     private int assistant;
     private int patience;
+    private int visibility;
+    private int mode;
+    
+    
 
     public void Start()
+
     {
         LoadSettings();
     }
@@ -28,9 +34,14 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         this.people = people;
     }
 
-    public void SetTargetsVisibility(int targetsVisibility)
+    public void SetVisibility(int visibility)
     {
-        this.targetsVisibility = targetsVisibility;
+        this.visibility = visibility;
+    }
+
+    public void SetAssistantMode(int mode)
+    {
+        this.mode = mode;
     }
 
     public void SetAssistant(int assistant)
@@ -38,11 +49,11 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         this.assistant = assistant;
     }
 
-    public void SetPatience(int patience)
-    {
-        this.patience = patience;
-    }
- 
+   
+
+
+
+
 
     public void RefreshLevelsButtons(GameObject selectedButton)
     {
@@ -70,7 +81,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
     public void RefreshAssistantButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("AssistantButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
