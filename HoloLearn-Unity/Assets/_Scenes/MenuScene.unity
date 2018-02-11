@@ -3474,12 +3474,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1926796969}
-        m_MethodName: StartLTT
-        m_Mode: 1
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7470,10 +7470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1623dd3a43bc08c4ca45b844e8c125ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialScene: 0
-  sceneToStart: 1
-  sceneToStart2: 2
-  changeScenes: 0
 --- !u!114 &1926796970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8098,12 +8094,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1926796969}
-        m_MethodName: StartGC
-        m_Mode: 1
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

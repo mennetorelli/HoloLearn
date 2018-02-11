@@ -1070,7 +1070,6 @@ GameObject:
   - component: {fileID: 917144432}
   - component: {fileID: 917144431}
   - component: {fileID: 917144430}
-  - component: {fileID: 917144429}
   m_Layer: 0
   m_Name: BackAlert
   m_TagString: Untagged
@@ -1105,21 +1104,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1623dd3a43bc08c4ca45b844e8c125ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialScene: 0
-  sceneToStart: 1
-  sceneToStart2: 2
-  changeScenes: 0
---- !u!114 &917144429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 917144426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66687634fb856c34b85a10802646e9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &917144430
@@ -1751,8 +1735,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 917144428}
-        m_MethodName: StartMM
-        m_Mode: 1
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
