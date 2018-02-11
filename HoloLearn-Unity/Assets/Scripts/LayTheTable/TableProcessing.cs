@@ -158,12 +158,5 @@ namespace HoloToolkit.Unity.SpatialMapping
 
             base.OnDestroy();
         }
-
-
-        // PER CHIAMARE IL GENERATEOBJECTS
-        public void StartPlay()
-        {
-            TaskManager.Instance.GenerateObjectsInWorld();
-        }
     }
 }
