@@ -25,4 +25,6 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     public abstract void ObjectDropped();
 
     public abstract void Count();
+
+    public abstract void CommandReceived();
 }

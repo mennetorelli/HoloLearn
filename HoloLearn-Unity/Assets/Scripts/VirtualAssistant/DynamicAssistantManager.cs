@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.VirtualAssistant
 {
-    class VirtualAssistantManagerLvl1 : VirtualAssistantManager
+    class DynamicAssistantManager : VirtualAssistantManager
     {
         // Use this for initialization
         public override void Start()
@@ -61,6 +61,11 @@ namespace Assets.Scripts.VirtualAssistant
             VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
             yield return new WaitForSeconds(5f);
             
+        }
+
+        public override void CommandReceived()
+        {
+            // Nothing to do
         }
     }
 }

@@ -9,13 +9,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.VirtualAssistant
 {
-    class VirtualAssistantManagerLvl2 : VirtualAssistantManager
+    class ReactiveAssistantManager : VirtualAssistantManager
     {
 
         // Use this for initialization
         public override void Start()
         {
-            patience = 3;
+            IsDragging = false;
         }
 
         // Update is called once per frame
@@ -37,19 +37,34 @@ namespace Assets.Scripts.VirtualAssistant
 
 
         public override void ObjectDragged(GameObject draggedObject)
-        {         
-            // Nothing to do
+        {
+            targetObject = draggedObject.transform;
+            IsDragging = true;
         }
 
         public override void ObjectDropped()
         {
-            // Nothing to do
+            IsDragging = false;
         }
 
 
         public override void Count()
         {
             return;
+        }
+
+        public override void CommandReceived()
+        {
+            if (IsDragging)
+            {
+                gameObject.GetComponent<Animator>().ResetTrigger("DraggingStopped");
+                gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().ResetTrigger("DraggingStarted");
+                gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
+            }
         }
 
     }
