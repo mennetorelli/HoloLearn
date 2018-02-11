@@ -13,6 +13,11 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     private int assistant;
     private int patience;
 
+    public void Start()
+    {
+        LoadSettings();
+    }
+
     public void SetBins(int bins)
     {
        this.bins = bins;
@@ -82,5 +87,21 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
 
         bf.Serialize(file, settings);
         file.Close();
+    }
+    private void LoadSettings()
+    {
+        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/GarbageCollectionSettings.dat", FileMode.Open);
+
+            GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
+            file.Close();
+
+            bins = settings.bins;
+            waste = settings.waste;
+            assistant = settings.assistant;
+            patience = settings.patience;
+        }
     }
 }

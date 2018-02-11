@@ -14,6 +14,10 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     private int assistant;
     private int patience;
 
+    public void Start()
+    {
+        LoadSettings();
+    }
     public void SetLevel(int level)
     {
         this.level = level;
@@ -79,6 +83,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
     public void SaveSettings()
     {
+        
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/layTheTableSettings.dat");
 
@@ -91,5 +96,23 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
         bf.Serialize(file, settings);
         file.Close();
+    }
+
+    private void LoadSettings()
+    {
+        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/layTheTableSettings.dat", FileMode.Open);
+
+            LayTheTableSettings settings = (LayTheTableSettings)bf.Deserialize(file);
+            file.Close();
+
+            people = settings.people;
+            level = settings.level;
+            targetsVisibility = settings.targetsVisibility;
+            assistant = settings.assistant;
+            patience = settings.patience;
+        }
     }
 }
