@@ -26,5 +26,7 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
 
     public abstract void Count();
 
+    public abstract void SetTriggers();
+
     public abstract void CommandReceived();
 }

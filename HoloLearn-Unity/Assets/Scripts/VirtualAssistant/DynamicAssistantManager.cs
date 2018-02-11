@@ -63,6 +63,18 @@ namespace Assets.Scripts.VirtualAssistant
             
         }
 
+        public override void SetTriggers()
+        {
+            if (VirtualAssistantManager.Instance.IsDragging)
+            {
+                VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStarted");
+            }
+            else
+            {
+                VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStopped");
+            }
+        }
+
         public override void CommandReceived()
         {
             // Nothing to do

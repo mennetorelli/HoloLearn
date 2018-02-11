@@ -53,6 +53,12 @@ namespace Assets.Scripts.VirtualAssistant
             return;
         }
 
+
+        public override void SetTriggers()
+        {
+            // Nothing to do
+        }
+
         public override void CommandReceived()
         {
             if (IsDragging)
