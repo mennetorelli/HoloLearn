@@ -41,8 +41,8 @@ public class LayTheTableManager : TaskManager
 
     public override void GenerateObjectsInWorld()
     {
-        //Seleziono il primo tavolo
-        Transform table = TableProcessing.Instance.tables.ElementAt(0).transform;
+        //Seleziono il tavolo dove guarda l'utente
+        Transform table = TableSelect(TableProcessing.Instance.tables);
 
         Bounds tableColliderBounds = table.GetColliderBounds();
        
@@ -95,6 +95,29 @@ public class LayTheTableManager : TaskManager
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
         }
+    }
+
+    private Transform TableSelect(List<GameObject> tables)
+    {
+        Vector3 gazePosition = new Vector3(0f, 0f, 0f);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 20f, Physics.DefaultRaycastLayers))
+        {
+            gazePosition = hitInfo.point;
+            Debug.Log(gazePosition);
+        }
+
+        float minDistance = 1000f;
+        Transform nearestTable = null;
+        foreach (GameObject table in tables)
+        {
+            Vector3 tableCenter = table.transform.GetColliderBounds().center;
+            if (Vector3.Distance(tableCenter, gazePosition) <= minDistance)
+            {
+                nearestTable = table.transform;
+            }
+        }
+        return nearestTable;
     }
     
 }
