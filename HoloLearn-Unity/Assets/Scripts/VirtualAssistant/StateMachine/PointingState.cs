@@ -5,7 +5,7 @@ using UnityEngine;
 public class PointingState : StateMachineBehaviour {
 
     Vector3 targetPosition;
-    Transform targetObject = VirtualAssistantManager.Instance.targetObject;
+    //Transform targetObject = VirtualAssistantManager.Instance.targetObject;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,7 +26,7 @@ public class PointingState : StateMachineBehaviour {
 
         /*if (!VirtualAssistantManager.Instance.IsDragging)
         {
-            targetObject.
+            targetObject.GetComponent<Material>().color = Color.white;
         }*/
     }
 

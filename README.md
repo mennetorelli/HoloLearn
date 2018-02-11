@@ -2,7 +2,6 @@
 Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnico di Milano AA 2017-2018
 
 ## TODO
-- assistente argument out of range exception
 - emissività oggetto puntato
 - tempo di attesa assistente
 - aggiustare colori oggetti
