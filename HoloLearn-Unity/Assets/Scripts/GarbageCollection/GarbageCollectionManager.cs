@@ -3,7 +3,9 @@ using HoloToolkit.Unity.SpatialMapping;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class GarbageCollectionManager : TaskManager
@@ -13,8 +15,11 @@ public class GarbageCollectionManager : TaskManager
     public GameObject WastePrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
-    private int numberOfBins;
-    private int numberOfObjects;
+    private int bins;
+    private int waste;
+    private int assistant;
+    private int patience;
+
     private Transform virtualAssistant;
 
     public List<string> activeBins = new List<string>();
@@ -22,10 +27,9 @@ public class GarbageCollectionManager : TaskManager
     // Use this for initialization
     public override void Start()
     {
-        numberOfBins = 2;
-        numberOfObjects = 4;
+        LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(1);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistant-1);
     }
 
     // Update is called once per frame
@@ -65,7 +69,7 @@ public class GarbageCollectionManager : TaskManager
         Transform bins = new GameObject("Bins").transform;
         bins.tag = "Targets";
 
-        for (int i=1; i<=numberOfBins;)
+        for (int i=1; i<=this.bins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
             String currentBinTag = bin.gameObject.tag;
@@ -84,7 +88,7 @@ public class GarbageCollectionManager : TaskManager
         Transform waste = new GameObject("Waste").transform;
         waste.tag = "ObjectsToBePlaced";
 
-        for (int i=0; i<numberOfObjects;)
+        for (int i=0; i<this.waste;)
         {
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
             int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
@@ -114,6 +118,7 @@ public class GarbageCollectionManager : TaskManager
         if (virtualAssistant != null)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            VirtualAssistantManager.Instance.patience = patience;
         }
 
     }
@@ -139,5 +144,23 @@ public class GarbageCollectionManager : TaskManager
         }
 
         return newPosition;
+    }
+
+
+    private void LoadSettings()
+    {
+        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/GarbageCollectionSettings.dat", FileMode.Open);
+
+            GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
+            file.Close();
+
+            bins = settings.bins;
+            waste = settings.waste;
+            assistant = settings.assistant;
+            patience = settings.patience;
+        }
     }
 }

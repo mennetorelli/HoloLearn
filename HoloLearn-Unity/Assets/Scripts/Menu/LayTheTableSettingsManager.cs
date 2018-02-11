@@ -2,14 +2,17 @@
 using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class LayTheTableSettings : Singleton<LayTheTableSettings>
+public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 {
-    public int level = 1;
-    public int people = 1;
-    public int choice = 0;
-   
+    private int level;
+    private int people;
+    private int targetsVisibility;
+    private int assistant;
+    private int patience;
 
     public void SetLevel(int level)
     {
@@ -21,11 +24,22 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
         this.people = people;
     }
 
-    public void SetAssistant(int choice)
+    public void SetTargetsVisibility(int targetsVisibility)
     {
-        this.choice = choice;
+        this.targetsVisibility = targetsVisibility;
+    }
+
+    public void SetAssistant(int assistant)
+    {
+        this.assistant = assistant;
+    }
+
+    public void SetPatience(int patience)
+    {
+        this.patience = patience;
     }
  
+
     public void RefreshLevelsButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
@@ -60,5 +74,22 @@ public class LayTheTableSettings : Singleton<LayTheTableSettings>
                 button.SetSelection(false);
             }
         }
+    }
+
+
+    public void SaveSettings()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/layTheTableSettings.dat");
+
+        LayTheTableSettings settings = new LayTheTableSettings();
+        settings.level = level;
+        settings.people = people;
+        settings.targetsVisibility = targetsVisibility;
+        settings.assistant = assistant;
+        settings.patience = patience;
+
+        bf.Serialize(file, settings);
+        file.Close();
     }
 }

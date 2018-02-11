@@ -2,16 +2,17 @@
 using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
+public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSettingsManager>
 {
+    private int bins;
+    private int waste;
+    private int assistant;
+    private int patience;
 
-    public int bins = 2;
-    public int waste = 5;
-    public int assistant = 0;
-
-   
     public void SetBins(int bins)
     {
        this.bins = bins;
@@ -25,6 +26,11 @@ public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
     public void SetAssistant(int assistant)
     {
         this.assistant = assistant;
+    }
+
+    public void SetPatience(int patience)
+    {
+        this.patience = patience;
     }
 
     public void RefreshBinsButtons(GameObject selectedButton)
@@ -60,5 +66,21 @@ public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
                 button.SetSelection(false);
             }
         }
+    }
+
+
+    public void SaveSettings()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/GarbageCollectionSettings.dat");
+
+        GarbageCollectionSettings settings = new GarbageCollectionSettings();
+        settings.bins = bins;
+        settings.waste = waste;
+        settings.assistant = assistant;
+        settings.patience = patience;
+
+        bf.Serialize(file, settings);
+        file.Close();
     }
 }

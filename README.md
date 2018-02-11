@@ -12,6 +12,5 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 - opzionale: voce minion
 - aggiustare oggetti in garbage collection
 - aggiustare colori oggetti
-- salvataggio parametri
-- bottoni menu
+- aggiustare menu
 

@@ -1645,7 +1645,7 @@ GameObject:
   - component: {fileID: 415866279}
   - component: {fileID: 415866280}
   m_Layer: 0
-  m_Name: CancelButton
+  m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,6 +1715,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1939977337}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1939977339}
+        m_MethodName: SaveSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2033,7 +2044,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 525154586}
-  m_Text: CANCEL
+  m_Text: OK
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2557,7 +2568,7 @@ GameObject:
   - component: {fileID: 609308350}
   - component: {fileID: 609308351}
   m_Layer: 0
-  m_Name: CancelButton
+  m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,6 +2638,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1139431733}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1139431735}
+        m_MethodName: SaveSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3256,7 +3278,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 944633514}
-  m_Text: CANCEL
+  m_Text: OK
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -4316,9 +4338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabb714d44159ac4db10ab68959a0064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  people: 1
-  choice: 0
+  level: 0
+  people: 0
+  targetsVisibility: 0
+  assistant: 0
+  patience: 0
 --- !u!114 &1139431736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7586,9 +7610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa16dc7b8432a4db3b44ba680a5c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bins: 2
-  waste: 5
+  bins: 0
+  waste: 0
   assistant: 0
+  patience: 0
 --- !u!114 &1939977340
 MonoBehaviour:
   m_ObjectHideFlags: 0
