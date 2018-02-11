@@ -48,9 +48,9 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void Count()
+        public override void Walk()
         {
-            return;
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
         }
 
 

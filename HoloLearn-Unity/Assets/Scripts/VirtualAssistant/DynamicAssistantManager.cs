@@ -14,7 +14,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Use this for initialization
         public override void Start()
         {
-            patience = 2;
+            patience = 3;
             IsDragging = false;
         }
 
@@ -51,27 +51,26 @@ namespace Assets.Scripts.VirtualAssistant
             IsDragging = false;
         }
 
-        public override void Count()
+        public override void Walk()
         {
-            StartCoroutine(Count2());
+            StartCoroutine(Wait());
         }
 
-        private IEnumerator Count2()
+        private IEnumerator Wait()
         {
-            VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
-            yield return new WaitForSeconds(5f);
-            
+            yield return new WaitForSeconds(patience);
+            gameObject.GetComponent<Animator>().SetTrigger("Walk");
         }
 
         public override void SetTriggers()
         {
-            if (VirtualAssistantManager.Instance.IsDragging)
+            if (IsDragging)
             {
-                VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStarted");
+                gameObject.GetComponent<Animator>().SetTrigger("DraggingStarted");
             }
             else
             {
-                VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("DraggingStopped");
+                gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
             }
         }
 

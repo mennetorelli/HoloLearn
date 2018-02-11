@@ -23,7 +23,7 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
         VirtualAssistantManager.Instance.targetObject = targets[0].transform;
 
         Debug.Log("walking to next object " + VirtualAssistantManager.Instance.targetObject);
-        VirtualAssistantManager.Instance.gameObject.GetComponent<Animator>().SetTrigger("Walk");
+        VirtualAssistantManager.Instance.Walk();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

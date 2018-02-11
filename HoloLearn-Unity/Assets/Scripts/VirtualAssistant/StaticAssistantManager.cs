@@ -47,9 +47,9 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void Count()
+        public override void Walk()
         {
-            return;
+            // Nothing to do
         }
 
         public override void SetTriggers()
