@@ -712,7 +712,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565739706}
-  m_Text: 'Scanning Completed.
+  m_Text: 'Scanning completed.
 
     Look at the nearest table,
 

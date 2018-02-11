@@ -1,9 +1,10 @@
-﻿using HoloToolkit.Unity.InputModule;
+﻿using HoloToolkit.Unity;
+using HoloToolkit.Unity.InputModule;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuHandler : MonoBehaviour, ISpeechHandler
+public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler
 {
 
     private bool readyToPlay;
@@ -37,6 +38,7 @@ public class MenuHandler : MonoBehaviour, ISpeechHandler
         readyToPlay = true;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
+        StartCoroutine(Wait());
     }
 
     public void StartPlay()
@@ -44,9 +46,14 @@ public class MenuHandler : MonoBehaviour, ISpeechHandler
         if (readyToPlay)
         {
             TaskManager.Instance.GenerateObjectsInWorld();
-            transform.GetChild(1).gameObject.SetActive(false);
             readyToPlay = false;
         }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 
 }

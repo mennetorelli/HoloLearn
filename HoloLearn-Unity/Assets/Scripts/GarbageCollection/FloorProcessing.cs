@@ -100,7 +100,7 @@ namespace HoloToolkit.Unity.SpatialMapping
 
 
                 // MESSAGGIO DI CONFERMA PER INIZIARE IL GIOCO
-                GameObject.Find("UX").GetComponent<MenuHandler>().ScanningComplete();
+                GameObject.Find("UX").GetComponent<TaskInteractionHandler>().ScanningComplete();
             }
             else
             {

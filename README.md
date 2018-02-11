@@ -8,7 +8,6 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 - aggiustare colori oggetti
 - cambiare texture bidoni
 - riconoscere la rotazione del tavolo
-- messaggio di conferma per iniziare la partita
 - salvataggio parametri
 - bottoni menu
 - fine partita: cambio scena
