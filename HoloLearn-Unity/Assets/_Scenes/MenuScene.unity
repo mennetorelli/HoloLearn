@@ -4671,7 +4671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856225618}
   m_Layer: 0
-  m_Name: VirtualAssistantMenu
+  m_Name: VirtualAssistantGC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11226,7 +11226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007472478}
   m_Layer: 0
-  m_Name: VirtualAssistantMenu
+  m_Name: VirtualAssistantLTT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
