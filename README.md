@@ -2,15 +2,15 @@
 Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnico di Milano AA 2017-2018
 
 ## TODO
-- bug posizionamento oggetti in lay the table
+- aggiustare posizionamento oggetti laythetable
+- aggiustare posizionamento oggetti garbagecollection
 - aggiustare macchina a stati assistente
-- timer spatial mapping
+- timer spatial mapping comincia in menu scene
 - tornare nella scena iniziale
 - emissività oggetto puntato
-- cambiare texture bidoni
-- riconoscere la rotazione del tavolo
-- opzionale: voce minion
-- aggiustare oggetti in garbage collection
 - aggiustare colori oggetti
-- aggiustare menu
+- aggiustare passaggio parametri
+- aggiustare layout menu
+- opzionale: riconoscere la rotazione del tavolo
+- opzionale: voce minion
 
