@@ -14,7 +14,6 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     private int targetsVisibility;
     private int assistantBehaviour;
     private int assistantPatience;
-    public GameObject slider;
     
 
     public void Start()
@@ -45,7 +44,9 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
     public void SetAssistantPatience()
     {
-        Slider slider = (Slider)this.slider;
+        HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+        assistantPatience = (int) slider.SliderValue;
+        Debug.Log(assistantPatience);
     }
 
 
@@ -54,7 +55,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
 
 
-    public void RefreshLevelsButtons(GameObject selectedButton)
+        public void RefreshLevelsButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("SettingsLTT").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
