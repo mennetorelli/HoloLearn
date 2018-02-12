@@ -126,8 +126,21 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         InteractiveToggle[] peopleButtons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         peopleButtons[numberOfPeople - 1].SetSelection(true);
 
+        InteractiveToggle[] targetCheckBox = gameObject.transform.Find("SettingsLTT").GetComponentsInChildren<InteractiveToggle>();
+        Debug.Log(targetCheckBox);
+        if (targetCheckBox[1].HasSelection)
+        {
+            targetCheckBox[1].SetSelection(true);
+        }
+        else
+        {
+            targetCheckBox[1].SetSelection(false);
+        } 
+
         InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
         assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+
+      
     }
 
 
