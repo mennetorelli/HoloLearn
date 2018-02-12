@@ -90,6 +90,9 @@ public class GarbageCollectionManager : TaskManager
         Transform waste = new GameObject("Waste").transform;
         waste.tag = "ObjectsToBePlaced";
 
+        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.3f);
+        wastePosition.y = floorPosition.y + 0.1f;
+
         for (int i=0; i<numberOfWaste;)
         {
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
@@ -98,13 +101,10 @@ public class GarbageCollectionManager : TaskManager
             String currentWasteTag = currentWaste.gameObject.tag;
             if (activeBins.Contains(currentWasteTag))
             {
-                Instantiate(currentWaste.gameObject, new Vector3(0f, 0f, 0f), currentWaste.rotation, waste);
+                Instantiate(currentWaste.gameObject, currentWaste.position, currentWaste.rotation, waste);
                 i++;
             }
         }
-
-        Vector3 wastePosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 1f));
-        wastePosition.y = floorPosition.y + 0.1f;
 
         waste.Translate(wastePosition);
         waste.Rotate(rotation.eulerAngles);
