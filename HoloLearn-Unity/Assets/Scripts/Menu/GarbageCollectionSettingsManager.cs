@@ -114,7 +114,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         binsButtons[numberOfBins - 1].SetSelection(true);
 
         InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+        assistantBehaviourButtons[assistantBehaviour].SetSelection(true);
     }
 
 
