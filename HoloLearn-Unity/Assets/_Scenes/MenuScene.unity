@@ -466,16 +466,16 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431735}
-        m_MethodName: RefreshAssistantButtons
-        m_Mode: 2
+      - m_Target: {fileID: 895294244}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 46399959}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
         m_MethodName: SetAssistantBehaviour
@@ -489,7 +489,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
-        m_MethodName: MakeSliderAppear
+        m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 46399959}
@@ -1013,12 +1013,12 @@ Prefab:
     - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
         type: 2}
       propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
         type: 2}
       propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
         type: 2}
@@ -1150,6 +1150,70 @@ Prefab:
         type: 2}
       propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1139431735}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetAssistantBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1139431735}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetAssistantBehaviour
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013925312166, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
+      propertyPath: m_Name
+      value: AssistantCheckBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
@@ -3982,7 +4046,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
-        m_MethodName: MakeSliderDisAppear
+        m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 790001348}
@@ -3992,9 +4056,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
-        m_MethodName: SetAssistant
-        m_Mode: 3
+      - m_Target: {fileID: 895294244}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6576,19 +6640,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
-        m_MethodName: RefreshAssistantButtons
-        m_Mode: 2
+      - m_Target: {fileID: 895294244}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1190164830}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
-        m_MethodName: MakeSliderDisAppear
+        m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1190164830}

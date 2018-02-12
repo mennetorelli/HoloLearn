@@ -14,6 +14,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     private int targetsVisibility;
     private int assistantBehaviour;
     private int assistantPatience;
+    public GameObject slider;
     
 
     public void Start()
@@ -42,9 +43,9 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetAssistantPatience(int assistantPatience)
+    public void SetAssistantPatience()
     {
-        this.assistantPatience = assistantPatience;
+        Slider slider = (Slider)this.slider;
     }
 
 
@@ -135,10 +136,26 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         else
         {
             targetCheckBox.SetSelection(false);
-        } 
+        }
 
-        InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+        HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("AssistantCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
+        if (assistantBehaviour != 0)
+        {
+            assistantCheckBox.SetSelection(true);
+            gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").gameObject.SetActive(true);
+            InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+            assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+
+
+        }
+        else
+        {
+            assistantCheckBox.SetSelection(false);
+        }
+
+
+
+       
 
       
     }
