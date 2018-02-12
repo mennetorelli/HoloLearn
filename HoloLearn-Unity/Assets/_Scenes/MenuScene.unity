@@ -823,7 +823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &156975824
 Transform:
   m_ObjectHideFlags: 0
@@ -1041,6 +1041,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1939977339}
+        m_MethodName: MakeSliderDisAppear
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 198263125}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -1060,7 +1071,18 @@ MonoBehaviour:
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1090494526}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeselection:
@@ -2864,7 +2886,7 @@ Prefab:
     - target: {fileID: 114000010536478120, guid: ce4801a284bc5c3488c631dcdba665df,
         type: 2}
       propertyPath: HasSelection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce4801a284bc5c3488c631dcdba665df, type: 2}
@@ -4654,7 +4676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &856225618
 Transform:
   m_ObjectHideFlags: 0
@@ -5925,12 +5947,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1090494527}
   m_Layer: 0
-  m_Name: ThirdPartMenu
-  m_TagString: Untagged
+  m_Name: PatientTime
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1090494527
 Transform:
   m_ObjectHideFlags: 0
@@ -6175,7 +6197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1139431734
 Transform:
   m_ObjectHideFlags: 0
@@ -7276,11 +7298,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011864058216, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1056
+      value: 0.0135
       objectReference: {fileID: 0}
     - target: {fileID: 4000011864058216, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.049
+      value: -0.0144
       objectReference: {fileID: 0}
     - target: {fileID: 4000011864058216, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8576,12 +8598,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1581282846}
   m_Layer: 0
-  m_Name: SecondPartMenu
+  m_Name: RestDisappear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1581282846
 Transform:
   m_ObjectHideFlags: 0
@@ -8675,23 +8697,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1090494526}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1939977339}
+        m_MethodName: MakeSliderAppear
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1090494526}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1590234814}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8716,7 +8727,18 @@ MonoBehaviour:
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1090494526}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeselection:
@@ -9872,7 +9894,7 @@ MonoBehaviour:
   mState: 0
   AllowSelection: 1
   AllowDeselect: 1
-  HasSelection: 1
+  HasSelection: 0
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
@@ -10553,6 +10575,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011713906408, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
+      propertyPath: m_Name
+      value: PatientTimeSlider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
   m_IsPrefabParent: 0
@@ -10638,6 +10664,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1939977339}
+        m_MethodName: MakeSliderDisAppear
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1908680390}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -10657,7 +10694,18 @@ MonoBehaviour:
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 895294244}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeselection:
@@ -10933,7 +10981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1939977338
 Transform:
   m_ObjectHideFlags: 0
@@ -11473,7 +11521,7 @@ MonoBehaviour:
   mState: 0
   AllowSelection: 1
   AllowDeselect: 1
-  HasSelection: 1
+  HasSelection: 0
   PassiveMode: 0
   OnSelection:
     m_PersistentCalls:
@@ -11564,7 +11612,7 @@ GameObject:
   - component: {fileID: 2069504446}
   - component: {fileID: 2069504445}
   m_Layer: 0
-  m_Name: OkButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

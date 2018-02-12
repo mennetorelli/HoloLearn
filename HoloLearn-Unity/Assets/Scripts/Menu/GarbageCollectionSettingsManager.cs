@@ -49,7 +49,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
    
     public void RefreshBinsButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
@@ -58,9 +58,22 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             }
         }
     }
-   /* public void RefreshWasteButtons(GameObject selectedButton)
+    /* public void RefreshWasteButtons(GameObject selectedButton)
+     {
+         InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
+         foreach (InteractiveToggle button in buttons)
+         {
+             if (button.GetInstanceID() != selectedButton.GetInstanceID())
+             {
+                 button.SetSelection(false);
+             }
+         }
+     }*/
+
+    public void RefreshAssistantButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
@@ -68,16 +81,30 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
                 button.SetSelection(false);
             }
         }
-    }*/
+    }
 
-    public void RefreshAssistantButtons(GameObject selectedButton)
+    public void MakeSliderAppear(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+
         foreach (InteractiveToggle button in buttons)
         {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
+            if (button.CompareTag("Dynamic"))
             {
-                button.SetSelection(false);
+                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void MakeSliderDisAppear(GameObject selectedButton)
+    {
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+
+        foreach (InteractiveToggle button in buttons)
+        {
+            if (button.CompareTag("Dynamic"))
+            {
+                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
             }
         }
     }
