@@ -6208,7 +6208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1139431734
 Transform:
   m_ObjectHideFlags: 0
@@ -9444,6 +9444,20 @@ Prefab:
       propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: PassiveMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013925312166, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
+      propertyPath: m_Name
+      value: TargetCheckBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
+        type: 2}
+      propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_IsPrefabParent: 0
@@ -10987,7 +11001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1926796967
 Transform:
   m_ObjectHideFlags: 0
