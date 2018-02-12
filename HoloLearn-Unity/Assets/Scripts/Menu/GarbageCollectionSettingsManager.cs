@@ -27,8 +27,9 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     
     public void SetNumberOfWaste()
     {
-        numberOfWaste = (int) wasteSlider.value;
-        Debug.Log(numberOfWaste);
+       HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+       numberOfWaste = (int)slider.SliderValue;
+       Debug.Log(numberOfWaste);
     }
 
     public void SetAssistantBehaviour(int assistantBehaviour)
@@ -38,7 +39,8 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
 
     public void SetAssistantPatience(int assistantPatience)
     {
-        this.assistantPatience = assistantPatience;
+        HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+        assistantPatience = (int)slider.SliderValue;
     }
 
 
@@ -113,8 +115,23 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         InteractiveToggle[] wasteButtons = gameObject.transform.Find("SettingsGC").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         binsButtons[numberOfBins - 1].SetSelection(true);
 
-        InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        assistantBehaviourButtons[assistantBehaviour].SetSelection(true);
+        HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantGC").transform.Find("CheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
+
+        if (assistantBehaviour != 0)
+        {
+            assistantCheckBox.SetSelection(true);
+            gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").gameObject.SetActive(true);
+            InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+            assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+
+
+        }
+        else
+        {
+            assistantCheckBox.SetSelection(false);
+        }
+
+
     }
 
 

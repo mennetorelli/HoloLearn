@@ -93,7 +93,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         }
     }
 
-    public void MakeSliderAppear(GameObject selectedButton)
+  /*  public void MakeSliderAppear(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
@@ -117,7 +117,8 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
                 gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
             }
         }
-    }
+    }*/
+
 
 
     private void RefreshAllButtons()
