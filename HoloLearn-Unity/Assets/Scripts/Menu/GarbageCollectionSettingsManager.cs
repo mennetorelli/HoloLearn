@@ -9,44 +9,39 @@ using UnityEngine.Experimental.UIElements;
 
 public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSettingsManager>
 {
-    private int bins;
-    private int waste;
-    private int assistant;
-    private int patience;
-    private int visibility;
+    private int numberOfBins;
+    private int numberOfWaste;
+    private int assistantBehaviour;
+    private int assistantPatience;
     public Slider wasteSlider;
-    public int mode;
 
     public void Start()
     {
         LoadSettings();
     }
 
-    public void SetBins(int bins)
+    public void SetBins(int numberOfBins)
     {
-       this.bins = bins;
+       this.numberOfBins = numberOfBins;
     }
     
-    public void SetWaste(int waste)
+    public void SetWaste()
     {
-        this.waste = (int)wasteSlider.value;
+        numberOfWaste = (int) wasteSlider.value;
+        Debug.Log(numberOfWaste);
     }
 
-    public void SetAssistant(int assistant)
+    public void SetAssistant(int assistantBehaviour)
     {
-        this.assistant = assistant;
+        this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetPatience(int patience)
+    public void SetPatience(int assistantPatience)
     {
-        this.patience = patience;
+        this.assistantPatience = assistantPatience;
     }
 
-    public void SetMode(int mode)
-    {
-        this.mode = mode;
-    }
-   
+
     public void RefreshBinsButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
@@ -116,14 +111,15 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         FileStream file = File.Create(Application.persistentDataPath + "/GarbageCollectionSettings.dat");
 
         GarbageCollectionSettings settings = new GarbageCollectionSettings();
-        settings.bins = bins;
-        settings.waste = waste;
-        settings.assistant = assistant;
-        settings.patience = patience;
+        settings.numberOfBins = numberOfBins;
+        settings.numberOfWaste = numberOfWaste;
+        settings.asistantBehaviour = assistantBehaviour;
+        settings.assistantPatience = assistantPatience;
 
         bf.Serialize(file, settings);
         file.Close();
     }
+
     private void LoadSettings()
     {
         if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
@@ -134,10 +130,10 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
             file.Close();
 
-            bins = settings.bins;
-            waste = settings.waste;
-            assistant = settings.assistant;
-            patience = settings.patience;
+            numberOfBins = settings.numberOfBins;
+            numberOfWaste = settings.numberOfWaste;
+            assistantBehaviour = settings.asistantBehaviour;
+            assistantPatience = settings.assistantPatience;
         }
     }
 }

@@ -15,11 +15,11 @@ public class LayTheTableManager : TaskManager
     public GameObject VirtualAssistantsPrefabs;
     public GameObject PlacementsManagerPrefabs;
 
-    private int level;
-    private int people;
+    private int numberOfLevel;
+    private int numberOfPeople;
     private int targetsVisibility;
-    private int assistant;
-    private int patience;
+    private int assistantBehaviour;
+    private int assistantPatience;
 
     private Transform virtualAssistant;
     private Transform placementManager;
@@ -29,9 +29,9 @@ public class LayTheTableManager : TaskManager
     public override void Start() {
         LoadSettings();
 
-        selectedLevel = LevelsPrefabs.transform.GetChild(level-1);
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistant-1);
-        placementManager = PlacementsManagerPrefabs.transform.GetChild(targetsVisibility-1);
+        selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour);
+        placementManager = PlacementsManagerPrefabs.transform.GetChild(targetsVisibility);
         Instantiate(placementManager);
     }
 
@@ -71,7 +71,7 @@ public class LayTheTableManager : TaskManager
         }
 
 
-        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<ObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, people);
+        Transform objectsToBePlaced = selectedLevel.gameObject.GetComponent<ObjectsGenerator>().GenerateObjects(ObjectsPrefabs.transform, numberOfPeople);
         objectsToBePlaced.Translate(tableEdge1);
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
 
@@ -81,7 +81,7 @@ public class LayTheTableManager : TaskManager
         tablePlacements.tag = "Targets";
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
-        for (int i=1; i<=people; i++)
+        for (int i=1; i<=numberOfPeople; i++)
         {
             Instantiate(tableMatesPlacements.gameObject, tableEdges.ElementAt(i) + new Vector3(0f, 0.01f, 0f), rotations.ElementAt(i), tablePlacements);
         }
@@ -95,10 +95,10 @@ public class LayTheTableManager : TaskManager
 
         Vector3 assistantPosition = tableColliderBounds.center + new Vector3(0.3f, 0f, 0f);
 
-        if (virtualAssistant != null)
+        if (assistantBehaviour != 0)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
-            VirtualAssistantManager.Instance.patience = patience;
+            VirtualAssistantManager.Instance.patience = assistantPatience;
         }
     }
 
@@ -136,11 +136,11 @@ public class LayTheTableManager : TaskManager
             LayTheTableSettings settings = (LayTheTableSettings)bf.Deserialize(file);
             file.Close();
 
-            people = settings.people;
-            level = settings.level;
+            numberOfPeople = settings.numberOfPeople;
+            numberOfLevel = settings.numberOfLevel;
             targetsVisibility = settings.targetsVisibility;
-            assistant = settings.assistant;
-            patience = settings.patience;
+            assistantBehaviour = settings.assistantBehaviour;
+            assistantPatience = settings.assistantPatience;
         }
     }
 }

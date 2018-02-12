@@ -3,9 +3,9 @@
 [Serializable]
 public class LayTheTableSettings
 {
-    public int level;
-    public int people;
+    public int numberOfLevel;
+    public int numberOfPeople;
     public int targetsVisibility;
-    public int assistant;
-    public int patience;
+    public int assistantBehaviour;
+    public int assistantPatience;
 }

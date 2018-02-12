@@ -3,8 +3,8 @@
 [Serializable]
 public class GarbageCollectionSettings
 {
-    public int bins;
-    public int waste;
-    public int assistant;
-    public int patience;
+    public int numberOfBins;
+    public int numberOfWaste;
+    public int asistantBehaviour;
+    public int assistantPatience;
 }

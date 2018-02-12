@@ -9,47 +9,44 @@ using UnityEngine.UI;
 
 public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 {
-    private int level;
-    private int people;
+    private int numberOfLevel;
+    private int numberOfPeople;
     private int targetsVisibility;
-    private int assistant;
-    private int patience;
-    private int visibility;
-    private int mode;
-    
+    private int assistantBehaviour;
+    private int assistantPatience;
     
 
     public void Start()
-
     {
         LoadSettings();
     }
-    public void SetLevel(int level)
+
+    public void SetLevel(int numberOfLevel)
     {
-        this.level = level;
+        this.numberOfLevel = numberOfLevel;
     }
 
-    public void SetPeople(int people)
+    public void SetPeople(int numberOfPeople)
     {
-        this.people = people;
+        this.numberOfPeople = numberOfPeople;
     }
 
-    public void SetVisibility(int visibility)
+    public void SetVisibility(int targetsVisibility)
     {
-        this.visibility = visibility;
+        this.targetsVisibility = targetsVisibility;
     }
 
-    public void SetAssistantMode(int mode)
+    public void SetAssistant(int assistantBehaviour)
     {
-        this.mode = mode;
+        this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetAssistant(int assistant)
+    public void SetPatience(int assistantPatience)
     {
-        this.assistant = assistant;
+        this.assistantPatience = assistantPatience;
     }
 
-   
+
 
 
 
@@ -127,11 +124,11 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         FileStream file = File.Create(Application.persistentDataPath + "/layTheTableSettings.dat");
 
         LayTheTableSettings settings = new LayTheTableSettings();
-        settings.level = level;
-        settings.people = people;
+        settings.numberOfLevel = numberOfLevel;
+        settings.numberOfPeople = numberOfPeople;
         settings.targetsVisibility = targetsVisibility;
-        settings.assistant = assistant;
-        settings.patience = patience;
+        settings.assistantBehaviour = assistantBehaviour;
+        settings.assistantPatience = assistantPatience;
 
         bf.Serialize(file, settings);
         file.Close();
@@ -147,11 +144,11 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
             LayTheTableSettings settings = (LayTheTableSettings)bf.Deserialize(file);
             file.Close();
 
-            people = settings.people;
-            level = settings.level;
+            numberOfPeople = settings.numberOfPeople;
+            numberOfLevel = settings.numberOfLevel;
             targetsVisibility = settings.targetsVisibility;
-            assistant = settings.assistant;
-            patience = settings.patience;
+            assistantBehaviour = settings.assistantBehaviour;
+            assistantPatience = settings.assistantPatience;
         }
     }
 }

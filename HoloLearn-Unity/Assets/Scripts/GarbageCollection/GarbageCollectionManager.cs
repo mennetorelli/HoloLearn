@@ -15,10 +15,10 @@ public class GarbageCollectionManager : TaskManager
     public GameObject WastePrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
-    private int bins;
-    private int waste;
-    private int assistant;
-    private int patience;
+    private int numberOfBins;
+    private int numberOfWaste;
+    private int assistantBehaviour;
+    private int assistantPatience;
 
     private Transform virtualAssistant;
 
@@ -29,7 +29,7 @@ public class GarbageCollectionManager : TaskManager
     {
         LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistant-1);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour-1);
     }
 
     // Update is called once per frame
@@ -69,7 +69,7 @@ public class GarbageCollectionManager : TaskManager
         Transform bins = new GameObject("Bins").transform;
         bins.tag = "Targets";
 
-        for (int i=1; i<=this.bins;)
+        for (int i=1; i<=this.numberOfBins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
             String currentBinTag = bin.gameObject.tag;
@@ -88,7 +88,7 @@ public class GarbageCollectionManager : TaskManager
         Transform waste = new GameObject("Waste").transform;
         waste.tag = "ObjectsToBePlaced";
 
-        for (int i=0; i<this.waste;)
+        for (int i=0; i<this.numberOfWaste;)
         {
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
             int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
@@ -115,10 +115,10 @@ public class GarbageCollectionManager : TaskManager
         Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, 0f);
         assistantPosition.y = floor.position.y;
 
-        if (virtualAssistant != null)
+        if (assistantBehaviour != 0)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
-            VirtualAssistantManager.Instance.patience = patience;
+            VirtualAssistantManager.Instance.patience = assistantPatience;
         }
 
     }
@@ -157,10 +157,10 @@ public class GarbageCollectionManager : TaskManager
             GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
             file.Close();
 
-            bins = settings.bins;
-            waste = settings.waste;
-            assistant = settings.assistant;
-            patience = settings.patience;
+            numberOfBins = settings.numberOfBins;
+            numberOfWaste = settings.numberOfWaste;
+            assistantBehaviour = settings.asistantBehaviour;
+            assistantPatience = settings.assistantPatience;
         }
     }
 }
