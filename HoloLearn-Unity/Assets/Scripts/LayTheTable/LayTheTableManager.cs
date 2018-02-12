@@ -109,7 +109,6 @@ public class LayTheTableManager : TaskManager
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 20f, Physics.DefaultRaycastLayers))
         {
             gazePosition = hitInfo.point;
-            Debug.Log(gazePosition);
         }
 
         float minDistance = 1000f;

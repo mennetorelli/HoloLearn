@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 65341287880124980}
   - component: {fileID: 114464708316997482}
   m_Layer: 0
-  m_Name: rubbishBin2
+  m_Name: PaperBin
   m_TagString: Paper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 65357691033661486}
   - component: {fileID: 114290865511800154}
   m_Layer: 0
-  m_Name: rubbishBin1
+  m_Name: GlassBin
   m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 65444906050553294}
   - component: {fileID: 114905959476641212}
   m_Layer: 0
-  m_Name: rubbishBin3
+  m_Name: PlasticBin
   m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 922f8c9e1e10bbe4aabc5e63631f467d, type: 2}
+  - {fileID: 2100000, guid: 834616ba7173e354691365ab3953087f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b7797f42eb5fa884f821edb015e113bf, type: 2}
+  - {fileID: 2100000, guid: 28bcc4168e08f0146bec9e45208cf617, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,7 +226,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0a64db54936e7324f9db336f89609671, type: 2}
+  - {fileID: 2100000, guid: cd808c142380f8b4581015114f83cbf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
