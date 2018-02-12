@@ -13,6 +13,7 @@ TagManager:
   - Paper
   - ObjectsToBePlaced
   - Targets
+  - Dynamic
   layers:
   - Default
   - TransparentFX

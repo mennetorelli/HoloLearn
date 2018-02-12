@@ -14,7 +14,8 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     private int assistant;
     private int patience;
     private int visibility;
-    
+    public Slider wasteSlider;
+    public int mode;
 
     public void Start()
     {
@@ -28,7 +29,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     
     public void SetWaste(int waste)
     {
-        this.waste = waste;
+        this.waste = (int)wasteSlider.value;
     }
 
     public void SetAssistant(int assistant)
@@ -39,6 +40,11 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     public void SetPatience(int patience)
     {
         this.patience = patience;
+    }
+
+    public void SetMode(int mode)
+    {
+        this.mode = mode;
     }
    
     public void RefreshBinsButtons(GameObject selectedButton)
@@ -52,7 +58,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             }
         }
     }
-    public void RefreshWasteButtons(GameObject selectedButton)
+   /* public void RefreshWasteButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
@@ -62,11 +68,11 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
                 button.SetSelection(false);
             }
         }
-    }
+    }*/
 
     public void RefreshAssistantButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("AssistantButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
