@@ -478,7 +478,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetAssistant
+        m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156975824}
   m_Layer: 0
-  m_Name: SettingsGC
+  m_Name: GeneralSettingsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +842,7 @@ Transform:
   - {fileID: 1311173662}
   - {fileID: 415866277}
   m_Father: {fileID: 1939977338}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180858553
 GameObject:
@@ -1031,7 +1031,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1939977339}
-        m_MethodName: SetMode
+        m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1526,7 +1526,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetPeople
+        m_MethodName: SetNumberOfPeople
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2082,7 +2082,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetLevel
+        m_MethodName: SetNumberOfLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4169,11 +4169,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: RefreshAssistantButtons
-        m_Mode: 2
+        m_MethodName: SetAssistantBehaviour
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 790001348}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4692,7 +4692,7 @@ Transform:
   - {fileID: 1581282846}
   - {fileID: 931807778}
   m_Father: {fileID: 1939977338}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860053484
 GameObject:
@@ -5659,7 +5659,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetPeople
+        m_MethodName: SetNumberOfPeople
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6463,7 +6463,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetAssistant
+        m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7585,11 +7585,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1939977339}
-        m_MethodName: RefreshBinsButtons
-        m_Mode: 2
+        m_MethodName: SetNumberOfBins
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1401766310}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7722,7 +7722,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1939977339}
-        m_MethodName: SetBins
+        m_MethodName: SetNumberOfBins
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8624,7 +8624,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1939977339}
-        m_MethodName: SetMode
+        m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9795,23 +9795,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: RefreshLevelsButtons
-        m_Mode: 2
+        m_MethodName: SetNumberOfLevel
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1783632642}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetLevel
-        m_Mode: 3
+        m_MethodName: RefreshLevelsButtons
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_ObjectArgument: {fileID: 1783632642}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10255,7 +10255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831420262}
   m_Layer: 0
-  m_Name: SettingsLTT
+  m_Name: GeneralSettingsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10403,7 +10403,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1939977339}
-        m_MethodName: SetBins
+        m_MethodName: SetNumberOfBins
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10580,7 +10580,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1939977339}
-        m_MethodName: SetMode
+        m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10931,8 +10931,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 829969648}
-  - {fileID: 856225618}
   - {fileID: 156975824}
+  - {fileID: 856225618}
   m_Father: {fileID: 1393774889}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10947,7 +10947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aa16dc7b8432a4db3b44ba680a5c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
 --- !u!114 &1939977340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11422,7 +11421,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetPeople
+        m_MethodName: SetNumberOfPeople
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12001,7 +12000,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139431735}
-        m_MethodName: SetLevel
+        m_MethodName: SetNumberOfLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

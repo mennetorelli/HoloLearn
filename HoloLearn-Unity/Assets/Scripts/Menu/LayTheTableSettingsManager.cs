@@ -21,27 +21,27 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         LoadSettings();
     }
 
-    public void SetLevel(int numberOfLevel)
+    public void SetNumberOfLevel(int numberOfLevel)
     {
         this.numberOfLevel = numberOfLevel;
     }
 
-    public void SetPeople(int numberOfPeople)
+    public void SetNumberOfPeople(int numberOfPeople)
     {
         this.numberOfPeople = numberOfPeople;
     }
 
-    public void SetVisibility(int targetsVisibility)
+    public void SetTargetsVisibility(int targetsVisibility)
     {
         this.targetsVisibility = targetsVisibility;
     }
 
-    public void SetAssistant(int assistantBehaviour)
+    public void SetAssistantBehaviour(int assistantBehaviour)
     {
         this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetPatience(int assistantPatience)
+    public void SetAssistantPatience(int assistantPatience)
     {
         this.assistantPatience = assistantPatience;
     }

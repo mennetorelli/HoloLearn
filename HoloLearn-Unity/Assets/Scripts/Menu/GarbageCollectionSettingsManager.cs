@@ -20,23 +20,23 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         LoadSettings();
     }
 
-    public void SetBins(int numberOfBins)
+    public void SetNumberOfBins(int numberOfBins)
     {
        this.numberOfBins = numberOfBins;
     }
     
-    public void SetWaste()
+    public void SetNumberOfWaste()
     {
         numberOfWaste = (int) wasteSlider.value;
         Debug.Log(numberOfWaste);
     }
 
-    public void SetAssistant(int assistantBehaviour)
+    public void SetAssistantBehaviour(int assistantBehaviour)
     {
         this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetPatience(int assistantPatience)
+    public void SetAssistantPatience(int assistantPatience)
     {
         this.assistantPatience = assistantPatience;
     }
