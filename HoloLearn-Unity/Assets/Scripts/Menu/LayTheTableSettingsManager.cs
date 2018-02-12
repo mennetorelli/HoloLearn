@@ -126,7 +126,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         InteractiveToggle[] peopleButtons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         peopleButtons[numberOfPeople - 1].SetSelection(true);
 
-        InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.GetChild(6).GetComponent<InteractiveToggle>();
+        HoloToolkit.Examples.InteractiveElements.InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.Find("TargetCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
         Debug.Log(targetCheckBox);
         if (targetsVisibility==1)
         {
