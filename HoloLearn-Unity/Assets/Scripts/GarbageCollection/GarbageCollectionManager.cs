@@ -49,27 +49,29 @@ public class GarbageCollectionManager : TaskManager
 
       
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
-        Debug.Log(floorPosition);
         floorPosition = AdjustPositionWithSpatialMap(floorPosition, plane.SurfaceNormal);
-        Debug.Log(floorPosition);
 
-        Vector3 binsPosition = Camera.main.transform.TransformPoint(new Vector3(0f, 0f, 2f));
+        Vector3 gazePosition = new Vector3(0f, 0f, 0f);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 20f, Physics.DefaultRaycastLayers))
+        {
+            gazePosition = hitInfo.point;
+        }
+
+        Vector3 binsPosition = gazePosition;
         binsPosition.y = floorPosition.y;
-        Debug.Log(binsPosition);
 
-        Quaternion rotation = Camera.main.transform.localRotation;
-        Debug.Log(rotation);
 
-        rotation = Quaternion.LookRotation(Camera.main.transform.position);
+        Vector3 relativePos = Camera.main.transform.position - gazePosition;
+        Quaternion rotation = Quaternion.LookRotation(relativePos);
         rotation.x = 0f;
         rotation.z = 0f;
-        Debug.Log(rotation);
 
 
         Transform bins = new GameObject("Bins").transform;
         bins.tag = "Targets";
 
-        for (int i=1; i<=this.numberOfBins;)
+        for (int i=1; i<=numberOfBins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
             String currentBinTag = bin.gameObject.tag;
@@ -81,14 +83,14 @@ public class GarbageCollectionManager : TaskManager
             }
         }
 
-        bins.Translate(binsPosition);
+        bins.Translate(binsPosition);        
         bins.Rotate(rotation.eulerAngles);
 
 
         Transform waste = new GameObject("Waste").transform;
         waste.tag = "ObjectsToBePlaced";
 
-        for (int i=0; i<this.numberOfWaste;)
+        for (int i=0; i<numberOfWaste;)
         {
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
             int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
