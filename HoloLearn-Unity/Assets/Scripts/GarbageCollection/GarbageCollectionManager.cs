@@ -151,10 +151,10 @@ public class GarbageCollectionManager : TaskManager
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/GarbageCollectionSettings.dat", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
 
             GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
             file.Close();

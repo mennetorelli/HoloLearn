@@ -138,7 +138,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     public void SaveSettings()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/GarbageCollectionSettings.dat");
+        FileStream file = File.Create(Application.persistentDataPath + "/garbageCollectionSettings.dat");
 
         GarbageCollectionSettings settings = new GarbageCollectionSettings();
         settings.numberOfBins = numberOfBins;
@@ -152,10 +152,10 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/GarbageCollectionSettings.dat", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
 
             GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
             file.Close();
