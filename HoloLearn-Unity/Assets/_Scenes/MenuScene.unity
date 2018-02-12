@@ -818,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156975824}
   m_Layer: 0
-  m_Name: GeneralSettingsMenu
+  m_Name: SettingsGC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10255,7 +10255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831420262}
   m_Layer: 0
-  m_Name: GeneralSettingsMenu
+  m_Name: SettingsLTT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

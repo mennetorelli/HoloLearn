@@ -19,6 +19,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     public void Start()
     {
         LoadSettings();
+        RefreshAllButtons();
     }
 
     public void SetNumberOfLevel(int numberOfLevel)
@@ -79,7 +80,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
     public void RefreshAssistantButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
         
         foreach (InteractiveToggle button in buttons)
         {
@@ -92,28 +93,41 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
     public void MakeSliderAppear(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
         foreach (InteractiveToggle button in buttons)
         {
             if (button.CompareTag("Dynamic"))
             {
-                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
+                gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
             }
         }    
     }
 
     public void MakeSliderDisAppear(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
         foreach (InteractiveToggle button in buttons)
         {
             if (button.CompareTag("Dynamic"))
             {
-                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
+                gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
             }
         }
+    }
+
+
+    private void RefreshAllButtons()
+    {
+        InteractiveToggle[] levelButtons = gameObject.transform.Find("SettingsLTT").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        levelButtons[numberOfLevel - 1].SetSelection(true);
+
+        InteractiveToggle[] peopleButtons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        peopleButtons[numberOfPeople - 1].SetSelection(true);
+
+        InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
     }
 
 

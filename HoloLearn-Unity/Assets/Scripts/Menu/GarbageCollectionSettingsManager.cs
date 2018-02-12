@@ -67,7 +67,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
 
     public void RefreshAssistantButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
         foreach (InteractiveToggle button in buttons)
         {
@@ -80,20 +80,20 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
 
     public void MakeSliderAppear(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
         foreach (InteractiveToggle button in buttons)
         {
             if (button.CompareTag("Dynamic"))
             {
-                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
+                gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
             }
         }
     }
 
     public void MakeSliderDisAppear(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
 
         foreach (InteractiveToggle button in buttons)
         {
@@ -102,6 +102,19 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
                 gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
             }
         }
+    }
+
+
+    private void RefreshAllButtons()
+    {
+        InteractiveToggle[] binsButtons = gameObject.transform.Find("SettingsGC").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        binsButtons[numberOfBins - 1].SetSelection(true);
+
+        InteractiveToggle[] wasteButtons = gameObject.transform.Find("SettingsGC").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        binsButtons[numberOfBins - 1].SetSelection(true);
+
+        InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
     }
 
 
