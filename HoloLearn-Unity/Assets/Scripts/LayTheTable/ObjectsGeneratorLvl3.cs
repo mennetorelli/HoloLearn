@@ -24,7 +24,7 @@ public class ObjectsGeneratorLvl3 : ObjectsGenerator{
 
         // genera i piatti di colore random
         Transform plates = objectsPrefab.Find("Plates");
-        Transform plate = plates.GetChild(rnd.Next(1, plates.childCount - 1));
+        Transform plate = plates.GetChild(rnd.Next(0, plates.childCount - 1));
        
         for (int i = 0; i < numberOfPeople; i++)
         {
@@ -33,12 +33,14 @@ public class ObjectsGeneratorLvl3 : ObjectsGenerator{
 
         //genera i bicchieri random  di colore random
         Transform glasses = objectsPrefab.Find("Glasses");
-        Transform glassType = glasses.GetChild(rnd.Next(5, glasses.childCount - 1));
-       
+        Transform glassType = glasses.GetChild(rnd.Next(0, glasses.childCount));
+        Vector3 glassPosition = new Vector3(0.2f, 0.1f, 0.0f);
+
 
         for (int i = 0; i < numberOfPeople; i++)
         {
-            Instantiate(glassType.gameObject, new Vector3(0.1f, 0.1f, 0.0f), glassType.transform.rotation, objectsToBePlaced);
+            Instantiate(glassType.gameObject, glassPosition, glassType.transform.rotation, objectsToBePlaced);
+            glassPosition += new Vector3(0.1f, 0f, 0f);
         }
 
         Transform cutlery = objectsPrefab.Find("Cutlery");
@@ -55,14 +57,14 @@ public class ObjectsGeneratorLvl3 : ObjectsGenerator{
         
 
         Transform beverages = objectsPrefab.Find("Beverages");
-        //Transform bottle = beverages.Find("WaterBottle");
-        //Instantiate(bottle.gameObject, tableCorner + new Vector3(-0.1f, 0.1f, 0.2f), bottle.transform.rotation);
+        Transform bottle = beverages.GetChild(0);
+        Instantiate(bottle.gameObject, new Vector3(0.1f, 0.1f, 0.2f), bottle.transform.rotation, objectsToBePlaced);
         Transform can1 = beverages.GetChild(rnd.Next(1, 3));
         Transform can2 = beverages.GetChild(rnd.Next(1, 3));
         
 
 
-        Instantiate(can1.gameObject, new Vector3(-0.1f, 0.1f, 0.2f), can1.transform.rotation, objectsToBePlaced);
+        Instantiate(can1.gameObject, new Vector3(-0.05f, 0.1f, 0.2f), can1.transform.rotation, objectsToBePlaced);
         Instantiate(can2.gameObject, new Vector3(-0.15f, 0.15f, 0.2f), can2.transform.rotation, objectsToBePlaced);
 
         return objectsToBePlaced;
