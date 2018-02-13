@@ -1,5 +1,6 @@
 ﻿using HoloLearn;
 using HoloToolkit.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +31,6 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     {
        HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
        numberOfWaste = (int)slider.SliderValue;
-       Debug.Log(numberOfWaste);
     }
 
     public void SetAssistantBehaviour(int assistantBehaviour)
@@ -41,7 +41,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     public void SetAssistantPatience(int assistantPatience)
     {
         HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-        assistantPatience = (int)slider.SliderValue;
+        assistantPatience = Convert.ToInt32(slider.SliderValue);
     }
 
 
@@ -114,7 +114,6 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         binsButtons[numberOfBins - 1].SetSelection(true);
 
         HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantGC").transform.Find("CheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
-        Debug.Log(assistantBehaviour);
         if (assistantBehaviour != 0)
         {
             assistantCheckBox.SetSelection(true);
@@ -123,15 +122,9 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
             if (assistantBehaviour == 2)
             {
-
-                HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-                Debug.Log(slider);
-                slider.gameObject.SetActive(true);
-
+                GameObject.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
+                GameObject.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>().SetSliderValue(assistantPatience);
             }
-
-
-
         }
         else
         {

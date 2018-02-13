@@ -1,5 +1,6 @@
 ﻿using HoloLearn;
 using HoloToolkit.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -45,8 +46,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     public void SetAssistantPatience()
     {
         HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-        assistantPatience = (int) slider.SliderValue;
-        Debug.Log(assistantPatience);
+        assistantPatience = Convert.ToInt32(slider.SliderValue);
     }
 
 
@@ -130,7 +130,6 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         peopleButtons[numberOfPeople - 1].SetSelection(true);
 
         HoloToolkit.Examples.InteractiveElements.InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.Find("TargetCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
-        Debug.Log(targetCheckBox);
         if (targetsVisibility==1)
         {
             targetCheckBox.SetSelection(true);
@@ -147,16 +146,11 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
             gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").gameObject.SetActive(true);
             InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
             assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
-            if (assistantBehaviour == 1)
+            if (assistantBehaviour == 2)
             {
-
-                HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-               
-                slider.gameObject.SetActive(true);
-
+                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
+                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>().SetSliderValue(assistantPatience);
             }
-
-
         }
         else
         {
