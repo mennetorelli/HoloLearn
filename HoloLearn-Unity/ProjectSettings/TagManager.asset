@@ -14,6 +14,7 @@ TagManager:
   - ObjectsToBePlaced
   - Targets
   - Dynamic
+  - Knife
   layers:
   - Default
   - TransparentFX
