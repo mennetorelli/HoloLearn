@@ -948,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &156975824
 Transform:
   m_ObjectHideFlags: 0
@@ -3750,7 +3750,7 @@ Prefab:
     - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
         type: 2}
       propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetAssistantPatience
+      value: SetAssistantBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 114000013584458986, guid: abb2df850d68f894d830c95c299cf10f,
         type: 2}
@@ -4872,7 +4872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &856225618
 Transform:
   m_ObjectHideFlags: 0
