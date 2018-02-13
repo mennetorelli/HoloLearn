@@ -147,6 +147,14 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
             gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").gameObject.SetActive(true);
             InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
             assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
+            if (assistantBehaviour == 1)
+            {
+
+                HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+               
+                slider.gameObject.SetActive(true);
+
+            }
 
 
         }

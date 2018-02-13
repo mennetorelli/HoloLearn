@@ -121,7 +121,15 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").gameObject.SetActive(true);
             InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
             assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
-           
+            if (assistantBehaviour == 2)
+            {
+
+                HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+                Debug.Log(slider);
+                slider.gameObject.SetActive(true);
+
+            }
+
 
 
         }
@@ -129,6 +137,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         {
             assistantCheckBox.SetSelection(false);
         }
+       
 
 
     }
