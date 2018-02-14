@@ -56,18 +56,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             }
         }
     }
-    /* public void RefreshWasteButtons(GameObject selectedButton)
-     {
-         InteractiveToggle[] buttons = gameObject.transform.Find("WasteButtons").GetComponentsInChildren<InteractiveToggle>();
-         foreach (InteractiveToggle button in buttons)
-         {
-             if (button.GetInstanceID() != selectedButton.GetInstanceID())
-             {
-                 button.SetSelection(false);
-             }
-         }
-     }*/
-
+    
     public void RefreshAssistantButtons(GameObject selectedButton)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
@@ -81,33 +70,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         }
     }
 
-   /* public void MakeSliderAppear(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.CompareTag("Dynamic"))
-            {
-                gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
-            }
-        }
-    }
-
-    public void MakeSliderDisAppear(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.CompareTag("Dynamic"))
-            {
-                gameObject.transform.Find("VirtualAssistantMenu").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
-            }
-        }
-    }*/
-
-
+ 
     public void RefreshGeneralMenu()
     {
         InteractiveToggle[] binsButtons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();

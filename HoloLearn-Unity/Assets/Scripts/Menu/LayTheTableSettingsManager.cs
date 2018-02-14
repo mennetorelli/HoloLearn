@@ -93,33 +93,6 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         }
     }
 
-  /*  public void MakeSliderAppear(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.CompareTag("Dynamic"))
-            {
-                gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(true);
-            }
-        }    
-    }
-
-    public void MakeSliderDisAppear(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.CompareTag("Dynamic"))
-            {
-                gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").gameObject.SetActive(false);
-            }
-        }
-    }*/
-
-
 
     public void RefreshGeneralMenu()
     {
