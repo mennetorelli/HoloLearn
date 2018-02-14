@@ -118,6 +118,7 @@ public class LayTheTableManager : TaskManager
             Vector3 tableCenter = table.transform.GetColliderBounds().center;
             if (Vector3.Distance(tableCenter, gazePosition) <= minDistance)
             {
+                minDistance = Vector3.Distance(tableCenter, gazePosition);
                 nearestTable = table.transform;
             }
         }

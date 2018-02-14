@@ -619,7 +619,7 @@ Prefab:
     - target: {fileID: 114000012698980792, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
         type: 2}
       propertyPath: TrianglesPerCubicMeter
-      value: 1000
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
@@ -833,6 +833,11 @@ Prefab:
         type: 2}
       propertyPath: MinArea
       value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 114449108570846894, guid: 8416f306554ae274ca037fa046caf09e,
+        type: 2}
+      propertyPath: BoundsExpansion
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8416f306554ae274ca037fa046caf09e, type: 2}

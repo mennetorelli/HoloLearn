@@ -114,7 +114,7 @@ public class GarbageCollectionManager : TaskManager
 
 
 
-        Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, 0f);
+        Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, -0.2f);
         assistantPosition.y = floor.position.y;
 
         if (assistantBehaviour != 0)
