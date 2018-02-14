@@ -5,7 +5,6 @@ using UnityEngine;
 public class PointingState : StateMachineBehaviour {
 
     Vector3 targetPosition;
-    //Transform targetObject = VirtualAssistantManager.Instance.targetObject;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,11 +22,6 @@ public class PointingState : StateMachineBehaviour {
         rotation.z = 0f;
 
         VirtualAssistantManager.Instance.transform.rotation = Quaternion.Lerp(VirtualAssistantManager.Instance.transform.rotation, rotation, Time.deltaTime * 2f);
-
-        /*if (!VirtualAssistantManager.Instance.IsDragging)
-        {
-            targetObject.GetComponent<Material>().color = Color.white;
-        }*/
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
