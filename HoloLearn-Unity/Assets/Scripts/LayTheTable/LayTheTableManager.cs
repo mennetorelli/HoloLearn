@@ -50,10 +50,14 @@ public class LayTheTableManager : TaskManager
 
         Bounds tableColliderBounds = table.GetColliderBounds();
        
-        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.2f, 0f, 0f);
-        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0.1f, 0f, 0f);
-        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.1f, 0f);
-        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.1f, 0f);
+        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
+        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
+        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
+        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
+        tableEdge1 = Vector3.Lerp(tableEdge1, tableColliderBounds.center, 0.3f);
+        tableEdge2 = Vector3.Lerp(tableEdge2, tableColliderBounds.center, 0.2f);
+        tableEdge3 = Vector3.Lerp(tableEdge3, tableColliderBounds.center, 0.2f);
+        tableEdge4 = Vector3.Lerp(tableEdge4, tableColliderBounds.center, 0.2f);
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
         Debug.DrawLine(tableEdge1, tableColliderBounds.center, Color.black, 30f);
