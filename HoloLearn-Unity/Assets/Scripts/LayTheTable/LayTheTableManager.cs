@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
 
 public class LayTheTableManager : TaskManager
 {
@@ -127,7 +127,7 @@ public class LayTheTableManager : TaskManager
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        /*if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/layTheTableSettings.dat", FileMode.Open);
@@ -140,6 +140,12 @@ public class LayTheTableManager : TaskManager
             targetsVisibility = settings.targetsVisibility;
             assistantBehaviour = settings.assistantBehaviour;
             assistantPatience = settings.assistantPatience;
-        }
+        }*/
+
+        numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
+        numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
+        targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
+        assistantBehaviour = LayTheTableSettings.Instance.assistantBehaviour;
+        assistantPatience = LayTheTableSettings.Instance.assistantPatience;
     }
 }

@@ -832,7 +832,7 @@ Prefab:
     - target: {fileID: 114751420643725228, guid: 8416f306554ae274ca037fa046caf09e,
         type: 2}
       propertyPath: MinArea
-      value: 1
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8416f306554ae274ca037fa046caf09e, type: 2}

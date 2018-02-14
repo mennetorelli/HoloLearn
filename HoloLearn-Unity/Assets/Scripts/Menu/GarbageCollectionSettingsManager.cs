@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
@@ -19,7 +19,7 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     public void Start()
     {
         LoadSettings();
-        RefreshAllButtons();
+        RefreshGeneralMenu();
     }
 
     public void SetNumberOfBins(int numberOfBins)
@@ -108,11 +108,17 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
     }*/
 
 
-    private void RefreshAllButtons()
+    public void RefreshGeneralMenu()
     {
         InteractiveToggle[] binsButtons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
         binsButtons[numberOfBins - 1].SetSelection(true);
 
+        GameObject.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>().SetSliderValue(assistantPatience);
+    }
+
+
+    public void RefreshAssistantMenu()
+    {
         HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantGC").transform.Find("CheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
         if (assistantBehaviour != 0)
         {
@@ -130,15 +136,13 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         {
             assistantCheckBox.SetSelection(false);
         }
-       
-
-
     }
+
 
 
     public void SaveSettings()
     {
-        BinaryFormatter bf = new BinaryFormatter();
+        /*BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/garbageCollectionSettings.dat");
 
         GarbageCollectionSettings settings = new GarbageCollectionSettings();
@@ -148,12 +152,17 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
         settings.assistantPatience = assistantPatience;
 
         bf.Serialize(file, settings);
-        file.Close();
+        file.Close();*/
+
+        GarbageCollectionSettings.Instance.numberOfBins = numberOfBins;
+        GarbageCollectionSettings.Instance.numberOfWaste = numberOfWaste;
+        GarbageCollectionSettings.Instance.asistantBehaviour = assistantBehaviour;
+        GarbageCollectionSettings.Instance.assistantPatience = assistantPatience;
     }
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
+        /*if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
@@ -165,6 +174,11 @@ public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSetti
             numberOfWaste = settings.numberOfWaste;
             assistantBehaviour = settings.asistantBehaviour;
             assistantPatience = settings.assistantPatience;
-        }
+        }*/
+
+        numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
+        numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
+        assistantBehaviour = GarbageCollectionSettings.Instance.asistantBehaviour;
+        assistantPatience = GarbageCollectionSettings.Instance.assistantPatience;
     }
 }

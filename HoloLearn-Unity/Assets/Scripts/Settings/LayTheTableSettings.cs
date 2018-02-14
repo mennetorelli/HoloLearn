@@ -1,7 +1,8 @@
-﻿using System;
+﻿using HoloToolkit.Unity;
+using System;
 
-[Serializable]
-public class LayTheTableSettings
+//[Serializable]
+public class LayTheTableSettings : Singleton<LayTheTableSettings>
 {
     public int numberOfLevel;
     public int numberOfPeople;

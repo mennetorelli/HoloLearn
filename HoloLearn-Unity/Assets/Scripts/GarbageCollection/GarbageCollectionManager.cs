@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class GarbageCollectionManager : TaskManager
@@ -151,7 +151,7 @@ public class GarbageCollectionManager : TaskManager
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
+        /*if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
@@ -163,6 +163,11 @@ public class GarbageCollectionManager : TaskManager
             numberOfWaste = settings.numberOfWaste;
             assistantBehaviour = settings.asistantBehaviour;
             assistantPatience = settings.assistantPatience;
-        }
+        }*/
+
+        numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
+        numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
+        assistantBehaviour = GarbageCollectionSettings.Instance.asistantBehaviour;
+        assistantPatience = GarbageCollectionSettings.Instance.assistantPatience;
     }
 }

@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +20,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
     public void Start()
     {
         LoadSettings();
-        RefreshAllButtons();
+        RefreshGeneralMenu();
     }
 
     public void SetNumberOfLevel(int numberOfLevel)
@@ -121,7 +121,7 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
 
 
 
-    private void RefreshAllButtons()
+    public void RefreshGeneralMenu()
     {
         InteractiveToggle[] levelButtons = gameObject.transform.Find("SettingsLTT").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         levelButtons[numberOfLevel - 1].SetSelection(true);
@@ -139,6 +139,12 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
             targetCheckBox.SetSelection(false);
         }
 
+        
+    }
+
+
+    public void RefreshAssistantMenu()
+    {
         HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("AssistantCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
         if (assistantBehaviour != 0)
         {
@@ -156,19 +162,13 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         {
             assistantCheckBox.SetSelection(false);
         }
-
-
-
-       
-
-      
     }
 
 
     public void SaveSettings()
     {
-        
-        BinaryFormatter bf = new BinaryFormatter();
+
+        /*BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/layTheTableSettings.dat");
 
         LayTheTableSettings settings = new LayTheTableSettings();
@@ -179,12 +179,19 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
         settings.assistantPatience = assistantPatience;
 
         bf.Serialize(file, settings);
-        file.Close();
+        file.Close();*/
+
+        
+        LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
+        LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
+        LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
+        LayTheTableSettings.Instance.assistantBehaviour = assistantBehaviour;
+        LayTheTableSettings.Instance.assistantPatience = assistantPatience;
     }
 
     private void LoadSettings()
     {
-        if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
+        /*if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/layTheTableSettings.dat", FileMode.Open);
@@ -197,6 +204,12 @@ public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
             targetsVisibility = settings.targetsVisibility;
             assistantBehaviour = settings.assistantBehaviour;
             assistantPatience = settings.assistantPatience;
-        }
+        }*/
+
+        numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
+        numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
+        targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
+        assistantBehaviour = LayTheTableSettings.Instance.assistantBehaviour;
+        assistantPatience = LayTheTableSettings.Instance.assistantPatience;
     }
 }

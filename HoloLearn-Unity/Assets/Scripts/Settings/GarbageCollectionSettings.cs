@@ -1,7 +1,8 @@
-﻿using System;
+﻿using HoloToolkit.Unity;
+using System;
 
-[Serializable]
-public class GarbageCollectionSettings
+//[Serializable]
+public class GarbageCollectionSettings : Singleton<GarbageCollectionSettings>
 {
     public int numberOfBins;
     public int numberOfWaste;
