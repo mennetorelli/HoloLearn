@@ -8,7 +8,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LayTheTableSettingsManager : Singleton<LayTheTableSettingsManager>
+public class LayTheTableSettingsManager : MonoBehaviour
 {
     private int numberOfLevel;
     private int numberOfPeople;

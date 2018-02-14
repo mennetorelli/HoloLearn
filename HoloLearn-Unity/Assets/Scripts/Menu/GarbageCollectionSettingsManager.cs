@@ -8,7 +8,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
-public class GarbageCollectionSettingsManager : Singleton<GarbageCollectionSettingsManager>
+public class GarbageCollectionSettingsManager : MonoBehaviour
 {
     private int numberOfBins;
     private int numberOfWaste;
