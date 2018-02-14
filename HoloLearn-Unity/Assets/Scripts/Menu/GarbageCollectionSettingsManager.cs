@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 //using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
 {
@@ -14,7 +13,6 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     private int numberOfWaste;
     private int assistantBehaviour;
     private int assistantPatience;
-    public Slider wasteSlider;
 
     public void Start()
     {

@@ -113,7 +113,6 @@ public class GarbageCollectionManager : TaskManager
         Counter.Instance.InitializeCounter(waste);
 
 
-
         Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, -0.2f);
         assistantPosition.y = floor.position.y;
 
@@ -121,6 +120,7 @@ public class GarbageCollectionManager : TaskManager
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             VirtualAssistantManager.Instance.patience = assistantPatience;
+            VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
         }
 
     }
