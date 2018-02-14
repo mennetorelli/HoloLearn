@@ -1418,6 +1418,8 @@ GameObject:
   - component: {fileID: 4270139423848258}
   - component: {fileID: 95813527820641812}
   - component: {fileID: 114979058970088888}
+  - component: {fileID: 114454123828247408}
+  - component: {fileID: 114351225392209508}
   m_Layer: 0
   m_Name: StaticMinion
   m_TagString: Untagged
@@ -1843,6 +1845,8 @@ GameObject:
   - component: {fileID: 114163224741368058}
   - component: {fileID: 114267879129981514}
   - component: {fileID: 114998685846174030}
+  - component: {fileID: 114203777876299648}
+  - component: {fileID: 114217975033888364}
   m_Layer: 0
   m_Name: ReactiveMinion
   m_TagString: Untagged
@@ -2176,6 +2180,8 @@ GameObject:
   - component: {fileID: 4342463258778758}
   - component: {fileID: 95203956502073518}
   - component: {fileID: 114206807003662408}
+  - component: {fileID: 114091384383240470}
+  - component: {fileID: 114138018500124818}
   m_Layer: 0
   m_Name: DynamicMinion
   m_TagString: Untagged
@@ -4583,6 +4589,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114091384383240470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907704196838108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f98bda8283d1f4eab0541191b0f1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShakingHeadNo: ShakeHeadNo
+--- !u!114 &114138018500124818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907704196838108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
 --- !u!114 &114163224741368058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4614,6 +4648,18 @@ MonoBehaviour:
   patience: 0
   IsDragging: 0
   targetObject: {fileID: 0}
+--- !u!114 &114203777876299648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777208049416004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f98bda8283d1f4eab0541191b0f1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShakingHeadNo: ShakeHeadNo
 --- !u!114 &114206807003662408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4628,6 +4674,22 @@ MonoBehaviour:
   patience: 0
   IsDragging: 0
   targetObject: {fileID: 0}
+--- !u!114 &114217975033888364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777208049416004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
 --- !u!114 &114267879129981514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4659,6 +4721,34 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   IsGlobalListener: 1
   PersistentKeywords: 0
+--- !u!114 &114351225392209508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566066299099860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
+--- !u!114 &114454123828247408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566066299099860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f98bda8283d1f4eab0541191b0f1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShakingHeadNo: ShakeHeadNo
 --- !u!114 &114979058970088888
 MonoBehaviour:
   m_ObjectHideFlags: 1
