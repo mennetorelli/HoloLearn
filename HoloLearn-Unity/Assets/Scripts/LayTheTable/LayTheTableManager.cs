@@ -54,7 +54,7 @@ public class LayTheTableManager : TaskManager
         Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
         Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
         Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
-        tableEdge1 = Vector3.Lerp(tableEdge1, tableColliderBounds.center, 0.3f);
+        tableEdge1 = Vector3.Lerp(tableEdge1, tableColliderBounds.center, 0.25f);
         tableEdge2 = Vector3.Lerp(tableEdge2, tableColliderBounds.center, 0.2f);
         tableEdge3 = Vector3.Lerp(tableEdge3, tableColliderBounds.center, 0.2f);
         tableEdge4 = Vector3.Lerp(tableEdge4, tableColliderBounds.center, 0.2f);

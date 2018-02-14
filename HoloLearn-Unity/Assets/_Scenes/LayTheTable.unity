@@ -827,7 +827,7 @@ Prefab:
     - target: {fileID: 114751420643725228, guid: 8416f306554ae274ca037fa046caf09e,
         type: 2}
       propertyPath: drawPlanesMask
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114751420643725228, guid: 8416f306554ae274ca037fa046caf09e,
         type: 2}
