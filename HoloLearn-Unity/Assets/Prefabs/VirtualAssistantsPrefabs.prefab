@@ -4601,6 +4601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
+  Jump: Jump
 --- !u!114 &114138018500124818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4660,6 +4661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
+  Jump: Jump
 --- !u!114 &114206807003662408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4749,6 +4751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
+  Jump: Jump
 --- !u!114 &114979058970088888
 MonoBehaviour:
   m_ObjectHideFlags: 1
