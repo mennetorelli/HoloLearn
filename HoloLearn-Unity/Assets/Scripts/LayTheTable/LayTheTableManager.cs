@@ -56,17 +56,19 @@ public class LayTheTableManager : TaskManager
         Bounds tableColliderBounds = table.GetColliderBounds();
         if (tableColliderBounds.extents.x > tableColliderBounds.extents.z)
         {
-            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.1f, 0f, 0f);
-            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0.05f, 0f, 0f);
+            Debug.Log("caso x>z");
+            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
+            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
             tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
             tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
         }
         else
         {
+            Debug.Log("caso x<z");
             tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
-            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
-            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.05f, 0f);
-            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.05f, 0f);
+            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0, 0f);
+            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
+            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f); 
         }
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
