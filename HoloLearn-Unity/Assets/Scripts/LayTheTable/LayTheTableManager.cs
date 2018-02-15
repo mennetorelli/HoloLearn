@@ -48,22 +48,32 @@ public class LayTheTableManager : TaskManager
         //Seleziono il tavolo dove guarda l'utente
         Transform table = TableSelect(TableProcessing.Instance.tables);
 
+
+        Vector3 tableEdge1;
+        Vector3 tableEdge2;
+        Vector3 tableEdge3;
+        Vector3 tableEdge4;
         Bounds tableColliderBounds = table.GetColliderBounds();
-       
-        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
-        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
-        Vector3 tableEdge3 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
-        Vector3 tableEdge4 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
-        tableEdge1 = Vector3.Lerp(tableEdge1, tableColliderBounds.center, 0.25f);
-        tableEdge2 = Vector3.Lerp(tableEdge2, tableColliderBounds.center, 0.2f);
-        tableEdge3 = Vector3.Lerp(tableEdge3, tableColliderBounds.center, 0.2f);
-        tableEdge4 = Vector3.Lerp(tableEdge4, tableColliderBounds.center, 0.2f);
+        if (tableColliderBounds.extents.x > tableColliderBounds.extents.z)
+        {
+            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.1f, 0f, 0f);
+            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0.05f, 0f, 0f);
+            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
+            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
+        }
+        else
+        {
+            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
+            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
+            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.05f, 0f);
+            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.05f, 0f);
+        }
 
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
         Debug.DrawLine(tableEdge1, tableColliderBounds.center, Color.black, 30f);
         Debug.DrawLine(tableEdge2, tableColliderBounds.center, Color.black, 30f);
-        Debug.DrawLine(tableEdge3, tableColliderBounds.center, Color.black, 30f);
-        Debug.DrawLine(tableEdge4, tableColliderBounds.center, Color.black, 30f);
+        Debug.DrawLine(tableEdge3, tableColliderBounds.center, Color.red, 30f);
+        Debug.DrawLine(tableEdge4, tableColliderBounds.center, Color.red, 30f);
 
         List<Quaternion> rotations = new List<Quaternion>();
 
@@ -126,6 +136,15 @@ public class LayTheTableManager : TaskManager
                 nearestTable = table.transform;
             }
         }
+
+        foreach (GameObject table in tables)
+        {
+            if (table.GetInstanceID() != nearestTable.gameObject.GetInstanceID())
+            {
+                Destroy(table.gameObject);
+            }
+        }
+
         return nearestTable;
     }
     

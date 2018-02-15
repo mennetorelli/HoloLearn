@@ -4,5 +4,3 @@ Advanced User Interfaces project - Emanuele Torelli, Francesco Vona - Politecnic
 ## TODO
 - posizione oggetti sballata rispetto al tavolo
 - tornare nella scena iniziale
-- emissività oggetto puntato
-- opzionale: voce minion
