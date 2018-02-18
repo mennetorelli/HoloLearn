@@ -48,29 +48,12 @@ public class LayTheTableManager : TaskManager
         //Seleziono il tavolo dove guarda l'utente
         Transform table = TableSelect(TableProcessing.Instance.tables);
 
-
-        Vector3 tableEdge1;
-        Vector3 tableEdge2;
-        Vector3 tableEdge3;
-        Vector3 tableEdge4;
         Bounds tableColliderBounds = table.GetColliderBounds();
-        if (tableColliderBounds.extents.x > tableColliderBounds.extents.z)
-        {
-            Debug.Log("caso x>z");
-            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
-            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0f, 0f);
-            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
-            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f);
-        }
-        else
-        {
-            Debug.Log("caso x<z");
-            tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2, 0f, 0f);
-            tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2, 0, 0f);
-            tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2, 0f);
-            tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2, 0f); 
-        }
-
+        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.05f, 0f, 0f);
+        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0f, 0f, 0f);
+        Vector3 tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.2f, 0f);
+        Vector3 tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.2f, 0f);
+            
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
         Debug.DrawLine(tableEdge1, tableColliderBounds.center, Color.black, 30f);
         Debug.DrawLine(tableEdge2, tableColliderBounds.center, Color.black, 30f);
@@ -109,7 +92,7 @@ public class LayTheTableManager : TaskManager
 
 
 
-        Vector3 assistantPosition = tableColliderBounds.center + new Vector3(0.3f, 0f, 0f);
+        Vector3 assistantPosition = tableColliderBounds.center;
 
         if (assistantBehaviour != 0)
         {

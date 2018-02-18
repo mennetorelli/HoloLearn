@@ -29,7 +29,7 @@ public class GarbageCollectionManager : TaskManager
     {
         LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour-1);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour);
     }
 
     // Update is called once per frame

@@ -3910,8 +3910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfLevel: 3
-  numberOfPeople: 2
-  targetsVisibility: 0
+  numberOfPeople: 1
+  targetsVisibility: 1
   assistantBehaviour: 2
   assistantPatience: 5
 --- !u!4 &637966315
