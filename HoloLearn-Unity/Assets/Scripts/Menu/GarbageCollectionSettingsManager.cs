@@ -28,7 +28,7 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     public void SetNumberOfWaste()
     {
        HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-       numberOfWaste = (int)slider.SliderValue;
+       numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
     }
 
     public void SetAssistantBehaviour(int assistantBehaviour)
@@ -36,10 +36,10 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
         this.assistantBehaviour = assistantBehaviour;
     }
 
-    public void SetAssistantPatience(int assistantPatience)
+    public void SetAssistantPatience()
     {
         HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-        assistantPatience = Convert.ToInt32(slider.SliderValue);
+        assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
 

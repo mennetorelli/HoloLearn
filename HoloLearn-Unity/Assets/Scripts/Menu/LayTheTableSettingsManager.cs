@@ -46,7 +46,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
     public void SetAssistantPatience()
     {
         HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
-        assistantPatience = Convert.ToInt32(slider.SliderValue);
+        assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
 
@@ -69,7 +69,6 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void RefreshPeopleButtons(GameObject selectedButton)
     {
-      //  InteractiveToggle[] buttons = gameObject.transform.Find("SettingsLTT").GetComponentsInChildren<InteractiveToggle>();
         InteractiveToggle[] buttons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
