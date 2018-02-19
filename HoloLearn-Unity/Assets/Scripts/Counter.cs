@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class Counter : Singleton<Counter> {
 
     private int count;
-    public GameObject endMenu;
-
-
 
 	// Use this for initialization
 	void Start ()

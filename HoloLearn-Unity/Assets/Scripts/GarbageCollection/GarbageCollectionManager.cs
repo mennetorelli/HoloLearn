@@ -90,7 +90,7 @@ public class GarbageCollectionManager : TaskManager
         Transform waste = new GameObject("Waste").transform;
         waste.tag = "ObjectsToBePlaced";
 
-        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.3f);
+        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.5f);
         wastePosition.y = floorPosition.y + 0.1f;
 
         for (int i=0; i<numberOfWaste;)
@@ -113,7 +113,7 @@ public class GarbageCollectionManager : TaskManager
         Counter.Instance.InitializeCounter(waste);
 
 
-        Vector3 assistantPosition = binsPosition + new Vector3(0.3f, 0f, -0.2f);
+        Vector3 assistantPosition = bins.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
 
         if (assistantBehaviour != 0)
