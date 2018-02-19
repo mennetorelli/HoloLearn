@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using HoloToolkit.Unity;
+using HoloToolkit.Unity.InputModule;
+using HoloToolkit.Unity.SpatialMapping;
 
 namespace HoloLearn
 {
@@ -12,7 +14,13 @@ namespace HoloLearn
         {
             if (scene == 0)
             {
-                //distruggere tutti i singleton
+                Destroy(GameObject.Find("MixedRealityCameraParent"));
+                Destroy(GameObject.Find("InputManager"));
+                Destroy(VirtualAssistantManager.Instance.gameObject);
+                Destroy(TaskManager.Instance.gameObject);
+                Destroy(GameObject.Find("Settings"));
+                Destroy(GameObject.Find("SpatialMapping"));
+                Destroy(GameObject.Find("SpatialProcessing"));
             }
             SceneManager.LoadScene(scene);
         }

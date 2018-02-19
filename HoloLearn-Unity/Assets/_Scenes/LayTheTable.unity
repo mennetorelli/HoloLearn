@@ -844,6 +844,10 @@ Prefab:
       propertyPath: BoundsExpansion
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1372766309637194, guid: 8416f306554ae274ca037fa046caf09e, type: 2}
+      propertyPath: m_Name
+      value: SpatialProcessing
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8416f306554ae274ca037fa046caf09e, type: 2}
   m_IsPrefabParent: 0
