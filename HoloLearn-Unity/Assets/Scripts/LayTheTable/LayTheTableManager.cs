@@ -49,11 +49,13 @@ public class LayTheTableManager : TaskManager
         Transform table = TableSelect(TableProcessing.Instance.tables);
 
         Bounds tableColliderBounds = table.GetColliderBounds();
-        Vector3 tableEdge1 = table.TransformPoint(tableColliderBounds.extents.x / 2 - 0.05f, 0f, 0f);
-        Vector3 tableEdge2 = table.TransformPoint(-tableColliderBounds.extents.x / 2 + 0f, 0f, 0f);
-        Vector3 tableEdge3 = table.TransformPoint(0f, -tableColliderBounds.extents.z / 2 + 0.2f, 0f);
-        Vector3 tableEdge4 = table.TransformPoint(0f, tableColliderBounds.extents.z / 2 - 0.2f, 0f);
-            
+
+        Vector3 tableEdge1 = table.TransformPoint(0.4f, 0f, 0f);
+        Vector3 tableEdge2 = table.TransformPoint(-0.4f, 0f, 0f);
+        Vector3 tableEdge3 = table.TransformPoint(0f, -0.4f, 0f);
+        Vector3 tableEdge4 = table.TransformPoint(0f, 0.4f, 0f);
+
+
         List<Vector3> tableEdges = new List<Vector3>() { tableEdge1, tableEdge2, tableEdge3, tableEdge4 };
         Debug.DrawLine(tableEdge1, tableColliderBounds.center, Color.black, 30f);
         Debug.DrawLine(tableEdge2, tableColliderBounds.center, Color.black, 30f);
