@@ -37,7 +37,9 @@ public class BinCollisionManager : MonoBehaviour
         else
         {
             GarbageCollectionManager manager = (GarbageCollectionManager)TaskManager.Instance;
-            if (manager.activeBins.Contains(other.tag))
+            if (manager.activeBins.Contains(other.tag) && 
+                !VirtualAssistantManager.Instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Shaking Head No") &&
+                 !VirtualAssistantManager.Instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
             {
                 VirtualAssistantManager.Instance.ShakeHead();
             }
