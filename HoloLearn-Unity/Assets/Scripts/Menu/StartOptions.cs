@@ -12,11 +12,7 @@ namespace HoloLearn
         {
             if (scene == 0)
             {
-                foreach (GameObject item in SceneManager.GetActiveScene().GetRootGameObjects())
-                {
-                    Debug.Log(item);
-                    // eliminare tutti i singleton
-                }
+                //distruggere tutti i singleton
             }
             SceneManager.LoadScene(scene);
         }
