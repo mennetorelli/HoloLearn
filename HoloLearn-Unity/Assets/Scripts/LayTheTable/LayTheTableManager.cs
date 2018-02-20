@@ -94,7 +94,7 @@ public class LayTheTableManager : TaskManager
 
 
 
-        Vector3 assistantPosition = tableColliderBounds.center;
+        Vector3 assistantPosition = table.TransformPoint(-0.2f, 0f, 0f);
 
         if (assistantBehaviour != 0)
         {
