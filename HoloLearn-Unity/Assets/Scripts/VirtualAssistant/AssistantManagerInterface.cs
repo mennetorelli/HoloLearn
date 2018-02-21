@@ -8,6 +8,7 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
 {
     public int patience;
     public bool IsDragging;
+    public bool IsBusy;
     public Transform targetObject;
 
     // Use this for initialization

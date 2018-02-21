@@ -15,7 +15,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Use this for initialization
         public override void Start()
         {
-
+            IsBusy = false;
         }
 
         // Update is called once per frame

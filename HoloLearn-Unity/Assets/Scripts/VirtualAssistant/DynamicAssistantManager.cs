@@ -14,6 +14,7 @@ namespace Assets.Scripts.VirtualAssistant
         // Use this for initialization
         public override void Start()
         {
+            IsBusy = false;
             IsDragging = false;
         }
 

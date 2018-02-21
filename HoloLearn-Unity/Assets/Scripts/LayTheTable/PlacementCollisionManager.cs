@@ -40,9 +40,7 @@ public class PlacementCollisionManager : MonoBehaviour {
         }
         else
         {
-            if (other.gameObject.tag != "Untagged" &&
-                !VirtualAssistantManager.Instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Shaking Head No") &&
-                 !VirtualAssistantManager.Instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
+            if (other.gameObject.tag != "Untagged" && !VirtualAssistantManager.Instance.IsBusy)
             {
                 VirtualAssistantManager.Instance.ShakeHead();
             }
