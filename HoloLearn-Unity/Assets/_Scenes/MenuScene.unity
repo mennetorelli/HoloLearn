@@ -113,6 +113,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5501713 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1889799061989346, guid: abb2df850d68f894d830c95c299cf10f,
+    type: 2}
+  m_PrefabInternal: {fileID: 209310800}
+--- !u!114 &5501715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 5501713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a04659328138d488c04375b5139990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tag: defaultColor
+  Default: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Focus: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+  Press: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
+  Selected: {r: 0.06666667, g: 0.6117647, b: 0.8745098, a: 1}
+  FocusSelected: {r: 0.29411766, g: 0.7607843, b: 0.9843137, a: 1}
+  PressSelected: {r: 0.14509805, g: 0.5058824, b: 0.68235296, a: 1}
+  Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Button: {fileID: 0}
 --- !u!1 &16377317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1373,8 @@ Prefab:
       propertyPath: Default
       value: Virtual Assistant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114820782642851596, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &209310801 stripped
@@ -3979,7 +4007,8 @@ Prefab:
       propertyPath: OnDeselection.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114820782642851596, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &622074709 stripped
@@ -4857,6 +4886,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 829969647}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &839284558 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1955551686510036, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1347461926}
+--- !u!114 &839284560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839284558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a04659328138d488c04375b5139990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tag: defaultColor
+  Default: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Focus: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+  Press: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
+  Selected: {r: 0.06666667, g: 0.6117647, b: 0.8745098, a: 1}
+  FocusSelected: {r: 0.29411766, g: 0.7607843, b: 0.9843137, a: 1}
+  PressSelected: {r: 0.14509805, g: 0.5058824, b: 0.68235296, a: 1}
+  Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Button: {fileID: 0}
 --- !u!1 &842513458
 GameObject:
   m_ObjectHideFlags: 0
@@ -8641,7 +8697,23 @@ Prefab:
       propertyPath: MinSliderValue
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114039196419911652, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: Default.r
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039196419911652, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: Default.g
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039196419911652, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: Default.b
+      value: 0.7607844
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114039196419911652, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1347461927 stripped
@@ -9951,6 +10023,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1579111159 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1889799061989346, guid: abb2df850d68f894d830c95c299cf10f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653840461}
+--- !u!114 &1579111161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1579111159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a04659328138d488c04375b5139990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tag: defaultColor
+  Default: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Focus: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+  Press: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
+  Selected: {r: 0.06666667, g: 0.6117647, b: 0.8745098, a: 1}
+  FocusSelected: {r: 0.29411766, g: 0.7607843, b: 0.9843137, a: 1}
+  PressSelected: {r: 0.14509805, g: 0.5058824, b: 0.68235296, a: 1}
+  Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Button: {fileID: 0}
 --- !u!1 &1581282845
 GameObject:
   m_ObjectHideFlags: 0
@@ -10786,7 +10885,8 @@ Prefab:
       propertyPath: Default
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114820782642851596, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: abb2df850d68f894d830c95c299cf10f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1653840462 stripped
@@ -12941,6 +13041,33 @@ Transform:
   m_Father: {fileID: 1139431734}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2031457563 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1889799061989346, guid: abb2df850d68f894d830c95c299cf10f,
+    type: 2}
+  m_PrefabInternal: {fileID: 622074708}
+--- !u!114 &2031457565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031457563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a04659328138d488c04375b5139990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tag: defaultColor
+  Default: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Focus: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+  Press: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
+  Selected: {r: 0.06666667, g: 0.6117647, b: 0.8745098, a: 1}
+  FocusSelected: {r: 0.29411766, g: 0.7607843, b: 0.9843137, a: 1}
+  PressSelected: {r: 0.14509805, g: 0.5058824, b: 0.68235296, a: 1}
+  Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  Button: {fileID: 0}
 --- !u!1 &2036283158
 GameObject:
   m_ObjectHideFlags: 0
