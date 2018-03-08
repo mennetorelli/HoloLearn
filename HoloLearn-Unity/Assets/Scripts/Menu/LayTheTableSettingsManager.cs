@@ -45,7 +45,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void SetAssistantPatience()
     {
-        HoloToolkit.Examples.InteractiveElements.SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>();
+        SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>();
         assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
@@ -101,7 +101,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
         InteractiveToggle[] peopleButtons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         peopleButtons[numberOfPeople - 1].SetSelection(true);
 
-        HoloToolkit.Examples.InteractiveElements.InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.Find("TargetCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
+        InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
         if (targetsVisibility==1)
         {
             targetCheckBox.SetSelection(true);
@@ -117,7 +117,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void RefreshAssistantMenu()
     {
-        HoloToolkit.Examples.InteractiveElements.InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("AssistantCheckBox").GetComponent<HoloToolkit.Examples.InteractiveElements.InteractiveToggle>();
+        InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("AssistantCheckBox").GetComponent<InteractiveToggle>();
         if (assistantBehaviour != 0)
         {
             assistantCheckBox.SetSelection(true);
@@ -127,7 +127,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
             if (assistantBehaviour == 2)
             {
                 GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
-                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<HoloToolkit.Examples.InteractiveElements.SliderGestureControl>().SetSliderValue(assistantPatience);
+                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>().SetSliderValue(assistantPatience);
             }
         }
         else
