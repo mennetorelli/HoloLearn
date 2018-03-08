@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// Generic base theme for buttons

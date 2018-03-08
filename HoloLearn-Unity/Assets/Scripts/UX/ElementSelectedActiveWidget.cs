@@ -4,7 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// A widget the activates/deactivates a child or other assigned element

@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// Takes size values, similar to RectTransorm size values or pixel values used in desiger tools and applies them to primitive objects.

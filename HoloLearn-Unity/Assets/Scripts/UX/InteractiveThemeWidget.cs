@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// A version of InteractiveWidget that uses an InteractiveTheme to define each state

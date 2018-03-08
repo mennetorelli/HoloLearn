@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// updates slider UI based on gesture input

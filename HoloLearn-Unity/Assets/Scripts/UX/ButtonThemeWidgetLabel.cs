@@ -6,7 +6,7 @@ using System.Collections;
 using HoloToolkit.Examples.Prototyping;
 using System;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// updates the button label color, position, and text based on Interactive state

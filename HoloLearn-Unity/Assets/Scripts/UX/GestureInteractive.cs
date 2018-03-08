@@ -11,7 +11,7 @@ using Cursor = HoloToolkit.Unity.InputModule.Cursor;
 using UnityEngine.Windows.Speech;
 #endif
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// GestureInteractive extends Interactive and handles more advanced gesture events.

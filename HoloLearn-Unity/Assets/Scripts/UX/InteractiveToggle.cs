@@ -8,7 +8,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine.Windows.Speech;
 #endif
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// InteractiveToggle expands Interactive to expose selection or toggle states.

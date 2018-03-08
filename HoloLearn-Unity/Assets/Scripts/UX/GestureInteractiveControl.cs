@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections;
 using HoloToolkit.Unity;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// GestureInteractiveControl receives gesture updates from GestureInteractive.

@@ -10,7 +10,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine.Windows.Speech;
 #endif
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// Interactive exposes basic button type events to the Unity Editor and receives messages from the GestureManager and GazeManager.

@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     public class Vector3InteractiveTheme : InteractiveTheme<Vector3>
     {

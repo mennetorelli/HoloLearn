@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine.Events;
 using HoloToolkit.Unity.InputModule;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// InteractiveToggleButton expands InteractiveToggle to expose a gaze, down and up state events in the inspector.

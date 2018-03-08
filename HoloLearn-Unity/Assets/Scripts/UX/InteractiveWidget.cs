@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace HoloLearn
+namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
     /// InteractiveState can exist on a child element of the game object containing the Interactive component.
