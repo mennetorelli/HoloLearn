@@ -99,7 +99,15 @@ namespace HoloToolkit.Examples.InteractiveElements
                 if (AllowDeselect && IsSelected)
                 {
                     //Per far rimanere sempre selezionato il bottone
-                    IsSelected = true;
+                    if (GetType() == typeof(InteractiveToggleButton))
+                    {
+                        IsSelected = true;
+                    }                   
+                    else
+                    {
+                        IsSelected = false;
+                    }
+
                     if (!PassiveMode)
                     {
                         OnDeselection.Invoke();
