@@ -3,10 +3,10 @@ HoloLearn is a new way of learning. Thanks to the potential that Mixed Reality a
 
 ### Screenshots
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen1.jpg" height="240"/>
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen2.jpg" height="240"/>
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen3.jpg" height="240"/>
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen4.jpg" height="240"/>
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen5.jpg" height="240"/>
-  <img src="https://raw.githubusercontent.com/Menne/HoloLearn/master/Misc/Screenshots/screen6.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen1.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen2.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen3.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen4.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen5.jpg" height="240"/>
+  <img src="https://raw.githubusercontent.com/mennetorelli/HoloLearn/master/Misc/Screenshots/screen6.jpg" height="240"/>
 </p>
