@@ -167,8 +167,8 @@ public class GarbageCollectionManager : TaskManager
 
         numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
         numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
-        assistantBehaviour = GarbageCollectionSettings.Instance.asistantBehaviour;
-        assistantPatience = GarbageCollectionSettings.Instance.assistantPatience;
+        assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
+        assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
 
         /*List<int> settings = SaveLoad.Instance.ReadSettings();
         numberOfBins = settings.ElementAt(4);

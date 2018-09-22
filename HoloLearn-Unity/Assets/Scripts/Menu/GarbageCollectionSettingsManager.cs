@@ -12,13 +12,11 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 {
     private int numberOfBins;
     private int numberOfWaste;
-    private int assistantBehaviour;
-    private int assistantPatience;
 
     public void Start()
     {
         LoadSettings();
-        RefreshGeneralMenu();
+        RefreshMenu();
     }
 
     public void SetNumberOfBins(int numberOfBins)
@@ -28,38 +26,14 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     
     public void SetNumberOfWaste()
     {
-       SliderGestureControl slider = gameObject.transform.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
+       SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
        numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
-    }
-
-    public void SetAssistantBehaviour(int assistantBehaviour)
-    {
-        this.assistantBehaviour = assistantBehaviour;
-    }
-
-    public void SetAssistantPatience()
-    {
-        SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>();
-        assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
 
     public void RefreshBinsButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
-                button.SetSelection(false);
-            }
-        }
-    }
-    
-    public void RefreshAssistantButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
+        InteractiveToggle[] buttons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
@@ -70,35 +44,14 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     }
 
  
-    public void RefreshGeneralMenu()
+    public void RefreshMenu()
     {
-        InteractiveToggle[] binsButtons = gameObject.transform.Find("SettingsGC").transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] binsButtons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
         binsButtons[numberOfBins - 1].SetSelection(true);
 
-        GameObject.Find("SettingsGC").transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(assistantPatience);
+        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(numberOfWaste);
     }
 
-
-    public void RefreshAssistantMenu()
-    {
-        InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantGC").transform.Find("CheckBox").GetComponent<InteractiveToggle>();
-        if (assistantBehaviour != 0)
-        {
-            assistantCheckBox.SetSelection(true);
-            gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").gameObject.SetActive(true);
-            InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-            assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
-            if (assistantBehaviour == 2)
-            {
-                GameObject.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
-                GameObject.Find("VirtualAssistantGC").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>().SetSliderValue(assistantPatience);
-            }
-        }
-        else
-        {
-            assistantCheckBox.SetSelection(false);
-        }
-    }
 
 
 
@@ -118,8 +71,6 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
         GarbageCollectionSettings.Instance.numberOfBins = numberOfBins;
         GarbageCollectionSettings.Instance.numberOfWaste = numberOfWaste;
-        GarbageCollectionSettings.Instance.asistantBehaviour = assistantBehaviour;
-        GarbageCollectionSettings.Instance.assistantPatience = assistantPatience;
     }
 
     private void LoadSettings()
@@ -140,7 +91,5 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
         numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
         numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
-        assistantBehaviour = GarbageCollectionSettings.Instance.asistantBehaviour;
-        assistantPatience = GarbageCollectionSettings.Instance.assistantPatience;
     }
 }

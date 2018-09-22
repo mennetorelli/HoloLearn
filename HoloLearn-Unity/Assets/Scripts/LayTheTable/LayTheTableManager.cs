@@ -156,8 +156,8 @@ public class LayTheTableManager : TaskManager
         numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
         numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
         targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
-        assistantBehaviour = LayTheTableSettings.Instance.assistantBehaviour;
-        assistantPatience = LayTheTableSettings.Instance.assistantPatience;
+        assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
+        assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
 
         /*List<int> settings = SaveLoad.Instance.ReadSettings();
         numberOfPeople = settings.ElementAt(0);

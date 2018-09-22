@@ -14,14 +14,12 @@ public class LayTheTableSettingsManager : MonoBehaviour
     private int numberOfLevel;
     private int numberOfPeople;
     private int targetsVisibility;
-    private int assistantBehaviour;
-    private int assistantPatience;
     
 
     public void Start()
     {
         LoadSettings();
-        RefreshGeneralMenu();
+        RefreshMenu();
     }
 
     public void SetNumberOfLevel(int numberOfLevel)
@@ -39,26 +37,10 @@ public class LayTheTableSettingsManager : MonoBehaviour
         this.targetsVisibility = targetsVisibility;
     }
 
-    public void SetAssistantBehaviour(int assistantBehaviour)
+    
+    public void RefreshLevelsButtons(GameObject selectedButton)
     {
-        this.assistantBehaviour = assistantBehaviour;
-    }
-
-    public void SetAssistantPatience()
-    {
-        SliderGestureControl slider = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>();
-        assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
-    }
-
-
-
-
-
-
-
-        public void RefreshLevelsButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("SettingsLTT").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
@@ -70,7 +52,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void RefreshPeopleButtons(GameObject selectedButton)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] buttons = gameObject.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in buttons)
         {
             if (button.GetInstanceID() != selectedButton.GetInstanceID())
@@ -80,29 +62,18 @@ public class LayTheTableSettingsManager : MonoBehaviour
         }
     }
 
-    public void RefreshAssistantButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
-                button.SetSelection(false);
-            }
-        }
-    }
+    
 
 
-    public void RefreshGeneralMenu()
+    public void RefreshMenu()
     {
-        InteractiveToggle[] levelButtons = gameObject.transform.Find("SettingsLTT").transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] levelButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         levelButtons[numberOfLevel - 1].SetSelection(true);
 
-        InteractiveToggle[] peopleButtons = gameObject.transform.Find("SettingsLTT").transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle[] peopleButtons = gameObject.transform.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
         peopleButtons[numberOfPeople - 1].SetSelection(true);
 
-        InteractiveToggle targetCheckBox = gameObject.transform.Find("SettingsLTT").transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
+        InteractiveToggle targetCheckBox = gameObject.transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
         if (targetsVisibility==1)
         {
             targetCheckBox.SetSelection(true);
@@ -115,27 +86,6 @@ public class LayTheTableSettingsManager : MonoBehaviour
         
     }
 
-
-    public void RefreshAssistantMenu()
-    {
-        InteractiveToggle assistantCheckBox = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("AssistantCheckBox").GetComponent<InteractiveToggle>();
-        if (assistantBehaviour != 0)
-        {
-            assistantCheckBox.SetSelection(true);
-            gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").gameObject.SetActive(true);
-            InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-            assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
-            if (assistantBehaviour == 2)
-            {
-                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
-                GameObject.Find("VirtualAssistantLTT").transform.Find("RestDisappear").transform.Find("PatientTime").GetComponentInChildren<SliderGestureControl>().SetSliderValue(assistantPatience);
-            }
-        }
-        else
-        {
-            assistantCheckBox.SetSelection(false);
-        }
-    }
 
 
     public void SaveSettings()
@@ -158,8 +108,6 @@ public class LayTheTableSettingsManager : MonoBehaviour
         LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
         LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
         LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
-        LayTheTableSettings.Instance.assistantBehaviour = assistantBehaviour;
-        LayTheTableSettings.Instance.assistantPatience = assistantPatience;
     }
 
     private void LoadSettings()
@@ -182,7 +130,5 @@ public class LayTheTableSettingsManager : MonoBehaviour
         numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
         numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
         targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
-        assistantBehaviour = LayTheTableSettings.Instance.assistantBehaviour;
-        assistantPatience = LayTheTableSettings.Instance.assistantPatience;
     }
 }
