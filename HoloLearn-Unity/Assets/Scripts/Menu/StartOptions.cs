@@ -12,10 +12,9 @@ namespace HoloLearn
     {
         public void ChangeScene(int scene)
         {
-            if (scene == 0)
+            scene++;
+            if (scene == 1)
             {
-                Destroy(GameObject.Find("MixedRealityCameraParent"));
-                Destroy(GameObject.Find("InputManager"));
                 Destroy(VirtualAssistantManager.Instance.gameObject);
                 Destroy(TaskManager.Instance.gameObject);
                 Destroy(GameObject.Find("Settings"));
