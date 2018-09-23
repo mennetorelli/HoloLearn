@@ -5642,18 +5642,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1412023311}
-        m_MethodName: AddPlayerEntry
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -13532,6 +13521,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1412023306}
     m_Modifications:
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22458684, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13628,6 +13621,26 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2037846853}
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1412023311}
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddPlayerEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457174, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d599d113490b337458e83b7a9a4d754f, type: 2}
   m_IsPrefabParent: 0

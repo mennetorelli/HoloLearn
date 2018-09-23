@@ -52,9 +52,10 @@ public class PlayerListSettingsManager : MonoBehaviour {
     public void AddPlayerEntry()
     {
         string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
-        Debug.Log(playerName);
-
         listOfPlayers.Add(playerName);
+
+        Transform playersList = GameObject.Find("PlayersList").transform;
+        Instantiate(PlayerEntry, playersList.transform.position + new Vector3(0f, -0.07f * playersList.childCount, 0f), PlayerEntry.transform.rotation, playersList);
     }
 
     private void LoadSettings()
