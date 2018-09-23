@@ -534,7 +534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
@@ -545,7 +545,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 387533655}
         m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
@@ -1217,7 +1217,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431733}
+      - m_Target: {fileID: 387533649}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -3566,6 +3566,7 @@ GameObject:
   - component: {fileID: 387533653}
   - component: {fileID: 387533652}
   - component: {fileID: 387533651}
+  - component: {fileID: 387533655}
   m_Layer: 0
   m_Name: VirtualAssistantChoice
   m_TagString: Untagged
@@ -3650,6 +3651,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &387533655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 387533649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00ed49a74f9c4c47aace5e4f5535212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &397639083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4380,7 +4392,7 @@ MonoBehaviour:
   OnUpdateEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: SetAssistantPatience
         m_Mode: 1
         m_Arguments:
@@ -5435,8 +5447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b6b370d072244418f1626d337514c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantBehaviour: 0
-  assistantPatience: 0
+  assistantBehaviour: 1
+  assistantPatience: 5
 --- !u!1 &689597553
 GameObject:
   m_ObjectHideFlags: 0
@@ -6361,7 +6373,7 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
@@ -6372,7 +6384,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
@@ -9842,8 +9854,8 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 27b6b370d072244418f1626d337514c8, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 2007472483}
+        m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9956,7 +9968,7 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: SetAssistantBehaviour
         m_Mode: 3
         m_Arguments:
@@ -9978,7 +9990,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139431735}
+      - m_Target: {fileID: 2007472483}
         m_MethodName: RefreshAssistantButtons
         m_Mode: 2
         m_Arguments:
@@ -12410,7 +12422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1478388126
 Transform:
   m_ObjectHideFlags: 0
@@ -15859,8 +15871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00ed49a74f9c4c47aace5e4f5535212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantBehaviour: 2
-  assistantPatience: 3
 --- !u!1 &2019439539
 GameObject:
   m_ObjectHideFlags: 0

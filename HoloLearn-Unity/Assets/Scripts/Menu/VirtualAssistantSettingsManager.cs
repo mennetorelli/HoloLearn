@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class VirtualAssistantSettingsManager : MonoBehaviour {
 
-    public int assistantBehaviour;
-    public int assistantPatience;
+    private int assistantBehaviour;
+    private int assistantPatience;
 
     public void Start()
     {
@@ -33,7 +33,7 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
         if (assistantBehaviour != 0)
         {
             assistantCheckBox.SetSelection(true);
-            gameObject.transform.Find("RestDisappear").gameObject.SetActive(true);
+            gameObject.transform.Find("RestDisappear").transform.GetChild(1).gameObject.SetActive(true);
             InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
             assistantBehaviourButtons[assistantBehaviour - 1].SetSelection(true);
             if (assistantBehaviour == 2)
