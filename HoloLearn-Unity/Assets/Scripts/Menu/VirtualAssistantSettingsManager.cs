@@ -77,7 +77,7 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
             selectedAssistant--;
             GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(true);
         }
-        RefreshArrows();
+        RefreshAssistantChoiceMenu();
     }
 
     public void RightArrowClicked()
@@ -88,11 +88,13 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
             selectedAssistant++;
             GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(true);
         }
-        RefreshArrows();
+        RefreshAssistantChoiceMenu();
     }
 
-    public void RefreshArrows()
+    public void RefreshAssistantChoiceMenu()
     {
+        GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(true);
+
         GameObject.Find("LeftArrow").SetActive(true);
         GameObject.Find("RightArrow").SetActive(true);
         if (selectedAssistant == 0)
