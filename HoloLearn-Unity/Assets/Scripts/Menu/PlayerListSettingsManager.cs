@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HoloToolkit.UI.Keyboard;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -46,6 +47,14 @@ public class PlayerListSettingsManager : MonoBehaviour {
             }
         }
         RefreshMenu();
+    }
+
+    public void AddPlayerEntry()
+    {
+        string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
+        Debug.Log(playerName);
+
+        listOfPlayers.Add(playerName);
     }
 
     private void LoadSettings()
