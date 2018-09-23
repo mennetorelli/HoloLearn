@@ -83,4 +83,10 @@ public class PlayerListSettingsManager : MonoBehaviour {
         listOfPlayers = new List<string>() { "player1", "player2" };
         currentPlayer = PlayerListSettings.Instance.currentPlayer;
     }
+
+    public void SaveSettings()
+    {
+        PlayerListSettings.Instance.listOfPlayers = listOfPlayers;
+        PlayerListSettings.Instance.currentPlayer = currentPlayer;
+    }
 }
