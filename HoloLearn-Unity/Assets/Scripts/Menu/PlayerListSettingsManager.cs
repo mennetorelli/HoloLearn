@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerListSettingsManager : MonoBehaviour {
 
@@ -23,14 +24,16 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
         for (int i=0; i < playersList.childCount; i++)
         {
-            Destroy(playersList.GetChild(0).gameObject);
+            Destroy(playersList.GetChild(i).gameObject);
         }
 
         Vector3 offset = new Vector3();
         for (int i = 0; i < listOfPlayers.Count; i++)
         {
-            Instantiate(PlayerEntry, playersList.transform.position + offset, PlayerEntry.transform.rotation, playersList);
+            GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
             offset += new Vector3(0f, -0.07f, 0f);
+
+            entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = listOfPlayers.ElementAt(i);
         }
 
     }
@@ -55,7 +58,10 @@ public class PlayerListSettingsManager : MonoBehaviour {
         listOfPlayers.Add(playerName);
 
         Transform playersList = GameObject.Find("PlayersList").transform;
-        Instantiate(PlayerEntry, playersList.transform.position + new Vector3(0f, -0.07f * playersList.childCount, 0f), PlayerEntry.transform.rotation, playersList);
+        Vector3 offset = new Vector3(0f, -0.07f * playersList.childCount, 0f);
+        GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
+
+        string labelText = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
     }
 
     private void LoadSettings()
