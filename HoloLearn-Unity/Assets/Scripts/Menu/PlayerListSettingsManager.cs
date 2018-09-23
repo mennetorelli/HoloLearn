@@ -1,4 +1,5 @@
-﻿using HoloToolkit.UI.Keyboard;
+﻿using HoloToolkit.Examples.InteractiveElements;
+using HoloToolkit.UI.Keyboard;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,19 @@ public class PlayerListSettingsManager : MonoBehaviour {
         GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
 
         string labelText = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
+    }
+
+    public void UpdatePlayerSelection(GameObject selectedButton)
+    {
+        InteractiveToggle[] buttons = gameObject.transform.Find("PlayersList").GetComponentsInChildren<InteractiveToggle>();
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (buttons[i].GetInstanceID() != selectedButton.GetInstanceID())
+            {
+                buttons[i].SetSelection(false);
+                currentPlayer = i;
+            }
+        }
     }
 
     private void LoadSettings()
