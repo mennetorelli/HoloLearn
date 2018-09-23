@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerListSettingsManager : MonoBehaviour {
@@ -17,23 +18,34 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
     public void RefreshMenu()
     {
-        GameObject playersList = GameObject.Find("PlayersList");
-        if (playersList.transform.childCount != 0)
+        Transform playersList = GameObject.Find("PlayersList").transform;
+
+        for (int i=0; i < playersList.childCount; i++)
         {
-            GameObject[] playersToRefresh = playersList.GetComponents<GameObject>();
-            foreach (GameObject elem in playersToRefresh)
-            {
-                Destroy(elem);
-            }
+            Destroy(playersList.GetChild(0).gameObject);
         }
 
         Vector3 offset = new Vector3();
         for (int i = 0; i < listOfPlayers.Count; i++)
         {
-            Instantiate(PlayerEntry, playersList.transform.position + offset, PlayerEntry.transform.rotation, playersList.transform);
+            Instantiate(PlayerEntry, playersList.transform.position + offset, PlayerEntry.transform.rotation, playersList);
             offset += new Vector3(0f, -0.07f, 0f);
         }
 
+    }
+
+    public void DeletePlayerEntry(GameObject caller)
+    {
+        Transform playersList = GameObject.Find("PlayersList").transform;
+        for (int i = 0; i < playersList.childCount; i++)
+        {
+            if (playersList.GetChild(i).gameObject.GetInstanceID() == caller.GetInstanceID())
+            {
+                Destroy(playersList.GetChild(i).gameObject.gameObject);
+                listOfPlayers.RemoveAt(i);
+            }
+        }
+        RefreshMenu();
     }
 
     private void LoadSettings()
