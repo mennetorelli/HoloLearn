@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class VirtualAssistantSettingsManager : MonoBehaviour {
 
+    private int selectedAssistant;
     private int assistantBehaviour;
     private int assistantPatience;
 
@@ -13,6 +14,11 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
     {
         LoadSettings();
         RefreshMenu();
+    }
+
+    public void SetSelectedAssistant(int selectedAssistant)
+    {
+        this.selectedAssistant = selectedAssistant;
     }
 
     public void SetAssistantBehaviour(int assistantBehaviour)
@@ -63,15 +69,53 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
     }
 
 
+    public void LeftArrowClicked()
+    {
+        if (selectedAssistant != 0)
+        {
+            GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(false);
+            selectedAssistant--;
+            GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(true);
+        }
+        RefreshArrows();
+    }
+
+    public void RightArrowClicked()
+    {
+        if (selectedAssistant != GameObject.Find("VirtualAssistants").transform.childCount)
+        {
+            GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(false);
+            selectedAssistant++;
+            GameObject.Find("VirtualAssistants").transform.GetChild(selectedAssistant).gameObject.SetActive(true);
+        }
+        RefreshArrows();
+    }
+
+    public void RefreshArrows()
+    {
+        GameObject.Find("LeftArrow").SetActive(true);
+        GameObject.Find("RightArrow").SetActive(true);
+        if (selectedAssistant == 0)
+        {
+            GameObject.Find("LeftArrow").SetActive(false);
+        }
+        if (selectedAssistant == GameObject.Find("VirtualAssistants").transform.childCount-1)
+        {
+            GameObject.Find("RightArrow").SetActive(false);
+        }
+    }
+
 
     public void SaveSettings()
     {
+        VirtualAssistantSettings.Instance.selectedAssistant = selectedAssistant;
         VirtualAssistantSettings.Instance.assistantBehaviour = assistantBehaviour;
         VirtualAssistantSettings.Instance.assistantPatience = assistantPatience;
     }
 
     private void LoadSettings()
     {
+        selectedAssistant = VirtualAssistantSettings.Instance.selectedAssistant;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
         assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
     }

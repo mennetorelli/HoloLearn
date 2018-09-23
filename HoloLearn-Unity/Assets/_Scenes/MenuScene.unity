@@ -3397,30 +3397,8 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431733}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1926796966}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1939977339}
-        m_MethodName: RefreshMenu
+      - m_Target: {fileID: 387533655}
+        m_MethodName: LeftArrowClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3779,8 +3757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00ed49a74f9c4c47aace5e4f5535212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
-    type: 2}
 --- !u!1 &397639083
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,30 +5355,8 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139431733}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1926796966}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1939977339}
-        m_MethodName: RefreshMenu
+      - m_Target: {fileID: 387533655}
+        m_MethodName: RightArrowClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5789,6 +5743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b6b370d072244418f1626d337514c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedAssistant: 0
   assistantBehaviour: 1
   assistantPatience: 5
 --- !u!114 &637966317
@@ -11076,6 +11031,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 387533655}
+        m_MethodName: RefreshArrows
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -15974,7 +15940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00ed49a74f9c4c47aace5e4f5535212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VirtualAssistantsPrefabs: {fileID: 0}
 --- !u!1 &2008741097
 GameObject:
   m_ObjectHideFlags: 0

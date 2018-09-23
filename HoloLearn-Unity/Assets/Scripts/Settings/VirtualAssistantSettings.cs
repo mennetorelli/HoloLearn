@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VirtualAssistantSettings : Singleton<VirtualAssistantSettings>
-{ 
+{
+    public int selectedAssistant;
     public int assistantBehaviour;
     public int assistantPatience;
 }
