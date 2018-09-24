@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-//using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
@@ -54,41 +53,14 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
 
 
-
     public void SaveSettings()
     {
-        /*BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/garbageCollectionSettings.dat");
-
-        GarbageCollectionSettings settings = new GarbageCollectionSettings();
-        settings.numberOfBins = numberOfBins;
-        settings.numberOfWaste = numberOfWaste;
-        settings.asistantBehaviour = assistantBehaviour;
-        settings.assistantPatience = assistantPatience;
-
-        bf.Serialize(file, settings);
-        file.Close();*/
-
         GarbageCollectionSettings.Instance.numberOfBins = numberOfBins;
         GarbageCollectionSettings.Instance.numberOfWaste = numberOfWaste;
     }
 
     private void LoadSettings()
     {
-        /*if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
-
-            GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
-            file.Close();
-
-            numberOfBins = settings.numberOfBins;
-            numberOfWaste = settings.numberOfWaste;
-            assistantBehaviour = settings.asistantBehaviour;
-            assistantPatience = settings.assistantPatience;
-        }*/
-
         numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
         numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
     }

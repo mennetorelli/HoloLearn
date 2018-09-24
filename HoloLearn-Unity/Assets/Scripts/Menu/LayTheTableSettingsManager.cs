@@ -5,7 +5,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-//using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,48 +89,25 @@ public class LayTheTableSettingsManager : MonoBehaviour
     }
 
 
-
-    public void SaveSettings()
-    {
-
-        /*BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/layTheTableSettings.dat");
-
-        LayTheTableSettings settings = new LayTheTableSettings();
-        settings.numberOfLevel = numberOfLevel;
-        settings.numberOfPeople = numberOfPeople;
-        settings.targetsVisibility = targetsVisibility;
-        settings.assistantBehaviour = assistantBehaviour;
-        settings.assistantPatience = assistantPatience;
-
-        bf.Serialize(file, settings);
-        file.Close();*/
-
-        
-        LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
-        LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
-        LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
-    }
-
     private void LoadSettings()
     {
-        /*if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/layTheTableSettings.dat", FileMode.Open);
-
-            LayTheTableSettings settings = (LayTheTableSettings)bf.Deserialize(file);
-            file.Close();
-
-            numberOfPeople = settings.numberOfPeople;
-            numberOfLevel = settings.numberOfLevel;
-            targetsVisibility = settings.targetsVisibility;
-            assistantBehaviour = settings.assistantBehaviour;
-            assistantPatience = settings.assistantPatience;
-        }*/
+        XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
+        XElement root = XElement.Load(new XmlNodeReader(xdoc));
+        IEnumerable<int> settings =
+            from item in root.Elements("LayTheTable")
+            select (int)item;
 
         numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
         numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
         targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
+    }
+
+    public void SaveSettings()
+    {
+        LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
+        LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
+        LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
+
+        SettingsFileManager.Instance.UpdateFile();
     }
 }

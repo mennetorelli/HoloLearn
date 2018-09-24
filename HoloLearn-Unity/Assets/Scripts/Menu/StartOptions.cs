@@ -10,6 +10,12 @@ namespace HoloLearn
 {
     public class StartOptions : MonoBehaviour
     {
+
+        public void Start()
+        {
+
+        }
+
         public void ChangeScene(int scene)
         {
             scene++;
