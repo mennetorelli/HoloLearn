@@ -94,18 +94,19 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
     {
         XElement xml =
             new XElement("Players",
-                new XElement("Player", "Player1",
+                new XElement("Player",
+                new XAttribute("PlayerName", "Menne"),
                     new XElement("LayTheTable",
                         new XAttribute("NumberOfLevel", 2),
                         new XAttribute("NumberOfPeople", 2),
                         new XAttribute("TargetsVisibility", 1)),
                     new XElement("GarbageCollection",
                         new XAttribute("numberOfBins", 2),
-                        new XElement("NumberOfWaste", 5)),
+                        new XAttribute("NumberOfWaste", 5)),
                     new XElement("VirtualAssistant",
-                        new XElement("SelectedAssistant", 0),
-                        new XElement("AssistantBehaviour", 2),
-                        new XElement("AssistantPatience", 5))));
+                        new XAttribute("SelectedAssistant", 0),
+                        new XAttribute("AssistantBehaviour", 2),
+                        new XAttribute("AssistantPatience", 5))));
     }
 
 }
