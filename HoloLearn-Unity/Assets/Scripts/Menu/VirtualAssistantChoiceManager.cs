@@ -16,41 +16,16 @@ public class VirtualAssistantChoiceManager : MonoBehaviour {
         RefreshMenu();
     }
 
-    public void SetSelectedAssistant(GameObject selectedAssistant)
-    {
-        Transform[] assistants = GameObject.Find("VirtualAssistants").gameObject.GetComponentsInChildren<Transform>();
-        int i;
-        for (i = 0; i < assistants.Length; i++)
-        {
-            if (assistants[i].GetInstanceID() == selectedAssistant.GetInstanceID())
-            {
-                break;
-            }
-        }
-        VirtualAssistantSettings.Instance.selectedAssistant = i;
-        RefreshMenu();
-    }
-
 
     public void LeftArrowClicked()
     {
-        if (VirtualAssistantSettings.Instance.selectedAssistant != 0)
-        {
-            GameObject.Find("VirtualAssistants").transform.GetChild(VirtualAssistantSettings.Instance.selectedAssistant).gameObject.SetActive(false);
-            VirtualAssistantSettings.Instance.selectedAssistant--;
-            GameObject.Find("VirtualAssistants").transform.GetChild(VirtualAssistantSettings.Instance.selectedAssistant).gameObject.SetActive(true);
-        }
+        VirtualAssistantSettings.Instance.selectedAssistant--;
         RefreshMenu();
     }
 
     public void RightArrowClicked()
     {
-        if (VirtualAssistantSettings.Instance.selectedAssistant != GameObject.Find("VirtualAssistants").transform.childCount)
-        {
-            GameObject.Find("VirtualAssistants").transform.GetChild(VirtualAssistantSettings.Instance.selectedAssistant).gameObject.SetActive(false);
-            VirtualAssistantSettings.Instance.selectedAssistant++;
-            GameObject.Find("VirtualAssistants").transform.GetChild(VirtualAssistantSettings.Instance.selectedAssistant).gameObject.SetActive(true);
-        }
+        VirtualAssistantSettings.Instance.selectedAssistant++;
         RefreshMenu();
     }
 
