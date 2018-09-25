@@ -12,11 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LayTheTableSettingsManager : MonoBehaviour
-{
-    private int numberOfLevel;
-    private int numberOfPeople;
-    private int targetsVisibility;
-    
+{  
 
     public void Start()
     {
@@ -26,17 +22,17 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void SetNumberOfLevel(int numberOfLevel)
     {
-        this.numberOfLevel = numberOfLevel;
+        LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
     }
 
     public void SetNumberOfPeople(int numberOfPeople)
     {
-        this.numberOfPeople = numberOfPeople;
+        LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
     }
 
     public void SetTargetsVisibility(int targetsVisibility)
     {
-        this.targetsVisibility = targetsVisibility;
+        LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
     }
 
     
@@ -70,13 +66,13 @@ public class LayTheTableSettingsManager : MonoBehaviour
     public void RefreshMenu()
     {
         InteractiveToggle[] levelButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
-        levelButtons[numberOfLevel - 1].SetSelection(true);
+        levelButtons[LayTheTableSettings.Instance.numberOfLevel - 1].SetSelection(true);
 
         InteractiveToggle[] peopleButtons = gameObject.transform.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
-        peopleButtons[numberOfPeople - 1].SetSelection(true);
+        peopleButtons[LayTheTableSettings.Instance.numberOfPeople - 1].SetSelection(true);
 
         InteractiveToggle targetCheckBox = gameObject.transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
-        if (targetsVisibility==1)
+        if (LayTheTableSettings.Instance.targetsVisibility ==1)
         {
             targetCheckBox.SetSelection(true);
         }
@@ -91,23 +87,40 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     private void LoadSettings()
     {
-        XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
-        XElement root = XElement.Load(new XmlNodeReader(xdoc));
+        /*XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
+        XElement root = null;
+        if (xdoc != null)
+        {
+            root = XElement.Load(new XmlNodeReader(xdoc));
+        }*/
+
+
+        XElement root =
+            new XElement("Players",
+                new XElement("Player", "Player1",
+                    new XElement("LayTheTable",
+                        new XAttribute("NumberOfLevel", 2),
+                        new XAttribute("NumberOfPeople", 2),
+                        new XAttribute("TargetVisibility", 1)),
+                    new XElement("GarbageCollection",
+                        new XAttribute("numberOfBins", 2),
+                        new XElement("NumberOfWaste", 5)),
+                    new XElement("VirtualAssistant",
+                        new XElement("SelectedAssistant", 0),
+                        new XElement("AssistantBehaviour", 2),
+                        new XElement("AssistantPatience", 5))));
+
         IEnumerable<int> settings =
-            from item in root.Elements("LayTheTable")
+            from item in root.Elements("Player").Elements("LayTheTable")
+            where (string)item.Element("Player") == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
             select (int)item;
 
-        numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
-        numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
-        targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
+
+        Debug.Log(settings.Count());
     }
 
     public void SaveSettings()
     {
-        LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
-        LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
-        LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
-
         SettingsFileManager.Instance.UpdateFile();
     }
 }

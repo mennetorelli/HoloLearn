@@ -9,9 +9,6 @@ using UnityEngine;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
 {
-    private int numberOfBins;
-    private int numberOfWaste;
-
     public void Start()
     {
         LoadSettings();
@@ -20,13 +17,13 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
     public void SetNumberOfBins(int numberOfBins)
     {
-       this.numberOfBins = numberOfBins;
+       GarbageCollectionSettings.Instance.numberOfBins = numberOfBins;
     }
     
     public void SetNumberOfWaste()
     {
        SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-       numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
+       GarbageCollectionSettings.Instance.numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
     }
 
 
@@ -46,22 +43,19 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     public void RefreshMenu()
     {
         InteractiveToggle[] binsButtons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
-        binsButtons[numberOfBins - 1].SetSelection(true);
+        binsButtons[GarbageCollectionSettings.Instance.numberOfBins - 1].SetSelection(true);
 
-        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(numberOfWaste);
+        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(GarbageCollectionSettings.Instance.numberOfWaste);
     }
 
-
-
-    public void SaveSettings()
-    {
-        GarbageCollectionSettings.Instance.numberOfBins = numberOfBins;
-        GarbageCollectionSettings.Instance.numberOfWaste = numberOfWaste;
-    }
 
     private void LoadSettings()
     {
-        numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
-        numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
+
+    }
+
+    public void SaveSettings()
+    {
+
     }
 }
