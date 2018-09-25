@@ -99,9 +99,9 @@ public class LayTheTableSettingsManager : MonoBehaviour
             new XElement("Players",
                 new XElement("Player", "Player1",
                     new XElement("LayTheTable",
-                        new XAttribute("NumberOfLevel", 2),
-                        new XAttribute("NumberOfPeople", 2),
-                        new XAttribute("TargetVisibility", 1)),
+                        new XAttribute("NumberOfLevel", 3),
+                        new XAttribute("NumberOfPeople", 1),
+                        new XAttribute("TargetsVisibility", 1)),
                     new XElement("GarbageCollection",
                         new XAttribute("numberOfBins", 2),
                         new XElement("NumberOfWaste", 5)),
@@ -110,13 +110,24 @@ public class LayTheTableSettingsManager : MonoBehaviour
                         new XElement("AssistantBehaviour", 2),
                         new XElement("AssistantPatience", 5))));
 
-        IEnumerable<int> settings =
+        IEnumerable<XElement> settings =
             from item in root.Elements("Player").Elements("LayTheTable")
-            where (string)item.Element("Player") == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select (int)item;
+            //where root.Elements("Player") == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item;
 
+        Debug.Log(settings.Cast<XElement>().ToList().ElementAt(0));
 
-        Debug.Log(settings.Count());
+        Debug.Log(LayTheTableSettings.Instance.numberOfLevel);
+        Debug.Log(LayTheTableSettings.Instance.numberOfPeople);
+        Debug.Log(LayTheTableSettings.Instance.targetsVisibility);
+
+        LayTheTableSettings.Instance.numberOfLevel = (int)settings.ElementAt(0).Attribute("NumberOfLevel");
+        LayTheTableSettings.Instance.numberOfPeople = (int)settings.ElementAt(0).Attribute("NumberOfPeople");
+        LayTheTableSettings.Instance.targetsVisibility = (int)settings.ElementAt(0).Attribute("TargetsVisibility");
+
+        Debug.Log(LayTheTableSettings.Instance.numberOfLevel);
+        Debug.Log(LayTheTableSettings.Instance.numberOfPeople);
+        Debug.Log(LayTheTableSettings.Instance.targetsVisibility);
     }
 
     public void SaveSettings()

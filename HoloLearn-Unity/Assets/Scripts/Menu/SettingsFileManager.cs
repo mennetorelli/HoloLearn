@@ -98,7 +98,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
                     new XElement("LayTheTable",
                         new XAttribute("NumberOfLevel", 2),
                         new XAttribute("NumberOfPeople", 2),
-                        new XAttribute("TargetVisibility", 1)),
+                        new XAttribute("TargetsVisibility", 1)),
                     new XElement("GarbageCollection",
                         new XAttribute("numberOfBins", 2),
                         new XElement("NumberOfWaste", 5)),

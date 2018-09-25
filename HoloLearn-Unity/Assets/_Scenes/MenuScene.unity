@@ -5762,8 +5762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a965398b6eeb3a40805d4626cf6d216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listOfPlayers: []
-  currentPlayer: 1
+  listOfPlayers:
+  - Menne
+  - Player 2
+  currentPlayer: 0
 --- !u!114 &637966318
 MonoBehaviour:
   m_ObjectHideFlags: 0
