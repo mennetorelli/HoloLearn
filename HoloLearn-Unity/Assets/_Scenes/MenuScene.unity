@@ -1172,7 +1172,7 @@ Transform:
   - {fileID: 168370473}
   - {fileID: 442415130}
   m_Father: {fileID: 387533650}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &141006166
 MonoBehaviour:
@@ -1196,8 +1196,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 387533655}
-        m_MethodName: SaveSettings
-        m_Mode: 1
+        m_MethodName: SetSelectedAssistant
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1838,13 +1838,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1028877122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0667, y: 0.17, z: -0.01}
+  m_LocalPosition: {x: -0.0667, y: -0.097, z: -0.00999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5501714}
   - {fileID: 85528470}
-  m_Father: {fileID: 2007472478}
-  m_RootOrder: 2
+  m_Father: {fileID: 387533650}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213871325
 GameObject:
@@ -3326,7 +3326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &348692836
 Transform:
   m_ObjectHideFlags: 0
@@ -3340,8 +3340,8 @@ Transform:
   m_Children:
   - {fileID: 2008741098}
   - {fileID: 2133267563}
-  m_Father: {fileID: 387533650}
-  m_RootOrder: 3
+  m_Father: {fileID: 1478388126}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348692837
 MonoBehaviour:
@@ -3645,9 +3645,8 @@ Transform:
   m_Children:
   - {fileID: 1415196820}
   - {fileID: 992729504}
-  - {fileID: 1421798873}
-  - {fileID: 348692836}
-  - {fileID: 594685724}
+  - {fileID: 1478388126}
+  - {fileID: 209310801}
   - {fileID: 141006165}
   m_Father: {fileID: 1393774889}
   m_RootOrder: 3
@@ -3721,7 +3720,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 387533649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00ed49a74f9c4c47aace5e4f5535212, type: 3}
+  m_Script: {fileID: 11500000, guid: 09a069bd573eff9498c7de8a23ddcf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &397639083
@@ -5288,7 +5287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &594685724
 Transform:
   m_ObjectHideFlags: 0
@@ -5302,8 +5301,8 @@ Transform:
   m_Children:
   - {fileID: 1686172216}
   - {fileID: 604344862}
-  m_Father: {fileID: 387533650}
-  m_RootOrder: 4
+  m_Father: {fileID: 1478388126}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &594685725
 MonoBehaviour:
@@ -5715,6 +5714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b6b370d072244418f1626d337514c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assistantPresence: 0
   selectedAssistant: 0
   assistantBehaviour: 1
   assistantPatience: 5
@@ -7413,14 +7413,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 895294244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.106, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 253551615}
   - {fileID: 718533982}
-  m_Father: {fileID: 1478388126}
-  m_RootOrder: 2
+  m_Father: {fileID: 2007472478}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895719669
 GameObject:
@@ -9029,9 +9029,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2007472483}
-        m_MethodName: SetAssistantBehaviour
-        m_Mode: 3
+      - m_Target: {fileID: 387533655}
+        m_MethodName: SetAssistantPresence
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9056,9 +9056,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2007472483}
-        m_MethodName: SetAssistantBehaviour
-        m_Mode: 3
+      - m_Target: {fileID: 387533655}
+        m_MethodName: SetAssistantPresence
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9108,11 +9108,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1031917935}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.09, z: 0}
+  m_LocalPosition: {x: 0, y: 0.14600001, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
-  m_Father: {fileID: 1478388126}
-  m_RootOrder: 0
+  m_Father: {fileID: 2007472478}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!102 &1031917937
 TextMesh:
@@ -10013,7 +10013,7 @@ Transform:
   - {fileID: 1701880184}
   - {fileID: 2146225836}
   m_Father: {fileID: 2007472478}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1183556316
 MonoBehaviour:
@@ -10983,7 +10983,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 387533655}
+      - m_Target: {fileID: 0}
         m_MethodName: RefreshAssistantChoiceMenu
         m_Mode: 1
         m_Arguments:
@@ -12036,13 +12036,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1421798872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: -0.1}
+  m_LocalPosition: {x: 0, y: -0.04, z: -0.100000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453910539}
   - {fileID: 1989486418}
-  m_Father: {fileID: 387533650}
-  m_RootOrder: 2
+  m_Father: {fileID: 1478388126}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450776035
 GameObject:
@@ -12471,27 +12471,27 @@ GameObject:
   m_Component:
   - component: {fileID: 1478388126}
   m_Layer: 0
-  m_Name: RestDisappear
+  m_Name: AssistantPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1478388126
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478388125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1031917936}
-  - {fileID: 1687683823}
-  - {fileID: 895294245}
-  m_Father: {fileID: 2007472478}
-  m_RootOrder: 3
+  - {fileID: 1421798873}
+  - {fileID: 348692836}
+  - {fileID: 594685724}
+  m_Father: {fileID: 387533650}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494232989
 GameObject:
@@ -13716,14 +13716,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1687683822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1190164831}
   - {fileID: 46399960}
   - {fileID: 790001349}
-  m_Father: {fileID: 1478388126}
-  m_RootOrder: 1
+  m_Father: {fileID: 2007472478}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1699533439
 GameObject:
@@ -15841,8 +15841,9 @@ Transform:
   m_Children:
   - {fileID: 178205426}
   - {fileID: 844639426}
-  - {fileID: 209310801}
-  - {fileID: 1478388126}
+  - {fileID: 1031917936}
+  - {fileID: 1687683823}
+  - {fileID: 895294245}
   - {fileID: 1183556315}
   m_Father: {fileID: 1393774889}
   m_RootOrder: 4
