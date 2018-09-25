@@ -15,11 +15,13 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
     public void SetSelectedAssistant(int selectedAssistant)
     {
         VirtualAssistantSettings.Instance.selectedAssistant = selectedAssistant;
+        RefreshMenu();
     }
 
     public void SetAssistantBehaviour(int assistantBehaviour)
     {
         VirtualAssistantSettings.Instance.assistantBehaviour = assistantBehaviour;
+        RefreshMenu();
     }
 
     public void SetAssistantPatience()
@@ -35,9 +37,15 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
         if (VirtualAssistantSettings.Instance.assistantBehaviour != 0)
         {
             assistantCheckBox.SetSelection(true);
+
             gameObject.transform.Find("RestDisappear").transform.GetChild(1).gameObject.SetActive(true);
             InteractiveToggle[] assistantBehaviourButtons = gameObject.transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+            foreach (InteractiveToggle button in assistantBehaviourButtons)
+            {
+                button.SetSelection(false);
+            }
             assistantBehaviourButtons[VirtualAssistantSettings.Instance.assistantBehaviour - 1].SetSelection(true);
+
             if (VirtualAssistantSettings.Instance.assistantBehaviour == 2)
             {
                 transform.Find("RestDisappear").transform.GetChild(2).gameObject.SetActive(true);
@@ -47,20 +55,6 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
         else
         {
             assistantCheckBox.SetSelection(false);
-        }
-    }
-
-
-    public void RefreshAssistantButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("RestDisappear").transform.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
-
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
-                button.SetSelection(false);
-            }
         }
     }
 

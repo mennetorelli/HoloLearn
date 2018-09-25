@@ -23,52 +23,36 @@ public class LayTheTableSettingsManager : MonoBehaviour
     public void SetNumberOfLevel(int numberOfLevel)
     {
         LayTheTableSettings.Instance.numberOfLevel = numberOfLevel;
+        RefreshMenu();
     }
 
     public void SetNumberOfPeople(int numberOfPeople)
     {
         LayTheTableSettings.Instance.numberOfPeople = numberOfPeople;
+        RefreshMenu();
     }
 
     public void SetTargetsVisibility(int targetsVisibility)
     {
         LayTheTableSettings.Instance.targetsVisibility = targetsVisibility;
-    }
-
-    
-    public void RefreshLevelsButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
-                button.SetSelection(false);
-            }
-        }
-    }
-
-    public void RefreshPeopleButtons(GameObject selectedButton)
-    {
-        InteractiveToggle[] buttons = gameObject.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in buttons)
-        {
-            if (button.GetInstanceID() != selectedButton.GetInstanceID())
-            {
-                button.SetSelection(false);
-            }
-        }
-    }
-
-    
+        RefreshMenu();
+    }  
 
 
     public void RefreshMenu()
     {
         InteractiveToggle[] levelButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in levelButtons)
+        {
+            button.SetSelection(false);
+        }
         levelButtons[LayTheTableSettings.Instance.numberOfLevel - 1].SetSelection(true);
 
         InteractiveToggle[] peopleButtons = gameObject.transform.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in peopleButtons)
+        {
+            button.SetSelection(false);
+        }
         peopleButtons[LayTheTableSettings.Instance.numberOfPeople - 1].SetSelection(true);
 
         InteractiveToggle targetCheckBox = gameObject.transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
