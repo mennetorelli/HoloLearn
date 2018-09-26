@@ -18,9 +18,16 @@ using Windows.Data.Xml.Dom;
 #endif
 
 
-public class SettingsFileManager : Singleton<SettingsFileManager> {
+public class SettingsFileManager : Singleton<SettingsFileManager>
+{
+    private XElement root;
+    public XElement GetXML()
+    {
+        return root;
+    }
 
-	public XmlDocument LoadFile()
+
+        public XmlDocument LoadFile()
     {
         XmlDocument xdoc = null;
 
@@ -90,7 +97,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
     }
 
 
-    public XElement CreateNewXML()
+    public void CreateNewXML()
     {
         /*XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
             XElement root = null;
@@ -100,7 +107,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
             }*/
 
 
-        XElement root =
+        root =
             new XElement("Players",
             new XAttribute("CurrentPlayer", 1),
                 new XElement("Player",
@@ -133,8 +140,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
                     new XElement("VirtualAssistantSettings",
                         new XAttribute("AssistantBehaviour", 1),
                         new XAttribute("AssistantPatience", 5))));
-
-        return root;
     }
 
 }

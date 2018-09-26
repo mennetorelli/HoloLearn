@@ -45,7 +45,7 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.CreateNewXML();
+        XElement root = SettingsFileManager.Instance.GetXML();
 
         IEnumerable<XElement> oldSettings =
             from item in root.Elements("Player")
