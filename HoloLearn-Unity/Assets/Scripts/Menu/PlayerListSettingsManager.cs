@@ -28,26 +28,40 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
             entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = PlayerListSettings.Instance.listOfPlayers.ElementAt(i);
         }
-
     }
 
-    public void DeletePlayerEntry(GameObject caller)
+    public void DeletePlayerEntry(GameObject entry)
     {
         Transform playersList = GameObject.Find("PlayersList").transform;
         for (int i = 0; i < playersList.childCount; i++)
         {
-            if (playersList.GetChild(i).gameObject.GetInstanceID() == caller.GetInstanceID())
+            if (playersList.GetChild(i).gameObject.GetInstanceID() == entry.transform.GetChild(0).GetInstanceID())
             {
                 Destroy(playersList.GetChild(i).gameObject.gameObject);
                 PlayerListSettings.Instance.listOfPlayers.RemoveAt(i);
             }
         }
+
+        string playerName = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text;
+
+        int playerIndex = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
+        PlayerListSettings.Instance.listOfPlayers.Remove(playerName);
+
+        XElement root = SettingsFileManager.Instance.GetXML();
+
+        IEnumerable<XElement> players =
+                from item in root.Elements("Player")
+                select item;
+
+        Debug.Log(root);
+        players.ElementAt(playerIndex).Remove();
+        Debug.Log(root);
+
         RefreshMenu();
     }
 
     public void AddPlayerEntry()
     {
-
         string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
         PlayerListSettings.Instance.listOfPlayers.Add(playerName);
 
