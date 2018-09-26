@@ -3,18 +3,13 @@ using HoloToolkit.UI.Keyboard;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerListSettingsManager : MonoBehaviour {
 
     public GameObject PlayerEntry;
-
-    public void Start()
-    {
-        LoadSettings();
-        RefreshMenu();
-    }
 
     public void RefreshMenu()
     {
@@ -75,13 +70,16 @@ public class PlayerListSettingsManager : MonoBehaviour {
         }
     }
 
-    private void LoadSettings()
-    {
-        
-    }
 
     public void SaveSettings()
     {
+        XElement root = SettingsFileManager.Instance.CreateNewXML();
+
+        IEnumerable<XElement> players =
+                from item in root.Elements("Player")
+                select item;
+
         
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

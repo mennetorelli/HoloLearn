@@ -59,16 +59,25 @@ public class LayTheTableSettingsManager : MonoBehaviour
             targetCheckBox.SetSelection(false);
         }
 
-        
     }
 
-
-    private void LoadSettings()
-    {
-    }
 
     public void SaveSettings()
     {
-        SettingsFileManager.Instance.UpdateFile();
+        XElement root = SettingsFileManager.Instance.CreateNewXML();
+
+        IEnumerable<XElement> oldSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("LayTheTableSettings");
+
+        XElement newSettings =
+            new XElement("LayTheTableSettings",
+                new XAttribute("NumberOfLevel", LayTheTableSettings.Instance.numberOfLevel),
+                new XAttribute("NumberOfPeople", LayTheTableSettings.Instance.numberOfPeople),
+                new XAttribute("TargetsVisibility", LayTheTableSettings.Instance.targetsVisibility));
+
+        oldSettings.ElementAt(0).ReplaceWith(newSettings);
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

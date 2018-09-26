@@ -5,6 +5,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
@@ -37,6 +39,19 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
+        XElement root = SettingsFileManager.Instance.CreateNewXML();
 
+        IEnumerable<XElement> oldSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("GarbageCollectionSettings");
+
+        XElement newSettings =
+            new XElement("GarbageCollectionSettings",
+                new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
+                new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste));
+
+        oldSettings.ElementAt(0).ReplaceWith(newSettings);
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

@@ -1,6 +1,8 @@
 ﻿using HoloToolkit.Examples.InteractiveElements;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class VirtualAssistantChoiceManager : MonoBehaviour
@@ -58,6 +60,19 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
 
     public void SaveSettings()
     {
+        XElement root = SettingsFileManager.Instance.CreateNewXML();
 
+        IEnumerable<XElement> oldSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("VirtualAssistantChoice");
+
+        XElement newSettings =
+            new XElement("VirtualAssistantChoice",
+                new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
+                new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant));
+
+        oldSettings.ElementAt(0).ReplaceWith(newSettings);
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

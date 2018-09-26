@@ -56,7 +56,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
 	}
 
 
-	public void UpdateFile()
+	public void UpdateFile(XElement root)
     {
 #if !UNITY_EDITOR && UNITY_METRO
         try {
