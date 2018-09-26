@@ -27,9 +27,8 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     }
 
 
-        public XmlDocument LoadFile()
+    public void LoadFile()
     {
-        XmlDocument xdoc = null;
 
 #if !UNITY_EDITOR && UNITY_METRO
 		try {
@@ -46,10 +45,12 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     if (xmlFile == null)
                     {
                         StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
-                        CreateNewXML(newFile);
                     }
                     
-                    xdoc = await XmlDocument.LoadFromFileAsync(xmlFile);
+                    XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
+                    XDocument xDoc = XDocument.Load(new XmlNodeReader(xmlDoc));
+                    root=xDoc.Root;
+
                 });
             task.Start();
             task.Wait();
@@ -59,12 +60,12 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 		    Debug.Log(e);
 		}
 #endif
-        return xdoc;
-	}
+    }
 
 
-	public void UpdateFile(XElement root)
+    public void UpdateFile(XElement root)
     {
+
 #if !UNITY_EDITOR && UNITY_METRO
         try {
 		    Task task = new Task(
@@ -80,11 +81,11 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     if (xmlFile == null)
                     {
                         StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
-                        CreateNewXML(newFile);
                     }
-                    
-                    XmlDocument xdoc = await XmlDocument.LoadFromFileAsync(xmlFile);
-                    xmlText = xdoc.GetXml();
+                    XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
+                    XDocument xDoc = XDocument.Load(new XmlNodeReader(xmlDoc));
+                    root = xDoc.Root;
+
                 });
             task.Start();
             task.Wait();
