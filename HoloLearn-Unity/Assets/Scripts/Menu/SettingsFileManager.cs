@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using HoloToolkit.Unity;
 using System.Xml.Linq;
-using System.Xml;
 
 
 #if WINDOWS_UWP
@@ -31,34 +30,27 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     {
 
 #if !UNITY_EDITOR && UNITY_METRO
-		try {
-		    Task task = new Task(
-                async () =>
+
+        Task task = new Task(
+            async () =>
+            {      
+		        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                try
                 {
-                    //Get local folder
-                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-
-                    //Get file
-                    StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
-
-                    //Create file if doesn't exist
-                    if (xmlFile == null)
-                    {
-                        StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
-                    }
-                    
+                    var xmlFile = await storageFolder.GetFileAsync("settings.xml");
                     XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
-                    XDocument xDoc = XDocument.Load(new XmlNodeReader(xmlDoc));
-                    root=xDoc.Root;
-
-                });
+                    string xmlText = xmlDoc.GetXml();
+                    root = XElement.Parse(xmlText);
+                }
+                catch
+                {
+                    StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
+                    CreateNewXML();
+                }
+            });
             task.Start();
             task.Wait();
-		}
-		catch (Exception e)
-        {
-		    Debug.Log(e);
-		}
+
 #endif
     }
 
@@ -67,47 +59,24 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     {
 
 #if !UNITY_EDITOR && UNITY_METRO
-        try {
-		    Task task = new Task(
-                async () =>
-                {
-                    //Get local folder
-                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+		   
+        Task task = new Task(
+            async () =>
+            {      
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFile xmlFile = await storageFolder.CreateFileAsync("settings.txt");
+                string xmlText = root.ToString();
+                await FileIO.WriteTextAsync(xmlFile, xmlText);
+        });
+        task.Start();
+        task.Wait();
 
-                    //Get file
-                    StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
-
-                    //Create file if doesn't exist
-                    if (xmlFile == null)
-                    {
-                        StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
-                    }
-                    XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
-                    XDocument xDoc = XDocument.Load(new XmlNodeReader(xmlDoc));
-                    root = xDoc.Root;
-
-                });
-            task.Start();
-            task.Wait();
-		}
-		catch (Exception e)
-        {
-		    Debug.Log(e);
-		}
 #endif
     }
 
 
     public void CreateNewXML()
     {
-        /*XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
-            XElement root = null;
-            if (xdoc != null)
-            {
-                root = XElement.Load(new XmlNodeReader(xdoc));
-            }*/
-
-
         root =
             new XElement("Players",
             new XAttribute("CurrentPlayer", 1),
