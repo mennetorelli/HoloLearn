@@ -28,6 +28,12 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
             entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = PlayerListSettings.Instance.listOfPlayers.ElementAt(i);
         }
+
+        for (int i = 0; i < gameObject.transform.Find("PlayersList").childCount; i++)
+        {
+            Debug.Log(gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetChild(1).GetComponent<TextMesh>().text);
+            gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetComponent<InteractiveToggle>().SetSelection(i == PlayerListSettings.Instance.currentPlayer);
+        }
     }
 
     public void DeletePlayerEntry(GameObject entry)
@@ -53,10 +59,18 @@ public class PlayerListSettingsManager : MonoBehaviour {
                 from item in root.Elements("Player")
                 select item;
 
-        Debug.Log(root);
         players.ElementAt(playerIndex).Remove();
-        Debug.Log(root);
 
+        if (playerIndex == PlayerListSettings.Instance.currentPlayer)
+        {
+            PlayerListSettings.Instance.currentPlayer = 0;
+        }
+        else
+        {
+            PlayerListSettings.Instance.currentPlayer--;
+        }
+
+        LoadSettings();
         RefreshMenu();
     }
 
@@ -102,29 +116,39 @@ public class PlayerListSettingsManager : MonoBehaviour {
                     new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
                     new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience)));
 
-        Debug.Log(root);
         root.Add(newPlayer);
-        Debug.Log(root);
     }
 
-    public void UpdatePlayerSelection(GameObject selectedButton)
+    public void UpdatePlayerSelection(GameObject selectedEntry)
     {
         InteractiveToggle[] buttons = gameObject.transform.Find("PlayersList").GetComponentsInChildren<InteractiveToggle>();
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (buttons[i].GetInstanceID() != selectedButton.GetInstanceID())
+            if (buttons[i].gameObject.GetInstanceID() == selectedEntry.transform.GetChild(0).gameObject.GetInstanceID())
             {
-                buttons[i].SetSelection(false);
+                Debug.Log("true");
+                buttons[i].SetSelection(true);
                 PlayerListSettings.Instance.currentPlayer = i;
+            }
+            else
+            {
+                Debug.Log("false");
+                buttons[i].SetSelection(false);
             }
         }
 
+        LoadSettings();
+    }
+
+
+    public void LoadSettings()
+    {
         XElement root = SettingsFileManager.Instance.GetXML();
 
         IEnumerable<XElement> layTheTableSettings =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-                select item.Element("LayTheTableSettings");
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("LayTheTableSettings");
 
         LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
         LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
@@ -158,7 +182,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
     }
 
-
     public void SaveSettings()
     {
         XElement root = SettingsFileManager.Instance.GetXML();
@@ -167,7 +190,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
                 from item in root.Elements("Player")
                 select item;
 
-        
         SettingsFileManager.Instance.UpdateFile(root);
     }
 }
