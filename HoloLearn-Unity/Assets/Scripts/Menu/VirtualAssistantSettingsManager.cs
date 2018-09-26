@@ -4,13 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VirtualAssistantSettingsManager : MonoBehaviour {
-
-    public void Start()
-    {
-        LoadSettings();
-        RefreshMenu();
-    }
+public class VirtualAssistantSettingsManager : MonoBehaviour
+{
 
     public void SetAssistantBehaviour(int assistantBehaviour)
     {
@@ -51,8 +46,4 @@ public class VirtualAssistantSettingsManager : MonoBehaviour {
         
     }
 
-    private void LoadSettings()
-    {
-        
-    }
 }

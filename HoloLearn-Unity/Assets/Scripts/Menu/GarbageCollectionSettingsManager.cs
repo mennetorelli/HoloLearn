@@ -9,11 +9,6 @@ using UnityEngine;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
 {
-    public void Start()
-    {
-        LoadSettings();
-        RefreshMenu();
-    }
 
     public void SetNumberOfBins(int numberOfBins)
     {
@@ -38,12 +33,6 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
         binsButtons[GarbageCollectionSettings.Instance.numberOfBins - 1].SetSelection(true);
 
         transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(GarbageCollectionSettings.Instance.numberOfWaste);
-    }
-
-
-    private void LoadSettings()
-    {
-
     }
 
     public void SaveSettings()

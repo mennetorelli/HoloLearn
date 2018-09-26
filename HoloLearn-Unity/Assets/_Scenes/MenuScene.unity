@@ -5653,6 +5653,7 @@ GameObject:
   - component: {fileID: 637966315}
   - component: {fileID: 637966314}
   - component: {fileID: 637966313}
+  - component: {fileID: 637966319}
   - component: {fileID: 637966316}
   - component: {fileID: 637966317}
   - component: {fileID: 637966318}
@@ -5714,8 +5715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b6b370d072244418f1626d337514c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantPresence: 0
-  selectedAssistant: 0
   assistantBehaviour: 1
   assistantPatience: 5
 --- !u!114 &637966317
@@ -5729,9 +5728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a965398b6eeb3a40805d4626cf6d216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listOfPlayers:
-  - Menne
-  - Player 2
+  listOfPlayers: []
   currentPlayer: 0
 --- !u!114 &637966318
 MonoBehaviour:
@@ -5744,6 +5741,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4043854e6186cfc429d14ba418bb5802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &637966319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637966312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d067a05c1292a4a4ab02a90a3b1d3ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assistantPresence: 1
+  selectedAssistant: 1
 --- !u!1 &689597553
 GameObject:
   m_ObjectHideFlags: 0

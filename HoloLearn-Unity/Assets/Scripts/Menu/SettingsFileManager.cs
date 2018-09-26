@@ -90,23 +90,51 @@ public class SettingsFileManager : Singleton<SettingsFileManager> {
     }
 
 
-    private void CreateNewXML(object newFile)
+    public XElement CreateNewXML()
     {
-        XElement xml =
+        /*XmlDocument xdoc = SettingsFileManager.Instance.LoadFile();
+            XElement root = null;
+            if (xdoc != null)
+            {
+                root = XElement.Load(new XmlNodeReader(xdoc));
+            }*/
+
+
+        XElement root =
             new XElement("Players",
+            new XAttribute("CurrentPlayer", 1),
                 new XElement("Player",
-                new XAttribute("PlayerName", "Menne"),
-                    new XElement("LayTheTable",
-                        new XAttribute("NumberOfLevel", 2),
-                        new XAttribute("NumberOfPeople", 2),
+                new XAttribute("PlayerName", "Player 1"),
+                    new XElement("LayTheTableSettings",
+                        new XAttribute("NumberOfLevel", 3),
+                        new XAttribute("NumberOfPeople", 1),
                         new XAttribute("TargetsVisibility", 1)),
-                    new XElement("GarbageCollection",
-                        new XAttribute("numberOfBins", 2),
+                    new XElement("GarbageCollectionSettings",
+                        new XAttribute("NumberOfBins", 2),
                         new XAttribute("NumberOfWaste", 5)),
-                    new XElement("VirtualAssistant",
-                        new XAttribute("SelectedAssistant", 0),
+                    new XElement("VirtualAssistantChoice",
+                        new XAttribute("AssistantPresence", 0),
+                        new XAttribute("SelectedAssistant", 1)),
+                    new XElement("VirtualAssistantSettings",
                         new XAttribute("AssistantBehaviour", 2),
+                        new XAttribute("AssistantPatience", 5))),
+            new XElement("Player",
+                new XAttribute("PlayerName", "Player 2"),
+                    new XElement("LayTheTableSettings",
+                        new XAttribute("NumberOfLevel", 1),
+                        new XAttribute("NumberOfPeople", 3),
+                        new XAttribute("TargetsVisibility", 0)),
+                    new XElement("GarbageCollectionSettings",
+                        new XAttribute("NumberOfBins", 3),
+                        new XAttribute("NumberOfWaste", 8)),
+                    new XElement("VirtualAssistantChoice",
+                        new XAttribute("AssistantPresence", 1),
+                        new XAttribute("SelectedAssistant", 0)),
+                    new XElement("VirtualAssistantSettings",
+                        new XAttribute("AssistantBehaviour", 1),
                         new XAttribute("AssistantPatience", 5))));
+
+        return root;
     }
 
 }

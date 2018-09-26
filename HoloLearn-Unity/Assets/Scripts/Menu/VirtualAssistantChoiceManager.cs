@@ -3,36 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VirtualAssistantChoiceManager : MonoBehaviour {
+public class VirtualAssistantChoiceManager : MonoBehaviour
+{
 
-    public void Start()
+    public void SetAssistantPresence(int assistantPresence)
     {
+        VirtualAssistantChoice.Instance.assistantPresence = assistantPresence;
         RefreshMenu();
     }
-
-    public void SetAssistantPresence(bool assistantPresence)
-    {
-        VirtualAssistantSettings.Instance.assistantPresence = assistantPresence;
-        RefreshMenu();
-    }
-
 
     public void LeftArrowClicked()
     {
-        VirtualAssistantSettings.Instance.selectedAssistant--;
+        VirtualAssistantChoice.Instance.selectedAssistant--;
         RefreshMenu();
     }
 
     public void RightArrowClicked()
     {
-        VirtualAssistantSettings.Instance.selectedAssistant++;
+        VirtualAssistantChoice.Instance.selectedAssistant++;
         RefreshMenu();
     }
 
     public void RefreshMenu()
     {
         InteractiveToggle assistantCheckBox = gameObject.transform.Find("AssistantCheckBox").GetComponent<InteractiveToggle>();
-        if (VirtualAssistantSettings.Instance.assistantPresence)
+        if (VirtualAssistantChoice.Instance.assistantPresence == 1)
         {
             assistantCheckBox.SetSelection(true);
 
@@ -41,15 +36,15 @@ public class VirtualAssistantChoiceManager : MonoBehaviour {
             {
                 assistants[i].gameObject.SetActive(false);
             }
-            assistants[VirtualAssistantSettings.Instance.selectedAssistant].gameObject.SetActive(true);
+            assistants[VirtualAssistantChoice.Instance.selectedAssistant].gameObject.SetActive(true);
 
             GameObject.Find("AssistantPanel").transform.GetChild(1).gameObject.SetActive(true);
             GameObject.Find("AssistantPanel").transform.GetChild(2).gameObject.SetActive(true);
-            if (VirtualAssistantSettings.Instance.selectedAssistant == 0)
+            if (VirtualAssistantChoice.Instance.selectedAssistant == 0)
             {
                 GameObject.Find("LeftArrow").SetActive(false);
             }
-            if (VirtualAssistantSettings.Instance.selectedAssistant == GameObject.Find("VirtualAssistants").transform.childCount - 1)
+            if (VirtualAssistantChoice.Instance.selectedAssistant == GameObject.Find("VirtualAssistants").transform.childCount - 1)
             {
                 GameObject.Find("RightArrow").SetActive(false);
             }
@@ -58,5 +53,11 @@ public class VirtualAssistantChoiceManager : MonoBehaviour {
         {
             assistantCheckBox.SetSelection(false);
         }
+    }
+
+
+    public void SaveSettings()
+    {
+
     }
 }
