@@ -17,14 +17,10 @@ namespace HoloLearn
 
         public void Start()
         {
+            SettingsFileManager.Instance.LoadFile();
             XElement root = SettingsFileManager.Instance.GetXML();
-            if (root == null)
-            {
-                SettingsFileManager.Instance.CreateNewXML();
-                root = SettingsFileManager.Instance.GetXML();
-            }
 
-            IEnumerable<XElement> players =
+            IEnumerable <XElement> players =
                 from item in root.Elements("Player")
                 select item;
 

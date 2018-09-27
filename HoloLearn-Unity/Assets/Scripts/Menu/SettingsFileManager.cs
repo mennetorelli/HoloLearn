@@ -8,12 +8,11 @@ using System.Linq;
 using HoloToolkit.Unity;
 using System.Xml.Linq;
 
-
 #if WINDOWS_UWP
 using Windows.Storage;
-using Windows.System;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
+using System;
 #endif
 
 
@@ -31,26 +30,42 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
 #if !UNITY_EDITOR && UNITY_METRO
 
+        
         Task task = new Task(
             async () =>
-            {      
-		        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            {
                 try
                 {
-                    var xmlFile = await storageFolder.GetFileAsync("settings.xml");
-                    XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
-                    string xmlText = xmlDoc.GetXml();
-                    root = XElement.Parse(xmlText);
+		            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
+                    Debug.Log(xmlFile.DisplayName);
+                    if (xmlFile != null)
+                    {
+                        /*XmlDocument xmlDoc = await XmlDocument.LoadFromFileAsync(xmlFile);
+                        Debug.Log(xmlDoc);
+                        string xmlText = xmlDoc.GetXml();
+                        Debug.Log(xmlText);*/
+                        string xmlText = await FileIO.ReadTextAsync(xmlFile);
+                        Debug.Log(xmlText);
+                        root = XElement.Parse(xmlText);
+                        Debug.Log(root);
+                    }
+                    else
+                    {
+                        Debug.Log("file non trovato");
+                        StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
+                        Debug.Log("file creato");
+                        CreateNewXML();
+                    }
                 }
-                catch
+                catch (Exception e)
                 {
-                    StorageFile newFile = await storageFolder.CreateFileAsync("settings.xml");
-                    CreateNewXML();
+                    Debug.Log("reading problem");
+                    Debug.Log(e);
                 }
             });
-            task.Start();
-            task.Wait();
-
+        task.Start();
+        task.Wait();
 #endif
     }
 
@@ -59,18 +74,29 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     {
 
 #if !UNITY_EDITOR && UNITY_METRO
-		   
+		  
         Task task = new Task(
             async () =>
-            {      
-                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                StorageFile xmlFile = await storageFolder.CreateFileAsync("settings.txt");
-                string xmlText = root.ToString();
-                await FileIO.WriteTextAsync(xmlFile, xmlText);
-        });
+            {   
+                try
+                { 
+                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
+                    Debug.Log(xmlFile.DisplayName);
+                    string xmlText = root.ToString();
+                    Debug.Log(xmlText);
+                    await FileIO.WriteTextAsync(xmlFile, xmlText);
+                    Debug.Log("ok");
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("writing problem");
+                    Debug.Log(e);
+                }
+            });
         task.Start();
         task.Wait();
-
+        
 #endif
     }
 
