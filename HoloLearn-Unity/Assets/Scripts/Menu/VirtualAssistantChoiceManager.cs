@@ -73,6 +73,7 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
                 new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant));
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.SetXML(root);
+        SettingsFileManager.Instance.UpdateFile();
     }
 }

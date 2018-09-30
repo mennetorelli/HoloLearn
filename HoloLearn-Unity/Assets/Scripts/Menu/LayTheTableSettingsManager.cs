@@ -78,6 +78,7 @@ public class LayTheTableSettingsManager : MonoBehaviour
                 new XAttribute("TargetsVisibility", LayTheTableSettings.Instance.targetsVisibility));
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.SetXML(root);
+        SettingsFileManager.Instance.UpdateFile();
     }
 }

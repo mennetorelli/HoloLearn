@@ -190,6 +190,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
                 from item in root.Elements("Player")
                 select item;
 
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.SetXML(root);
+        SettingsFileManager.Instance.UpdateFile();
     }
 }

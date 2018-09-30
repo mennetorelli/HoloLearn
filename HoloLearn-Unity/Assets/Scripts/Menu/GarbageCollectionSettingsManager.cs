@@ -52,6 +52,7 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
                 new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste));
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.SetXML(root);
+        SettingsFileManager.Instance.UpdateFile();
     }
 }
