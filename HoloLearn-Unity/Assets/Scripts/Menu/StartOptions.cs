@@ -17,6 +17,7 @@ namespace HoloLearn
 
         public void Start()
         {
+            SettingsFileManager.Instance.CreateFileIfNotExists();
             SettingsFileManager.Instance.LoadFile();
             XElement root = SettingsFileManager.Instance.GetXML();
 
