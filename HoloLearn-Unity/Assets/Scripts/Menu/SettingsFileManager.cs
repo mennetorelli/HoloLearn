@@ -49,6 +49,64 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     }
 
 
+    public int LoadCurrentPlayerSelection()
+    {
+        XElement root = LoadFile();
+
+        IEnumerable<XElement> players =
+                        from item in root.Elements("Player")
+                        select item;
+
+        PlayerListSettings.Instance.listOfPlayers.Clear();
+        foreach (XElement item in players)
+        {
+            PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
+        }
+        PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
+
+        return (int)root.Attribute("CurrentPlayer");
+    }
+
+    public void LoadCurrentPlayerSettings(int playerIndex)
+    {
+        XElement root = LoadFile();
+
+        IEnumerable<XElement> layTheTableSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("LayTheTableSettings");
+
+        LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
+        LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
+        LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
+
+        IEnumerable<XElement> garbageCollectionSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("GarbageCollectionSettings");
+
+        GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
+        GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
+
+        IEnumerable<XElement> virtualAssistantChoice =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("VirtualAssistantChoice");
+
+        VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
+        VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
+
+        IEnumerable<XElement> virtualAssistantSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("VirtualAssistantSettings");
+
+        VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
+        VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+    }
+
+
+
     public void UpdateFile(XElement root)
     {
 
@@ -154,4 +212,49 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         Debug.Log(root);
     }
 
+    public void AddPlayerSettings()
+    {
+        XElement root = LoadFile();
+        root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
+
+        XElement newPlayer =
+            new XElement("Player",
+            new XAttribute("PlayerName", PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)),
+                new XElement("LayTheTableSettings",
+                    new XAttribute("NumberOfLevel", LayTheTableSettings.Instance.numberOfLevel),
+                    new XAttribute("NumberOfPeople", LayTheTableSettings.Instance.numberOfPeople),
+                    new XAttribute("TargetsVisibility", LayTheTableSettings.Instance.targetsVisibility)),
+                new XElement("GarbageCollectionSettings",
+                    new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
+                    new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste)),
+                new XElement("VirtualAssistantChoice",
+                    new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
+                    new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant)),
+                new XElement("VirtualAssistantSettings",
+                    new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
+                    new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience)));
+
+        root.Add(newPlayer);
+        UpdateFile(root);
+    }
+
+    public void DeletePlayerSettings(int playerIndex)
+    {
+        XElement root = LoadFile();
+
+        IEnumerable<XElement> players =
+                from item in root.Elements("Player")
+                select item;
+
+        players.ElementAt(playerIndex).Remove();
+        UpdateFile(root);
+    }
+
+    public void UpdatePlayerSelectionSettings(int playerIndex)
+    {
+        XElement root = LoadFile();
+        root.SetAttributeValue("CurrentPlayer", playerIndex);
+        UpdateFile(root);
+        LoadCurrentPlayerSettings(playerIndex);
+    }
 }

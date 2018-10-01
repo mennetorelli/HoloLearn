@@ -52,24 +52,14 @@ public class PlayerListSettingsManager : MonoBehaviour {
         int playerIndex = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
         PlayerListSettings.Instance.listOfPlayers.Remove(playerName);
 
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> players =
-                from item in root.Elements("Player")
-                select item;
-
-        players.ElementAt(playerIndex).Remove();
-
+        SettingsFileManager.Instance.DeletePlayerSettings(playerIndex);
 
         if (playerIndex >= PlayerListSettings.Instance.currentPlayer)
         {
             PlayerListSettings.Instance.currentPlayer--;  
         }
-
-        root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
-        SettingsFileManager.Instance.UpdateFile(root);
-
-        LoadCurrentPlayerSettings();
+        SettingsFileManager.Instance.UpdatePlayerSelectionSettings(PlayerListSettings.Instance.currentPlayer);
+        
         RefreshMenu();
     }
 
@@ -85,6 +75,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
         string labelText = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
 
         PlayerListSettings.Instance.currentPlayer = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
+        SettingsFileManager.Instance.UpdatePlayerSelectionSettings(PlayerListSettings.Instance.currentPlayer);
 
         LayTheTableSettings.Instance.numberOfLevel = 1;
         LayTheTableSettings.Instance.numberOfPeople = 1;
@@ -96,27 +87,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantBehaviour = 1;
         VirtualAssistantSettings.Instance.assistantPatience = 5;
 
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        XElement newPlayer =
-            new XElement("Player",
-            new XAttribute("PlayerName", PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)),
-                new XElement("LayTheTableSettings",
-                    new XAttribute("NumberOfLevel", LayTheTableSettings.Instance.numberOfLevel),
-                    new XAttribute("NumberOfPeople", LayTheTableSettings.Instance.numberOfPeople),
-                    new XAttribute("TargetsVisibility", LayTheTableSettings.Instance.targetsVisibility)),
-                new XElement("GarbageCollectionSettings",
-                    new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
-                    new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste)),
-                new XElement("VirtualAssistantChoice",
-                    new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
-                    new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant)),
-                new XElement("VirtualAssistantSettings",
-                    new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
-                    new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience)));
-
-        root.Add(newPlayer);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.AddPlayerSettings();
     }
 
     public void UpdatePlayerSelection(GameObject selectedEntry)
@@ -135,50 +106,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
             }
         }
 
-        XElement root = SettingsFileManager.Instance.LoadFile();
-        root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
-        SettingsFileManager.Instance.UpdateFile(root);
-
-        LoadCurrentPlayerSettings();
-    }
-
-
-    private void LoadCurrentPlayerSettings()
-    {
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> layTheTableSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("LayTheTableSettings");
-
-        LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
-        LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
-        LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
-
-        IEnumerable<XElement> garbageCollectionSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("GarbageCollectionSettings");
-
-        GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
-        GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
-
-        IEnumerable<XElement> virtualAssistantChoice =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("VirtualAssistantChoice");
-
-        VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
-        VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
-
-        IEnumerable<XElement> virtualAssistantSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("VirtualAssistantSettings");
-
-        VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
-        VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+        SettingsFileManager.Instance.UpdatePlayerSelectionSettings(PlayerListSettings.Instance.currentPlayer);
     }
 
 }
