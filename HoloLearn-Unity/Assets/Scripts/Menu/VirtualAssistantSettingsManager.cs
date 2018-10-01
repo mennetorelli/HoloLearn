@@ -45,20 +45,12 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> oldSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("VirtualAssistantSettings");
-
         XElement newSettings =
             new XElement("VirtualAssistantSettings",
                 new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
                 new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience));
 
-        oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.UpdatePlayerSettings(newSettings);
     }
 
 }

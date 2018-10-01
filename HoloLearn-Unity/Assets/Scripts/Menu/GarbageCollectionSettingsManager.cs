@@ -39,19 +39,11 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> oldSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("GarbageCollectionSettings");
-
         XElement newSettings =
             new XElement("GarbageCollectionSettings",
                 new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
                 new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste));
 
-        oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.UpdatePlayerSettings(newSettings);
     }
 }

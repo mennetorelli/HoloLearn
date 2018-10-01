@@ -64,20 +64,12 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> oldSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-            select item.Element("LayTheTableSettings");
-
         XElement newSettings =
             new XElement("LayTheTableSettings",
                 new XAttribute("NumberOfLevel", LayTheTableSettings.Instance.numberOfLevel),
                 new XAttribute("NumberOfPeople", LayTheTableSettings.Instance.numberOfPeople),
                 new XAttribute("TargetsVisibility", LayTheTableSettings.Instance.targetsVisibility));
 
-        oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.UpdateFile(root);
+        SettingsFileManager.Instance.UpdatePlayerSettings(newSettings);
     }
 }

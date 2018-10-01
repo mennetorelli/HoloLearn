@@ -138,4 +138,20 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
 #endif
     }
+
+
+    public void UpdatePlayerSettings(XElement newSettings)
+    {
+        XElement root = LoadFile();
+
+        IEnumerable<XElement> oldSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element(newSettings.Name);
+
+        oldSettings.ElementAt(0).ReplaceWith(newSettings);
+        UpdateFile(root);
+        Debug.Log(root);
+    }
+
 }
