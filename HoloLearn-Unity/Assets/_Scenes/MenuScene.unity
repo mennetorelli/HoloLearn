@@ -3755,7 +3755,7 @@ Transform:
   - {fileID: 1674818990}
   - {fileID: 1007640868}
   m_Father: {fileID: 1412023306}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &397639085
 MonoBehaviour:
@@ -3792,17 +3792,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1926796966}
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1412023311}
-        m_MethodName: SaveSettings
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11716,8 +11705,8 @@ Transform:
   - {fileID: 1099110980}
   - {fileID: 314310228}
   - {fileID: 699508742}
-  - {fileID: 397639084}
   - {fileID: 1823874093}
+  - {fileID: 397639084}
   - {fileID: 1704577864}
   m_Father: {fileID: 1393774889}
   m_RootOrder: 5
@@ -15015,7 +15004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412023306}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1827408446
 Prefab:

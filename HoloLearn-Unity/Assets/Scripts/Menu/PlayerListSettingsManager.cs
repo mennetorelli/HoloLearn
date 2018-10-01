@@ -31,7 +31,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
         for (int i = 0; i < gameObject.transform.Find("PlayersList").childCount; i++)
         {
-            Debug.Log(gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetChild(1).GetComponent<TextMesh>().text);
             gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetComponent<InteractiveToggle>().SetSelection(i == PlayerListSettings.Instance.currentPlayer);
         }
     }
@@ -61,16 +60,16 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
         players.ElementAt(playerIndex).Remove();
 
-        if (playerIndex == PlayerListSettings.Instance.currentPlayer)
+
+        if (playerIndex >= PlayerListSettings.Instance.currentPlayer)
         {
-            PlayerListSettings.Instance.currentPlayer = 0;
-        }
-        else
-        {
-            PlayerListSettings.Instance.currentPlayer--;
+            PlayerListSettings.Instance.currentPlayer--;  
         }
 
-        LoadSettings();
+        root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
+        SettingsFileManager.Instance.UpdateFile(root);
+
+        LoadCurrentPlayerSettings();
         RefreshMenu();
     }
 
@@ -117,6 +116,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
                     new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience)));
 
         root.Add(newPlayer);
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 
     public void UpdatePlayerSelection(GameObject selectedEntry)
@@ -135,11 +135,15 @@ public class PlayerListSettingsManager : MonoBehaviour {
             }
         }
 
-        SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadFile());
+        XElement root = SettingsFileManager.Instance.LoadFile();
+        root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
+        SettingsFileManager.Instance.UpdateFile(root);
+
+        LoadCurrentPlayerSettings();
     }
 
 
-    public void LoadSettings()
+    private void LoadCurrentPlayerSettings()
     {
         XElement root = SettingsFileManager.Instance.LoadFile();
 
@@ -152,7 +156,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
         LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
         LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
 
-
         IEnumerable<XElement> garbageCollectionSettings =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
@@ -161,7 +164,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
         GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
         GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
 
-
         IEnumerable<XElement> virtualAssistantChoice =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
@@ -169,7 +171,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
         VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
         VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
-
 
         IEnumerable<XElement> virtualAssistantSettings =
             from item in root.Elements("Player")
@@ -180,14 +181,4 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
     }
 
-    public void SaveSettings()
-    {
-        XElement root = SettingsFileManager.Instance.LoadFile();
-
-        IEnumerable<XElement> players =
-                from item in root.Elements("Player")
-                select item;
-
-        SettingsFileManager.Instance.UpdateFile(root);
-    }
 }
