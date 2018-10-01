@@ -54,8 +54,8 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         XElement root = LoadFile();
 
         IEnumerable<XElement> players =
-                        from item in root.Elements("Player")
-                        select item;
+            from item in root.Elements("Player")
+            select item;
 
         PlayerListSettings.Instance.listOfPlayers.Clear();
         foreach (XElement item in players)
@@ -209,7 +209,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
         UpdateFile(root);
-        Debug.Log(root);
     }
 
     public void AddPlayerSettings()

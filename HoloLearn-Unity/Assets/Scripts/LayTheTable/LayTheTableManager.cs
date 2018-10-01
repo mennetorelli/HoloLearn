@@ -6,7 +6,6 @@ using System.Linq;
 using UnityEngine;
 using System;
 using System.IO;
-//using System.Runtime.Serialization.Formatters.Binary;
 
 public class LayTheTableManager : TaskManager
 {
@@ -18,6 +17,8 @@ public class LayTheTableManager : TaskManager
     private int numberOfLevel;
     private int numberOfPeople;
     private int targetsVisibility;
+    private int assistantPresence;
+    private int selectedAssistant;
     private int assistantBehaviour;
     private int assistantPatience;
 
@@ -30,7 +31,7 @@ public class LayTheTableManager : TaskManager
         LoadSettings();
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(assistantBehaviour);
         placementManager = PlacementsManagerPrefabs.transform.GetChild(targetsVisibility);
         Instantiate(placementManager);
     }
@@ -138,33 +139,12 @@ public class LayTheTableManager : TaskManager
 
     private void LoadSettings()
     {
-        /*if (File.Exists(Application.persistentDataPath + "/layTheTableSettings.dat"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/layTheTableSettings.dat", FileMode.Open);
-
-            LayTheTableSettings settings = (LayTheTableSettings)bf.Deserialize(file);
-            file.Close();
-
-            numberOfPeople = settings.numberOfPeople;
-            numberOfLevel = settings.numberOfLevel;
-            targetsVisibility = settings.targetsVisibility;
-            assistantBehaviour = settings.assistantBehaviour;
-            assistantPatience = settings.assistantPatience;
-        }*/
-
         numberOfPeople = LayTheTableSettings.Instance.numberOfPeople;
         numberOfLevel = LayTheTableSettings.Instance.numberOfLevel;
         targetsVisibility = LayTheTableSettings.Instance.targetsVisibility;
+        assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
+        selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
         assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
-
-        /*List<int> settings = SaveLoad.Instance.ReadSettings();
-        numberOfPeople = settings.ElementAt(0);
-        numberOfLevel = settings.ElementAt(1);
-        targetsVisibility = settings.ElementAt(2);
-        assistantBehaviour = settings.ElementAt(3);
-        assistantPatience = settings.ElementAt(4);*/
-
     }
 }

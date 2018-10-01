@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-//using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class GarbageCollectionManager : TaskManager
@@ -17,6 +16,8 @@ public class GarbageCollectionManager : TaskManager
 
     private int numberOfBins;
     private int numberOfWaste;
+    private int assistantPresence;
+    private int selectedAssistant;
     private int assistantBehaviour;
     private int assistantPatience;
 
@@ -29,7 +30,7 @@ public class GarbageCollectionManager : TaskManager
     {
         LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(assistantBehaviour);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant+1).GetChild(assistantBehaviour);
     }
 
     // Update is called once per frame
@@ -116,7 +117,7 @@ public class GarbageCollectionManager : TaskManager
         Vector3 assistantPosition = bins.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
 
-        if (assistantBehaviour != 0)
+        if (assistantPresence != 0)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             VirtualAssistantManager.Instance.patience = assistantPatience;
@@ -151,29 +152,11 @@ public class GarbageCollectionManager : TaskManager
 
     private void LoadSettings()
     {
-        /*if (File.Exists(Application.persistentDataPath + "/garbageCollectionSettings.dat"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/garbageCollectionSettings.dat", FileMode.Open);
-
-            GarbageCollectionSettings settings = (GarbageCollectionSettings)bf.Deserialize(file);
-            file.Close();
-
-            numberOfBins = settings.numberOfBins;
-            numberOfWaste = settings.numberOfWaste;
-            assistantBehaviour = settings.asistantBehaviour;
-            assistantPatience = settings.assistantPatience;
-        }*/
-
         numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
         numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
+        assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
+        selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
         assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
-
-        /*List<int> settings = SaveLoad.Instance.ReadSettings();
-        numberOfBins = settings.ElementAt(4);
-        numberOfWaste = settings.ElementAt(5);
-        assistantBehaviour = settings.ElementAt(6);
-        assistantPatience = settings.ElementAt(7);*/
     }
 }
