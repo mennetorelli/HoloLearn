@@ -53,7 +53,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
         int playerIndex = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
         PlayerListSettings.Instance.listOfPlayers.Remove(playerName);
 
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         IEnumerable<XElement> players =
                 from item in root.Elements("Player")
@@ -97,7 +97,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantBehaviour = 1;
         VirtualAssistantSettings.Instance.assistantPatience = 5;
 
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         XElement newPlayer =
             new XElement("Player",
@@ -126,24 +126,22 @@ public class PlayerListSettingsManager : MonoBehaviour {
         {
             if (buttons[i].gameObject.GetInstanceID() == selectedEntry.transform.GetChild(0).gameObject.GetInstanceID())
             {
-                Debug.Log("true");
                 buttons[i].SetSelection(true);
                 PlayerListSettings.Instance.currentPlayer = i;
             }
             else
             {
-                Debug.Log("false");
                 buttons[i].SetSelection(false);
             }
         }
 
-        LoadSettings();
+        SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadFile());
     }
 
 
     public void LoadSettings()
     {
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         IEnumerable<XElement> layTheTableSettings =
             from item in root.Elements("Player")
@@ -184,13 +182,12 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         IEnumerable<XElement> players =
                 from item in root.Elements("Player")
                 select item;
 
-        SettingsFileManager.Instance.SetXML(root);
-        SettingsFileManager.Instance.UpdateFile();
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

@@ -39,7 +39,7 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         IEnumerable<XElement> oldSettings =
             from item in root.Elements("Player")
@@ -52,7 +52,6 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
                 new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste));
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.SetXML(root);
-        SettingsFileManager.Instance.UpdateFile();
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }

@@ -18,24 +18,14 @@ using System;
 
 public class SettingsFileManager : Singleton<SettingsFileManager>
 {
-    private XElement root;
-    public XElement GetXML()
-    {
-        return root;
-    }
-    public void SetXML(XElement root)
-    {
-        this.root = root;
-    }
 
-
-    public void LoadFile()
+    public XElement LoadFile()
     {
+        XElement root = null;
 
 #if !UNITY_EDITOR && UNITY_METRO
         
-        Task task = new Task(
-            async () =>
+        Task<Task> task = new Task<Task>(async () =>
             {
                 try
                 {
@@ -44,53 +34,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     string xmlText = await FileIO.ReadTextAsync(xmlFile);
                     root = XElement.Parse(xmlText);
                     Debug.Log(root);
-
-                    IEnumerable <XElement> players =
-                        from item in root.Elements("Player")
-                        select item;
-
-                    foreach (XElement item in players)
-                    {
-                        PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
-                    }
-                    PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
-                    Debug.Log(PlayerListSettings.Instance.currentPlayer);
-
-                    IEnumerable<XElement> layTheTableSettings =
-                        from item in root.Elements("Player")
-                        where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-                        select item.Element("LayTheTableSettings");
-
-                    LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
-                    LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
-                    LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
-
-
-                    IEnumerable<XElement> garbageCollectionSettings =
-                        from item in root.Elements("Player")
-                        where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-                        select item.Element("GarbageCollectionSettings");
-
-                    GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
-                    GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
-
-
-                    IEnumerable<XElement> virtualAssistantChoice =
-                        from item in root.Elements("Player")
-                        where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-                        select item.Element("VirtualAssistantChoice");
-
-                    VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
-                    VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
-
-
-                    IEnumerable<XElement> virtualAssistantSettings =
-                        from item in root.Elements("Player")
-                        where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
-                        select item.Element("VirtualAssistantSettings");
-
-                    VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
-                    VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
                 }
                 catch (Exception e)
                 {
@@ -98,25 +41,76 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                 }
             });
         task.Start();
-        task.Wait();
+        task.Wait(); 
+        task.Result.Wait();
+
+        Debug.Log(root);
 #endif
+        return root;
     }
 
 
-    public void UpdateFile()
+    public void LoadCurrentPlayerSettings(XElement root)
+    {
+        IEnumerable<XElement> players =
+                        from item in root.Elements("Player")
+                        select item;
+
+        foreach (XElement item in players)
+        {
+            PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
+        }
+        PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
+
+        IEnumerable<XElement> layTheTableSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("LayTheTableSettings");
+
+        LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
+        LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
+        LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
+
+        IEnumerable<XElement> garbageCollectionSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("GarbageCollectionSettings");
+
+        GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
+        GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
+
+        IEnumerable<XElement> virtualAssistantChoice =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("VirtualAssistantChoice");
+
+        VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
+        VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
+
+        IEnumerable<XElement> virtualAssistantSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(PlayerListSettings.Instance.currentPlayer)
+            select item.Element("VirtualAssistantSettings");
+
+        VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
+        VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+
+        
+    }
+
+
+    public void UpdateFile(XElement root)
     {
 
 #if !UNITY_EDITOR && UNITY_METRO
 		  
-        Task task = new Task(
-            async () =>
+       Task<Task> task = new Task<Task>(async () =>
             {   
                 try
-                { 
+                {
                     StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
                     StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
                     string xmlText = root.ToString();
-                    //Debug.Log(xmlText);
                     await FileIO.WriteTextAsync(xmlFile, xmlText);
                 }
                 catch (Exception e)
@@ -125,7 +119,8 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                 }
             });
         task.Start();
-        task.Wait();
+        task.Wait(); 
+        task.Result.Wait();
         
 #endif
     }
@@ -136,8 +131,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
 #if !UNITY_EDITOR && UNITY_METRO
 		  
-        Task task = new Task(
-            async () =>
+        Task<Task> task = new Task<Task>(async () =>
             {   
                 try
                 { 
@@ -146,7 +140,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     string xmlText = await FileIO.ReadTextAsync(xmlFile);
                     if (xmlText == "")
                     {
-                        root =
+                        XElement root =
                             new XElement("Players",
                             new XAttribute("CurrentPlayer", 1),
                                 new XElement("Player",
@@ -189,7 +183,9 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                 }
             });
         task.Start();
-        task.Wait();
+        task.Wait(); 
+        task.Result.Wait();
+
 #endif
     }
 }

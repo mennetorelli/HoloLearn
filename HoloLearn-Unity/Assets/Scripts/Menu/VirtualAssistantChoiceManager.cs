@@ -60,7 +60,7 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
 
     public void SaveSettings()
     {
-        XElement root = SettingsFileManager.Instance.GetXML();
+        XElement root = SettingsFileManager.Instance.LoadFile();
 
         IEnumerable<XElement> oldSettings =
             from item in root.Elements("Player")
@@ -73,7 +73,6 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
                 new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant));
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
-        SettingsFileManager.Instance.SetXML(root);
-        SettingsFileManager.Instance.UpdateFile();
+        SettingsFileManager.Instance.UpdateFile(root);
     }
 }
