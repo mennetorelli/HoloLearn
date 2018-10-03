@@ -30,4 +30,6 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     public abstract void SetTriggers();
 
     public abstract void CommandReceived();
+
+    public abstract void Talk();
 }

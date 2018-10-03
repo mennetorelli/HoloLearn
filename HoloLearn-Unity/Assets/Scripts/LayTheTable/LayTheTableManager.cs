@@ -31,7 +31,7 @@ public class LayTheTableManager : TaskManager
         LoadSettings();
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(assistantBehaviour);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(assistantBehaviour-1);
         placementManager = PlacementsManagerPrefabs.transform.GetChild(targetsVisibility);
         Instantiate(placementManager);
     }

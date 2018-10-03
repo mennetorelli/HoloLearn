@@ -78,5 +78,10 @@ namespace Assets.Scripts.VirtualAssistant
         {
             // Nothing to do
         }
+
+        public override void Talk()
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Talk");
+        }
     }
 }

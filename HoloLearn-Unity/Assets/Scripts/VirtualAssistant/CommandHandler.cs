@@ -30,4 +30,9 @@ public class CommandHandler : MonoBehaviour, ISpeechHandler
         VirtualAssistantManager.Instance.CommandReceived();
     }
 
+    public void Talk()
+    {
+        VirtualAssistantManager.Instance.Talk();
+    }
+
 }

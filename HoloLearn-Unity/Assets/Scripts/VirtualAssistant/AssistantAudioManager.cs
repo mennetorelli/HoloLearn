@@ -24,4 +24,9 @@ public class AssistantAudioManager : MonoBehaviour
         UAudioManager.Instance.PlayEvent(Jump);
     }
 
+    public void PlayTextToSpeech()
+    {
+        GetComponent<TextToSpeech>().StartSpeaking("ciao, testa di cazzo");
+    }
+
 }
