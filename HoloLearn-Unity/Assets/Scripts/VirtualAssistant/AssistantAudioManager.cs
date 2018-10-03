@@ -26,7 +26,7 @@ public class AssistantAudioManager : MonoBehaviour
 
     public void PlayTextToSpeech()
     {
-        GetComponent<TextToSpeech>().StartSpeaking("ciao, testa di cazzo");
+        GetComponent<TextToSpeech>().StartSpeaking("Hi, I'm Ty, your virtual assistant");
     }
 
 }
