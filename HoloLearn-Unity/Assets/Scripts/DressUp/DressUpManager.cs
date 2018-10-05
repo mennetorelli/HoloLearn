@@ -68,31 +68,24 @@ public class DressUpManager : TaskManager
         rotation.z = 0f;
 
         Transform weather = new GameObject("Weather").transform;
-        Transform selectedWeather = WeatherPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
+        Transform selectedWeather = WeatherPrefabs.transform.GetChild(rnd.Next(0, WeatherPrefabs.transform.childCount));
         Instantiate(selectedWeather, weatherPosition, selectedWeather.rotation, weather);
 
 
         Transform clothes = new GameObject("Clothes").transform;
-        clothes.tag = "ClothesToBeChosen";
 
-        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.5f);
-        wastePosition.y = floorPosition.y + 0.1f;
+        Vector3 clothesPosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.5f);
+        clothesPosition.y = floorPosition.y + 0.1f;
 
-        /*for (int i = 0; i < 2;)
+        for (int i = 0; i < numberOfClothes; i++)
         {
-            Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
-            int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
-            Transform currentWaste = wasteGroup.GetChild(rnd.Next(0, groupSize));
-            String currentWasteTag = currentWaste.gameObject.tag;
-            if (activeBins.Contains(currentWasteTag))
-            {
-                Instantiate(currentWaste.gameObject, currentWaste.position, currentWaste.rotation, waste);
-                i++;
-            }
+            Transform currentGroup = ClothesPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
+            Transform currentClothe = currentGroup.GetChild(rnd.Next(0, currentGroup.childCount));
+            Instantiate(currentClothe.gameObject, currentClothe.position, currentClothe.rotation, clothes);
         }
 
-        waste.Translate(wastePosition);
-        waste.Rotate(rotation.eulerAngles);
+        clothes.Translate(clothesPosition);
+        clothes.Rotate(rotation.eulerAngles);
 
 
         Counter.Instance.InitializeCounter(clothes);
@@ -106,7 +99,7 @@ public class DressUpManager : TaskManager
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
-        }*/
+        }
 
     }
 
