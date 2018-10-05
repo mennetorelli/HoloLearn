@@ -15,6 +15,10 @@ TagManager:
   - Targets
   - Dynamic
   - Knife
+  - Menu
+  - Slider
+  - Sunny
+  - Rainy
   layers:
   - Default
   - TransparentFX

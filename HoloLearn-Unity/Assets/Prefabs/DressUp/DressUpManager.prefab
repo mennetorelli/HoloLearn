@@ -52,9 +52,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40dad3e4c39124a4bab25cbb447b68b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeatherPrefabs: {fileID: 0}
-  ClothesPrefabs: {fileID: 0}
-  VirtualAssistantsPrefabs: {fileID: 0}
+  WeatherPrefabs: {fileID: 1835916060619404, guid: e30d9fb7dff376c45804df9fd1b306a7,
+    type: 2}
+  ClothesPrefabs: {fileID: 1765130520317020, guid: 7189b607818810b4eb5efaff36f6bcde,
+    type: 2}
+  VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
+    type: 2}
 --- !u!114 &114761352008018918
 MonoBehaviour:
   m_ObjectHideFlags: 1

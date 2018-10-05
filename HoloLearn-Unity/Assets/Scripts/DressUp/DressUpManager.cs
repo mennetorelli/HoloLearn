@@ -15,6 +15,7 @@ public class DressUpManager : TaskManager
     public GameObject VirtualAssistantsPrefabs;
 
     private int playerGender;
+    private int numberOfClothes;
     private int assistantPresence;
     private int selectedAssistant;
     private int assistantBehaviour;
@@ -57,8 +58,8 @@ public class DressUpManager : TaskManager
             gazePosition = hitInfo.point;
         }
 
-        Vector3 binsPosition = gazePosition;
-        binsPosition.y = floorPosition.y;
+        Vector3 weatherPosition = gazePosition;
+        weatherPosition.y = floorPosition.y + 1f;
 
 
         Vector3 relativePos = Camera.main.transform.position - gazePosition;
@@ -66,33 +67,18 @@ public class DressUpManager : TaskManager
         rotation.x = 0f;
         rotation.z = 0f;
 
-
-        /*Transform bins = new GameObject("Clothes").transform;
-        bins.tag = "Targets";
-
-        for (int i = 1; i <= 5;)
-        {
-            Transform bin = ClothesPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
-            string currentBinTag = bin.gameObject.tag;
-            if (!activeClothes.Contains(currentBinTag))
-            {
-                Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), bin.rotation, bins);
-                activeClothes.Add(bin.gameObject.tag);
-                i++;
-            }
-        }
-
-        bins.Translate(binsPosition);
-        bins.Rotate(rotation.eulerAngles);
+        Transform weather = new GameObject("Weather").transform;
+        Transform selectedWeather = WeatherPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
+        Instantiate(selectedWeather, weatherPosition, selectedWeather.rotation, weather);
 
 
-        Transform waste = new GameObject("Waste").transform;
-        waste.tag = "ObjectsToBePlaced";
+        Transform clothes = new GameObject("Clothes").transform;
+        clothes.tag = "ClothesToBeChosen";
 
-        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.5f);
+        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.5f);
         wastePosition.y = floorPosition.y + 0.1f;
 
-        for (int i = 0; i < 2;)
+        /*for (int i = 0; i < 2;)
         {
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
             int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
@@ -109,10 +95,10 @@ public class DressUpManager : TaskManager
         waste.Rotate(rotation.eulerAngles);
 
 
-        Counter.Instance.InitializeCounter(waste);
+        Counter.Instance.InitializeCounter(clothes);
 
 
-        Vector3 assistantPosition = bins.TransformPoint(-0.3f, 0f, 0.3f);
+        Vector3 assistantPosition = clothes.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)
@@ -150,7 +136,8 @@ public class DressUpManager : TaskManager
 
     private void LoadSettings()
     {
-        playerGender = 1;
+        playerGender = 0;
+        numberOfClothes = 3;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
