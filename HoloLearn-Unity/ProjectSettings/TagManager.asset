@@ -19,6 +19,8 @@ TagManager:
   - Slider
   - Sunny
   - Rainy
+  - Hot
+  - Cold
   layers:
   - Default
   - TransparentFX

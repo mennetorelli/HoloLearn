@@ -68,8 +68,14 @@ public class DressUpManager : TaskManager
         rotation.z = 0f;
 
         Transform weather = new GameObject("Weather").transform;
-        Transform selectedWeather = WeatherPrefabs.transform.GetChild(rnd.Next(0, WeatherPrefabs.transform.childCount));
+
+        Transform weatherGroup = WeatherPrefabs.transform.GetChild(0);
+        Transform selectedWeather = weatherGroup.GetChild(rnd.Next(0, weatherGroup.childCount));
         Instantiate(selectedWeather, weatherPosition, selectedWeather.rotation, weather);
+
+        Transform temperatureGroup = WeatherPrefabs.transform.GetChild(1);
+        Transform selectedTemperature = weatherGroup.GetChild(rnd.Next(0, temperatureGroup.childCount));
+        Instantiate(selectedTemperature, weatherPosition, selectedTemperature.rotation, weather);
 
 
         Transform clothes = new GameObject("Clothes").transform;
