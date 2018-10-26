@@ -21,6 +21,8 @@ TagManager:
   - Rainy
   - Hot
   - Cold
+  - Sphere
+  - Cube
   layers:
   - Default
   - TransparentFX
