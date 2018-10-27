@@ -37,6 +37,8 @@ GameObject:
   - component: {fileID: 33424929756684398}
   - component: {fileID: 135837205238004578}
   - component: {fileID: 23615047164751774}
+  - component: {fileID: 114840003800791432}
+  - component: {fileID: 114631132998889152}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Sphere
@@ -91,6 +93,8 @@ GameObject:
   - component: {fileID: 33912953903810588}
   - component: {fileID: 65141389254378452}
   - component: {fileID: 23353034031211208}
+  - component: {fileID: 114617175995467316}
+  - component: {fileID: 114930557017383894}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Cube
@@ -369,6 +373,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114617175995467316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392751477174448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f54ac32596309d46a26d3784aabe13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFixed: 0
+--- !u!114 &114631132998889152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1252797410461110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21633ca16d6d846a2cceeab1af5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
+  isDragging: 0
+--- !u!114 &114840003800791432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1252797410461110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f54ac32596309d46a26d3784aabe13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFixed: 0
+--- !u!114 &114930557017383894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392751477174448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21633ca16d6d846a2cceeab1af5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
+  isDragging: 0
 --- !u!135 &135837205238004578
 SphereCollider:
   m_ObjectHideFlags: 1
