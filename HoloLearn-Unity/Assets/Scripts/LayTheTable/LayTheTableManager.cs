@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 using System.IO;
+using HoloToolkit.Unity.SpatialMapping.Tests;
 
 public class LayTheTableManager : TaskManager
 {
@@ -47,7 +48,7 @@ public class LayTheTableManager : TaskManager
     public override void GenerateObjectsInWorld()
     {
         //Seleziono il tavolo dove guarda l'utente
-        Transform table = TableSelect(TableProcessing.Instance.tables);
+        Transform table = TableSelect(SpatialProcessing.Instance.tables);
 
         Bounds tableColliderBounds = table.GetColliderBounds();
 

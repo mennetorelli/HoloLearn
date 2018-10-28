@@ -1,14 +1,16 @@
-﻿using HoloLearn;
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HoloToolkit.Unity.SpatialMapping
+namespace HoloToolkit.Unity.SpatialMapping.Tests
 {
     /// <summary>
     /// The SpatialProcessingTest class allows applications to scan the environment for a specified amount of time 
     /// and then process the Spatial Mapping Mesh (find planes, remove vertices) after that time has expired.
     /// </summary>
-    public class FloorProcessing : Singleton<FloorProcessing>
+    public class SpatialProcessing : Singleton<SpatialProcessing>
     {
         [Tooltip("How much time (in seconds) that the SurfaceObserver will run after being started; used when 'Limit Scanning By Time' is checked.")]
         public float scanTime = 30.0f;
@@ -22,9 +24,12 @@ namespace HoloToolkit.Unity.SpatialMapping
         [Tooltip("Minimum number of floor planes required in order to exit scanning/processing mode.")]
         public uint minimumFloors = 1;
 
+        [Tooltip("Minimum number of table planes required in order to exit scanning/processing mode.")]
+        public uint minimumTables = 0;
 
-        // LISTA DI PAVIMENTI
+        // LISTA DI PIANI
         public List<GameObject> floors = new List<GameObject>();
+        public List<GameObject> tables = new List<GameObject>();
 
         /// <summary>
         /// Indicates if processing of the surface meshes is complete.
@@ -88,8 +93,11 @@ namespace HoloToolkit.Unity.SpatialMapping
             // Collection of floor planes that we can use to set horizontal items on.
             floors = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Floor);
 
+            // Collection of table planes that we can use to set horizontal items on.
+            tables = SurfaceMeshesToPlanes.Instance.GetActivePlanes(PlaneTypes.Table);
+
             // Check to see if we have enough floors (minimumFloors) to start processing.
-            if (floors.Count >= minimumFloors)
+            if (floors.Count >= minimumFloors && tables.Count >= minimumTables)
             {
                 // Reduce our triangle count by removing any triangles
                 // from SpatialMapping meshes that intersect with active planes.
@@ -151,5 +159,4 @@ namespace HoloToolkit.Unity.SpatialMapping
             base.OnDestroy();
         }
     }
-
 }

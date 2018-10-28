@@ -1,5 +1,6 @@
 ﻿using HoloToolkit.Unity;
 using HoloToolkit.Unity.SpatialMapping;
+using HoloToolkit.Unity.SpatialMapping.Tests;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ public class TutorialManager : TaskManager
     public override void GenerateObjectsInWorld()
     {
         //Seleziono il pavimento
-        Transform floor = FloorProcessing.Instance.floors.ElementAt(0).transform;
+        Transform floor = SpatialProcessing.Instance.floors.ElementAt(0).transform;
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
 
         System.Random rnd = new System.Random();
@@ -55,7 +56,6 @@ public class TutorialManager : TaskManager
             gazePosition = hitInfo.point;
         }
 
-
         Vector3 objsPosition = gazePosition;
         objsPosition.y = floorPosition.y;
 
@@ -67,12 +67,11 @@ public class TutorialManager : TaskManager
 
 
         Transform objs = new GameObject("Objects").transform;
-        objs.tag = "ObjectsToBePlaced";
 
         for (int i = 0; i < ObjectsPrefabs.transform.childCount; i++)
         {
             Transform obj = ObjectsPrefabs.transform.GetChild(i);
-            Instantiate(obj.gameObject, objsPosition + new Vector3(0f, 0.01f, 0f), obj.rotation, objs);
+            Instantiate(obj.gameObject, new Vector3(0f, 0.01f, 0f), obj.rotation, objs);
         }
 
         objs.Translate(objsPosition);
