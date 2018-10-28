@@ -56,6 +56,30 @@ public class TutorialManager : TaskManager
         }
 
 
+        Vector3 binsPosition = gazePosition;
+        binsPosition.y = floorPosition.y;
+
+
+        Vector3 relativePos = Camera.main.transform.position - gazePosition;
+        Quaternion rotation = Quaternion.LookRotation(relativePos);
+        rotation.x = 0f;
+        rotation.z = 0f;
+
+
+        Transform objs = new GameObject("Objects").transform;
+        objs.tag = "ObjectsToBePlaced";
+
+        for (int i = 1; i <= ObjectsPrefabs.transform.childCount; i++)
+        {
+            Transform obj = ObjectsPrefabs.transform.GetChild(i);
+            Instantiate(obj, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), obj.rotation, objs);
+        }
+
+        objs.Translate(binsPosition);
+        objs.Rotate(rotation.eulerAngles);
+
+
+        Counter.Instance.InitializeCounter(objs);
 
 
         Vector3 assistantPosition = gazePosition;

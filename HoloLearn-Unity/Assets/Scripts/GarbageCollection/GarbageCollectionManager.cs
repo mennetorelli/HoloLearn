@@ -75,7 +75,7 @@ public class GarbageCollectionManager : TaskManager
         for (int i=1; i<=numberOfBins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
-            String currentBinTag = bin.gameObject.tag;
+            string currentBinTag = bin.gameObject.tag;
             if (!activeBins.Contains(currentBinTag))
             {
                 Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), bin.rotation, bins);
