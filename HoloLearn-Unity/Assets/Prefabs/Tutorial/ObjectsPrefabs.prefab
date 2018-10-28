@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4189343631321654}
   - component: {fileID: 33424929756684398}
   - component: {fileID: 135837205238004578}
+  - component: {fileID: 54451895709797636}
   - component: {fileID: 23615047164751774}
   - component: {fileID: 114840003800791432}
   - component: {fileID: 114631132998889152}
@@ -56,7 +57,9 @@ GameObject:
   - component: {fileID: 4685138146397862}
   - component: {fileID: 33543949108179552}
   - component: {fileID: 64609936274855218}
+  - component: {fileID: 54634956379043348}
   - component: {fileID: 23637081639117544}
+  - component: {fileID: 114916894291254442}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Sphere
@@ -88,8 +91,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4690076493552880}
   - component: {fileID: 33413277665495184}
-  - component: {fileID: 65963201210334366}
   - component: {fileID: 23302115464737140}
+  - component: {fileID: 65963201210334366}
+  - component: {fileID: 54583791901925846}
+  - component: {fileID: 114698610044932370}
   m_Layer: 0
   m_Name: Square
   m_TagString: Cube
@@ -107,6 +112,7 @@ GameObject:
   - component: {fileID: 4840817748348638}
   - component: {fileID: 33912953903810588}
   - component: {fileID: 65141389254378452}
+  - component: {fileID: 54892398173615802}
   - component: {fileID: 23353034031211208}
   - component: {fileID: 114617175995467316}
   - component: {fileID: 114930557017383894}
@@ -167,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485753681126936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.199, y: 0, z: 0.282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4189343631321654}
@@ -182,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338249555798690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2356, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.801, y: -0.17000002, z: 0.282}
   m_LocalScale: {x: 0.25, y: 0.005, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4522064368535310}
@@ -195,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375404560008972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0347, y: -0.10000001, z: 0}
+  m_LocalPosition: {x: -0.0694, y: -0.17000002, z: 0}
   m_LocalScale: {x: 0.25, y: 0.01, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4017620259376834}
@@ -208,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392751477174448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0347, y: 0.03782749, z: 0}
+  m_LocalPosition: {x: -0.322, y: 0.03782749, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4017620259376834}
@@ -393,6 +399,66 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392751477174448}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54451895709797636
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1252797410461110}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54583791901925846
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375404560008972}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54634956379043348
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338249555798690}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54892398173615802
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392751477174448}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64609936274855218
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -400,10 +466,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338249555798690}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
@@ -426,7 +492,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375404560008972}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -461,6 +527,17 @@ MonoBehaviour:
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
   isDragging: 0
+--- !u!114 &114698610044932370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375404560008972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64da79b8f71380344ab83ba3b245683f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114840003800791432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,6 +550,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFixed: 0
+--- !u!114 &114916894291254442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338249555798690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64da79b8f71380344ab83ba3b245683f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114930557017383894
 MonoBehaviour:
   m_ObjectHideFlags: 1

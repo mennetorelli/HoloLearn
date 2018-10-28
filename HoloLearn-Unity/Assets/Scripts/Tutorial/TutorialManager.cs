@@ -69,10 +69,10 @@ public class TutorialManager : TaskManager
         Transform objs = new GameObject("Objects").transform;
         objs.tag = "ObjectsToBePlaced";
 
-        for (int i = 1; i <= ObjectsPrefabs.transform.childCount; i++)
+        for (int i = 0; i < ObjectsPrefabs.transform.childCount; i++)
         {
             Transform obj = ObjectsPrefabs.transform.GetChild(i);
-            Instantiate(obj, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), obj.rotation, objs);
+            Instantiate(obj.gameObject, objsPosition + new Vector3(0f, 0.01f, 0f), obj.rotation, objs);
         }
 
         objs.Translate(objsPosition);

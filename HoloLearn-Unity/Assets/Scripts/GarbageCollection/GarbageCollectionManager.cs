@@ -99,7 +99,7 @@ public class GarbageCollectionManager : TaskManager
             Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
             int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
             Transform currentWaste = wasteGroup.GetChild(rnd.Next(0, groupSize));
-            String currentWasteTag = currentWaste.gameObject.tag;
+            string currentWasteTag = currentWaste.gameObject.tag;
             if (activeBins.Contains(currentWasteTag))
             {
                 Instantiate(currentWaste.gameObject, currentWaste.position, currentWaste.rotation, waste);
