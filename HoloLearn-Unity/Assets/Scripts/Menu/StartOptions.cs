@@ -23,7 +23,6 @@ namespace HoloLearn
 
         public void ChangeScene(int scene)
         {
-            scene++;
             if (scene == 1)
             {
                 Destroy(VirtualAssistantManager.Instance.gameObject);
