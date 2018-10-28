@@ -56,8 +56,8 @@ public class TutorialManager : TaskManager
         }
 
 
-        Vector3 binsPosition = gazePosition;
-        binsPosition.y = floorPosition.y;
+        Vector3 objsPosition = gazePosition;
+        objsPosition.y = floorPosition.y;
 
 
         Vector3 relativePos = Camera.main.transform.position - gazePosition;
@@ -75,7 +75,7 @@ public class TutorialManager : TaskManager
             Instantiate(obj, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), obj.rotation, objs);
         }
 
-        objs.Translate(binsPosition);
+        objs.Translate(objsPosition);
         objs.Rotate(rotation.eulerAngles);
 
 
