@@ -56,6 +56,8 @@ MonoBehaviour:
     type: 2}
   ClothesPrefabs: {fileID: 1765130520317020, guid: 7189b607818810b4eb5efaff36f6bcde,
     type: 2}
+  BagsPrefabs: {fileID: 1256371271362260, guid: 11c4683f02417434c8c993b4c97392c3,
+    type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
 --- !u!114 &114761352008018918

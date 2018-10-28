@@ -13,6 +13,7 @@ public class DressUpManager : TaskManager
 
     public GameObject WeatherPrefabs;
     public GameObject ClothesPrefabs;
+    public GameObject BagsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
     private int playerGender;
@@ -72,11 +73,11 @@ public class DressUpManager : TaskManager
 
         Transform weatherGroup = WeatherPrefabs.transform.GetChild(0);
         Transform selectedWeather = weatherGroup.GetChild(rnd.Next(0, weatherGroup.childCount));
-        Instantiate(selectedWeather, weatherPosition, selectedWeather.rotation, weather);
+        Instantiate(selectedWeather, weatherPosition, rotation, weather);
 
         Transform temperatureGroup = WeatherPrefabs.transform.GetChild(1);
         Transform selectedTemperature = weatherGroup.GetChild(rnd.Next(0, temperatureGroup.childCount));
-        Instantiate(selectedTemperature, weatherPosition, selectedTemperature.rotation, weather);
+        Instantiate(selectedTemperature, weatherPosition, rotation, weather);
 
 
         Transform clothes = new GameObject("Clothes").transform;
@@ -93,6 +94,11 @@ public class DressUpManager : TaskManager
 
         clothes.Translate(clothesPosition);
         clothes.Rotate(rotation.eulerAngles);
+
+
+        Vector3 bagPosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.3f);
+        bagPosition.y = floorPosition.y + 0.1f;
+        Instantiate(BagsPrefabs.transform.GetChild(rnd.Next(0, BagsPrefabs.transform.childCount)).gameObject, bagPosition, rotation);
 
 
         Counter.Instance.InitializeCounter(clothes);
