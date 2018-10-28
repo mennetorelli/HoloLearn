@@ -21,13 +21,11 @@ public class Counter : Singleton<Counter> {
         {
             VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("EndGame");
         }
-        //Debug.Log(count);
     }
 
     public void InitializeCounter(Transform remainingObjects)
     {
         count = remainingObjects.GetComponentsInChildren<Rigidbody>().Length;
-        //Debug.Log(count);
     }
 
    

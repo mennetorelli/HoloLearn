@@ -19,7 +19,6 @@ public class PlacementCollisionManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     { 
-        //Debug.Log(gameObject.tag + " " + other.tag);
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
