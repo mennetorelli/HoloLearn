@@ -10,8 +10,7 @@ using UnityEngine;
 public class TutorialManager : TaskManager
 {
 
-    public GameObject WeatherPrefabs;
-    public GameObject ClothesPrefabs;
+    public GameObject ObjectsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
     private int assistantPresence;
