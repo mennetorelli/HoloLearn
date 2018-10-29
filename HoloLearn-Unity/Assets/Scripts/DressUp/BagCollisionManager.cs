@@ -24,9 +24,10 @@ public class BagCollisionManager : MonoBehaviour
         DressUpManager manager = (DressUpManager)TaskManager.Instance;
 
         List<string> tags = new List<string>();
-        if (other.tag != null)
+        if (other.transform.parent.name == "Clothes")
         {
-            Transform objectTags = other.transform.GetChild(other.transform.childCount - 1);
+            Debug.Log(other.name);
+            Transform objectTags = other.transform.Find("Tags");
             foreach (Transform objectTag in objectTags)
             {
                 tags.Add(objectTag.tag);
@@ -35,7 +36,7 @@ public class BagCollisionManager : MonoBehaviour
 
         foreach (string tag in tags)
         {
-            Debug.Log(tag);
+            Debug.Log(other.name + " tags possbili: " + tag);
             if (manager.activeWeatherTags.Contains(tag))
             {
                 other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;

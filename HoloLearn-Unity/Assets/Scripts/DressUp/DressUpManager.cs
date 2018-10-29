@@ -85,12 +85,11 @@ public class DressUpManager : TaskManager
         for (int i = 0; i < activeWeatherElements.transform.childCount; i++)
         {
             activeWeatherTags.Add(activeWeatherElements.transform.GetChild(i).tag);
-            Debug.Log(activeWeatherElements.transform.GetChild(i).tag);
         } 
 
         Transform clothes = new GameObject("Clothes").transform;
 
-        Vector3 clothesPosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.5f);
+        Vector3 clothesPosition = weatherPosition;
         clothesPosition.y = floorPosition.y + 0.1f;
 
         for (int i = 0; i < numberOfClothes; i++)
@@ -104,7 +103,7 @@ public class DressUpManager : TaskManager
         clothes.Rotate(rotation.eulerAngles);
 
 
-        Vector3 bagPosition = Vector3.Lerp(Camera.main.transform.position, weather.position, 0.3f);
+        Vector3 bagPosition = Vector3.Lerp(Camera.main.transform.position, clothes.position, 0.3f);
         bagPosition.y = floorPosition.y + 0.1f;
         Instantiate(BagsPrefabs.transform.GetChild(rnd.Next(0, BagsPrefabs.transform.childCount)).gameObject, bagPosition, rotation);
 
