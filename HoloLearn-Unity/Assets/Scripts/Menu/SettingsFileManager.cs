@@ -88,6 +88,15 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
         GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
 
+        IEnumerable<XElement> dressUpSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("DressUpSettings");
+
+        DressUpSettings.Instance.playerGender = (int)dressUpSettings.ElementAt(0).Attribute("PlayerGender");
+        DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
+        DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
+
         IEnumerable<XElement> virtualAssistantChoice =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
@@ -226,6 +235,10 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                 new XElement("GarbageCollectionSettings",
                     new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
                     new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste)),
+                new XElement("DressUpSettings",
+                    new XAttribute("NumberOfBins", DressUpSettings.Instance.playerGender),
+                    new XAttribute("NumberOfLevel", DressUpSettings.Instance.numberOfLevel),
+                    new XAttribute("NumberOfClothes", DressUpSettings.Instance.numberOfClothes)),
                 new XElement("VirtualAssistantChoice",
                     new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
                     new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant)),

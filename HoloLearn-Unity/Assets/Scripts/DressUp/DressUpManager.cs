@@ -10,13 +10,13 @@ using UnityEngine;
 
 public class DressUpManager : TaskManager
 {
-
     public GameObject WeatherPrefabs;
     public GameObject ClothesPrefabs;
     public GameObject BagsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
     private int playerGender;
+    private int numberOfLevel;
     private int numberOfClothes;
     private int assistantPresence;
     private int selectedAssistant;
@@ -154,6 +154,7 @@ public class DressUpManager : TaskManager
     private void LoadSettings()
     {
         playerGender = 0;
+        numberOfLevel = 1;
         numberOfClothes = 3;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
