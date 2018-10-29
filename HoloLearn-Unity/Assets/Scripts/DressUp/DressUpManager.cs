@@ -64,6 +64,7 @@ public class DressUpManager : TaskManager
 
         Vector3 weatherPosition = gazePosition;
         weatherPosition.y = floorPosition.y + 1f;
+        Debug.DrawLine(Camera.main.transform.position, weatherPosition, Color.black, 30f);
 
 
         Vector3 relativePos = Camera.main.transform.position - gazePosition;
@@ -91,6 +92,7 @@ public class DressUpManager : TaskManager
 
         Vector3 clothesPosition = weatherPosition;
         clothesPosition.y = floorPosition.y + 0.1f;
+        Debug.DrawLine(weatherPosition, clothesPosition, Color.red, 30f);
 
         for (int i = 0; i < numberOfClothes; i++)
         {
@@ -106,6 +108,7 @@ public class DressUpManager : TaskManager
         Vector3 bagPosition = Vector3.Lerp(Camera.main.transform.position, clothes.position, 0.3f);
         bagPosition.y = floorPosition.y + 0.1f;
         Instantiate(BagsPrefabs.transform.GetChild(rnd.Next(0, BagsPrefabs.transform.childCount)).gameObject, bagPosition, rotation);
+        Debug.DrawLine(clothesPosition, bagPosition, Color.blue, 30f);
 
 
         Counter.Instance.InitializeCounter(clothes);
@@ -113,6 +116,7 @@ public class DressUpManager : TaskManager
 
         Vector3 assistantPosition = clothes.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
+        Debug.DrawLine(bagPosition, assistantPosition, Color.green, 30f);
 
         if (assistantPresence != 0)
         {
