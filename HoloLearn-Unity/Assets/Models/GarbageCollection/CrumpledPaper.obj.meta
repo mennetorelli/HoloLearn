@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 909e0bd66e7e80547bdaf2de6d5dee3c
-timeCreated: 1515368215
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -32,27 +30,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rovina1Mat
-    second: {fileID: 2100000, guid: 89abcf8848b48dd4a8df786bf3d70676, type: 2}
+    second: {fileID: 2100000, guid: e842d8a307bfcf8429df01d0e68160e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rovina2Mat
-    second: {fileID: 2100000, guid: 6488d8581ccaf8146a4520ffce6363f1, type: 2}
+    second: {fileID: 2100000, guid: 634f4d3e4bc48ee4fa56af1ae9113a14, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: RovinaMat
-    second: {fileID: 2100000, guid: 7081329277d7a1d4d8bd79457eeb291e, type: 2}
+    second: {fileID: 2100000, guid: eb04efd716f64e24c9937efd0be919ee, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rovina_1Mat
-    second: {fileID: 2100000, guid: af8cc621408bf0945955c73bc4237c2f, type: 2}
+    second: {fileID: 2100000, guid: b47317864ad75c44495b25e03c71bd05, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -90,6 +88,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

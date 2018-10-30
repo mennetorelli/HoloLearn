@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 394e2e1220258e54db7bcc45e06748c9
-timeCreated: 1510837314
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -16,12 +14,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rubbish_bin
-    second: {fileID: 2100000, guid: 1b21058d06b919b4392481d03a807101, type: 2}
+    second: {fileID: 2100000, guid: aab06fe2725af6649810b9ef68cfdce0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -59,6 +57,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
