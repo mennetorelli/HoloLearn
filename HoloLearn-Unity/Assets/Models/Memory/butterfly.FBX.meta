@@ -132,7 +132,27 @@ ModelImporter:
     4300044: haar_03
     7400000: Take 001
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default
+    second: {fileID: 2100000, guid: 3d47c338909911448a2208ef76c38c7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schmetterling
+    second: {fileID: 2100000, guid: a4d635123400a2e498377943e69abb4a, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: butterfly_Albedo
+    second: {fileID: 2800000, guid: 73f1a8e0f7d18844ea1411ca603e7f57, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hair_unity
+    second: {fileID: 2800000, guid: e051599a0f42bbd419b4691b8d4c1013, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

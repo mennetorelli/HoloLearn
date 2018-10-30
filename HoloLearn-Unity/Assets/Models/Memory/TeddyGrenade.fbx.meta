@@ -37,7 +37,17 @@ ModelImporter:
     4300006: Eartufts
     4300008: Socket
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TeddyGrenade_mat
+    second: {fileID: 2100000, guid: 4185c52603666d64885b642566ee39dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TeddyGrenade_tufts_mat
+    second: {fileID: 2100000, guid: aea95bf284c5ef94a9bc1545908038ae, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

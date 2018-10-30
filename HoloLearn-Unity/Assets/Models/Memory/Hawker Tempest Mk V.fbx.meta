@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 709effbb2978ee34c9541411ff3505ba
+guid: f377bc8c2a11bda4c85d92d214cc148e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -1173,7 +1173,122 @@ ModelImporter:
     4300428: Landing gear door.4
     4300430: Wheel chamber
     4300432: Wheel chamber.2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 5d47fc6707d5b6343a6cb1f8884cff13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear light
+    second: {fileID: 2100000, guid: f5a40dfdeafb55c409f03c30c5d7f644, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Indicator
+    second: {fileID: 2100000, guid: 95f4f76a4f9ff834e884972fbe484e09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left Wing Back
+    second: {fileID: 2100000, guid: 94f13af091b7c7f49b4c4bbc192f8558, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left wing
+    second: {fileID: 2100000, guid: b53f57e9fefa1b64fb504073d39f9805, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.1
+    second: {fileID: 2100000, guid: 00ce39e1c7763fd498cac30dbdb524d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.2
+    second: {fileID: 2100000, guid: 78c97fc8ad84728438ef07584bc2c9d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 68a4a3d474dd5de4b9a59ec1c221eae2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal 3
+    second: {fileID: 2100000, guid: fd8b40f80423ab848be3d2685a448dfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 784de247c1fb0b746931589002735add, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nose & Wing
+    second: {fileID: 2100000, guid: 35b32a0ca8395de4ebc2eb6b3e046828, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plane bottom
+    second: {fileID: 2100000, guid: 6ed138681b9c4264ea6e626c4e55d5eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RAF markings
+    second: {fileID: 2100000, guid: 7731ee34ba0a3404285736ec4f0ca5ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RAF paint 1
+    second: {fileID: 2100000, guid: 376111c7ee2902b4ba7ec2bca261c3ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RAF paint 2
+    second: {fileID: 2100000, guid: 7b0f494ce684ee847893902b0c19f175, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Reticle
+    second: {fileID: 2100000, guid: 49a5bea6427d8594984c26e5388c103e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Righ wing back
+    second: {fileID: 2100000, guid: 19feec443aea69b41b1029fadc0cec26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Right wing
+    second: {fileID: 2100000, guid: 21cc93e13f627924c8f9e0650d5f0614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spinning propeller
+    second: {fileID: 2100000, guid: 201a6b1f95617274f8897be63ceea98d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Switch color
+    second: {fileID: 2100000, guid: 2a864fdfcaa8b55419c9654e5cf01991, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TXT
+    second: {fileID: 2100000, guid: 3496934ebe3c3c74f90916c013892701, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trigger color
+    second: {fileID: 2100000, guid: a5bfcaf95c6e91a46a8c0e9aafadc288, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windshield & Reticle
+    second: {fileID: 2100000, guid: c6d9e786ce7d35449be709ab8a0c4aab, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

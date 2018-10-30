@@ -29,7 +29,27 @@ ModelImporter:
     4300002: Plane
     4300004: Circle
     4300006: Solid.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 851833f58f9dc90499647cbff1cf80ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 068b2e507cf5e454e8b61073675fe18e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 3d8399c39d2fff64b9dedd3397e3e42b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 1879ab583da45f0419daeefda1b76210, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

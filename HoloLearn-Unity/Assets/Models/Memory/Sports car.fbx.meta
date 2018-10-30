@@ -33,7 +33,17 @@ ModelImporter:
     4300006: wheel3
     4300008: wheel2
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_body
+    second: {fileID: 2100000, guid: bf4687af0b4b58e418d6a5d430bce27d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parts
+    second: {fileID: 2100000, guid: ba0dc275437f17d488d1f00a5eeb8d43, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

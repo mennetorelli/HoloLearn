@@ -35,7 +35,32 @@ ModelImporter:
     4300004: pCube2
     4300006: pCube3
     4300008: pCylinder1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MeshMat
+    second: {fileID: 2100000, guid: cebe9629ea6a4c249880832ff15cb504, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube1Mat
+    second: {fileID: 2100000, guid: d48519efe53ce6444a2bc529af4fb084, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube2Mat
+    second: {fileID: 2100000, guid: 1caa1ba24b196ed4dbdb8b869dbbb281, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube3Mat
+    second: {fileID: 2100000, guid: d1ef5a4f47ffc75459664b85f9cce1a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCylinder1Mat
+    second: {fileID: 2100000, guid: 29a53669fbe5c0243b52f4783fe72504, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

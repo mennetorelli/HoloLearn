@@ -858,7 +858,12 @@ ModelImporter:
     7400012: Walk
     9500000: //RootNode
     13700000: rabbit
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matRabbit__rabbit_bmp_001
+    second: {fileID: 2100000, guid: 720108fe6ed99fd43839c6c5bc018181, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
