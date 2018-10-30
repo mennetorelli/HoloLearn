@@ -11,7 +11,12 @@ ModelImporter:
     2300000: 10135_DownCoat_v01
     3300000: 10135_DownCoat_v01
     4300000: 10135_DownCoat_v01
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 10135_DownCoat_v01Mat
+    second: {fileID: 2100000, guid: c30d9938d90588d44b6bda13fd393837, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

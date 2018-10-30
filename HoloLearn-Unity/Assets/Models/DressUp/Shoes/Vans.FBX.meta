@@ -19,6 +19,11 @@ ModelImporter:
     9500000: //RootNode
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: 65ed7df682fdfdb49b0f0c2ff61cfab3, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: vans 01

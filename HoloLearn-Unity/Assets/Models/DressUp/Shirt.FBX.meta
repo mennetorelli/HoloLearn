@@ -26,7 +26,27 @@ ModelImporter:
     4300000: Box380
     4300002: default006
     4300004: Line226
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 18 - Default
+    second: {fileID: 2100000, guid: a4730ac464ab226418c2113241e24131, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 24 - Default
+    second: {fileID: 2100000, guid: 22502117e2659c2499c7dc83120f22b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25445'
+    second: {fileID: 2100000, guid: 24257d15f25668e439554fcdf54337af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25457'
+    second: {fileID: 2100000, guid: 1540f0faaf2f70f49af145dffa4fe06e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

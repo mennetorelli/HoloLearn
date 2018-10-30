@@ -17,7 +17,17 @@ ModelImporter:
     3300002: 13647PoloTeamShirt_cloth
     4300000: 13647PoloTeamShirt_button
     4300002: 13647PoloTeamShirt_cloth
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 13647PoloTeamShirt_buttonMat
+    second: {fileID: 2100000, guid: 46db763c25d02c143a66e293c87b3c72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 13647PoloTeamShirt_clothMat
+    second: {fileID: 2100000, guid: fa735822158f5ec4a9320663ac86eaa4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
