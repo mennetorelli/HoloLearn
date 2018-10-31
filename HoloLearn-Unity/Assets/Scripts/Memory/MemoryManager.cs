@@ -11,16 +11,14 @@ using UnityEngine;
 public class Memory : TaskManager
 {
 
-    public GameObject BinsPrefabs;
-    public GameObject WastePrefabs;
+    public GameObject BoxPrefab;
+    public GameObject ObjectsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
-    private int numberOfBins;
-    private int numberOfWaste;
+    private int playMode;
+    private int numberOfBoxes;
     private int assistantPresence;
     private int selectedAssistant;
-    private int assistantBehaviour;
-    private int assistantPatience;
 
     private Transform virtualAssistant;
 
@@ -31,7 +29,7 @@ public class Memory : TaskManager
     {
         LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant+1).GetChild(assistantBehaviour-1);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant+1).GetChild(0);
     }
 
     // Update is called once per frame
@@ -70,58 +68,38 @@ public class Memory : TaskManager
         rotation.z = 0f;
 
 
-        Transform bins = new GameObject("Bins").transform;
-        bins.tag = "Targets";
+        Transform boxes = new GameObject("Boxes").transform;
 
-        for (int i=1; i<=numberOfBins;)
+        List<Transform> objs = new List<Transform>();
+        for (int i = 1; i <= numberOfBoxes / 2; i++)
         {
-            Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
-            string currentBinTag = bin.gameObject.tag;
-            if (!activeBins.Contains(currentBinTag))
-            {
-                Instantiate(bin, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), bin.rotation, bins);
-                activeBins.Add(bin.gameObject.tag);
-                i++;
-            }
+            int j = rnd.Next(0, ObjectsPrefabs.transform.childCount);
+            Transform obj = ObjectsPrefabs.transform.GetChild(j);
+            objs.Add(obj);
+            objs.Add(obj);
         }
 
-        bins.Translate(binsPosition);        
-        bins.Rotate(rotation.eulerAngles);
-
-
-        Transform waste = new GameObject("Waste").transform;
-        waste.tag = "ObjectsToBePlaced";
-
-        Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.5f);
-        wastePosition.y = floorPosition.y + 0.1f;
-
-        for (int i=0; i<numberOfWaste;)
+        for (int i=1; i<=numberOfBoxes; i++)
         {
-            Transform wasteGroup = WastePrefabs.transform.GetChild(rnd.Next(0, WastePrefabs.transform.childCount));
-            int groupSize = wasteGroup.GetComponentsInChildren<Rigidbody>().Length;
-            Transform currentWaste = wasteGroup.GetChild(rnd.Next(0, groupSize));
-            string currentWasteTag = currentWaste.gameObject.tag;
-            if (activeBins.Contains(currentWasteTag))
-            {
-                Instantiate(currentWaste.gameObject, currentWaste.position, currentWaste.rotation, waste);
-                i++;
-            }
+            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, boxes);
+            int j = rnd.Next(0, objs.Count);
+            Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, box.transform);
+            objs.RemoveAt(j);
         }
-
-        waste.Translate(wastePosition);
-        waste.Rotate(rotation.eulerAngles);
-
-
-        Counter.Instance.InitializeCounter(waste);
+        
+        boxes.Translate(binsPosition);        
+        boxes.Rotate(rotation.eulerAngles);
 
 
-        Vector3 assistantPosition = bins.TransformPoint(-0.3f, 0f, 0.3f);
+        //Counter.Instance.InitializeCounter(waste);
+
+
+        Vector3 assistantPosition = boxes.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
-            VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }
 
@@ -153,11 +131,9 @@ public class Memory : TaskManager
 
     private void LoadSettings()
     {
-        numberOfBins = GarbageCollectionSettings.Instance.numberOfBins;
-        numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
+        playMode = GarbageCollectionSettings.Instance.numberOfBins;
+        numberOfBoxes = GarbageCollectionSettings.Instance.numberOfWaste;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
-        assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
-        assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
     }
 }
