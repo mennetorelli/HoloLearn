@@ -49,7 +49,7 @@ public class Memory : TaskManager
         System.Random rnd = new System.Random();
 
 
-      
+        
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
         floorPosition = AdjustPositionWithSpatialMap(floorPosition, plane.SurfaceNormal);
 
