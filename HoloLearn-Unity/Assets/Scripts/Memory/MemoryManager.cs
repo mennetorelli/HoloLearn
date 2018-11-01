@@ -58,8 +58,8 @@ public class MemoryManager : TaskManager
             gazePosition = hitInfo.point;
         }
 
-        Vector3 binsPosition = gazePosition;
-        binsPosition.y = floorPosition.y;
+        Vector3 boxesPosition = gazePosition;
+        boxesPosition.y = floorPosition.y;
 
 
         Vector3 relativePos = Camera.main.transform.position - gazePosition;
@@ -93,11 +93,11 @@ public class MemoryManager : TaskManager
             objs.RemoveAt(j);
         }
 
-        elems.Translate(binsPosition);
+        elems.Translate(boxesPosition);
         elems.Rotate(rotation.eulerAngles);
 
 
-        //Counter.Instance.InitializeCounter(waste);
+        Counter.Instance.InitializeCounter(elems.childCount);
 
 
         Vector3 assistantPosition = elems.TransformPoint(-0.3f, 0f, 0.3f);

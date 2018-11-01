@@ -28,6 +28,8 @@ public class BoxSelectionManager : MonoBehaviour
             {
                 VirtualAssistantManager.Instance.Jump();
                 manager.selectedElement = null;
+                Counter.Instance.Decrement();
+                Counter.Instance.Decrement();
             }
             else
             {

@@ -112,7 +112,7 @@ public class GarbageCollectionManager : TaskManager
         waste.Rotate(rotation.eulerAngles);
 
 
-        Counter.Instance.InitializeCounter(waste);
+        Counter.Instance.InitializeCounter(waste.GetComponentsInChildren<Rigidbody>().Length);
 
 
         Vector3 assistantPosition = bins.TransformPoint(-0.3f, 0f, 0.3f);

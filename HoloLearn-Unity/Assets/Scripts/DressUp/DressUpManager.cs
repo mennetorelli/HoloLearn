@@ -111,7 +111,7 @@ public class DressUpManager : TaskManager
         Debug.DrawLine(clothesPosition, bagPosition, Color.blue, 30f);
 
 
-        Counter.Instance.InitializeCounter(clothes);
+        Counter.Instance.InitializeCounter(clothes.GetComponentsInChildren<Rigidbody>().Length);
 
 
         Vector3 assistantPosition = clothes.TransformPoint(-0.3f, 0f, 0.3f);

@@ -23,9 +23,9 @@ public class Counter : Singleton<Counter> {
         }
     }
 
-    public void InitializeCounter(Transform remainingObjects)
+    public void InitializeCounter(int count)
     {
-        count = remainingObjects.GetComponentsInChildren<Rigidbody>().Length;
+        this.count = count;
     }
 
    

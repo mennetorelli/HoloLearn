@@ -81,7 +81,7 @@ public class TutorialManager : TaskManager
         objs.Rotate(rotation.eulerAngles);
 
 
-        Counter.Instance.InitializeCounter(objs);
+        Counter.Instance.InitializeCounter(objs.GetComponentsInChildren<Rigidbody>().Length);
 
 
         Vector3 assistantPosition = gazePosition;

@@ -92,7 +92,7 @@ public class LayTheTableManager : TaskManager
         Transform beveragesPlacements = selectedLevel.Find("BeveragesPlacement");
         Instantiate(beveragesPlacements.gameObject, tableColliderBounds.center + new Vector3(0f, 0.01f, 0f), beveragesPlacements.transform.rotation, tablePlacements);
 
-        Counter.Instance.InitializeCounter(objectsToBePlaced);
+        Counter.Instance.InitializeCounter(objectsToBePlaced.GetComponentsInChildren<Rigidbody>().Length);
 
 
 
