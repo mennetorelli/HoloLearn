@@ -52,12 +52,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1789395abce5247b645deb4dccafd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxPrefab: {fileID: 1877044037868466, guid: 3f3fb0d09926c394d96a8d531bc99cde, type: 2}
+  BoxPrefab: {fileID: 1209317781909740, guid: b7dc31d152090704bb5944e3a4f4750a, type: 2}
   ObjectsPrefabs: {fileID: 1657732602458648, guid: 3e8492e576ba43842aa94e52cf09b55e,
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
-  selectedObject: {fileID: 0}
+  selectedElement: {fileID: 0}
 --- !u!114 &114963429067379292
 MonoBehaviour:
   m_ObjectHideFlags: 1

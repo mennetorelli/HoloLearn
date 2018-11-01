@@ -139,7 +139,7 @@ public class MemoryManager : TaskManager
     {
         playMode = MemorySettings.Instance.playMode;
         numberOfBoxes = MemorySettings.Instance.numberOfBoxes;
-        initialWaitingTime = MemorySettings.Instance.initialWaitingTime;
+        initialWaitingTime = MemorySettings.Instance.waitingTime;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
     }

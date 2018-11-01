@@ -5,5 +5,5 @@ public class MemorySettings : Singleton<MemorySettings>
 {
     public int playMode;
     public int numberOfBoxes;
-    public int initialWaitingTime;
+    public int waitingTime;
 }

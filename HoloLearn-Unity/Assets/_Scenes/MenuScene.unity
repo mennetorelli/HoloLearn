@@ -611,7 +611,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 43921563}
-  m_Text: Medium
+  m_Text: 8
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2682,7 +2682,7 @@ GameObject:
   - component: {fileID: 221075379}
   - component: {fileID: 221075378}
   m_Layer: 0
-  m_Name: MediumButton
+  m_Name: EightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,7 +2724,18 @@ MonoBehaviour:
   KeywordRequiresGaze: 1
   OnSelectEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetNumberOfBoxes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -5648,7 +5659,7 @@ GameObject:
   - component: {fileID: 406952925}
   - component: {fileID: 406952924}
   m_Layer: 0
-  m_Name: EasyButton
+  m_Name: SixButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5690,7 +5701,18 @@ MonoBehaviour:
   KeywordRequiresGaze: 1
   OnSelectEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetNumberOfBoxes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -7016,7 +7038,18 @@ MonoBehaviour:
   KeywordRequiresGaze: 1
   OnSelectEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetPlayMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -8930,8 +8963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playMode: 0
-  numberOfBoxes: 6
-  initialWaitingTime: 5
+  numberOfBoxes: 8
+  waitingTime: 0
 --- !u!1 &657556673
 GameObject:
   m_ObjectHideFlags: 0
@@ -9922,7 +9955,9 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737929340}
-  m_Text: Number of clothes
+  m_Text: 'Number of seconds
+
+    before start'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -10084,7 +10119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 751881002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a768228c777cdd743a734de39f74159e, type: 3}
+  m_Script: {fileID: 11500000, guid: 89268517679284a4f8f6928aeb6b391a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &760007249
@@ -11663,11 +11698,22 @@ MonoBehaviour:
   CenteredDot: {fileID: 465907318}
   OnUpdateEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetWaitingTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  MinSliderValue: 3
-  MaxSliderValue: 10
+  MinSliderValue: 1
+  MaxSliderValue: 5
   Centered: 0
   LabelFormat: 00
 --- !u!114 &854463381
@@ -15859,7 +15905,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194192841}
-  m_Text: Hard
+  m_Text: 10
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -17367,7 +17413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400972903}
   m_Layer: 0
-  m_Name: GenderButtons
+  m_Name: PlayModeButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22997,7 +23043,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1877754758}
-  m_Text: Easy
+  m_Text: 6
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -23212,7 +23258,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917539254}
-  m_Text: Number of Level
+  m_Text: Number of Boxes
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -23914,7 +23960,7 @@ GameObject:
   - component: {fileID: 1985125928}
   - component: {fileID: 1985125927}
   m_Layer: 0
-  m_Name: HardButton
+  m_Name: TenButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23956,7 +24002,18 @@ MonoBehaviour:
   KeywordRequiresGaze: 1
   OnSelectEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetNumberOfBoxes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -25269,7 +25326,18 @@ MonoBehaviour:
   KeywordRequiresGaze: 1
   OnSelectEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 751881008}
+        m_MethodName: SetPlayMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDownEvent:
@@ -26178,7 +26246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142691254}
   m_Layer: 0
-  m_Name: LevelsButtons
+  m_Name: BoxesButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
