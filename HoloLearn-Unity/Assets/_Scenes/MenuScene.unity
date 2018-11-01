@@ -8802,6 +8802,7 @@ GameObject:
   - component: {fileID: 637966313}
   - component: {fileID: 637966319}
   - component: {fileID: 637966320}
+  - component: {fileID: 637966321}
   - component: {fileID: 637966316}
   - component: {fileID: 637966317}
   - component: {fileID: 637966318}
@@ -8917,6 +8918,20 @@ MonoBehaviour:
   playerGender: 0
   numberOfLevel: 1
   numberOfClothes: 0
+--- !u!114 &637966321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637966312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8106282b47aa9c0488cf29770117a444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playMode: 0
+  numberOfBoxes: 6
+  initialWaitingTime: 5
 --- !u!1 &657556673
 GameObject:
   m_ObjectHideFlags: 0

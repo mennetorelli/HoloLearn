@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-public class Memory : TaskManager
+public class MemoryManager : TaskManager
 {
 
     public GameObject BoxPrefab;
@@ -17,12 +17,13 @@ public class Memory : TaskManager
 
     private int playMode;
     private int numberOfBoxes;
+    private int initialWaitingTime;
     private int assistantPresence;
     private int selectedAssistant;
 
     private Transform virtualAssistant;
 
-    public List<string> activeBins = new List<string>();
+    public GameObject selectedObject; 
 
     // Use this for initialization
     public override void Start()
@@ -45,7 +46,6 @@ public class Memory : TaskManager
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
 
         System.Random rnd = new System.Random();
-
 
         
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
@@ -131,8 +131,9 @@ public class Memory : TaskManager
 
     private void LoadSettings()
     {
-        playMode = GarbageCollectionSettings.Instance.numberOfBins;
-        numberOfBoxes = GarbageCollectionSettings.Instance.numberOfWaste;
+        playMode = MemorySettings.Instance.playMode;
+        numberOfBoxes = MemorySettings.Instance.numberOfBoxes;
+        initialWaitingTime = MemorySettings.Instance.initialWaitingTime;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
     }

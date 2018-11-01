@@ -7954,7 +7954,7 @@ GameObject:
   - component: {fileID: 65060233620327352}
   - component: {fileID: 54473915120217718}
   m_Layer: 0
-  m_Name: MemoryPrefabs
+  m_Name: ObjectsPrefabs
   m_TagString: MemoryObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
