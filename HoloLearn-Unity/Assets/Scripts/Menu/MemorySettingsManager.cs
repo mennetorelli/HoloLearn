@@ -33,19 +33,19 @@ public class MemorySettingsManager : MonoBehaviour
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] genderButtons = gameObject.transform.Find("PlayModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in genderButtons)
+        InteractiveToggle[] playModeButtons = gameObject.transform.Find("PlayModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in playModeButtons)
         {
             button.SetSelection(false);
         }
-        genderButtons[MemorySettings.Instance.playMode].SetSelection(true);
+        playModeButtons[MemorySettings.Instance.playMode].SetSelection(true);
 
-        InteractiveToggle[] binsButtons = gameObject.transform.Find("BoxesButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in binsButtons)
+        InteractiveToggle[] boxesButtons = gameObject.transform.Find("BoxesButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in boxesButtons)
         {
             button.SetSelection(false);
         }
-        binsButtons[MemorySettings.Instance.numberOfBoxes - 1].SetSelection(true);
+        boxesButtons[(MemorySettings.Instance.numberOfBoxes - 4) / 2 - 1].SetSelection(true);
 
         transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
     }
