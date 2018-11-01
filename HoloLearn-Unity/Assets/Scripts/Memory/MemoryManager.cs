@@ -68,7 +68,7 @@ public class MemoryManager : TaskManager
         rotation.z = 0f;
 
 
-        Transform boxes = new GameObject("Boxes").transform;
+        Transform elems = new GameObject("Elements").transform;
 
         List<Transform> objs = new List<Transform>();
         for (int i = 1; i <= numberOfBoxes / 2; i++)
@@ -81,20 +81,22 @@ public class MemoryManager : TaskManager
 
         for (int i=1; i<=numberOfBoxes; i++)
         {
-            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, boxes);
+            Transform elem = new GameObject("Element").transform;
+            elem.parent = elems;
+            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.4f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
             int j = rnd.Next(0, objs.Count);
-            Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, box.transform);
+            Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             objs.RemoveAt(j);
         }
-        
-        boxes.Translate(binsPosition);        
-        boxes.Rotate(rotation.eulerAngles);
+
+        elems.Translate(binsPosition);
+        elems.Rotate(rotation.eulerAngles);
 
 
         //Counter.Instance.InitializeCounter(waste);
 
 
-        Vector3 assistantPosition = boxes.TransformPoint(-0.3f, 0f, 0.3f);
+        Vector3 assistantPosition = elems.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)
