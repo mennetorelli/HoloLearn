@@ -97,6 +97,15 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
         DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
 
+        IEnumerable<XElement> memorySettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("MemorySettings");
+
+        MemorySettings.Instance.playMode = (int)memorySettings.ElementAt(0).Attribute("PlayMode");
+        MemorySettings.Instance.numberOfBoxes = (int)memorySettings.ElementAt(0).Attribute("NumberOfBoxes");
+        MemorySettings.Instance.waitingTime = (int)memorySettings.ElementAt(0).Attribute("WaitingTime");
+
         IEnumerable<XElement> virtualAssistantChoice =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
@@ -173,6 +182,10 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("NumberOfBins", 0),
                                         new XAttribute("NumberOfLevel", 1),
                                         new XAttribute("NumberOfClothes", 3)),
+                                    new XElement("MemorySettinigs",
+                                        new XAttribute("PlayMode", 0),
+                                        new XAttribute("NumberOfBoxes", 6),
+                                        new XAttribute("WaitingTime", 3)),
                                     new XElement("VirtualAssistantChoice",
                                         new XAttribute("AssistantPresence", 0),
                                         new XAttribute("SelectedAssistant", 1)),
@@ -192,6 +205,10 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("NumberOfBins", 1),
                                         new XAttribute("NumberOfLevel", 3),
                                         new XAttribute("NumberOfClothes", 4)),
+                                    new XElement("MemorySettinigs",
+                                        new XAttribute("PlayMode", 0),
+                                        new XAttribute("NumberOfBoxes", 8),
+                                        new XAttribute("WaitingTime", 3)),
                                     new XElement("VirtualAssistantChoice",
                                         new XAttribute("AssistantPresence", 1),
                                         new XAttribute("SelectedAssistant", 0)),
@@ -247,6 +264,10 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     new XAttribute("NumberOfBins", DressUpSettings.Instance.playerGender),
                     new XAttribute("NumberOfLevel", DressUpSettings.Instance.numberOfLevel),
                     new XAttribute("NumberOfClothes", DressUpSettings.Instance.numberOfClothes)),
+                new XElement("MemorySettings",
+                    new XAttribute("PlyMode", MemorySettings.Instance.playMode),
+                    new XAttribute("NumberOfBoxes", MemorySettings.Instance.numberOfBoxes),
+                    new XAttribute("WaitingTime", MemorySettings.Instance.waitingTime)),
                 new XElement("VirtualAssistantChoice",
                     new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
                     new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant)),
