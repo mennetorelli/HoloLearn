@@ -40,12 +40,12 @@ public class DressUpSettingsManager : MonoBehaviour
         }
         genderButtons[DressUpSettings.Instance.playerGender].SetSelection(true);
 
-        InteractiveToggle[] binsButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in binsButtons)
+        InteractiveToggle[] levelsButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
+        foreach (InteractiveToggle button in levelsButtons)
         {
             button.SetSelection(false);
         }
-        binsButtons[DressUpSettings.Instance.numberOfLevel - 1].SetSelection(true);
+        levelsButtons[DressUpSettings.Instance.numberOfLevel - 1].SetSelection(true);
 
         transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
     }
