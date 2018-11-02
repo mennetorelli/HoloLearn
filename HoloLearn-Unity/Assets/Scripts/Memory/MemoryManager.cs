@@ -20,7 +20,6 @@ public class MemoryManager : TaskManager
     private int selectedAssistant;
 
     private Transform virtualAssistant;
-    private Transform selectedPlayMode;
 
     public GameObject selectedElement;
 
@@ -29,8 +28,7 @@ public class MemoryManager : TaskManager
     {
         LoadSettings();
 
-        selectedPlayMode = PlayModesPrefabs.transform.GetChild(playMode);
-        Instantiate(selectedPlayMode, GameObject.Find("MemoryManager").transform);
+        Instantiate(PlayModesPrefabs.transform.GetChild(playMode), GameObject.Find("MemoryManager").transform);
 
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(0);
     }
@@ -68,7 +66,7 @@ public class MemoryManager : TaskManager
         rotation.z = 0f;
 
 
-        List<Transform> objs = selectedPlayMode.gameObject.GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
+        List<Transform> objs = GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
 
 
         Transform elems = new GameObject("Elements").transform;
@@ -103,7 +101,7 @@ public class MemoryManager : TaskManager
         }
 
         GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().StartGame(waitingTime);
-        //selectedPlayMode.gameObject.GetComponent<PlayModeManager>().StartGame(waitingTime);
+        
     }
 
 

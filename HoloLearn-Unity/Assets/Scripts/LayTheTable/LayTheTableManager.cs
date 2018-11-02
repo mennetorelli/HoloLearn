@@ -24,7 +24,6 @@ public class LayTheTableManager : TaskManager
     private int assistantPatience;
 
     private Transform virtualAssistant;
-    private Transform placementManager;
     private Transform selectedLevel;
 
     // Use this for initialization
@@ -33,8 +32,8 @@ public class LayTheTableManager : TaskManager
 
         selectedLevel = LevelsPrefabs.transform.GetChild(numberOfLevel-1);
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(assistantBehaviour-1);
-        placementManager = PlacementsManagerPrefabs.transform.GetChild(targetsVisibility);
-        Instantiate(placementManager);
+
+        Instantiate(PlacementsManagerPrefabs.transform.GetChild(targetsVisibility), GameObject.Find("LayTheTableManager").transform);
     }
 
     // Update is called once per frame
