@@ -16,8 +16,8 @@ public abstract class PlayModeManager : MonoBehaviour
 		
 	}
 
-    public Transform GenerateObjects()
-    {
-        throw new NotImplementedException();
-    }
+    public abstract List<Transform> GenerateObjects(GameObject ObjectsPrefabs, int numberOfBoxes);
+
+    public abstract void StartGame(int waitingTime);
+
 }

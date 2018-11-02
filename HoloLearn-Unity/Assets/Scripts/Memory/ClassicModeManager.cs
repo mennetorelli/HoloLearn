@@ -19,4 +19,40 @@ public class ClassicModeManager : PlayModeManager
 
     }
 
+    public override List<Transform> GenerateObjects(GameObject ObjectsPrefabs, int numberOfBoxes)
+    {
+        List<Transform> objs = new List<Transform>();
+        for (int i = 1; i <= numberOfBoxes / 2; i++)
+        {
+            int j = new System.Random().Next(0, ObjectsPrefabs.transform.childCount);
+            Transform obj = ObjectsPrefabs.transform.GetChild(j);
+            objs.Add(obj);
+            objs.Add(obj);
+        }
+        return objs;
+    }
+
+    public override void StartGame(int waitingTime)
+    {
+        StartCoroutine(ShowObjects(waitingTime));
+    }
+
+    private IEnumerator ShowObjects(int waitingTime)
+    {
+        Transform elems = GameObject.Find("Elements").transform;
+
+        for (int i = 0; i < elems.childCount; i++)
+        {
+            elems.GetChild(i).GetChild(0).gameObject.SetActive(false);
+            elems.GetChild(i).GetChild(1).gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(waitingTime);
+
+        for (int i = 0; i < elems.childCount; i++)
+        {
+            elems.GetChild(i).GetChild(0).gameObject.SetActive(true);
+            elems.GetChild(i).GetChild(1).gameObject.SetActive(false);
+        }
+    }
 }

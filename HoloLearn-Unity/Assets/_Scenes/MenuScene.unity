@@ -8907,7 +8907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playMode: 0
   numberOfBoxes: 8
-  waitingTime: 0
+  waitingTime: 3
 --- !u!1 &657556673
 GameObject:
   m_ObjectHideFlags: 0

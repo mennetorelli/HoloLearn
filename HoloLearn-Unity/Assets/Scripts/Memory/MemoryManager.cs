@@ -15,7 +15,7 @@ public class MemoryManager : TaskManager
 
     private int playMode;
     private int numberOfBoxes;
-    private int initialWaitingTime;
+    private int waitingTime;
     private int assistantPresence;
     private int selectedAssistant;
 
@@ -30,6 +30,8 @@ public class MemoryManager : TaskManager
         LoadSettings();
 
         selectedPlayMode = PlayModesPrefabs.transform.GetChild(playMode);
+        Instantiate(selectedPlayMode, GameObject.Find("MemoryManager").transform);
+
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(0);
     }
 
@@ -44,8 +46,6 @@ public class MemoryManager : TaskManager
         //Seleziono il pavimento
         Transform floor = SpatialProcessing.Instance.floors.ElementAt(0).transform;
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
-
-        System.Random rnd = new System.Random();
 
 
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
@@ -68,21 +68,10 @@ public class MemoryManager : TaskManager
         rotation.z = 0f;
 
 
+        List<Transform> objs = selectedPlayMode.gameObject.GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
+
+
         Transform elems = new GameObject("Elements").transform;
-
-        List<Transform> objs = new List<Transform>();
-        for (int i = 1; i <= numberOfBoxes / 2; i++)
-        {
-            int j = rnd.Next(0, ObjectsPrefabs.transform.childCount);
-            Transform obj = ObjectsPrefabs.transform.GetChild(j);
-            objs.Add(obj);
-            objs.Add(obj);
-        }
-
-
-        Transform objectsToBePlaced = selectedPlayMode.gameObject.GetComponent<PlayModeManager>().GenerateObjects();
-
-
         for (int i = 1; i <= numberOfBoxes; i++)
         {
             Transform elem = new GameObject("Element").transform;
@@ -91,7 +80,7 @@ public class MemoryManager : TaskManager
 
             GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.2f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
 
-            int j = rnd.Next(0, objs.Count);
+            int j = new System.Random().Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
             objs.RemoveAt(j);
@@ -113,6 +102,8 @@ public class MemoryManager : TaskManager
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }
 
+        GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().StartGame(waitingTime);
+        //selectedPlayMode.gameObject.GetComponent<PlayModeManager>().StartGame(waitingTime);
     }
 
 
@@ -143,8 +134,9 @@ public class MemoryManager : TaskManager
     {
         playMode = MemorySettings.Instance.playMode;
         numberOfBoxes = MemorySettings.Instance.numberOfBoxes;
-        initialWaitingTime = MemorySettings.Instance.waitingTime;
+        waitingTime = MemorySettings.Instance.waitingTime;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
     }
+
 }

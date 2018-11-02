@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class FindMeModeManager : PlayModeManager
 {
-
+    
     // Use this for initialization
     void Start() {
         
@@ -19,4 +19,20 @@ public class FindMeModeManager : PlayModeManager
 		
 	}
 
+    public override List<Transform> GenerateObjects(GameObject ObjectsPrefabs, int numberOfBoxes)
+    {
+        List<Transform> objs = new List<Transform>();
+        for (int i = 1; i <= numberOfBoxes; i++)
+        {
+            int j = new System.Random().Next(0, ObjectsPrefabs.transform.childCount);
+            Transform obj = ObjectsPrefabs.transform.GetChild(j);
+            objs.Add(obj);
+        }
+        return objs;
+    }
+
+    public override void StartGame(int waitingTime)
+    {
+        throw new NotImplementedException();
+    }
 }
