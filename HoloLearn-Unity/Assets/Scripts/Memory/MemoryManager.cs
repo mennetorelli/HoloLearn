@@ -1,18 +1,16 @@
-﻿using HoloToolkit.Unity;
-using HoloToolkit.Unity.SpatialMapping;
+﻿using HoloToolkit.Unity.SpatialMapping;
 using HoloToolkit.Unity.SpatialMapping.Tests;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
 
 public class MemoryManager : TaskManager
 {
-
     public GameObject BoxPrefab;
     public GameObject ObjectsPrefabs;
+    public GameObject PlayModesPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
     private int playMode;
@@ -22,15 +20,17 @@ public class MemoryManager : TaskManager
     private int selectedAssistant;
 
     private Transform virtualAssistant;
+    private Transform selectedPlayMode;
 
-    public GameObject selectedElement; 
+    public GameObject selectedElement;
 
     // Use this for initialization
     public override void Start()
     {
         LoadSettings();
 
-        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant+1).GetChild(0);
+        selectedPlayMode = PlayModesPrefabs.transform.GetChild(playMode);
+        virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(0);
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class MemoryManager : TaskManager
 
         System.Random rnd = new System.Random();
 
-        
+
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
         floorPosition = AdjustPositionWithSpatialMap(floorPosition, plane.SurfaceNormal);
 
@@ -79,7 +79,11 @@ public class MemoryManager : TaskManager
             objs.Add(obj);
         }
 
-        for (int i=1; i<=numberOfBoxes; i++)
+
+        Transform objectsToBePlaced = selectedPlayMode.gameObject.GetComponent<PlayModeManager>().GenerateObjects();
+
+
+        for (int i = 1; i <= numberOfBoxes; i++)
         {
             Transform elem = new GameObject("Element").transform;
             elem.parent = elems;
@@ -143,5 +147,4 @@ public class MemoryManager : TaskManager
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
     }
-
 }
