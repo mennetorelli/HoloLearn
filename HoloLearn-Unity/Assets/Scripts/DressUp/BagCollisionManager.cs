@@ -49,14 +49,13 @@ public class BagCollisionManager : MonoBehaviour
                 }
 
                 other.gameObject.SetActive(false);
+                return;
             }
-            else
-            {
-                if (!VirtualAssistantManager.Instance.IsBusy)
-                {
-                    VirtualAssistantManager.Instance.ShakeHead();
-                }
-            }
+        }
+
+        if (!VirtualAssistantManager.Instance.IsBusy)
+        {
+            VirtualAssistantManager.Instance.ShakeHead();
         }
     }
 

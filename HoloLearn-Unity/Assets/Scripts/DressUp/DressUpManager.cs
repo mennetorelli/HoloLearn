@@ -153,9 +153,9 @@ public class DressUpManager : TaskManager
 
     private void LoadSettings()
     {
-        playerGender = 0;
-        numberOfLevel = 1;
-        numberOfClothes = 3;
+        playerGender = DressUpSettings.Instance.playerGender;
+        numberOfLevel = DressUpSettings.Instance.numberOfLevel;
+        numberOfClothes = DressUpSettings.Instance.numberOfClothes;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
