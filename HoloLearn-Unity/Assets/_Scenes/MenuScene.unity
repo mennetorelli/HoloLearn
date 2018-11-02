@@ -8983,7 +8983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGender: 0
   numberOfLevel: 1
-  numberOfClothes: 0
+  numberOfClothes: 4
 --- !u!114 &637966321
 MonoBehaviour:
   m_ObjectHideFlags: 0

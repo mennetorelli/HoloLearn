@@ -23,6 +23,10 @@ TagManager:
   - Cold
   - Sphere
   - Cube
+  - Cloudy
+  - Snowy
+  - Warm
+  - FreezingCold
   layers:
   - Default
   - TransparentFX
