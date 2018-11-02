@@ -28,7 +28,7 @@ public class MemoryManager : TaskManager
     {
         LoadSettings();
 
-        Instantiate(PlayModesPrefabs.transform.GetChild(playMode), GameObject.Find("MemoryManager").transform);
+        Instantiate(PlayModesPrefabs.transform.GetChild(playMode).GetChild(0), GameObject.Find("MemoryManager").transform);
 
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(0);
     }
@@ -72,9 +72,7 @@ public class MemoryManager : TaskManager
         Transform elems = new GameObject("Elements").transform;
         for (int i = 1; i <= numberOfBoxes; i++)
         {
-            Transform elem = new GameObject("Element").transform;
-            elem.parent = elems;
-            elem.gameObject.AddComponent<BoxSelectionManager>();
+            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode).GetChild(1), elems);
 
             GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.2f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
 
