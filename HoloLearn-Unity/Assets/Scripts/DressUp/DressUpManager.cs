@@ -51,7 +51,6 @@ public class DressUpManager : TaskManager
         System.Random rnd = new System.Random();
 
 
-
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
         floorPosition = AdjustPositionWithSpatialMap(floorPosition, plane.SurfaceNormal);
 
@@ -73,20 +72,16 @@ public class DressUpManager : TaskManager
         rotation.z = 0f;
 
         Transform weather = new GameObject("Weather").transform;
-
-        Transform weatherGroup = WeatherPrefabs.transform.GetChild(0);
-        Transform selectedWeather = weatherGroup.GetChild(rnd.Next(0, weatherGroup.childCount));
+        Transform selectedLevel = WeatherPrefabs.transform.GetChild(numberOfLevel - 1);
+        Transform selectedWeather = selectedLevel.GetChild(rnd.Next(0, selectedLevel.childCount));
         Instantiate(selectedWeather, weatherPosition, rotation, weather);
 
-        Transform temperatureGroup = WeatherPrefabs.transform.GetChild(1);
-        Transform selectedTemperature = temperatureGroup.GetChild(rnd.Next(0, temperatureGroup.childCount));
-        Instantiate(selectedTemperature, weatherPosition, rotation, weather);
 
         GameObject activeWeatherElements = GameObject.Find("Weather");
         for (int i = 0; i < activeWeatherElements.transform.childCount; i++)
         {
             activeWeatherTags.Add(activeWeatherElements.transform.GetChild(i).tag);
-        } 
+        }
 
         Transform clothes = new GameObject("Clothes").transform;
 
