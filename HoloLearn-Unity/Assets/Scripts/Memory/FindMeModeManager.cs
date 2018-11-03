@@ -38,6 +38,26 @@ public class FindMeModeManager : PlayModeManager
 
     public override void StartGame(int waitingTime)
     {
-        throw new NotImplementedException();
+        StartCoroutine(ShowObjectToFind(waitingTime));
     }
+
+    private IEnumerator ShowObjectToFind(int waitingTime)
+    {
+        System.Random rnd = new System.Random();
+
+        Transform elems = GameObject.Find("Elements").transform;
+        Transform elem = elems.GetChild(rnd.Next(0, elems.childCount));
+
+        MemoryManager manager = (MemoryManager)TaskManager.Instance;
+        manager.selectedElement = elem.gameObject;
+
+        Transform objectToFind = elem.GetChild(1);
+        Instantiate(objectToFind, transform.GetChild(0).position + new Vector3(0f, -0.2f, 0f), transform.GetChild(0).rotation, transform.GetChild(0));
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(waitingTime);
+
+        transform.GetChild(0).gameObject.SetActive(false);
+    }
+
 }
