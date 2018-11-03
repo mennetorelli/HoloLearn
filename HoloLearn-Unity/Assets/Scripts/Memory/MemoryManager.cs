@@ -68,7 +68,7 @@ public class MemoryManager : TaskManager
 
         List<Transform> objs = GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
 
-
+        System.Random rnd = new System.Random();
         Transform elems = new GameObject("Elements").transform;
         for (int i = 1; i <= numberOfBoxes; i++)
         {
@@ -76,7 +76,7 @@ public class MemoryManager : TaskManager
 
             GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.2f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
 
-            int j = new System.Random().Next(0, objs.Count);
+            int j = rnd.Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
             objs.RemoveAt(j);
@@ -84,10 +84,7 @@ public class MemoryManager : TaskManager
 
         elems.Translate(boxesPosition);
         elems.Rotate(rotation.eulerAngles);
-
-
-        Counter.Instance.InitializeCounter(elems.childCount);
-
+        
 
         Vector3 assistantPosition = elems.TransformPoint(-0.3f, 0f, 0.3f);
         assistantPosition.y = floor.position.y;

@@ -26,7 +26,6 @@ public class BoxSelectionManagerFindMe : BoxSelectionManager
         {
             VirtualAssistantManager.Instance.Jump();
             Counter.Instance.Decrement();
-            Counter.Instance.Decrement();
         }
         else
         {
