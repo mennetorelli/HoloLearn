@@ -18,6 +18,4 @@ public abstract class BoxSelectionManager : MonoBehaviour
 
     public abstract void HandleTap();
 
-    public abstract IEnumerator Wait();
-
 }

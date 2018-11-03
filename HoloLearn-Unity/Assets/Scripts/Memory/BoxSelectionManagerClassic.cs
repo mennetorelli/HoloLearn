@@ -46,7 +46,7 @@ public class BoxSelectionManagerClassic : BoxSelectionManager
     }
 
 
-    public override IEnumerator Wait()
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
         transform.GetChild(0).gameObject.SetActive(true);
