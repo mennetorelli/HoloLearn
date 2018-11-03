@@ -21,13 +21,13 @@ public class BoxSelectionManagerClassic : BoxSelectionManager
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
 
-        MemoryManager manager = (MemoryManager)TaskManager.Instance;
-        if (manager.selectedElement != null)
+        Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
+        if (manager.GetComponent<FindMeModeManager>().selectedElement != null)
         {
-            if (manager.selectedElement.transform.GetChild(1).gameObject.name == transform.GetChild(1).gameObject.name)
+            if (manager.GetComponent<FindMeModeManager>().selectedElement.transform.GetChild(1).gameObject.name == transform.GetChild(1).gameObject.name)
             {
                 VirtualAssistantManager.Instance.Jump();
-                manager.selectedElement = null;
+                manager.GetComponent<FindMeModeManager>().selectedElement = null;
                 Counter.Instance.Decrement();
                 Counter.Instance.Decrement();
             }
@@ -40,7 +40,7 @@ public class BoxSelectionManagerClassic : BoxSelectionManager
         }
         else
         {
-            manager.selectedElement = transform.gameObject;
+            manager.GetComponent<FindMeModeManager>().selectedElement = transform;
         }
         
     }
@@ -51,9 +51,9 @@ public class BoxSelectionManagerClassic : BoxSelectionManager
         yield return new WaitForSeconds(3f);
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(false);
-        MemoryManager manager = (MemoryManager)TaskManager.Instance;
-        manager.selectedElement.transform.GetChild(0).gameObject.SetActive(true);
-        manager.selectedElement.transform.GetChild(1).gameObject.SetActive(false);
-        manager.selectedElement = null;
+        Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
+        manager.GetComponent<FindMeModeManager>().selectedElement.transform.GetChild(0).gameObject.SetActive(true);
+        manager.GetComponent<FindMeModeManager>().selectedElement.transform.GetChild(1).gameObject.SetActive(false);
+        manager.GetComponent<FindMeModeManager>().selectedElement = null;
     }
 }

@@ -21,16 +21,13 @@ public class BoxSelectionManagerFindMe : BoxSelectionManager
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
 
-        MemoryManager manager = (MemoryManager)TaskManager.Instance;
-        if (manager.selectedElement.transform.GetChild(1).gameObject.name == transform.GetChild(1).gameObject.name)
-        {
-            VirtualAssistantManager.Instance.Jump();
-            Counter.Instance.Decrement();
-        }
-        else
-        {
-            VirtualAssistantManager.Instance.ShakeHead();
-        }
+        Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
+        manager.GetComponent<FindMeModeManager>().selectedElement = transform;
 
+        manager.GetChild(1).gameObject.SetActive(true);
     }
+
+
+   
+
 }

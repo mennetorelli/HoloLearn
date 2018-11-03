@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class ClassicModeManager : PlayModeManager
 {
+    public Transform selectedElement;
 
     // Use this for initialization
     void Start() {

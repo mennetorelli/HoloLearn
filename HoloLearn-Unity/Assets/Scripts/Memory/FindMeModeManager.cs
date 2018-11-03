@@ -8,7 +8,9 @@ using UnityEngine;
 
 public class FindMeModeManager : PlayModeManager
 {
-    
+    public Transform selectedElement;
+    public Transform objectToFind;
+
     // Use this for initialization
     void Start() {
         
@@ -46,18 +48,41 @@ public class FindMeModeManager : PlayModeManager
         System.Random rnd = new System.Random();
 
         Transform elems = GameObject.Find("Elements").transform;
-        Transform elem = elems.GetChild(rnd.Next(0, elems.childCount));
-
-        MemoryManager manager = (MemoryManager)TaskManager.Instance;
-        manager.selectedElement = elem.gameObject;
-
-        Transform objectToFind = elem.GetChild(1);
+        objectToFind = elems.GetChild(rnd.Next(0, elems.childCount)).GetChild(1);
         Instantiate(objectToFind, transform.GetChild(0).position + new Vector3(0f, -0.2f, 0f), transform.GetChild(0).rotation, transform.GetChild(0));
         transform.GetChild(0).gameObject.SetActive(true);
-
+  
         yield return new WaitForSeconds(waitingTime);
 
         transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+
+    public void YesConfirmation()
+    {
+        transform.GetChild(1).gameObject.SetActive(false);
+
+        if (selectedElement.gameObject.name == objectToFind.gameObject.name)
+        {
+            VirtualAssistantManager.Instance.Jump();
+            Counter.Instance.Decrement();
+        }
+        else
+        {
+            VirtualAssistantManager.Instance.ShakeHead();
+            selectedElement.GetChild(0).gameObject.SetActive(true);
+            selectedElement.GetChild(1).gameObject.SetActive(false);
+        }
+    }
+
+    public void NoConfirmation()
+    {
+        transform.GetChild(1).gameObject.SetActive(false);
+
+        selectedElement.GetChild(0).gameObject.SetActive(true);
+        selectedElement.GetChild(1).gameObject.SetActive(false);
+
+        selectedElement = null;
     }
 
 }

@@ -21,8 +21,6 @@ public class MemoryManager : TaskManager
 
     private Transform virtualAssistant;
 
-    public GameObject selectedElement;
-
     // Use this for initialization
     public override void Start()
     {
