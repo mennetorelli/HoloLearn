@@ -26,7 +26,7 @@ public class MemoryManager : TaskManager
     {
         LoadSettings();
 
-        Instantiate(PlayModesPrefabs.transform.GetChild(playMode).GetChild(0), GameObject.Find("MemoryManager").transform);
+        Instantiate(PlayModesPrefabs.transform.GetChild(playMode), GameObject.Find("MemoryManager").transform);
 
         virtualAssistant = VirtualAssistantsPrefabs.transform.GetChild(selectedAssistant + 1).GetChild(0);
     }
@@ -64,13 +64,13 @@ public class MemoryManager : TaskManager
         rotation.z = 0f;
 
 
-        List<Transform> objs = transform.GetChild(0).GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
+        List<Transform> objs = transform.GetComponentInChildren<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
 
         System.Random rnd = new System.Random();
         Transform elems = new GameObject("Elements").transform;
         for (int i = 1; i <= numberOfBoxes; i++)
         {
-            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode).GetChild(1), elems);
+            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);
 
             GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.2f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
 
@@ -93,7 +93,7 @@ public class MemoryManager : TaskManager
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }
 
-        transform.GetChild(0).GetComponent<PlayModeManager>().StartGame(waitingTime);
+        transform.GetComponentInChildren<PlayModeManager>().StartGame(waitingTime);
         
     }
 

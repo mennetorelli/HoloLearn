@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class ClassicModeManager : PlayModeManager
 {
-    public Transform savedElement;
+    public Transform firstElement;
+    public Transform secondElement;
 
     // Use this for initialization
     void Start() {
@@ -25,12 +26,14 @@ public class ClassicModeManager : PlayModeManager
         selectedElement.GetChild(0).gameObject.SetActive(false);
         selectedElement.GetChild(1).gameObject.SetActive(true);
 
-        if (savedElement != null)
+        if (firstElement != null)
         {
-            if (selectedElement.transform.GetChild(1).gameObject.name == savedElement.name)
+            secondElement = selectedElement;
+            if (firstElement.GetChild(1).gameObject.name == secondElement.GetChild(1).gameObject.name)
             {
                 VirtualAssistantManager.Instance.Jump();
-                savedElement = null;
+                firstElement = null;
+                secondElement = null;
                 Counter.Instance.Decrement();
                 Counter.Instance.Decrement();
             }
@@ -42,7 +45,7 @@ public class ClassicModeManager : PlayModeManager
         }
         else
         {
-            savedElement = selectedElement;
+            firstElement = selectedElement;
         }
 
     }
@@ -51,11 +54,12 @@ public class ClassicModeManager : PlayModeManager
     private IEnumerator Wait(Transform selectedElement)
     {
         yield return new WaitForSeconds(3f);
-        selectedElement.GetChild(0).gameObject.SetActive(true);
-        selectedElement.GetChild(1).gameObject.SetActive(false);
-        savedElement.GetChild(0).gameObject.SetActive(true);
-        savedElement.GetChild(1).gameObject.SetActive(false);
-        savedElement = null;
+        firstElement.GetChild(0).gameObject.SetActive(true);
+        firstElement.GetChild(1).gameObject.SetActive(false);
+        secondElement.GetChild(0).gameObject.SetActive(true);
+        secondElement.GetChild(1).gameObject.SetActive(false);
+        firstElement = null;
+        secondElement = null;
     }
 
 
