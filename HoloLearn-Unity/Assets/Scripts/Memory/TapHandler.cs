@@ -18,6 +18,6 @@ public class TapHandler : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        transform.parent.gameObject.GetComponent<BoxSelectionManager>().HandleTap();
+        GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().HandleTap(transform.parent);
     }
 }

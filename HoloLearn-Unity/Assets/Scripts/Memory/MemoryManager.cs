@@ -64,7 +64,7 @@ public class MemoryManager : TaskManager
         rotation.z = 0f;
 
 
-        List<Transform> objs = GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
+        List<Transform> objs = transform.GetChild(0).GetComponent<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
 
         System.Random rnd = new System.Random();
         Transform elems = new GameObject("Elements").transform;
@@ -93,7 +93,7 @@ public class MemoryManager : TaskManager
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }
 
-        GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().StartGame(waitingTime);
+        transform.GetChild(0).GetComponent<PlayModeManager>().StartGame(waitingTime);
         
     }
 

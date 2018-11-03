@@ -20,4 +20,5 @@ public abstract class PlayModeManager : MonoBehaviour
 
     public abstract void StartGame(int waitingTime);
 
+    public abstract void HandleTap(Transform parent);
 }

@@ -21,6 +21,18 @@ public class FindMeModeManager : PlayModeManager
 		
 	}
 
+    public override void HandleTap(Transform selectedElement)
+    {
+        selectedElement.GetChild(0).gameObject.SetActive(false);
+        selectedElement.GetChild(1).gameObject.SetActive(true);
+
+        Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
+        manager.GetComponent<FindMeModeManager>().selectedElement = selectedElement;
+
+        manager.GetChild(1).gameObject.SetActive(true);
+    }
+
+
     public override List<Transform> GenerateObjects(GameObject ObjectsPrefabs, int numberOfBoxes)
     {
         System.Random rnd = new System.Random();
@@ -37,6 +49,7 @@ public class FindMeModeManager : PlayModeManager
 
         return objs;
     }
+
 
     public override void StartGame(int waitingTime)
     {

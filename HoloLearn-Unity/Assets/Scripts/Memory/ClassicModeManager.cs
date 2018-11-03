@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class ClassicModeManager : PlayModeManager
 {
-    public Transform selectedElement;
+    public Transform savedElement;
 
     // Use this for initialization
     void Start() {
@@ -19,6 +19,45 @@ public class ClassicModeManager : PlayModeManager
     void Update() {
 
     }
+
+    public override void HandleTap(Transform selectedElement)
+    {
+        selectedElement.GetChild(0).gameObject.SetActive(false);
+        selectedElement.GetChild(1).gameObject.SetActive(true);
+
+        if (savedElement != null)
+        {
+            if (selectedElement.transform.GetChild(1).gameObject.name == savedElement.name)
+            {
+                VirtualAssistantManager.Instance.Jump();
+                savedElement = null;
+                Counter.Instance.Decrement();
+                Counter.Instance.Decrement();
+            }
+            else
+            {
+                VirtualAssistantManager.Instance.ShakeHead();
+                StartCoroutine(Wait(selectedElement));
+            }
+        }
+        else
+        {
+            savedElement = selectedElement;
+        }
+
+    }
+
+
+    private IEnumerator Wait(Transform selectedElement)
+    {
+        yield return new WaitForSeconds(3f);
+        selectedElement.GetChild(0).gameObject.SetActive(true);
+        selectedElement.GetChild(1).gameObject.SetActive(false);
+        savedElement.GetChild(0).gameObject.SetActive(true);
+        savedElement.GetChild(1).gameObject.SetActive(false);
+        savedElement = null;
+    }
+
 
     public override List<Transform> GenerateObjects(GameObject ObjectsPrefabs, int numberOfBoxes)
     {
@@ -37,6 +76,7 @@ public class ClassicModeManager : PlayModeManager
 
         return objs;
     }
+
 
     public override void StartGame(int waitingTime)
     {
