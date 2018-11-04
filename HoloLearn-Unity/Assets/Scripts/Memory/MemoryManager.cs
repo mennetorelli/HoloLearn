@@ -68,16 +68,21 @@ public class MemoryManager : TaskManager
 
         System.Random rnd = new System.Random();
         Transform elems = new GameObject("Elements").transform;
-        for (int i = 1; i <= numberOfBoxes; i++)
+        for (int i = 1; i <= numberOfBoxes / 2; i++)
         {
-            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);
-
-            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.2f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
-
+            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);      
+            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
             int j = rnd.Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
             objs.RemoveAt(j);
+            
+            Transform elem2 = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);
+            GameObject box2 = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0.25f), BoxPrefab.transform.rotation, elem2);
+            int k = rnd.Next(0, objs.Count);
+            Transform obj2 = Instantiate(objs.ElementAt(k), box2.transform.position, box2.transform.rotation, elem2);
+            obj2.gameObject.SetActive(false);
+            objs.RemoveAt(k);
         }
 
         elems.Translate(boxesPosition);
