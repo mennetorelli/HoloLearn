@@ -28,10 +28,12 @@ public class FindMeModeManager : PlayModeManager
         selectedElement.GetChild(0).gameObject.SetActive(false);
         selectedElement.GetChild(1).gameObject.SetActive(true);
 
-        Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
-        manager.GetComponent<FindMeModeManager>().selectedElement = selectedElement.GetChild(1);
+        this.selectedElement = selectedElement.GetChild(1);
 
-        manager.GetChild(1).gameObject.SetActive(true);
+        Transform confirmationMessage = transform.GetChild(1);
+        confirmationMessage.position = GameObject.Find("Elements").transform.position + new Vector3(0f, 0.3f, 0f);
+        confirmationMessage.rotation = Quaternion.LookRotation(GameObject.Find("Elements").transform.position - Camera.main.transform.position);
+        confirmationMessage.gameObject.SetActive(true);
     }
 
 
