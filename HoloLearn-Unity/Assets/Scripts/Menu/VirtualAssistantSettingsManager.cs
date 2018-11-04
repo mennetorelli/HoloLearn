@@ -9,6 +9,12 @@ using UnityEngine;
 public class VirtualAssistantSettingsManager : MonoBehaviour
 {
 
+    public void SetExplainTaskGoal(int explainTaskGoal)
+    {
+        VirtualAssistantSettings.Instance.explainTaskGoal = explainTaskGoal;
+        RefreshMenu();
+    }
+
     public void SetAssistantBehaviour(int assistantBehaviour)
     {
         VirtualAssistantSettings.Instance.assistantBehaviour = assistantBehaviour;
@@ -17,14 +23,24 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
     public void SetAssistantPatience()
     {
-        SliderGestureControl slider = GameObject.Find("PatientTime").GetComponentInChildren<SliderGestureControl>();
+        SliderGestureControl slider = GameObject.Find("PatienceTime").GetComponentInChildren<SliderGestureControl>();
         VirtualAssistantSettings.Instance.assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] assistantBehaviourButtons = GameObject.Find("ModeButtons").GetComponentsInChildren<InteractiveToggle>();
+        InteractiveToggle targetCheckBox = gameObject.transform.Find("TaskIntroCheckBox").GetComponent<InteractiveToggle>();
+        if (VirtualAssistantSettings.Instance.explainTaskGoal == 1)
+        {
+            targetCheckBox.SetSelection(true);
+        }
+        else
+        {
+            targetCheckBox.SetSelection(false);
+        }
+
+        InteractiveToggle[] assistantBehaviourButtons = GameObject.Find("AssistantBehaviourButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in assistantBehaviourButtons)
         {
             button.SetSelection(false);
@@ -33,12 +49,12 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
         if (VirtualAssistantSettings.Instance.assistantBehaviour == 2)
         {
-            GameObject.Find("VirtualAssistantMenu").transform.GetChild(4).gameObject.SetActive(true);
-            GameObject.Find("VirtualAssistantMenu").transform.GetChild(4).GetComponentInChildren<SliderGestureControl>().SetSliderValue(VirtualAssistantSettings.Instance.assistantPatience);
+            GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).gameObject.SetActive(true);
+            GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).GetComponentInChildren<SliderGestureControl>().SetSliderValue(VirtualAssistantSettings.Instance.assistantPatience);
         }
         else
         {
-            GameObject.Find("VirtualAssistantMenu").transform.GetChild(4).gameObject.SetActive(false);
+            GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).gameObject.SetActive(false);
         }
     }
 
@@ -47,6 +63,7 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
     {
         XElement newSettings =
             new XElement("VirtualAssistantSettings",
+                new XAttribute("ExplainTaskGoal", VirtualAssistantSettings.Instance.explainTaskGoal),
                 new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
                 new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience));
 

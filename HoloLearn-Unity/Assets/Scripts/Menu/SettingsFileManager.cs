@@ -119,6 +119,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
             select item.Element("VirtualAssistantSettings");
 
+        VirtualAssistantSettings.Instance.explainTaskGoal = (int)virtualAssistantSettings.ElementAt(0).Attribute("ExplainTaskGoal");
         VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
         VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
     }
@@ -190,6 +191,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("AssistantPresence", 0),
                                         new XAttribute("SelectedAssistant", 1)),
                                     new XElement("VirtualAssistantSettings",
+                                        new XAttribute("ExplainTaskGoal", 0),
                                         new XAttribute("AssistantBehaviour", 2),
                                         new XAttribute("AssistantPatience", 5))),
                             new XElement("Player",
@@ -213,6 +215,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("AssistantPresence", 1),
                                         new XAttribute("SelectedAssistant", 0)),
                                     new XElement("VirtualAssistantSettings",
+                                        new XAttribute("ExplainTaskGoal", 1),
                                         new XAttribute("AssistantBehaviour", 1),
                                         new XAttribute("AssistantPatience", 5))));
                         xmlText = root.ToString();   
@@ -272,6 +275,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     new XAttribute("AssistantPresence", VirtualAssistantChoice.Instance.assistantPresence),
                     new XAttribute("SelectedAssistant", VirtualAssistantChoice.Instance.selectedAssistant)),
                 new XElement("VirtualAssistantSettings",
+                    new XAttribute("ExplainTaskGoal", VirtualAssistantSettings.Instance.explainTaskGoal),
                     new XAttribute("AssistantBehaviour", VirtualAssistantSettings.Instance.assistantBehaviour),
                     new XAttribute("AssistantPatience", VirtualAssistantSettings.Instance.assistantPatience)));
 
