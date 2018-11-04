@@ -62,10 +62,10 @@ public class ClassicModeManager : PlayModeManager
     {
         yield return new WaitForSeconds(3f);
 
-        firstElement.GetChild(0).gameObject.SetActive(true);
-        firstElement.GetChild(1).gameObject.SetActive(false);
-        secondElement.GetChild(0).gameObject.SetActive(true);
-        secondElement.GetChild(1).gameObject.SetActive(false);
+        firstElement.parent.GetChild(0).gameObject.SetActive(true);
+        firstElement.gameObject.SetActive(false);
+        secondElement.parent.GetChild(0).gameObject.SetActive(true);
+        secondElement.gameObject.SetActive(false);
 
         firstElement = null;
         secondElement = null;

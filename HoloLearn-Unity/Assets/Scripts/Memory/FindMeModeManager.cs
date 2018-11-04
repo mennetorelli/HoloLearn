@@ -85,8 +85,8 @@ public class FindMeModeManager : PlayModeManager
         else
         {
             VirtualAssistantManager.Instance.ShakeHead();
-            selectedElement.GetChild(0).gameObject.SetActive(true);
-            selectedElement.GetChild(1).gameObject.SetActive(false);
+            selectedElement.parent.GetChild(0).gameObject.SetActive(true);
+            selectedElement.gameObject.SetActive(false);
         }
 
         IsBusy = false;
@@ -96,8 +96,8 @@ public class FindMeModeManager : PlayModeManager
     {
         transform.GetChild(1).gameObject.SetActive(false);
 
-        selectedElement.GetChild(0).gameObject.SetActive(true);
-        selectedElement.GetChild(1).gameObject.SetActive(false);
+        selectedElement.parent.GetChild(0).gameObject.SetActive(true);
+        selectedElement.gameObject.SetActive(false);
 
         selectedElement = null;
 
