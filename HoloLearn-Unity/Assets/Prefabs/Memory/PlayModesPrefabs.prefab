@@ -52,8 +52,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4680259468190180}
-  - component: {fileID: 114643859400529470}
-  - component: {fileID: 114383743396907890}
   - component: {fileID: 65242109646617664}
   - component: {fileID: 114705096277978824}
   - component: {fileID: 114652000737924540}
@@ -1053,17 +1051,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivotAxis: 0
   targetTransform: {fileID: 0}
---- !u!114 &114383743396907890
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112182239140820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c080131455138054381c806ea05243a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114448438483546442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e9549343d50044fa1f8f7ac3b11fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsBusy: 0
   selectedElement: {fileID: 0}
   objectToFind: {fileID: 0}
 --- !u!114 &114572920464915186
@@ -1155,17 +1143,6 @@ MonoBehaviour:
   SmoothPositionLerpRatio: 0.5
   SmoothRotationLerpRatio: 0.5
   SmoothScaleLerpRatio: 0.5
---- !u!114 &114643859400529470
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112182239140820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1623dd3a43bc08c4ca45b844e8c125ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114652000737924540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1227,7 +1204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1083b1d4b560c49b5647a5f4b8d803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedElement: {fileID: 0}
+  IsBusy: 0
+  firstElement: {fileID: 0}
+  secondElement: {fileID: 0}
 --- !u!114 &114751927194509494
 MonoBehaviour:
   m_ObjectHideFlags: 1

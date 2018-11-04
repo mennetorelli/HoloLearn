@@ -29,7 +29,7 @@ public class FindMeModeManager : PlayModeManager
         selectedElement.GetChild(1).gameObject.SetActive(true);
 
         Transform manager = GameObject.Find("MemoryManager").transform.GetChild(0);
-        manager.GetComponent<FindMeModeManager>().selectedElement = selectedElement;
+        manager.GetComponent<FindMeModeManager>().selectedElement = selectedElement.GetChild(1);
 
         manager.GetChild(1).gameObject.SetActive(true);
     }

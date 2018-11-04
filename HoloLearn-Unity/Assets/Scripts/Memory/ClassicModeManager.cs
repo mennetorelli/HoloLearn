@@ -30,8 +30,8 @@ public class ClassicModeManager : PlayModeManager
         {
             IsBusy = true;
 
-            secondElement = selectedElement;
-            if (firstElement.GetChild(1).gameObject.name == secondElement.GetChild(1).gameObject.name)
+            secondElement = selectedElement.GetChild(1);
+            if (firstElement.gameObject.name == secondElement.gameObject.name)
             {
                 firstElement = null;
                 secondElement = null;
@@ -52,7 +52,7 @@ public class ClassicModeManager : PlayModeManager
         }
         else
         {
-            firstElement = selectedElement;
+            firstElement = selectedElement.GetChild(1);
         }
 
     }

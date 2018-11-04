@@ -70,14 +70,16 @@ public class MemoryManager : TaskManager
         Transform elems = new GameObject("Elements").transform;
         for (int i = 1; i <= numberOfBoxes / 2; i++)
         {
-            Transform elem = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);      
+            Transform elem = new GameObject("Element").transform;
+            elem.parent = elems;
             GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
             int j = rnd.Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
             objs.RemoveAt(j);
-            
-            Transform elem2 = Instantiate(PlayModesPrefabs.transform.GetChild(playMode), elems);
+
+            Transform elem2 = new GameObject("Element").transform;
+            elem2.parent = elems;
             GameObject box2 = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0.25f), BoxPrefab.transform.rotation, elem2);
             int k = rnd.Next(0, objs.Count);
             Transform obj2 = Instantiate(objs.ElementAt(k), box2.transform.position, box2.transform.rotation, elem2);
