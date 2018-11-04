@@ -28,18 +28,25 @@ public class ClassicModeManager : PlayModeManager
 
         if (firstElement != null)
         {
+            IsBusy = true;
+
             secondElement = selectedElement;
             if (firstElement.GetChild(1).gameObject.name == secondElement.GetChild(1).gameObject.name)
             {
-                VirtualAssistantManager.Instance.Jump();
                 firstElement = null;
                 secondElement = null;
+
                 Counter.Instance.Decrement();
                 Counter.Instance.Decrement();
+
+                VirtualAssistantManager.Instance.Jump();
             }
             else
             {
+                IsBusy = true;
+
                 VirtualAssistantManager.Instance.ShakeHead();
+
                 StartCoroutine(Wait(selectedElement));
             }
         }
@@ -54,12 +61,16 @@ public class ClassicModeManager : PlayModeManager
     private IEnumerator Wait(Transform selectedElement)
     {
         yield return new WaitForSeconds(3f);
+
         firstElement.GetChild(0).gameObject.SetActive(true);
         firstElement.GetChild(1).gameObject.SetActive(false);
         secondElement.GetChild(0).gameObject.SetActive(true);
         secondElement.GetChild(1).gameObject.SetActive(false);
+
         firstElement = null;
         secondElement = null;
+
+        IsBusy = false;
     }
 
 

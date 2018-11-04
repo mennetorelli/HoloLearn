@@ -23,6 +23,8 @@ public class FindMeModeManager : PlayModeManager
 
     public override void HandleTap(Transform selectedElement)
     {
+        IsBusy = true;
+
         selectedElement.GetChild(0).gameObject.SetActive(false);
         selectedElement.GetChild(1).gameObject.SetActive(true);
 
@@ -86,6 +88,8 @@ public class FindMeModeManager : PlayModeManager
             selectedElement.GetChild(0).gameObject.SetActive(true);
             selectedElement.GetChild(1).gameObject.SetActive(false);
         }
+
+        IsBusy = false;
     }
 
     public void NoConfirmation()
@@ -96,6 +100,8 @@ public class FindMeModeManager : PlayModeManager
         selectedElement.GetChild(1).gameObject.SetActive(false);
 
         selectedElement = null;
+
+        IsBusy = false;
     }
 
 }

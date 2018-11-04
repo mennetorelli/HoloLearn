@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class PlayModeManager : MonoBehaviour
 {
+    public bool IsBusy;
 
 	// Use this for initialization
 	void Start () {

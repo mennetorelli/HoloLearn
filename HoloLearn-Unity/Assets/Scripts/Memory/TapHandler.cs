@@ -18,6 +18,11 @@ public class TapHandler : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().HandleTap(transform.parent);
+        PlayModeManager manager = GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>();
+        if (!manager.IsBusy)
+        {
+            GameObject.Find("MemoryManager").transform.GetChild(0).GetComponent<PlayModeManager>().HandleTap(transform.parent);
+        }
     }
+        
 }
