@@ -58,7 +58,7 @@ public class MemoryManager : TaskManager
         boxesPosition.y = floorPosition.y + 0.1f;
 
 
-        Vector3 relativePos = Camera.main.transform.position - gazePosition;
+        Vector3 relativePos = gazePosition - Camera.main.transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
         rotation.x = 0f;
         rotation.z = 0f;
