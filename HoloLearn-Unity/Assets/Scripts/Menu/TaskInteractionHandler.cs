@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler
+public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler, IInputClickHandler
 {
 
     private bool readyToPlay;
@@ -14,9 +14,9 @@ public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler
     {
         readyToPlay = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
 		
 	}
@@ -36,8 +36,10 @@ public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler
     public void ScanningComplete()
     {
         readyToPlay = true;
+
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
+
         StartCoroutine(Wait());
     }
 
@@ -55,5 +57,11 @@ public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler
         yield return new WaitForSeconds(3f);
         transform.GetChild(1).gameObject.SetActive(false);
     }
+
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        StartPlay();
+    }
+
 
 }
