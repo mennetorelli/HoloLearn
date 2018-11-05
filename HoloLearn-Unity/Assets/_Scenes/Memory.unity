@@ -265,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 77001811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.24414062, z: 0.009765625}
+  m_LocalScale: {x: 0.5, y: 0.2685547, z: 0.009765625}
   m_Children: []
   m_Father: {fileID: 1960369299}
   m_RootOrder: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BasePixelScale: 2048
-  ItemSize: {x: 1024, y: 500, z: 20}
+  ItemSize: {x: 1024, y: 550, z: 20}
 --- !u!23 &77001814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -469,6 +469,11 @@ Prefab:
     - target: {fileID: 4227299367574582, guid: 0df21587d2a81c64eb5a6e7465680159, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165306396469674, guid: 0df21587d2a81c64eb5a6e7465680159,
+        type: 2}
+      propertyPath: drawPlanesMask
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df21587d2a81c64eb5a6e7465680159, type: 2}
@@ -1577,11 +1582,8 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1311304946}
-  m_Text: 'Scanning completed.
-
-    Look at the floor, then say
-
-    "OK" or make an air-tap'
+  m_Text: "Scanning completed. \nLook at the floor or at the \nnearest table, then
+    say\n\"OK\" or make an air-tap"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

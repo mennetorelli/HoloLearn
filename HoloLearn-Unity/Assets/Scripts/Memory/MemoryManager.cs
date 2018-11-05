@@ -55,7 +55,7 @@ public class MemoryManager : TaskManager
         }
 
         Vector3 boxesPosition = gazePosition;
-        boxesPosition.y = floorPosition.y;
+        boxesPosition.y = floorPosition.y + 0.1f;
 
 
         Vector3 relativePos = Camera.main.transform.position - gazePosition;
@@ -72,7 +72,7 @@ public class MemoryManager : TaskManager
         {
             Transform elem = new GameObject("Element").transform;
             elem.parent = elems;
-            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
+            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
             int j = rnd.Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
@@ -80,7 +80,7 @@ public class MemoryManager : TaskManager
 
             Transform elem2 = new GameObject("Element").transform;
             elem2.parent = elems;
-            GameObject box2 = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.25f * (i / 2), 0f, 0.25f), BoxPrefab.transform.rotation, elem2);
+            GameObject box2 = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0.3f), BoxPrefab.transform.rotation, elem2);
             int k = rnd.Next(0, objs.Count);
             Transform obj2 = Instantiate(objs.ElementAt(k), box2.transform.position, box2.transform.rotation, elem2);
             obj2.gameObject.SetActive(false);
@@ -91,7 +91,7 @@ public class MemoryManager : TaskManager
         elems.Rotate(rotation.eulerAngles);
         
 
-        Vector3 assistantPosition = elems.TransformPoint(-0.3f, 0f, 0.3f);
+        Vector3 assistantPosition = elems.TransformPoint(-0.5f, 0f, 0.5f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)

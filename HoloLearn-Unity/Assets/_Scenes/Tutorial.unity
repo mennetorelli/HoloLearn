@@ -958,11 +958,8 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 839064620}
-  m_Text: 'Scanning completed.
-
-    Look at the floor,
-
-    then say "OK"'
+  m_Text: "Scanning completed. \nLook at the floor or at the \nnearest table, then
+    say\n\"OK\" or make an air-tap"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1584,7 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BasePixelScale: 2048
-  ItemSize: {x: 1024, y: 500, z: 20}
+  ItemSize: {x: 1024, y: 550, z: 20}
 --- !u!23 &1732514241
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -1489,9 +1489,9 @@ TextMesh:
   m_GameObject: {fileID: 1637522978}
   m_Text: 'Scanning completed.
 
-    Look at the floor,
+    Look at the floor, then say
 
-    then say "OK"'
+    "OK" or make an air-tap'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
