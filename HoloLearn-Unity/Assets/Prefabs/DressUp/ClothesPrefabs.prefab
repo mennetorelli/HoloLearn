@@ -1413,8 +1413,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6f5c5b293f3cfe4428e348db1b986d45, type: 2}
-  - {fileID: 2100000, guid: 6f5c5b293f3cfe4428e348db1b986d45, type: 2}
+  - {fileID: 2100000, guid: 22502117e2659c2499c7dc83120f22b6, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1448,7 +1448,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 99b41ae6214fa514ea24a37e6054cf19, type: 3}
+  - {fileID: 2100000, guid: 46db763c25d02c143a66e293c87b3c72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1482,7 +1482,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6fe8fe64a983d634e971ab8ece5c1324, type: 2}
+  - {fileID: 2100000, guid: 7f74937b57e1cd946ab8e7c998aeda53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1516,7 +1516,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9fd82ffd28a27b541a6484cf771c9119, type: 3}
+  - {fileID: 2100000, guid: 65ed7df682fdfdb49b0f0c2ff61cfab3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1584,7 +1584,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 12b1d171f9f93d14989cc5eb48b18a93, type: 2}
+  - {fileID: 2100000, guid: fa735822158f5ec4a9320663ac86eaa4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1618,9 +1618,9 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7f7143d3769572b44bbcc7cecc2fde09, type: 3}
-  - {fileID: 2100002, guid: 7f7143d3769572b44bbcc7cecc2fde09, type: 3}
-  - {fileID: 2100004, guid: 7f7143d3769572b44bbcc7cecc2fde09, type: 3}
+  - {fileID: 2100000, guid: 8f879baf877e8324cabd48f5867f32ac, type: 2}
+  - {fileID: 2100000, guid: 8c11faf3b4ba9fd4b8fb809fbf07276e, type: 2}
+  - {fileID: 2100000, guid: 2c8b902ddec460146a2345e7458f5162, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1654,7 +1654,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6fe8fe64a983d634e971ab8ece5c1324, type: 2}
+  - {fileID: 2100000, guid: 7f74937b57e1cd946ab8e7c998aeda53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1722,7 +1722,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9fd82ffd28a27b541a6484cf771c9119, type: 3}
+  - {fileID: 2100000, guid: 65ed7df682fdfdb49b0f0c2ff61cfab3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1756,7 +1756,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1d072b321a568734a9486773b5e4b07b, type: 2}
+  - {fileID: 2100000, guid: 0eb33dd5687c3484aa7346f1ea2323af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2049,8 +2049,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.004248, y: 0.9999998, z: 35.59317}
-  m_Center: {x: 1.3825864, y: 1.5203157e-14, z: 17.296585}
+  m_Size: {x: 14.077656, y: 7.5450563, z: 34.301983}
+  m_Center: {x: 0.06396651, y: -3.272554, z: 16.65099}
 --- !u!65 &65343768944977228
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2061,8 +2061,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13873088, y: 0.051965274, z: 0.1}
-  m_Center: {x: 0, y: 0.03, z: 0}
+  m_Size: {x: 0.13873088, y: 0.05108107, z: 0.09245468}
+  m_Center: {x: 3.0548587e-17, y: 0.0304421, z: 0.009962164}
 --- !u!65 &65606443646036566
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2073,8 +2073,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.011970708, y: 0.06897326, z: 0.039414708}
+  m_Center: {x: -0.29426664, y: 0.47425553, z: -0.25056946}
 --- !u!65 &65840934660710506
 BoxCollider:
   m_ObjectHideFlags: 1
