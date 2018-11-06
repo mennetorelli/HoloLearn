@@ -17,9 +17,15 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     // Update is called once per frame
     public abstract void Update();
 
-    public abstract void Jump();
+    public virtual void Jump()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("Jump");
+    }
 
-    public abstract void ShakeHead();
+    public virtual void ShakeHead()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
+    }
 
     public abstract void ObjectDragged(GameObject draggedObject);
 
@@ -31,5 +37,9 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
 
     public abstract void CommandReceived();
 
-    public abstract void Talk();
+    public virtual void ExplainTaskGoal()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("Talk");
+    }
+
 }

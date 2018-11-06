@@ -19,6 +19,7 @@ public class GarbageCollectionManager : TaskManager
     private int numberOfWaste;
     private int assistantPresence;
     private int selectedAssistant;
+    private int explainTaskGoal;
     private int assistantBehaviour;
     private int assistantPatience;
 
@@ -123,6 +124,11 @@ public class GarbageCollectionManager : TaskManager
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
+
+            if (explainTaskGoal == 1)
+            {
+                VirtualAssistantManager.Instance.ExplainTaskGoal();
+            }
         }
 
     }
@@ -157,6 +163,7 @@ public class GarbageCollectionManager : TaskManager
         numberOfWaste = GarbageCollectionSettings.Instance.numberOfWaste;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
+        explainTaskGoal = VirtualAssistantSettings.Instance.explainTaskGoal;
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
         assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
     }

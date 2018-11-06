@@ -26,17 +26,6 @@ namespace Assets.Scripts.VirtualAssistant
         }
 
 
-        public override void Jump()
-        {
-            gameObject.GetComponent<Animator>().SetTrigger("Jump");
-        }
-
-        public override void ShakeHead()
-        {
-            gameObject.GetComponent<Animator>().SetTrigger("ShakeHead");
-        }
-
-
         public override void ObjectDragged(GameObject draggedObject)
         {
             targetObject = draggedObject.transform;
@@ -73,11 +62,6 @@ namespace Assets.Scripts.VirtualAssistant
                 gameObject.GetComponent<Animator>().SetTrigger("DraggingStopped");
             }
         }
-
-        public override void Talk()
-        {
-            gameObject.GetComponent<Animator>().SetTrigger("Talk");
-        }
-
+        
     }
 }

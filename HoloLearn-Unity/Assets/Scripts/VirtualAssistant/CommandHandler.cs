@@ -32,7 +32,7 @@ public class CommandHandler : MonoBehaviour, ISpeechHandler
 
     public void Talk()
     {
-        VirtualAssistantManager.Instance.Talk();
+        VirtualAssistantManager.Instance.ExplainTaskGoal();
     }
 
 }
