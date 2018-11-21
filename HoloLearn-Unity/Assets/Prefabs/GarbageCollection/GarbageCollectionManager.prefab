@@ -54,10 +54,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BinsPrefabs: {fileID: 1692875364980988, guid: fd6231651f435b849809fa82cc136cc4,
     type: 2}
-  WastePrefabs: {fileID: 1872193288092466, guid: 7c191ce96513db94ea9ff89b5f71d86d,
+  WastePrefabs: {fileID: 1562463394665464, guid: 8a181457fa2038948808a3dd44f5834d,
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
+  activeBins: []
 --- !u!114 &114960338499541070
 MonoBehaviour:
   m_ObjectHideFlags: 1
