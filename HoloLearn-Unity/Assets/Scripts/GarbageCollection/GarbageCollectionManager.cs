@@ -23,6 +23,9 @@ public class GarbageCollectionManager : TaskManager
     private int assistantBehaviour;
     private int assistantPatience;
 
+    public GameObject WastePrefabsLow;
+    private bool lowWaste;
+
     private Transform virtualAssistant;
 
     public List<string> activeBins = new List<string>();
@@ -88,6 +91,12 @@ public class GarbageCollectionManager : TaskManager
 
         bins.Translate(binsPosition);        
         bins.Rotate(rotation.eulerAngles);
+
+        // Per la sperimentazione HQ vs LQ
+        if (lowWaste)
+        {
+            WastePrefabs = WastePrefabsLow;
+        }
 
 
         Transform waste = new GameObject("Waste").transform;

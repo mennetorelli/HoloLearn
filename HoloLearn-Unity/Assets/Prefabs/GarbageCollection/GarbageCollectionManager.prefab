@@ -58,6 +58,8 @@ MonoBehaviour:
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
+  WastePrefabsLow: {fileID: 1453645978214574, guid: 8eb5afbeb00e9814c8c655a735e765e1,
+    type: 2}
   activeBins: []
 --- !u!114 &114960338499541070
 MonoBehaviour:
