@@ -1,5 +1,4 @@
 ﻿using HoloToolkit.Unity;
-using System.Collections;
 using UnityEngine;
 
 public class AssistantAudioManager : MonoBehaviour
@@ -8,6 +7,8 @@ public class AssistantAudioManager : MonoBehaviour
     public string ShakingHeadNo;
     [AudioEvent]
     public string Jump;
+    [AudioEvent]
+    public string Intro;
 
     private void Start()
     {
@@ -24,9 +25,9 @@ public class AssistantAudioManager : MonoBehaviour
         UAudioManager.Instance.PlayEvent(Jump);
     }
 
-    public void PlayTextToSpeech()
+    public void PlayIntro()
     {
-        GetComponent<TextToSpeech>().StartSpeaking("Hi, I'm Ty, your virtual assistant");
+        UAudioManager.Instance.PlayEvent(Intro);
     }
 
 }
