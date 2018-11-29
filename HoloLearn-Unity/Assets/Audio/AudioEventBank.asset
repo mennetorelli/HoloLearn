@@ -303,7 +303,7 @@ MonoBehaviour:
       Looping: 0
       LoopTime: 0
       Sounds:
-      - Sound: {fileID: 8300000, guid: 9720e6644bb4ef547868cc289cec337b, type: 3}
+      - Sound: {fileID: 8300000, guid: 64e02864625b8f74b8efcd079859023d, type: 3}
         Looping: 0
         DelayCenter: 0
         DelayRandomization: 0
