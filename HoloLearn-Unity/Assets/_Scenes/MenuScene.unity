@@ -9119,7 +9119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explainTaskGoal: 1
-  assistantBehaviour: 3
+  assistantBehaviour: 2
   assistantPatience: 5
 --- !u!114 &637966317
 MonoBehaviour:
