@@ -84,6 +84,7 @@ public class DressUpManager : TaskManager
         }
 
         Transform clothes = new GameObject("Clothes").transform;
+        clothes.tag = "ObjectsToBePlaced";
 
         Vector3 clothesPosition = weatherPosition;
         clothesPosition.y = floorPosition.y + 0.1f;
