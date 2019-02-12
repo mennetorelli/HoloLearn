@@ -5147,7 +5147,7 @@ GameObject:
   - component: {fileID: 4342463258778758}
   - component: {fileID: 95203956502073518}
   - component: {fileID: 114206807003662408}
-  - component: {fileID: 114091384383240470}
+  - component: {fileID: 114092900921414166}
   - component: {fileID: 114138018500124818}
   m_Layer: 0
   m_Name: DynamicMinion
@@ -7824,7 +7824,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122561264334498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.149, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270139423848258}
@@ -9695,7 +9695,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1964503390170780}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9704,7 +9704,7 @@ Transform:
   - {fileID: 4664024187146656}
   m_Father: {fileID: 4632353745691402}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4763687865222248
 Transform:
   m_ObjectHideFlags: 1
@@ -11031,7 +11031,7 @@ MonoBehaviour:
   Events: []
   globalEventInstanceLimit: 0
   globalInstanceBehavior: 0
---- !u!114 &114091384383240470
+--- !u!114 &114092900921414166
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -11044,7 +11044,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: Intro
 --- !u!114 &114138018500124818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11121,7 +11120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: Intro
 --- !u!114 &114206807003662408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11213,7 +11211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: 
 --- !u!114 &114402949672795742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11261,7 +11258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: Intro
 --- !u!114 &114523001749183030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11338,7 +11334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: 
 --- !u!114 &114801112703074022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11384,7 +11379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
-  Intro: 
 --- !u!114 &114979058970088888
 MonoBehaviour:
   m_ObjectHideFlags: 1

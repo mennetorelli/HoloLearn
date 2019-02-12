@@ -9184,7 +9184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8106282b47aa9c0488cf29770117a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playMode: 1
+  playMode: 0
   numberOfBoxes: 8
   waitingTime: 3
 --- !u!1 &657556673

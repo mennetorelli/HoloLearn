@@ -9,7 +9,7 @@ public class TalkingState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         VirtualAssistantManager.Instance.IsBusy = true;
-        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManager>().PlayIntro();
+        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayIntro();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -1,0 +1,1400 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1d4e6c796e6b046a056641ccec5ec8, type: 3}
+  m_Name: MinionAudioEventBank
+  m_EditorClassIdentifier: 
+  Events:
+  - Name: Walking_daquestaparte
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: d6527ebde1ff63542a4705fa3cb2e273, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Walking_vieniconme
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 04fcd24ca8804714e813997339d4d005, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Walking_seguimi
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: f4f2fe70e145d454cb5a1d706d3934d7, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Intro
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 64e02864625b8f74b8efcd079859023d, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_carta
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 89c0379c423246d4c87efb6c6bb94443, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_vetro
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 38693675ba239624fac44084f3ce331e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_plastica
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: fa5f9ab63f15d394ca3a7b98ceb86a39, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_cartabin
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 39af4440ec9d7c24a8f913539fe1d058, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_vetrobin
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 5a3d3b3d042b5cf448247b40dd8833dc, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Pointing_plasticabin
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: dacf75eb03dc4864a88fcee8ab7a1b0e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Jumping_benfatto
+    Spatialization: 1
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: c76eb8ef2adb72e40b48dd62fd8b2682, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Jumping_eccellente
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 46528ddd1aa876549b4b8ab153aa7b8a, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: ShakingHeadNo_nonono
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: fcaa3f7a3ed03a549b15b30f560f5ea8, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: ShakingHeadNo_riprova
+    Spatialization: 2
+    RoomSize: 0
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 25dbc33033d078e4fa0fe998f5d7965c, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0

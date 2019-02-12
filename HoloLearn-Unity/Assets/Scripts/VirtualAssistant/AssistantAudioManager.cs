@@ -1,33 +1,38 @@
 ﻿using HoloToolkit.Unity;
 using UnityEngine;
 
-public class AssistantAudioManager : MonoBehaviour
+public class AssistantAudioManager : AssistantAudioManagerInterface
 {
     [AudioEvent]
     public string ShakingHeadNo;
     [AudioEvent]
     public string Jump;
-    [AudioEvent]
-    public string Intro;
 
-    private void Start()
-    {
 
-    }
-
-    public void PlayShakingHeadNo()
+    public override void PlayShakingHeadNo()
     {
         UAudioManager.Instance.PlayEvent(ShakingHeadNo);
     }
 
-    public void PlayJump()
+    public override void PlayJump()
     {
         UAudioManager.Instance.PlayEvent(Jump);
     }
 
-    public void PlayIntro()
+    
+    public override void PlayWalking()
     {
-        UAudioManager.Instance.PlayEvent(Intro);
+
+    }
+
+    public override void PlayIntro()
+    {
+
+    }
+
+    public override void PlayPointing()
+    {
+
     }
 
 }

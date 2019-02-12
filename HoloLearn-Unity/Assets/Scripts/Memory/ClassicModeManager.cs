@@ -40,6 +40,8 @@ public class ClassicModeManager : PlayModeManager
                 Counter.Instance.Decrement();
 
                 VirtualAssistantManager.Instance.Jump();
+
+                IsBusy = false;
             }
             else
             {
@@ -79,12 +81,19 @@ public class ClassicModeManager : PlayModeManager
         System.Random rnd = new System.Random();
 
         List<Transform> objs = new List<Transform>();
-        for (int i = 1; i <= numberOfBoxes / 2; i++)
+        List<string> createdObjs = new List<string>();
+        for (int i = 1; i <= numberOfBoxes / 2;)
         {
             int j = rnd.Next(0, ObjectsPrefabs.transform.childCount);
             Transform obj = ObjectsPrefabs.transform.GetChild(j);
-            objs.Add(obj);
-            objs.Add(obj);
+
+            if (!createdObjs.Contains(ObjectsPrefabs.transform.GetChild(j).name))
+            {
+                objs.Add(obj);
+                objs.Add(obj);
+                createdObjs.Add(ObjectsPrefabs.transform.GetChild(j).name);
+                i++;
+            }
         }
 
         Counter.Instance.InitializeCounter(objs.Count);

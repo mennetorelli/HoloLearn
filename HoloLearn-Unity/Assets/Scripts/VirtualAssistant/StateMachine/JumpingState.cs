@@ -8,7 +8,7 @@ public class JumpingState : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         VirtualAssistantManager.Instance.IsBusy = true;
-        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManager>().PlayJump();
+        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayJump();
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

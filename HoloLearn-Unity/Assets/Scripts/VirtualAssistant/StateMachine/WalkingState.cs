@@ -14,6 +14,8 @@ public class WalkingState : StateMachineBehaviour {
         VirtualAssistantManager.Instance.GetComponent<Animator>().ResetTrigger("DraggingStopped");
 
         targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
+
+        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayWalking();
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
