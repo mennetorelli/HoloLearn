@@ -21,12 +21,12 @@ TagManager:
   - Rainy
   - Hot
   - Cold
-  - Sphere
-  - Cube
   - Cloudy
   - Snowy
   - Warm
   - FreezingCold
+  - Box
+  - MemoryObjects
   layers:
   - Default
   - TransparentFX

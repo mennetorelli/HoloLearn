@@ -41,10 +41,6 @@ public class TutorialManager : TaskManager
         Transform floor = SpatialProcessing.Instance.floors.ElementAt(0).transform;
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
 
-        if (SpatialProcessing.Instance.tables.Count != 0)
-        {
-            Transform table = TableSelect(SpatialProcessing.Instance.tables);
-        }
 
         System.Random rnd = new System.Random();
         
@@ -117,39 +113,6 @@ public class TutorialManager : TaskManager
         }
 
         return newPosition;
-    }
-
-
-    private Transform TableSelect(List<GameObject> tables)
-    {
-        Vector3 gazePosition = new Vector3(0f, 0f, 0f);
-        RaycastHit hitInfo;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 20f, Physics.DefaultRaycastLayers))
-        {
-            gazePosition = hitInfo.point;
-        }
-
-        float minDistance = 1000f;
-        Transform nearestTable = null;
-        foreach (GameObject table in tables)
-        {
-            Vector3 tableCenter = table.transform.GetColliderBounds().center;
-            if (Vector3.Distance(tableCenter, gazePosition) <= minDistance)
-            {
-                minDistance = Vector3.Distance(tableCenter, gazePosition);
-                nearestTable = table.transform;
-            }
-        }
-
-        foreach (GameObject table in tables)
-        {
-            if (table.GetInstanceID() != nearestTable.gameObject.GetInstanceID())
-            {
-                Destroy(table.gameObject);
-            }
-        }
-
-        return nearestTable;
     }
 
 
