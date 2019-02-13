@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dc4b89101398e4aa50873ee3852ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Targets: {fileID: 1925591759032896, guid: 39f452ed636be094690981cab7cb8e30, type: 2}
-  ObjectsToBePlaced: {fileID: 1081539835755902, guid: ccf1cc776d6cd6d44b4d153a4c70ef66,
+  Targets: {fileID: 1607460969876996, guid: 33a890f864b80644a8e8e2d3abef7800, type: 2}
+  ObjectsToBePlaced: {fileID: 1831551242536696, guid: ab1fb9ecaba1eaf41acee6a768b214c3,
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}

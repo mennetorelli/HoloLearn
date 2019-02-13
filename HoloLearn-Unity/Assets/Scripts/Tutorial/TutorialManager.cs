@@ -66,20 +66,23 @@ public class TutorialManager : TaskManager
         rotation.z = 0f;
 
 
-        Instantiate(ObjectsToBePlaced);
-        Instantiate(Targets);
+        Transform targets = new GameObject("Targets").transform;
+        targets.tag = "Targets";
+        Instantiate(Targets.transform.GetChild(0), Targets.transform.GetChild(0).position, Targets.transform.GetChild(0).rotation, targets);
+        targets.Translate(objsPosition);
+        targets.Rotate(rotation.eulerAngles);
 
-        ObjectsToBePlaced.transform.Translate(objsPosition);
-        ObjectsToBePlaced.transform.Rotate(rotation.eulerAngles);
 
-        Targets.transform.Translate(objsPosition + new Vector3(0f, 0f, 0.5f));
-        Targets.transform.Rotate(rotation.eulerAngles);
+        Transform objs = new GameObject("ObjectsToBePlaced").transform;
+        objs.tag = "ObjectsToBePlaced";
+        Instantiate(ObjectsToBePlaced.transform.GetChild(0), ObjectsToBePlaced.transform.GetChild(0).position, ObjectsToBePlaced.transform.GetChild(0).rotation, objs);
+        objs.Translate(Vector3.Lerp(objsPosition, Camera.main.transform.position, 0.5f));
 
 
         Counter.Instance.InitializeCounter(ObjectsToBePlaced.GetComponentsInChildren<Rigidbody>().Length);
 
 
-        Vector3 assistantPosition = gazePosition;
+        Vector3 assistantPosition = gazePosition + new Vector3(-0.5f, 0f, 0f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)
