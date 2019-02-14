@@ -11,7 +11,8 @@ using UnityEngine;
 public class TutorialManager : TaskManager
 {
 
-    public GameObject ObjectsPrefabs;
+    public GameObject Targets;
+    public GameObject ObjectsToBePlaced;
     public GameObject VirtualAssistantsPrefabs;
 
     private int assistantPresence;
@@ -65,22 +66,23 @@ public class TutorialManager : TaskManager
         rotation.z = 0f;
 
 
-        Transform objs = new GameObject("Objects").transform;
-
-        for (int i = 0; i < ObjectsPrefabs.transform.childCount; i++)
-        {
-            Transform obj = ObjectsPrefabs.transform.GetChild(i);
-            Instantiate(obj.gameObject, new Vector3(0f, 0.01f, 0f), obj.rotation, objs);
-        }
-
-        objs.Translate(objsPosition);
-        objs.Rotate(rotation.eulerAngles);
+        Transform targets = new GameObject("Targets").transform;
+        targets.tag = "Targets";
+        Instantiate(Targets.transform.GetChild(0), Targets.transform.GetChild(0).position, Targets.transform.GetChild(0).rotation, targets);
+        targets.Translate(objsPosition);
+        targets.Rotate(rotation.eulerAngles);
 
 
-        Counter.Instance.InitializeCounter(objs.GetComponentsInChildren<Rigidbody>().Length);
+        Transform objs = new GameObject("ObjectsToBePlaced").transform;
+        objs.tag = "ObjectsToBePlaced";
+        Instantiate(ObjectsToBePlaced.transform.GetChild(0), ObjectsToBePlaced.transform.GetChild(0).position, ObjectsToBePlaced.transform.GetChild(0).rotation, objs);
+        objs.Translate(Vector3.Lerp(objsPosition, Camera.main.transform.position, 0.5f));
 
 
-        Vector3 assistantPosition = gazePosition;
+        Counter.Instance.InitializeCounter(ObjectsToBePlaced.GetComponentsInChildren<Rigidbody>().Length);
+
+
+        Vector3 assistantPosition = gazePosition + new Vector3(-0.5f, 0f, 0f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)

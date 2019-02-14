@@ -1683,7 +1683,7 @@ Prefab:
         type: 2}
       propertyPath: WastePrefabs
       value: 
-      objectReference: {fileID: 1562463394665464, guid: 8a181457fa2038948808a3dd44f5834d,
+      objectReference: {fileID: 1577649011577612, guid: 17edc020684140c4295ebd8ebd436395,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e09cc55a7ca984547902beb16da91607, type: 2}
