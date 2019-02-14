@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 7f857fa8086451c4ebe57411df336daf
+guid: cf6745b5da5e4ad419df883f081ea71f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: blinn8
-    2100002: blinn6
-    2100004: phong2
+    2100000: phong7
+    2100002: bottiglia
+    2100004: tappo
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCylinder22
+    4300000: pCylinder37
     9500000: //RootNode
   externalObjects: {}
   materials:

@@ -22,8 +22,12 @@ ModelImporter:
     2100000: phong6
     2100002: lambert22
     2100004: lambert16
+    2100006: phong12
+    2100008: barattolo
     2300000: polySurface6
+    2300002: //RootNode
     3300000: polySurface6
+    3300002: //RootNode
     4300000: polySurface6
     9500000: //RootNode
   externalObjects: {}

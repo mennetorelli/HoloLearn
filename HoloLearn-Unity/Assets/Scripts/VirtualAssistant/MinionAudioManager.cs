@@ -1,8 +1,11 @@
 ﻿using HoloToolkit.Unity;
+using System.Collections;
 using UnityEngine;
 
 public class MinionAudioManager : AssistantAudioManagerInterface
 {
+    private bool isBusy;
+
     [AudioEvent]
     public string Intro;
     [AudioEvent]
@@ -35,35 +38,43 @@ public class MinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayShakingHeadNo()
     {
-        System.Random rnd = new System.Random();
-
-        switch (rnd.Next(0, 1))
+        if (!isBusy)
         {
-            case 0:
-                UAudioManager.Instance.PlayEvent(ShakingHeadNo_nonono);
-                break;
-            case 1:
-                UAudioManager.Instance.PlayEvent(ShakingHeadNo_riprova);
-                break;
+            System.Random rnd = new System.Random();
+
+            switch (rnd.Next(0, 1))
+            {
+                case 0:
+                    UAudioManager.Instance.PlayEvent(ShakingHeadNo_nonono);
+                    break;
+                case 1:
+                    UAudioManager.Instance.PlayEvent(ShakingHeadNo_riprova);
+                    break;
+            }
         }
+        StartCoroutine(Wait());
     }
 
     public override void PlayWalking()
     {
-        System.Random rnd = new System.Random();
-
-        switch (rnd.Next(0, 3))
+        if (!isBusy)
         {
-            case 0:
-                UAudioManager.Instance.PlayEvent(Walking_vieniconme);
-                break;
-            case 1:
-                UAudioManager.Instance.PlayEvent(Walking_seguimi);
-                break;
-            case 2:
-                UAudioManager.Instance.PlayEvent(Walking_daquestaparte);
-                break;
+            System.Random rnd = new System.Random();
+
+            switch (rnd.Next(0, 3))
+            {
+                case 0:
+                    UAudioManager.Instance.PlayEvent(Walking_vieniconme);
+                    break;
+                case 1:
+                    UAudioManager.Instance.PlayEvent(Walking_seguimi);
+                    break;
+                case 2:
+                    UAudioManager.Instance.PlayEvent(Walking_daquestaparte);
+                    break;
+            }
         }
+        StartCoroutine(Wait());
     }
 
 
@@ -74,42 +85,57 @@ public class MinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayJump()
     {
-        System.Random rnd = new System.Random();
-
-        switch (rnd.Next(0, 1))
+        if (!isBusy)
         {
-            case 0:
-                UAudioManager.Instance.PlayEvent(Jumping_benfatto);
-                break;
-            case 1:
-                UAudioManager.Instance.PlayEvent(Jumping_eccellente);
-                break;
+            System.Random rnd = new System.Random();
+
+            switch (rnd.Next(0, 1))
+            {
+                case 0:
+                    UAudioManager.Instance.PlayEvent(Jumping_benfatto);
+                    break;
+                case 1:
+                    UAudioManager.Instance.PlayEvent(Jumping_eccellente);
+                    break;
+            }
         }
+        StartCoroutine(Wait());
     }
 
     public override void PlayPointing()
     {
-        GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
+        if (!isBusy)
+        {
+            GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
 
-        if (target.name.Contains("Bin"))
-        {
-            if (target.tag == "Paper")
-                UAudioManager.Instance.PlayEvent(Pointing_cartabin);
-            if (target.tag == "Plastic")
-                UAudioManager.Instance.PlayEvent(Pointing_plasticabin);
-            if (target.tag == "Glass")
-                UAudioManager.Instance.PlayEvent(Pointing_vetrobin);
+            if (target.name.Contains("Bin"))
+            {
+                if (target.tag == "Paper")
+                    UAudioManager.Instance.PlayEvent(Pointing_cartabin);
+                if (target.tag == "Plastic")
+                    UAudioManager.Instance.PlayEvent(Pointing_plasticabin);
+                if (target.tag == "Glass")
+                    UAudioManager.Instance.PlayEvent(Pointing_vetrobin);
+            }
+            else
+            {
+                if (target.tag == "Paper")
+                    UAudioManager.Instance.PlayEvent(Pointing_carta);
+                if (target.tag == "Plastic")
+                    UAudioManager.Instance.PlayEvent(Pointing_plastica);
+                if (target.tag == "Glass")
+                    UAudioManager.Instance.PlayEvent(Pointing_vetro);
+            }
         }
-        else
-        {
-            if (target.tag == "Paper")
-                UAudioManager.Instance.PlayEvent(Pointing_carta);
-            if (target.tag == "Plastic")
-                UAudioManager.Instance.PlayEvent(Pointing_plastica);
-            if (target.tag == "Glass")
-                UAudioManager.Instance.PlayEvent(Pointing_vetro);
-        }
-            
+        StartCoroutine(Wait());
     }
+
+    private IEnumerator Wait()
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(4);
+        isBusy = false;
+    }
+
 
 }

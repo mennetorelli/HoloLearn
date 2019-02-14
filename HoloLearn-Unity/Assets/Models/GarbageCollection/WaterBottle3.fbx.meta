@@ -1,12 +1,15 @@
 fileFormatVersion: 2
-guid: 6889d5eedd732c74680bd74c15d9c3cd
+guid: 7f857fa8086451c4ebe57411df336daf
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: phong15
-    2100002: lambert43
+    2100000: blinn8
+    2100002: blinn6
+    2100004: phong2
+    2100006: phong15
+    2100008: lambert43
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCylinder22

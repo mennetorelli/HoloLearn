@@ -15,7 +15,10 @@ public class WalkingState : StateMachineBehaviour {
 
         targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
 
-        VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayWalking();
+        if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, targetPosition) > 0.05f)
+        {
+            VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayWalking();
+        }
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
