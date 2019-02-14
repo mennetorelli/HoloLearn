@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 114508029311655880}
   m_Layer: 0
   m_Name: GlassJar
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 114225772701154300}
   m_Layer: 0
   m_Name: WaterBottle3
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 114998130316339170}
   m_Layer: 0
   m_Name: WaterBottle2
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 114230398633149474}
   m_Layer: 0
   m_Name: Can
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 114555612337949724}
   m_Layer: 0
   m_Name: BigCan
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 114043303504983358}
   m_Layer: 0
   m_Name: GlassBottle1
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2760,7 +2760,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 24f1e5846fd908e4596bf03391048890, type: 3}
 --- !u!64 &64514935034920414
@@ -2844,7 +2844,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7f857fa8086451c4ebe57411df336daf, type: 3}
 --- !u!64 &64738455496429070
@@ -2872,7 +2872,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1cabdd271416e784cb66c6889a573807, type: 3}
 --- !u!64 &64772994902524444
@@ -2900,7 +2900,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: cf6745b5da5e4ad419df883f081ea71f, type: 3}
 --- !u!64 &64883032599237380
@@ -2914,7 +2914,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d957234b6c4c1214da9141f913f18fd3, type: 3}
 --- !u!64 &64911647209031850
@@ -2928,7 +2928,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: -1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 691b984a1efdf4e4db547774859ac986, type: 3}
 --- !u!65 &65116971379343242
