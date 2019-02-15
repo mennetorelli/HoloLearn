@@ -110,8 +110,11 @@ ModelImporter:
     2100008: lambert10
     2100010: lambert9
     2300000: pCube38
+    2300002: //RootNode
     3300000: pCube38
+    3300002: //RootNode
     4300000: pCube38
+    4300002: pTorus24
     9500000: //RootNode
   externalObjects: {}
   materials:
