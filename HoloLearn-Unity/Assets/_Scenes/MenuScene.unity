@@ -9158,7 +9158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assistantPresence: 1
-  selectedAssistant: 0
+  selectedAssistant: 1
 --- !u!114 &637966320
 MonoBehaviour:
   m_ObjectHideFlags: 0
