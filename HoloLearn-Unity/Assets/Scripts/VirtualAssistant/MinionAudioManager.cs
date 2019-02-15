@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinionAudioManager : AssistantAudioManagerInterface
 {
-    private bool isBusy;
+    private int count;
 
     [AudioEvent]
     public string Intro;
@@ -38,26 +38,24 @@ public class MinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayShakingHeadNo()
     {
-        if (!isBusy)
-        {
-            System.Random rnd = new System.Random();
 
-            switch (rnd.Next(0, 1))
-            {
-                case 0:
-                    UAudioManager.Instance.PlayEvent(ShakingHeadNo_nonono);
-                    break;
-                case 1:
-                    UAudioManager.Instance.PlayEvent(ShakingHeadNo_riprova);
-                    break;
-            }
+        System.Random rnd = new System.Random();
+
+        switch (rnd.Next(0, 1))
+        {
+            case 0:
+                UAudioManager.Instance.PlayEvent(ShakingHeadNo_nonono);
+                break;
+            case 1:
+                UAudioManager.Instance.PlayEvent(ShakingHeadNo_riprova);
+                break;
         }
-        StartCoroutine(Wait());
+        count = 0;
     }
 
     public override void PlayWalking()
     {
-        if (!isBusy)
+        if (count % 5 == 0)
         {
             System.Random rnd = new System.Random();
 
@@ -73,19 +71,20 @@ public class MinionAudioManager : AssistantAudioManagerInterface
                     UAudioManager.Instance.PlayEvent(Walking_daquestaparte);
                     break;
             }
+            count++;
         }
-        StartCoroutine(Wait());
     }
 
 
     public override void PlayIntro()
     {
         UAudioManager.Instance.PlayEvent(Intro);
+        count = 0;
     }
 
     public override void PlayJump()
     {
-        if (!isBusy)
+        if (count == 0)
         {
             System.Random rnd = new System.Random();
 
@@ -98,16 +97,16 @@ public class MinionAudioManager : AssistantAudioManagerInterface
                     UAudioManager.Instance.PlayEvent(Jumping_eccellente);
                     break;
             }
+            count++;
         }
-        StartCoroutine(Wait());
     }
 
     public override void PlayPointing()
     {
-        if (!isBusy)
-        {
-            GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
+        GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
 
+        if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, target.transform.position) > 0.05f)
+        {
             if (target.name.Contains("Bin"))
             {
                 if (target.tag == "Paper")
@@ -127,15 +126,7 @@ public class MinionAudioManager : AssistantAudioManagerInterface
                     UAudioManager.Instance.PlayEvent(Pointing_vetro);
             }
         }
-        StartCoroutine(Wait());
+        count = 0;
     }
-
-    private IEnumerator Wait()
-    {
-        isBusy = true;
-        yield return new WaitForSeconds(4);
-        isBusy = false;
-    }
-
 
 }
