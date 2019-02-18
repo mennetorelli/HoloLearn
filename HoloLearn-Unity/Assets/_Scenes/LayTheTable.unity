@@ -560,20 +560,25 @@ Prefab:
       propertyPath: m_Name
       value: SpatialProcessing
       objectReference: {fileID: 0}
-    - target: {fileID: 114680589342686232, guid: 0df21587d2a81c64eb5a6e7465680159,
-        type: 2}
-      propertyPath: minimumTables
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114165306396469674, guid: 0df21587d2a81c64eb5a6e7465680159,
         type: 2}
       propertyPath: destroyPlanesMask
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 114165306396469674, guid: 0df21587d2a81c64eb5a6e7465680159,
+    - target: {fileID: 114680589342686232, guid: 0df21587d2a81c64eb5a6e7465680159,
         type: 2}
-      propertyPath: MinArea
-      value: 0.1
+      propertyPath: scanTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680589342686232, guid: 0df21587d2a81c64eb5a6e7465680159,
+        type: 2}
+      propertyPath: minimumTables
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114736594364380904, guid: 0df21587d2a81c64eb5a6e7465680159,
+        type: 2}
+      propertyPath: BoundsExpansion
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df21587d2a81c64eb5a6e7465680159, type: 2}
@@ -622,24 +627,19 @@ Prefab:
       propertyPath: RoomModel
       value: 
       objectReference: {fileID: 100006, guid: 4c085440179d25c4099ba7227231aa04, type: 3}
-    - target: {fileID: 114000011154029958, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
-        type: 2}
-      propertyPath: surfaceMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
     - target: {fileID: 1000010302963436, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012698980792, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
-        type: 2}
-      propertyPath: TrianglesPerCubicMeter
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114000012149591842, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012698980792, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
+        type: 2}
+      propertyPath: TrianglesPerCubicMeter
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
