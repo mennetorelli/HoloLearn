@@ -2022,6 +2022,11 @@ Prefab:
       propertyPath: drawPlanesMask
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114736594364380904, guid: 0df21587d2a81c64eb5a6e7465680159,
+        type: 2}
+      propertyPath: BoundsExpansion
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df21587d2a81c64eb5a6e7465680159, type: 2}
   m_IsPrefabParent: 0

@@ -1976,7 +1976,7 @@ Prefab:
     - target: {fileID: 114736594364380904, guid: 0df21587d2a81c64eb5a6e7465680159,
         type: 2}
       propertyPath: BoundsExpansion
-      value: 4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114680589342686232, guid: 0df21587d2a81c64eb5a6e7465680159,
         type: 2}
