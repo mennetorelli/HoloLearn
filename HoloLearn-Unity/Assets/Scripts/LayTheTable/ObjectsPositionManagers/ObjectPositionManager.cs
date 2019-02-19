@@ -11,18 +11,18 @@ public abstract class ObjectPositionManager : MonoBehaviour {
     protected Quaternion finalRotation;
 
     // Use this for initialization
-    public void Start()
+    public virtual void Start()
     {
 
     }
 
     // Update is called once per frame
-    public void Update()
+    public virtual void Update()
     {
         
     }
 
-    public void HasCollided(Transform target)
+    public virtual void HasCollided(Transform target)
     {
         transform.position = target.position;
         transform.rotation = target.rotation;

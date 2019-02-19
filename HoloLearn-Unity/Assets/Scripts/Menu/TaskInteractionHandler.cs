@@ -26,18 +26,15 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
     public void OnSourceDetected(SourceStateEventData eventData)
     {
         inputSources += 1;
-        Debug.Log(inputSources);
         if (inputSources == 2)
         {
             SetMenuVisible();
-            Debug.Log(inputSources);
         }
     }
 
     public void OnSourceLost(SourceStateEventData eventData)
     {
         inputSources -= 1;
-        Debug.Log(inputSources);
     }
 
 

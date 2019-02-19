@@ -23,7 +23,7 @@ public class TargetCollisionManager : MonoBehaviour {
         {
             other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
-            Counter.Instance.Decrement();
+            //Counter.Instance.Decrement();
 
             if (VirtualAssistantManager.Instance != null)
             {
