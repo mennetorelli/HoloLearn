@@ -4,10 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler, IInputClickHandler
+public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeechHandler, IInputClickHandler
 {
 
     private bool readyToPlay;
+    private int inputSources;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +21,24 @@ public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler, IInputClick
     {
 		
 	}
+
+
+    public void OnSourceDetected(SourceStateEventData eventData)
+    {
+        inputSources += 1;
+        Debug.Log(inputSources);
+        if (inputSources == 2)
+        {
+            SetMenuVisible();
+            Debug.Log(inputSources);
+        }
+    }
+
+    public void OnSourceLost(SourceStateEventData eventData)
+    {
+        inputSources -= 1;
+        Debug.Log(inputSources);
+    }
 
 
     public void OnSpeechKeywordRecognized(SpeechEventData eventData)
@@ -36,6 +55,7 @@ public class TaskInteractionHandler : MonoBehaviour, ISpeechHandler, IInputClick
     public void ScanningComplete()
     {
         readyToPlay = true;
+        inputSources = 0;
 
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
