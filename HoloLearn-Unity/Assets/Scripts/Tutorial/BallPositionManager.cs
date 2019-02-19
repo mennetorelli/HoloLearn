@@ -13,7 +13,7 @@ public class BallPositionManager : ObjectPositionManager
     {
         transform.GetComponentInChildren<MeshCollider>().enabled = false;
 
-        targetPosition = target.GetComponentInChildren<BoxCollider>().center;
+        targetPosition = target.TransformPoint(target.GetComponentInChildren<BoxCollider>().center);
         transform.position = targetPosition;
 
         hasCollided = true;
