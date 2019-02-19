@@ -30,7 +30,8 @@ public class BallPositionManager : ObjectPositionManager
     {
         if (hasCollided)
         {
-            if (Math.Abs(transform.position.y - targetPosition.y) > 0.2)
+            Vector3 floorPosition = GameObject.Find("SurfacePlane(Clone)").transform.position;
+            if (Math.Abs(transform.position.y - floorPosition.y) < 0.1)
             {
                 transform.GetComponentInChildren<MeshCollider>().enabled = true;
                 transform.GetComponent<CustomHandDraggable>().IsDraggingEnabled = true;
