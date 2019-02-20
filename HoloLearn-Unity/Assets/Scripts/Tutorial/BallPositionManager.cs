@@ -48,8 +48,7 @@ public class BallPositionManager : ObjectPositionManager
 
         if (lerpDone)
         {
-            
-            if (Math.Abs(transform.position.y - floorPosition.y) < 0.1)
+            if (Math.Abs(transform.position.y - floorPosition.y) < 0.2f)
             {
                 transform.GetComponentInChildren<MeshCollider>().enabled = true;
                 transform.GetComponent<CustomHandDraggable>().IsDraggingEnabled = true;

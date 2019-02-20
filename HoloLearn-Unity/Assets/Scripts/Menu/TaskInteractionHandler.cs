@@ -14,6 +14,7 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
 	void Start ()
     {
         readyToPlay = false;
+        inputSources = 1;
     }
 
     // Update is called once per frame
@@ -52,7 +53,6 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
     public void ScanningComplete()
     {
         readyToPlay = true;
-        inputSources = 0;
 
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
