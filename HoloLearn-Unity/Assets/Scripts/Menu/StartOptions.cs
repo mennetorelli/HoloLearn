@@ -33,6 +33,11 @@ namespace HoloLearn
             }
             SceneManager.LoadScene(scene);
         }
+
+        public void ReloadScene()
+        {
+            ChangeScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
 
