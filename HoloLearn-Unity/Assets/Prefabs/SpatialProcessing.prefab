@@ -88,4 +88,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4077c41b4858904d8088a87ef45baed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoundsExpansion: 4
+  BoundsExpansion: 0.2
