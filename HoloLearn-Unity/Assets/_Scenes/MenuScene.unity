@@ -9157,7 +9157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d067a05c1292a4a4ab02a90a3b1d3ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantPresence: 1
+  assistantPresence: 0
   selectedAssistant: 1
 --- !u!114 &637966320
 MonoBehaviour:
