@@ -25,7 +25,10 @@ namespace HoloLearn
         {
             if (scene == 1)
             {
-                Destroy(VirtualAssistantManager.Instance.gameObject);
+                if (VirtualAssistantManager.Instance != null)
+                {
+                    Destroy(VirtualAssistantManager.Instance.gameObject);
+                }
                 Destroy(TaskManager.Instance.gameObject);
                 Destroy(GameObject.Find("Settings"));
                 Destroy(GameObject.Find("SpatialMapping"));
