@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 114631382654861466}
   - component: {fileID: 114104604024637926}
   m_Layer: 0
-  m_Name: UX
+  m_Name: TaskMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
