@@ -125,4 +125,15 @@ public class TutorialManager : TaskManager
         assistantBehaviour = VirtualAssistantSettings.Instance.assistantBehaviour;
         assistantPatience = VirtualAssistantSettings.Instance.assistantPatience;
     }
+
+
+    public override void DestroyObjects()
+    {
+        if (VirtualAssistantManager.Instance != null)
+        {
+            Destroy(VirtualAssistantManager.Instance.gameObject);
+        }
+        Destroy(GameObject.Find("ObjectsToBePlaced"));
+        Destroy(GameObject.Find("Targets"));
+    }
 }

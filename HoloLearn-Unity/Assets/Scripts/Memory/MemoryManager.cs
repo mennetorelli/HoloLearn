@@ -137,4 +137,14 @@ public class MemoryManager : TaskManager
         selectedAssistant = VirtualAssistantChoice.Instance.selectedAssistant;
     }
 
+
+    public override void DestroyObjects()
+    {
+        if (VirtualAssistantManager.Instance != null)
+        {
+            Destroy(VirtualAssistantManager.Instance.gameObject);
+        }
+        Destroy(GameObject.Find("Elements"));
+    }
+
 }

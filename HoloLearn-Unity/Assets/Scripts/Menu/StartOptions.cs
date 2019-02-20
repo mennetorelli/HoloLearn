@@ -37,9 +37,10 @@ namespace HoloLearn
             SceneManager.LoadScene(scene);
         }
 
-        public void ReloadScene()
+        public void RestartScene()
         {
-            ChangeScene(SceneManager.GetActiveScene().buildIndex);
+            TaskManager.Instance.DestroyObjects();
+            GameObject.Find("TaskMenu").GetComponent<TaskInteractionHandler>().ScanningComplete();
         }
     }
 }

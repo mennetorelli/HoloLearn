@@ -1,4 +1,5 @@
 ﻿using HoloToolkit.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,4 +14,6 @@ public abstract class TaskManager : Singleton<TaskManager>
     public abstract void Update();
 
     public abstract void GenerateObjectsInWorld();
+
+    public abstract void DestroyObjects();
 }
