@@ -42,7 +42,7 @@ public class WastePositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
-        targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center);
+        targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));
 
         hasCollided = true;
     }
