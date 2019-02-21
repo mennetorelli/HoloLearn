@@ -21,8 +21,6 @@ public class TargetCollisionManager : MonoBehaviour {
     { 
         if (other.gameObject.CompareTag(gameObject.tag))
         {
-            other.gameObject.GetComponent<CustomHandDraggable>().StopDragging();
-
             //Counter.Instance.Decrement();
 
             if (VirtualAssistantManager.Instance != null)

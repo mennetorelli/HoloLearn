@@ -19,7 +19,10 @@ public class Counter : Singleton<Counter> {
         count--;
         if (count == 0)
         {
-            VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("EndGame");
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.GetComponent<Animator>().SetTrigger("EndGame");
+            }
         }
     }
 

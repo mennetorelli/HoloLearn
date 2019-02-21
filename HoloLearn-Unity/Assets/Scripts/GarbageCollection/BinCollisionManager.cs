@@ -22,8 +22,6 @@ public class BinCollisionManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
-            other.gameObject.GetComponent<CustomHandDraggable>().StopDragging();
-
             Counter.Instance.Decrement();
 
             if (VirtualAssistantManager.Instance != null)
@@ -36,9 +34,12 @@ public class BinCollisionManager : MonoBehaviour
         else
         {
             GarbageCollectionManager manager = (GarbageCollectionManager)TaskManager.Instance;
-            if (manager.activeBins.Contains(other.tag) && !VirtualAssistantManager.Instance.IsBusy)
+            if (VirtualAssistantManager.Instance != null)
             {
-                VirtualAssistantManager.Instance.ShakeHead();
+                if (manager.activeBins.Contains(other.tag) && !VirtualAssistantManager.Instance.IsBusy)
+                {
+                    VirtualAssistantManager.Instance.ShakeHead();
+                }
             }
         }
     }

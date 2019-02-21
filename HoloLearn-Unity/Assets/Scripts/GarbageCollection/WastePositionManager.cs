@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HoloToolkit.Unity.InputModule;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,6 @@ public class WastePositionManager : ObjectPositionManager
 
         if (hasCollided)
         {
-            transform.GetComponent<Rigidbody>().isKinematic = true;
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
             transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale / 5, Time.deltaTime * 5f);
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
@@ -42,6 +42,10 @@ public class WastePositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
+        transform.GetComponent<CustomHandDraggable>().StopDragging();
+        transform.GetComponentInChildren<MeshCollider>().enabled = false;
+        transform.GetComponent<Rigidbody>().isKinematic = true;
+
         targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));
 
         hasCollided = true;
