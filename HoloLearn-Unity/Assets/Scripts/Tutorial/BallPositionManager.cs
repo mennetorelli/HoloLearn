@@ -38,11 +38,13 @@ public class BallPositionManager : ObjectPositionManager
 
         if (hasCollided)
         {
+            transform.GetComponent<Rigidbody>().isKinematic = true;
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
                 lerpDone = true;
                 hasCollided = false;
+                transform.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
 

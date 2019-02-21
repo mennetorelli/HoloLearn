@@ -68,7 +68,7 @@ public class TutorialManager : TaskManager
 
         Transform targets = new GameObject("Targets").transform;
         targets.tag = "Targets";
-        Instantiate(Targets.transform.GetChild(0), Targets.transform.GetChild(0).position, Targets.transform.GetChild(0).rotation, targets);
+        Instantiate(Targets.transform.GetChild(0), Targets.transform.GetChild(0).position + new Vector3(0f, 0.2f, 0f), Targets.transform.GetChild(0).rotation, targets);
         targets.Translate(objsPosition);
         targets.Rotate(rotation.eulerAngles);
 
