@@ -22,7 +22,7 @@ public class BinCollisionManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
-            other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
+            other.gameObject.GetComponent<CustomHandDraggable>().StopDragging();
 
             Counter.Instance.Decrement();
 
@@ -31,7 +31,7 @@ public class BinCollisionManager : MonoBehaviour
                 VirtualAssistantManager.Instance.Jump();
             }
 
-            other.gameObject.SetActive(false);
+            other.transform.GetComponent<ObjectPositionManager>().HasCollided(transform);
         }
         else
         {

@@ -1,18 +1,16 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallPositionManager : ObjectPositionManager
+public class WastePositionManager : ObjectPositionManager
 {
     private bool hasCollided;
     private bool lerpDone;
     private Vector3 targetPosition;
     private Vector3 floorPosition;
 
-
-    public override void Start()
+    // Use this for initialization
+    public override void Start ()
     {
         hasCollided = false;
         lerpDone = false;
@@ -20,7 +18,8 @@ public class BallPositionManager : ObjectPositionManager
         floorPosition = GameObject.Find("SurfacePlane(Clone)").transform.position;
     }
 
-    public override void Update()
+    // Update is called once per frame
+    public override void Update ()
     {
         if (transform.position.y < floorPosition.y)
         {
@@ -31,19 +30,11 @@ public class BallPositionManager : ObjectPositionManager
         {
             transform.GetComponent<Rigidbody>().isKinematic = true;
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
+            transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale / 5, Time.deltaTime * 5f);
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
                 lerpDone = true;
-                hasCollided = false;
-            }
-        }
-
-        if (lerpDone)
-        {
-            if (Math.Abs(transform.position.y - floorPosition.y) < 0.2f)
-            {
-                transform.GetComponentInChildren<MeshCollider>().enabled = true;
-                lerpDone = false;
+                gameObject.SetActive(false);
             }
         }
     }
@@ -51,11 +42,8 @@ public class BallPositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
-        transform.GetComponentInChildren<MeshCollider>().enabled = false;
-
-        targetPosition = target.TransformPoint(target.GetComponentInChildren<BoxCollider>().center);
+        targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center);
 
         hasCollided = true;
     }
-
 }
