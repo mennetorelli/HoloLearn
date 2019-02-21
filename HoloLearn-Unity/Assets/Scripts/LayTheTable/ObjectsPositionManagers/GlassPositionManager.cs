@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlassPositionManager : ObjectPositionManager
+public class GlassPositionManager : LayTheTableObjectsPositionManager
 {
     
     public override void AdjustTransform()

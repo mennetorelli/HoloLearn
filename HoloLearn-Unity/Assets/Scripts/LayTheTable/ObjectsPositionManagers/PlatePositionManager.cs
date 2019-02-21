@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatePositionManager : ObjectPositionManager
+public class PlatePositionManager : LayTheTableObjectsPositionManager
 {
     
 }

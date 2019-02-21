@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottlePositionManager : ObjectPositionManager
+public class BottlePositionManager : LayTheTableObjectsPositionManager
 {
     
     public override void AdjustTransform()

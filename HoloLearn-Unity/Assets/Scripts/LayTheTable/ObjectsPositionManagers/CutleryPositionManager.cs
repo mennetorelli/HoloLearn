@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutleryPositionManager : ObjectPositionManager
+public class CutleryPositionManager : LayTheTableObjectsPositionManager
 {
     
     public override void AdjustTransform()

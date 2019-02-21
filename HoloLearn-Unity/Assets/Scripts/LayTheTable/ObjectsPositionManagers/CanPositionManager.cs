@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanPositionManager : ObjectPositionManager
+public class CanPositionManager : LayTheTableObjectsPositionManager
 {
     
     public override void AdjustTransform()
