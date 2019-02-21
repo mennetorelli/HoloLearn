@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 6881c5513368a39419af1c1026148225
+guid: 0e09f3e94480e034aad0707ac74bd021
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert4
+    2100000: pasted__lambert4
     2300000: //RootNode
     3300000: //RootNode
-    4300000: maglia
+    4300000: T_shirt
     9500000: //RootNode
   externalObjects: {}
   materials:
