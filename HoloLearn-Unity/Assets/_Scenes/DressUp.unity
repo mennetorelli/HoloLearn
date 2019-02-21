@@ -499,37 +499,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 54409234025076464, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54311915739698486, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54080325013794512, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54326314916124658, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54428765790528858, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54350842757793228, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54930395648990162, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54641054248491298, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54499270456795594, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54465064549723226, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54146482749045640, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54000064459104778, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54637007490690998, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54587180445336584, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 54727616601136572, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64357139879158762, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64460634970079824, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64701710529811736, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64732171450935592, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64283425753292510, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64450120823634704, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64095828903483888, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64760453913252188, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64225205341601160, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64920324239387886, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64184147643537880, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64309766458952564, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64851429258303992, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64246003257841664, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
-    - {fileID: 64486474834141906, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be6d2324ec5354e49b7cd0f5bb0d9897, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1930136562
