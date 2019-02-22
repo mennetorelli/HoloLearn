@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 45291e167034b3045b30c091fd3ca526
+guid: 3747e251dec1b824d8d428140133e6c2
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: FABRIC 1_FRONT_3424
-    2100002: lambert15
-    2100004: lambert14
+    2100000: pasted__FABRIC 1_FRONT_3424
+    2100002: pasted__lambert15
+    2100004: pasted__lambert14
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pantaloncini2
+    4300000: shorts
     9500000: //RootNode
   externalObjects: {}
   materials:
