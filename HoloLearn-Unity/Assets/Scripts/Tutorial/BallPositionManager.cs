@@ -34,6 +34,7 @@ public class BallPositionManager : ObjectPositionManager
             {
                 lerpDone = true;
                 hasCollided = false;
+                transform.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
 

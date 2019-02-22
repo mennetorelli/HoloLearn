@@ -23,6 +23,8 @@ public class TargetCollisionManager : MonoBehaviour {
         {
             //Counter.Instance.Decrement();
 
+            transform.GetComponent<BasketAudioManager>().PlayBasketDunk();
+
             if (VirtualAssistantManager.Instance != null)
             {
                 VirtualAssistantManager.Instance.Jump();
