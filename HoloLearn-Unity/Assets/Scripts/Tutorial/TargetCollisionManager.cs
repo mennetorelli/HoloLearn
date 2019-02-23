@@ -18,7 +18,7 @@ public class TargetCollisionManager : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other)
-    { 
+    {
         if (other.gameObject.CompareTag(gameObject.tag))
         {
             //Counter.Instance.Decrement();

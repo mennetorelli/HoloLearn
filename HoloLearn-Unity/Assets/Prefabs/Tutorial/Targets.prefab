@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 65644474559236724}
   - component: {fileID: 64955238319392358}
   - component: {fileID: 114174992976863436}
-  - component: {fileID: 114283068069399378}
   - component: {fileID: 114086432743012400}
   m_Layer: 0
   m_Name: Basket
@@ -174,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91dc34a7e442595448d470eace13787c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasketDunk1: PlayBasketDunk1
-  BasketDunk2: PlayBasketDunk2
+  BasketDunk1: BasketDunk1
+  BasketDunk2: BasketDunk2
 --- !u!114 &114174992976863436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,19 +186,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64da79b8f71380344ab83ba3b245683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114283068069399378
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1398848036880182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 19554f5d202230c4ea185e294fe7292b, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0

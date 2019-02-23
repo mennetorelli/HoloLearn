@@ -1650,7 +1650,6 @@ GameObject:
   - component: {fileID: 95860436459861964}
   - component: {fileID: 114523001749183030}
   - component: {fileID: 114799015419703834}
-  - component: {fileID: 114854926059337966}
   m_Layer: 0
   m_Name: StaticTy
   m_TagString: Untagged
@@ -1759,7 +1758,6 @@ GameObject:
   - component: {fileID: 95219528898600664}
   - component: {fileID: 114175558265030990}
   - component: {fileID: 114864349947469134}
-  - component: {fileID: 114070466633788782}
   m_Layer: 0
   m_Name: DynamicTy
   m_TagString: Untagged
@@ -3133,7 +3131,6 @@ GameObject:
   - component: {fileID: 95813527820641812}
   - component: {fileID: 114979058970088888}
   - component: {fileID: 114454123828247408}
-  - component: {fileID: 114351225392209508}
   m_Layer: 0
   m_Name: StaticMinion
   m_TagString: Untagged
@@ -4301,7 +4298,6 @@ GameObject:
   - component: {fileID: 114267879129981514}
   - component: {fileID: 114998685846174030}
   - component: {fileID: 114203777876299648}
-  - component: {fileID: 114217975033888364}
   m_Layer: 0
   m_Name: ReactiveMinion
   m_TagString: Untagged
@@ -5147,7 +5143,6 @@ GameObject:
   - component: {fileID: 4342463258778758}
   - component: {fileID: 95203956502073518}
   - component: {fileID: 114206807003662408}
-  - component: {fileID: 114138018500124818}
   - component: {fileID: 114297575383401256}
   m_Layer: 0
   m_Name: DynamicMinion
@@ -5502,7 +5497,6 @@ GameObject:
   - component: {fileID: 114559272540867410}
   - component: {fileID: 114036062517481586}
   - component: {fileID: 114358075489078978}
-  - component: {fileID: 114801112703074022}
   m_Layer: 0
   m_Name: ReactiveTy
   m_TagString: Untagged
@@ -11015,38 +11009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277d5a2fa18188e41a0ce5648494d028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114070466633788782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302873787771618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
---- !u!114 &114138018500124818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1907704196838108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: cc4c851e20773a149bf53a39108384d7, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
 --- !u!114 &114163224741368058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11122,22 +11084,6 @@ MonoBehaviour:
   IsDragging: 0
   IsBusy: 0
   targetObject: {fileID: 0}
---- !u!114 &114217975033888364
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1777208049416004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
 --- !u!114 &114267879129981514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11194,22 +11140,6 @@ MonoBehaviour:
   Jumping_eccellente: Jumping_eccellente
   ShakingHeadNo_nonono: ShakingHeadNo_nonono
   ShakingHeadNo_riprova: ShakingHeadNo_riprova
---- !u!114 &114351225392209508
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566066299099860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
 --- !u!114 &114358075489078978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11346,38 +11276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShakingHeadNo: ShakeHeadNo
   Jump: Jump
---- !u!114 &114801112703074022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975534983627306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
---- !u!114 &114854926059337966
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1288697535045856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultBanks:
-  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  Events: []
-  globalEventInstanceLimit: 0
-  globalInstanceBehavior: 0
 --- !u!114 &114864349947469134
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -27,6 +27,11 @@ public class BallPositionManager : ObjectPositionManager
             transform.position = new Vector3(transform.position.x, floorPosition.y + 0.01f, transform.position.z);
         }
 
+        if (!hasCollided && !lerpDone && !transform.GetComponent<Collider>().isTrigger && Math.Abs(transform.position.y - floorPosition.y) > 0.2f)
+        {
+            transform.GetComponent<Collider>().isTrigger = true;
+        }
+
         if (hasCollided)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
@@ -67,5 +72,6 @@ public class BallPositionManager : ObjectPositionManager
         {
             transform.GetComponent<BallAudioManager>().PlayBallBump();
         }
+        transform.GetComponent<Collider>().isTrigger = false;
     }
 }
