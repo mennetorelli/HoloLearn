@@ -21,31 +21,34 @@ public class BagCollisionManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        List<string> tags = other.transform.GetComponent<TagsContainer>().tags;
-        string weather = GameObject.Find("weather").transform.GetChild(0).GetChild(0).tag;
-        string temperature = GameObject.Find("weather").transform.GetChild(0).GetChild(1).tag;
-
-        foreach (string tag in tags)
+        if (other.tag != "Untagged")
         {
-            Debug.Log(other.name + " tags possbili: " + tag);
-            if (tags.Contains(weather) || tags.Contains(temperature))
+            List<string> tags = other.transform.GetComponent<TagsContainer>().tags;
+            string weather = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
+            string temperature = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
+
+            foreach (string tag in tags)
             {
-                other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
-
-                Counter.Instance.Decrement();
-
-                if (VirtualAssistantManager.Instance != null)
+                Debug.Log(other.name + " tags possbili: " + tag);
+                if (tags.Contains(weather) || tags.Contains(temperature))
                 {
-                    VirtualAssistantManager.Instance.Jump();
+                    other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
+
+                    Counter.Instance.Decrement();
+
+                    if (VirtualAssistantManager.Instance != null)
+                    {
+                        VirtualAssistantManager.Instance.Jump();
+                    }
+
+                    other.gameObject.SetActive(false);
                 }
-
-                other.gameObject.SetActive(false);
             }
-        }
 
-        if (VirtualAssistantManager.Instance != null && !VirtualAssistantManager.Instance.IsBusy)
-        {
-            VirtualAssistantManager.Instance.ShakeHead();
+            if (VirtualAssistantManager.Instance != null && !VirtualAssistantManager.Instance.IsBusy)
+            {
+                VirtualAssistantManager.Instance.ShakeHead();
+            }
         }
     }
 
