@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 114883696292432782}
   - component: {fileID: 114767301788876278}
   - component: {fileID: 114280829030574520}
+  - component: {fileID: 114418724254299906}
+  - component: {fileID: 114200186227754460}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -163,6 +165,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114200186227754460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195295719262772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204e024b97b07854ca99b46a9b5a6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BallBump1: BallBump1
+  BallBump2: BallBump2
+  BallBump3: BallBump3
 --- !u!114 &114280829030574520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +190,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5eb9f4cb553cc438321151a28e123c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114418724254299906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195295719262772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: bbbc65fe8937b6e48bf1befb36d95c5c, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
 --- !u!114 &114767301788876278
 MonoBehaviour:
   m_ObjectHideFlags: 1

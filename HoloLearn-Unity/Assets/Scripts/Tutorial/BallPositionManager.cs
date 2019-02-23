@@ -60,4 +60,12 @@ public class BallPositionManager : ObjectPositionManager
         hasCollided = true;
     }
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "SurfacePlane(Clone)")
+        {
+            transform.GetComponent<BallAudioManager>().PlayBallBump();
+        }
+    }
 }
