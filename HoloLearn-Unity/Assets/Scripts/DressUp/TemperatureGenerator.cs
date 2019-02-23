@@ -30,7 +30,7 @@ public class TemperatureGenerator : MonoBehaviour {
 
         int temperature = new System.Random().Next(MinRange, MaxRange);
         int unit = temperature % 10;
-        int dec = temperature - unit / 10;
+        int dec = (temperature - unit) / 10;
 
         if (dec != 0)
         {
