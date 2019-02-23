@@ -37,8 +37,8 @@ public class BagCollisionManager : MonoBehaviour
         foreach (string tag in tags)
         {
             Debug.Log(other.name + " tags possbili: " + tag);
-            if (manager.activeWeatherTags.Contains(tag))
-            {
+            if (//manager.activeWeatherTags.Contains(tag))
+            true){
                 other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
                 Counter.Instance.Decrement();

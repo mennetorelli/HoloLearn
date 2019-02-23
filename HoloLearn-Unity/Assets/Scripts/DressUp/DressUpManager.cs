@@ -25,8 +25,6 @@ public class DressUpManager : TaskManager
 
     private Transform virtualAssistant;
 
-    public List<string> activeWeatherTags = new List<string>();
-
 
     // Use this for initialization
     public override void Start()
@@ -78,12 +76,6 @@ public class DressUpManager : TaskManager
 
         selectedWeather.GetChild(1).GetComponent<TemperatureGenerator>().GenerateTemperature();
 
-
-        GameObject activeWeatherElements = GameObject.Find("Weather");
-        for (int i = 0; i < activeWeatherElements.transform.childCount; i++)
-        {
-            activeWeatherTags.Add(activeWeatherElements.transform.GetChild(i).tag);
-        }
 
         Transform clothes = new GameObject("Clothes").transform;
         clothes.tag = "ObjectsToBePlaced";
