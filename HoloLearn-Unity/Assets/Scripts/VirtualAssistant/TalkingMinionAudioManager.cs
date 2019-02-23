@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MinionAudioManager : AssistantAudioManagerInterface
+public class TalkigMinionAudioManager : AssistantAudioManagerInterface
 {
     private int count;
 

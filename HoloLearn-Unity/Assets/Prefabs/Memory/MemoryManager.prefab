@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4583049763968324}
   - component: {fileID: 114166815333970274}
   - component: {fileID: 114963429067379292}
+  - component: {fileID: 114657941287493508}
   m_Layer: 0
   m_Name: MemoryManager
   m_TagString: Untagged
@@ -59,6 +60,22 @@ MonoBehaviour:
     type: 2}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
     type: 2}
+--- !u!114 &114657941287493508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369523499665020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
 --- !u!114 &114963429067379292
 MonoBehaviour:
   m_ObjectHideFlags: 1

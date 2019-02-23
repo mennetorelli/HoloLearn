@@ -68,7 +68,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 19554f5d202230c4ea185e294fe7292b, type: 2}
   - {fileID: 11400000, guid: bbbc65fe8937b6e48bf1befb36d95c5c, type: 2}
   - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
-  - {fileID: 11400000, guid: cc4c851e20773a149bf53a39108384d7, type: 2}
   Events: []
   globalEventInstanceLimit: 0
   globalInstanceBehavior: 0

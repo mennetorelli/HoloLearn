@@ -1,7 +1,7 @@
 ﻿using HoloToolkit.Unity;
 using UnityEngine;
 
-public class AssistantAudioManager : AssistantAudioManagerInterface
+public class MinionAudioManager : AssistantAudioManagerInterface
 {
     [AudioEvent]
     public string ShakingHeadNo;

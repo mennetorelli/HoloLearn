@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4750096435058976}
   - component: {fileID: 114557621253447402}
   - component: {fileID: 114603835999274066}
+  - component: {fileID: 114416143409921036}
   m_Layer: 0
   m_Name: LayTheTableManager
   m_TagString: Untagged
@@ -41,6 +42,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114416143409921036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931866485075700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultBanks:
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
+  Events: []
+  globalEventInstanceLimit: 0
+  globalInstanceBehavior: 0
 --- !u!114 &114557621253447402
 MonoBehaviour:
   m_ObjectHideFlags: 1
