@@ -76,6 +76,8 @@ public class DressUpManager : TaskManager
         Transform selectedWeather = selectedLevel.GetChild(rnd.Next(0, selectedLevel.childCount));
         Instantiate(selectedWeather, weatherPosition, rotation, weather);
 
+        selectedWeather.GetChild(1).GetComponent<TemperatureGenerator>().GenerateTemperature();
+
 
         GameObject activeWeatherElements = GameObject.Find("Weather");
         for (int i = 0; i < activeWeatherElements.transform.childCount; i++)
@@ -92,8 +94,7 @@ public class DressUpManager : TaskManager
 
         for (int i = 0; i < numberOfClothes; i++)
         {
-            Transform currentGroup = ClothesPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
-            Transform currentClothe = currentGroup.GetChild(rnd.Next(0, currentGroup.childCount));
+            Transform currentClothe = ClothesPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
             Instantiate(currentClothe.gameObject, currentClothe.position, currentClothe.rotation, clothes);
         }
 
