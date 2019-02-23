@@ -21,24 +21,15 @@ public class BagCollisionManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        DressUpManager manager = (DressUpManager)TaskManager.Instance;
-
-        List<string> tags = new List<string>();
-        if (other.transform.parent.name == "Clothes")
-        {
-            Debug.Log(other.name);
-            Transform objectTags = other.transform.Find("Tags");
-            foreach (Transform objectTag in objectTags)
-            {
-                tags.Add(objectTag.tag);
-            }
-        }
+        List<string> tags = other.transform.GetComponent<TagsContainer>().tags;
+        string weather = GameObject.Find("weather").transform.GetChild(0).GetChild(0).tag;
+        string temperature = GameObject.Find("weather").transform.GetChild(0).GetChild(1).tag;
 
         foreach (string tag in tags)
         {
             Debug.Log(other.name + " tags possbili: " + tag);
-            if (//manager.activeWeatherTags.Contains(tag))
-            true){
+            if (tags.Contains(weather) || tags.Contains(temperature))
+            {
                 other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
                 Counter.Instance.Decrement();
@@ -49,11 +40,10 @@ public class BagCollisionManager : MonoBehaviour
                 }
 
                 other.gameObject.SetActive(false);
-                return;
             }
         }
 
-        if (!VirtualAssistantManager.Instance.IsBusy)
+        if (VirtualAssistantManager.Instance != null && !VirtualAssistantManager.Instance.IsBusy)
         {
             VirtualAssistantManager.Instance.ShakeHead();
         }
