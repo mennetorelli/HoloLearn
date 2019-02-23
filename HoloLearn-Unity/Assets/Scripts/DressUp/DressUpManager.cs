@@ -72,7 +72,7 @@ public class DressUpManager : TaskManager
         rotation.z = 0f;
 
         Transform weather = new GameObject("Weather").transform;
-        Transform selectedLevel = WeatherPrefabs.transform.GetChild(numberOfLevel - 1);
+        Transform selectedLevel = WeatherPrefabs.transform.GetChild(numberOfLevel);
         Transform selectedWeather = selectedLevel.GetChild(rnd.Next(0, selectedLevel.childCount));
         Instantiate(selectedWeather, weatherPosition, rotation, weather);
 
