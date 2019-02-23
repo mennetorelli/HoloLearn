@@ -24,6 +24,8 @@ public class BinCollisionManager : MonoBehaviour
         {
             Counter.Instance.Decrement();
 
+            transform.GetComponent<BinAudioManagerInterface>().PlayBinSound();
+
             if (VirtualAssistantManager.Instance != null)
             {
                 VirtualAssistantManager.Instance.Jump();

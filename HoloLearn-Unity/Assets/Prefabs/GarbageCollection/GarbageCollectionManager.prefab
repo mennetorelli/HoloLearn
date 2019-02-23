@@ -73,9 +73,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultBanks:
   - {fileID: 11400000, guid: cc4c851e20773a149bf53a39108384d7, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2f5667efe71ee914395b0e4fe840454a, type: 2}
+  - {fileID: 11400000, guid: 3b02197d0d746564c950a895ebbb5f10, type: 2}
+  - {fileID: 11400000, guid: c164f17bf58bd944f985921c3c7c182e, type: 2}
   Events: []
   globalEventInstanceLimit: 0
   globalInstanceBehavior: 0

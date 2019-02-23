@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 65539993204656508}
   - component: {fileID: 65341287880124980}
   - component: {fileID: 114464708316997482}
+  - component: {fileID: 114636644164273906}
   m_Layer: 0
   m_Name: PaperBin
   m_TagString: Paper
@@ -46,6 +47,7 @@ GameObject:
   - component: {fileID: 65933037739019200}
   - component: {fileID: 65357691033661486}
   - component: {fileID: 114290865511800154}
+  - component: {fileID: 114662021649115412}
   m_Layer: 0
   m_Name: GlassBin
   m_TagString: Glass
@@ -67,6 +69,7 @@ GameObject:
   - component: {fileID: 65812973603996614}
   - component: {fileID: 65444906050553294}
   - component: {fileID: 114905959476641212}
+  - component: {fileID: 114719092254462526}
   m_Layer: 0
   m_Name: PlasticBin
   m_TagString: Plastic
@@ -406,6 +409,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11954842fda856f4b9ba551076bc362a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114636644164273906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102530395279368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd3c3854737e234badad89dfdf06830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Paper: 
+--- !u!114 &114662021649115412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172731658331156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042e5bfb6f8d4884dae7d5be7070f70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Glass: 
+--- !u!114 &114719092254462526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454075450199860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dfda1a68120f84ab8092a7831175d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Plastic: 
 --- !u!114 &114905959476641212
 MonoBehaviour:
   m_ObjectHideFlags: 1
