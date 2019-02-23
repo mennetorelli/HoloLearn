@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd3c3854737e234badad89dfdf06830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Paper: 
+  Paper: PaperBin
 --- !u!114 &114662021649115412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042e5bfb6f8d4884dae7d5be7070f70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Glass: 
+  Glass: GlassBin
 --- !u!114 &114719092254462526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dfda1a68120f84ab8092a7831175d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Plastic: 
+  Plastic: PlasticBin
 --- !u!114 &114905959476641212
 MonoBehaviour:
   m_ObjectHideFlags: 1
