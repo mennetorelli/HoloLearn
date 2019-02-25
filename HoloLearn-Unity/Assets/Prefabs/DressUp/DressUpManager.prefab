@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeatherPrefabs: {fileID: 1835916060619404, guid: e30d9fb7dff376c45804df9fd1b306a7,
     type: 2}
-  ClothesPrefabs: {fileID: 1817517274191838, guid: bd0c2d9ea0e93b34cb96ff9850c5c79f,
+  ClothesPrefabs: {fileID: 1858990561776124, guid: be6d2324ec5354e49b7cd0f5bb0d9897,
     type: 2}
   BagsPrefabs: {fileID: 1256371271362260, guid: 11c4683f02417434c8c993b4c97392c3,
     type: 2}

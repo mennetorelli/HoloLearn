@@ -24,6 +24,7 @@ public class BagCollisionManager : MonoBehaviour
         if (other.tag != "Untagged")
         {
             List<string> tags = other.transform.GetComponent<TagsContainer>().tags;
+            Debug.Log(tags);
             string weather = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
             string temperature = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
 
@@ -32,8 +33,6 @@ public class BagCollisionManager : MonoBehaviour
                 Debug.Log(other.name + " tags possbili: " + tag);
                 if (tags.Contains(weather) || tags.Contains(temperature))
                 {
-                    other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
-
                     Counter.Instance.Decrement();
 
                     if (VirtualAssistantManager.Instance != null)
@@ -41,7 +40,7 @@ public class BagCollisionManager : MonoBehaviour
                         VirtualAssistantManager.Instance.Jump();
                     }
 
-                    other.gameObject.SetActive(false);
+                    other.transform.GetComponent<ObjectPositionManager>().HasCollided(transform);
                 }
             }
 
