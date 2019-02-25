@@ -40,8 +40,7 @@ public class WastePositionManager : ObjectPositionManager
     public override void HasCollided(Transform target)
     {
         transform.GetComponent<CustomHandDraggable>().StopDragging();
-        transform.GetComponentInChildren<MeshCollider>().enabled = false;
-        transform.GetComponent<Rigidbody>().isKinematic = true;
+        transform.GetComponent<Collider>().enabled = false;
 
         targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));
 

@@ -47,7 +47,7 @@ public class BallPositionManager : ObjectPositionManager
         {
             if (Math.Abs(transform.position.y - floorPosition.y) < 0.2f)
             {
-                transform.GetComponentInChildren<MeshCollider>().enabled = true;
+                transform.GetComponentInChildren<Collider>().enabled = true;
                 lerpDone = false;
             }
         }
@@ -57,7 +57,7 @@ public class BallPositionManager : ObjectPositionManager
     public override void HasCollided(Transform target)
     {
         transform.GetComponent<CustomHandDraggable>().StopDragging();
-        transform.GetComponentInChildren<MeshCollider>().enabled = false;
+        transform.GetComponent<Collider>().enabled = false;
         transform.GetComponent<Rigidbody>().isKinematic = true;
 
         targetPosition = target.TransformPoint(target.GetComponentInChildren<BoxCollider>().center);
