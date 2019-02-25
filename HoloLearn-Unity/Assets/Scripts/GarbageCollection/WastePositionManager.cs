@@ -31,7 +31,6 @@ public class WastePositionManager : ObjectPositionManager
             transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale / 5, Time.deltaTime * 5f);
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
-                lerpDone = true;
                 gameObject.SetActive(false);
             }
         }
