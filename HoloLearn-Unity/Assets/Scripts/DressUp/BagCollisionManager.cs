@@ -21,16 +21,14 @@ public class BagCollisionManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Untagged")
+        if (other.gameObject.name != "SurfacePlane(Clone)")
         {
             List<string> tags = other.transform.GetComponent<TagsContainer>().tags;
-            Debug.Log(tags);
             string weather = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
             string temperature = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
 
             foreach (string tag in tags)
             {
-                Debug.Log(other.name + " tags possbili: " + tag);
                 if (tags.Contains(weather) || tags.Contains(temperature))
                 {
                     Counter.Instance.Decrement();
