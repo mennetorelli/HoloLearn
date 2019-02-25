@@ -15,7 +15,6 @@ public class DressUpManager : TaskManager
     public GameObject BagsPrefabs;
     public GameObject VirtualAssistantsPrefabs;
 
-    private int playerGender;
     private int numberOfLevel;
     private int numberOfClothes;
     private int assistantPresence;
@@ -142,7 +141,6 @@ public class DressUpManager : TaskManager
 
     private void LoadSettings()
     {
-        playerGender = DressUpSettings.Instance.playerGender;
         numberOfLevel = DressUpSettings.Instance.numberOfLevel;
         numberOfClothes = DressUpSettings.Instance.numberOfClothes;
         assistantPresence = VirtualAssistantChoice.Instance.assistantPresence;

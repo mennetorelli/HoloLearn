@@ -11,13 +11,7 @@ using UnityEngine;
 
 public class DressUpSettingsManager : MonoBehaviour
 {
-
-    public void SetPlayerGender(int playerGender)
-    {
-        DressUpSettings.Instance.playerGender = playerGender;
-        RefreshMenu();
-    }
-
+    
     public void SetNumberOfLevel(int numberOfLevel)
     {
         DressUpSettings.Instance.numberOfLevel = numberOfLevel;
@@ -33,13 +27,6 @@ public class DressUpSettingsManager : MonoBehaviour
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] genderButtons = gameObject.transform.Find("GenderButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in genderButtons)
-        {
-            button.SetSelection(false);
-        }
-        genderButtons[DressUpSettings.Instance.playerGender].SetSelection(true);
-
         InteractiveToggle[] levelsButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
         foreach (InteractiveToggle button in levelsButtons)
         {
@@ -54,7 +41,6 @@ public class DressUpSettingsManager : MonoBehaviour
     {
         XElement newSettings =
             new XElement("DressUpSettings",
-                new XAttribute("PlayerGender", DressUpSettings.Instance.playerGender),
                 new XAttribute("NumberOfLevel", DressUpSettings.Instance.numberOfLevel),
                 new XAttribute("NumberOfLevel", DressUpSettings.Instance.numberOfClothes));
 

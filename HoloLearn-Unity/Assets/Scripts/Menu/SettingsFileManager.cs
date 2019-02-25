@@ -93,7 +93,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
             select item.Element("DressUpSettings");
 
-        DressUpSettings.Instance.playerGender = (int)dressUpSettings.ElementAt(0).Attribute("PlayerGender");
         DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
         DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
 
@@ -180,7 +179,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("NumberOfBins", 2),
                                         new XAttribute("NumberOfWaste", 5)),
                                     new XElement("DressUpSettings",
-                                        new XAttribute("NumberOfBins", 0),
                                         new XAttribute("NumberOfLevel", 1),
                                         new XAttribute("NumberOfClothes", 3)),
                                     new XElement("MemorySettinigs",
@@ -204,7 +202,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("NumberOfBins", 3),
                                         new XAttribute("NumberOfWaste", 8)),
                                     new XElement("DressUpSettings",
-                                        new XAttribute("NumberOfBins", 1),
                                         new XAttribute("NumberOfLevel", 3),
                                         new XAttribute("NumberOfClothes", 4)),
                                     new XElement("MemorySettinigs",
@@ -264,11 +261,10 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     new XAttribute("NumberOfBins", GarbageCollectionSettings.Instance.numberOfBins),
                     new XAttribute("NumberOfWaste", GarbageCollectionSettings.Instance.numberOfWaste)),
                 new XElement("DressUpSettings",
-                    new XAttribute("NumberOfBins", DressUpSettings.Instance.playerGender),
                     new XAttribute("NumberOfLevel", DressUpSettings.Instance.numberOfLevel),
                     new XAttribute("NumberOfClothes", DressUpSettings.Instance.numberOfClothes)),
                 new XElement("MemorySettings",
-                    new XAttribute("PlyMode", MemorySettings.Instance.playMode),
+                    new XAttribute("PlayMode", MemorySettings.Instance.playMode),
                     new XAttribute("NumberOfBoxes", MemorySettings.Instance.numberOfBoxes),
                     new XAttribute("WaitingTime", MemorySettings.Instance.waitingTime)),
                 new XElement("VirtualAssistantChoice",

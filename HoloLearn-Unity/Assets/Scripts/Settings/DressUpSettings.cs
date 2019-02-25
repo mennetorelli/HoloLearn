@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DressUpSettings : Singleton<DressUpSettings>
 {
-    public int playerGender;
     public int numberOfLevel;
     public int numberOfClothes;
 }
