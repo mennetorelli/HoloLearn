@@ -97,7 +97,7 @@ public class LayTheTableManager : TaskManager
 
         Vector3 assistantPosition = table.TransformPoint(-0.2f, 0f, 0f);
 
-        if (assistantBehaviour != 0)
+        if (assistantPresence != 0)
         {
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             VirtualAssistantManager.Instance.patience = assistantPatience;

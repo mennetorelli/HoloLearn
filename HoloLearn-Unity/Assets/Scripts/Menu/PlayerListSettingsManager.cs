@@ -72,7 +72,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
         Vector3 offset = new Vector3(0f, -0.07f * playersList.childCount, 0f);
         GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
 
-        string labelText = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
+        entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
 
         PlayerListSettings.Instance.currentPlayer = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
         SettingsFileManager.Instance.UpdatePlayerSelectionSettings(PlayerListSettings.Instance.currentPlayer);

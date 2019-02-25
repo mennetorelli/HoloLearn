@@ -6,7 +6,6 @@ using UnityEngine;
 public class WastePositionManager : ObjectPositionManager
 {
     private bool hasCollided;
-    private bool lerpDone;
     private Vector3 targetPosition;
     private Vector3 floorPosition;
 
@@ -14,7 +13,6 @@ public class WastePositionManager : ObjectPositionManager
     public override void Start ()
     {
         hasCollided = false;
-        lerpDone = false;
         targetPosition = new Vector3();
         floorPosition = GameObject.Find("SurfacePlane(Clone)").transform.position;
     }

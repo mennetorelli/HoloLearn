@@ -41,9 +41,6 @@ public class TutorialManager : TaskManager
     {
         Transform floor = SpatialProcessing.Instance.floors.ElementAt(0).transform;
         SurfacePlane plane = floor.GetComponent<SurfacePlane>();
-
-
-        System.Random rnd = new System.Random();
         
 
         Vector3 floorPosition = floor.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
