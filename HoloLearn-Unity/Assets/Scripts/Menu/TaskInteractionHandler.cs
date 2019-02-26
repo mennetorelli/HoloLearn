@@ -83,4 +83,13 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
         transform.GetChild(1).gameObject.SetActive(false);
     }
 
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        if (readyToPlay)
+        {
+            StartPlay();
+        }
+    }
+
+
 }
