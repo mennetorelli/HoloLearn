@@ -8,13 +8,13 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
 {
 
     private bool readyToPlay;
-    private int inputSources;
+    private bool handRecognized;
 
 	// Use this for initialization
 	void Start ()
     {
         readyToPlay = false;
-        inputSources = 1;
+        handRecognized = false;
     }
 
     // Update is called once per frame
@@ -26,16 +26,27 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
 
     public void OnSourceDetected(SourceStateEventData eventData)
     {
-        inputSources += 1;
-        if (inputSources == 2)
+        if (!handRecognized)
+        {
+            handRecognized = true;
+            StartCoroutine(WaitForSecondSource());
+        }
+        else
         {
             SetMenuVisible();
         }
     }
 
+    private IEnumerator WaitForSecondSource()
+    {
+        yield return new WaitForSeconds(0.1f);
+        handRecognized = false;
+    }
+
+
     public void OnSourceLost(SourceStateEventData eventData)
     {
-        inputSources -= 1;
+        handRecognized = false;
     }
 
 
@@ -62,11 +73,8 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
 
     public void StartPlay()
     {
-        if (readyToPlay)
-        {
-            TaskManager.Instance.GenerateObjectsInWorld();
-            readyToPlay = false;
-        }
+        TaskManager.Instance.GenerateObjectsInWorld();
+        readyToPlay = false;
     }
 
     private IEnumerator Wait()
@@ -74,11 +82,5 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
         yield return new WaitForSeconds(3f);
         transform.GetChild(1).gameObject.SetActive(false);
     }
-
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        StartPlay();
-    }
-
 
 }
