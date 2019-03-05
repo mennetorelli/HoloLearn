@@ -202,7 +202,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                         new XAttribute("NumberOfBins", 3),
                                         new XAttribute("NumberOfWaste", 8)),
                                     new XElement("DressUpSettings",
-                                        new XAttribute("NumberOfLevel", 3),
+                                        new XAttribute("NumberOfLevel", 2),
                                         new XAttribute("NumberOfClothes", 4)),
                                     new XElement("MemorySettinigs",
                                         new XAttribute("PlayMode", 0),
