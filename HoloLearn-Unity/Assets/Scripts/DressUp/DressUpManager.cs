@@ -99,7 +99,18 @@ public class DressUpManager : TaskManager
         Debug.DrawLine(clothesPosition, bagPosition, Color.blue, 30f);
 
 
-        Counter.Instance.InitializeCounter(clothes.GetComponentsInChildren<Rigidbody>().Length);
+        int counter = 0;
+        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
+        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
+        foreach (Transform obj in clothes)
+        {
+            List<string> tags = obj.GetComponent<TagsContainer>().tags;
+            if (tags.Contains(weathertag) || tags.Contains(temperaturetag))
+            {
+                counter++;
+            }
+        }
+        Counter.Instance.InitializeCounter(counter);
 
 
         Vector3 assistantPosition = clothes.TransformPoint(-0.3f, 0f, 0.3f);
