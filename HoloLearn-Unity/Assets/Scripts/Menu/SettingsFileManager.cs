@@ -53,74 +53,83 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     {
         XElement root = LoadFile();
 
-        IEnumerable<XElement> players =
+        // if UNITY
+        if (root != null)
+        {
+            IEnumerable<XElement> players =
             from item in root.Elements("Player")
             select item;
 
-        PlayerListSettings.Instance.listOfPlayers.Clear();
-        foreach (XElement item in players)
-        {
-            PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
-        }
-        PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
+            PlayerListSettings.Instance.listOfPlayers.Clear();
+            foreach (XElement item in players)
+            {
+                PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
+            }
+            PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
 
-        return (int)root.Attribute("CurrentPlayer");
+            return (int)root.Attribute("CurrentPlayer");
+        }
+        return transform.GetComponent<PlayerListSettings>().currentPlayer;
     }
 
     public void LoadCurrentPlayerSettings(int playerIndex)
     {
         XElement root = LoadFile();
 
-        IEnumerable<XElement> layTheTableSettings =
+        // if UNITY
+        if (root != null)
+        {
+            IEnumerable<XElement> layTheTableSettings =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
             select item.Element("LayTheTableSettings");
 
-        LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
-        LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
-        LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
+            LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
+            LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
+            LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
 
-        IEnumerable<XElement> garbageCollectionSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-            select item.Element("GarbageCollectionSettings");
+            IEnumerable<XElement> garbageCollectionSettings =
+                from item in root.Elements("Player")
+                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+                select item.Element("GarbageCollectionSettings");
 
-        GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
-        GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
+            GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
+            GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
 
-        IEnumerable<XElement> dressUpSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-            select item.Element("DressUpSettings");
+            IEnumerable<XElement> dressUpSettings =
+                from item in root.Elements("Player")
+                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+                select item.Element("DressUpSettings");
 
-        DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
-        DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
+            DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
+            DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
 
-        IEnumerable<XElement> memorySettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-            select item.Element("MemorySettings");
+            IEnumerable<XElement> memorySettings =
+                from item in root.Elements("Player")
+                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+                select item.Element("MemorySettings");
 
-        MemorySettings.Instance.playMode = (int)memorySettings.ElementAt(0).Attribute("PlayMode");
-        MemorySettings.Instance.numberOfBoxes = (int)memorySettings.ElementAt(0).Attribute("NumberOfBoxes");
-        MemorySettings.Instance.waitingTime = (int)memorySettings.ElementAt(0).Attribute("WaitingTime");
+            MemorySettings.Instance.playMode = (int)memorySettings.ElementAt(0).Attribute("PlayMode");
+            MemorySettings.Instance.numberOfBoxes = (int)memorySettings.ElementAt(0).Attribute("NumberOfBoxes");
+            MemorySettings.Instance.waitingTime = (int)memorySettings.ElementAt(0).Attribute("WaitingTime");
 
-        IEnumerable<XElement> virtualAssistantChoice =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-            select item.Element("VirtualAssistantChoice");
+            IEnumerable<XElement> virtualAssistantChoice =
+                from item in root.Elements("Player")
+                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+                select item.Element("VirtualAssistantChoice");
 
-        VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
-        VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
+            VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
+            VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
 
-        IEnumerable<XElement> virtualAssistantSettings =
-            from item in root.Elements("Player")
-            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-            select item.Element("VirtualAssistantSettings");
+            IEnumerable<XElement> virtualAssistantSettings =
+                from item in root.Elements("Player")
+                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+                select item.Element("VirtualAssistantSettings");
 
-        VirtualAssistantSettings.Instance.explainTaskGoal = (int)virtualAssistantSettings.ElementAt(0).Attribute("ExplainTaskGoal");
-        VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
-        VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+            VirtualAssistantSettings.Instance.explainTaskGoal = (int)virtualAssistantSettings.ElementAt(0).Attribute("ExplainTaskGoal");
+            VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
+            VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+        }
     }
 
 
