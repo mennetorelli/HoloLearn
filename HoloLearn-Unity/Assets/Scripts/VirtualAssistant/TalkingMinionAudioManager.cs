@@ -55,7 +55,9 @@ public class TalkingMinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayWalking()
     {
-        if (count % 5 == 0)
+        GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
+
+        if (count % 5 == 0 && Vector3.Distance(VirtualAssistantManager.Instance.transform.position, target.transform.position) > 0.2f)
         {
             System.Random rnd = new System.Random();
 
@@ -105,26 +107,23 @@ public class TalkingMinionAudioManager : AssistantAudioManagerInterface
     {
         GameObject target = VirtualAssistantManager.Instance.targetObject.gameObject;
 
-        if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, target.transform.position) > 0.05f)
+        if (target.name.Contains("Bin"))
         {
-            if (target.name.Contains("Bin"))
-            {
-                if (target.tag == "Paper")
-                    UAudioManager.Instance.PlayEvent(Pointing_cartabin);
-                if (target.tag == "Plastic")
-                    UAudioManager.Instance.PlayEvent(Pointing_plasticabin);
-                if (target.tag == "Glass")
-                    UAudioManager.Instance.PlayEvent(Pointing_vetrobin);
-            }
-            else
-            {
-                if (target.tag == "Paper")
-                    UAudioManager.Instance.PlayEvent(Pointing_carta);
-                if (target.tag == "Plastic")
-                    UAudioManager.Instance.PlayEvent(Pointing_plastica);
-                if (target.tag == "Glass")
-                    UAudioManager.Instance.PlayEvent(Pointing_vetro);
-            }
+            if (target.tag == "Paper")
+                UAudioManager.Instance.PlayEvent(Pointing_cartabin);
+            if (target.tag == "Plastic")
+                UAudioManager.Instance.PlayEvent(Pointing_plasticabin);
+            if (target.tag == "Glass")
+                UAudioManager.Instance.PlayEvent(Pointing_vetrobin);
+        }
+        else
+        {
+            if (target.tag == "Paper")
+                UAudioManager.Instance.PlayEvent(Pointing_carta);
+            if (target.tag == "Plastic")
+                UAudioManager.Instance.PlayEvent(Pointing_plastica);
+            if (target.tag == "Glass")
+                UAudioManager.Instance.PlayEvent(Pointing_vetro);
         }
         count = 0;
     }
