@@ -20,7 +20,7 @@ public class WastePositionManager : ObjectPositionManager
     // Update is called once per frame
     public override void Update ()
     {
-        if (transform.position.y < floorPosition.y)
+        if (transform.position.y < floorPosition.y && !hasCollided)
         {
             transform.position = new Vector3(transform.position.x, floorPosition.y + 0.01f, transform.position.z);
         }
@@ -41,8 +41,9 @@ public class WastePositionManager : ObjectPositionManager
     {
         transform.GetComponent<CustomHandDraggable>().StopDragging();
         transform.GetComponent<Collider>().enabled = false;
+        transform.GetComponent<Rigidbody>().isKinematic = true;
 
-        targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));
+        targetPosition = target.position;
 
         hasCollided = true;
     }

@@ -154,7 +154,6 @@ GameObject:
   - component: {fileID: 65041109011295188}
   - component: {fileID: 114662199763183390}
   - component: {fileID: 114177656390649680}
-  - component: {fileID: 114057136909881902}
   - component: {fileID: 114605833661551946}
   m_Layer: 0
   m_Name: CanCoke
@@ -261,7 +260,6 @@ GameObject:
   - component: {fileID: 65796922594677518}
   - component: {fileID: 114910644792054244}
   - component: {fileID: 114394091527953540}
-  - component: {fileID: 114213824929244090}
   - component: {fileID: 114482464087085856}
   m_Layer: 0
   m_Name: CanFanta
@@ -3168,17 +3166,6 @@ MonoBehaviour:
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
   isDragging: 0
---- !u!114 &114057136909881902
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312228878928326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e63c56b57781244b6e0303e9398eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114063237976782450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3350,17 +3337,6 @@ MonoBehaviour:
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
   isDragging: 0
---- !u!114 &114213824929244090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1384792329083562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e63c56b57781244b6e0303e9398eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114218584158255038
 MonoBehaviour:
   m_ObjectHideFlags: 1
