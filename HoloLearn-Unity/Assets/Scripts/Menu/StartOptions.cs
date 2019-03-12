@@ -17,8 +17,11 @@ namespace HoloLearn
 
         public void Start()
         {
-            SettingsFileManager.Instance.CreateFileIfNotExists();
-            SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadCurrentPlayerSelection());
+            if (SceneManager.sceneCount == 1)
+            {
+                SettingsFileManager.Instance.CreateFileIfNotExists();
+                SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadCurrentPlayerSelection());
+            }
         }
 
         public void ChangeScene(int scene)

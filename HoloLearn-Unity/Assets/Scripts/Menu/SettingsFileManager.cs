@@ -256,6 +256,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
         UpdateFile(root);
+        Debug.Log(root);
 
 #endif
     }
