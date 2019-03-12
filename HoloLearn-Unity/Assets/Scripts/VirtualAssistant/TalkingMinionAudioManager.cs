@@ -38,7 +38,6 @@ public class TalkingMinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayShakingHeadNo()
     {
-
         System.Random rnd = new System.Random();
 
         switch (rnd.Next(0, 1))

@@ -45,98 +45,101 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         task.Result.Wait();
 
 #endif
+
         return root;
     }
 
 
     public int LoadCurrentPlayerSelection()
     {
-        XElement root = LoadFile();
+        int currentPlayerSelection = transform.GetComponent<PlayerListSettings>().currentPlayer; ;
 
-        // if UNITY
-        if (root != null)
-        {
-            IEnumerable<XElement> players =
+#if !UNITY_EDITOR && UNITY_METRO
+        
+        XElement root = LoadFile();
+        
+        IEnumerable<XElement> players =
             from item in root.Elements("Player")
             select item;
 
-            PlayerListSettings.Instance.listOfPlayers.Clear();
-            foreach (XElement item in players)
-            {
-                PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
-            }
-            PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
-
-            return (int)root.Attribute("CurrentPlayer");
+        PlayerListSettings.Instance.listOfPlayers.Clear();
+        foreach (XElement item in players)
+        {
+            PlayerListSettings.Instance.listOfPlayers.Add((string)item.Attribute("PlayerName"));
         }
-        return transform.GetComponent<PlayerListSettings>().currentPlayer;
+        PlayerListSettings.Instance.currentPlayer = (int)root.Attribute("CurrentPlayer");
+
+        currentPlayerSelection = (int)root.Attribute("CurrentPlayer");
+        
+#endif
+
+        return currentPlayerSelection;
     }
 
     public void LoadCurrentPlayerSettings(int playerIndex)
     {
+#if !UNITY_EDITOR && UNITY_METRO
+
         XElement root = LoadFile();
 
-        // if UNITY
-        if (root != null)
-        {
-            IEnumerable<XElement> layTheTableSettings =
+        IEnumerable<XElement> layTheTableSettings =
             from item in root.Elements("Player")
             where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
             select item.Element("LayTheTableSettings");
 
-            LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
-            LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
-            LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
+        LayTheTableSettings.Instance.numberOfLevel = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfLevel");
+        LayTheTableSettings.Instance.numberOfPeople = (int)layTheTableSettings.ElementAt(0).Attribute("NumberOfPeople");
+        LayTheTableSettings.Instance.targetsVisibility = (int)layTheTableSettings.ElementAt(0).Attribute("TargetsVisibility");
 
-            IEnumerable<XElement> garbageCollectionSettings =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-                select item.Element("GarbageCollectionSettings");
+        IEnumerable<XElement> garbageCollectionSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("GarbageCollectionSettings");
 
-            GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
-            GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
+        GarbageCollectionSettings.Instance.numberOfBins = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfBins");
+        GarbageCollectionSettings.Instance.numberOfWaste = (int)garbageCollectionSettings.ElementAt(0).Attribute("NumberOfWaste");
 
-            IEnumerable<XElement> dressUpSettings =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-                select item.Element("DressUpSettings");
+        IEnumerable<XElement> dressUpSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("DressUpSettings");
 
-            DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
-            DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
+        DressUpSettings.Instance.numberOfLevel = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfLevel");
+        DressUpSettings.Instance.numberOfClothes = (int)dressUpSettings.ElementAt(0).Attribute("NumberOfClothes");
 
-            IEnumerable<XElement> memorySettings =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-                select item.Element("MemorySettings");
+        IEnumerable<XElement> memorySettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("MemorySettings");
 
-            MemorySettings.Instance.playMode = (int)memorySettings.ElementAt(0).Attribute("PlayMode");
-            MemorySettings.Instance.numberOfBoxes = (int)memorySettings.ElementAt(0).Attribute("NumberOfBoxes");
-            MemorySettings.Instance.waitingTime = (int)memorySettings.ElementAt(0).Attribute("WaitingTime");
+        MemorySettings.Instance.playMode = (int)memorySettings.ElementAt(0).Attribute("PlayMode");
+        MemorySettings.Instance.numberOfBoxes = (int)memorySettings.ElementAt(0).Attribute("NumberOfBoxes");
+        MemorySettings.Instance.waitingTime = (int)memorySettings.ElementAt(0).Attribute("WaitingTime");
 
-            IEnumerable<XElement> virtualAssistantChoice =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-                select item.Element("VirtualAssistantChoice");
+        IEnumerable<XElement> virtualAssistantChoice =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("VirtualAssistantChoice");
 
-            VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
-            VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
+        VirtualAssistantChoice.Instance.assistantPresence = (int)virtualAssistantChoice.ElementAt(0).Attribute("AssistantPresence");
+        VirtualAssistantChoice.Instance.selectedAssistant = (int)virtualAssistantChoice.ElementAt(0).Attribute("SelectedAssistant");
 
-            IEnumerable<XElement> virtualAssistantSettings =
-                from item in root.Elements("Player")
-                where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
-                select item.Element("VirtualAssistantSettings");
+        IEnumerable<XElement> virtualAssistantSettings =
+            from item in root.Elements("Player")
+            where item.Attribute("PlayerName").Value == PlayerListSettings.Instance.listOfPlayers.ElementAt(playerIndex)
+            select item.Element("VirtualAssistantSettings");
 
-            VirtualAssistantSettings.Instance.explainTaskGoal = (int)virtualAssistantSettings.ElementAt(0).Attribute("ExplainTaskGoal");
-            VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
-            VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
-        }
+        VirtualAssistantSettings.Instance.explainTaskGoal = (int)virtualAssistantSettings.ElementAt(0).Attribute("ExplainTaskGoal");
+        VirtualAssistantSettings.Instance.assistantBehaviour = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantBehaviour");
+        VirtualAssistantSettings.Instance.assistantPatience = (int)virtualAssistantSettings.ElementAt(0).Attribute("AssistantPatience");
+
+#endif
     }
 
 
 
     public void UpdateFile(XElement root)
     {
-
 #if !UNITY_EDITOR && UNITY_METRO
 		  
        Task<Task> task = new Task<Task>(async () =>
@@ -163,7 +166,6 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
     public void CreateFileIfNotExists()
     {
-
 #if !UNITY_EDITOR && UNITY_METRO
 		  
         Task<Task> task = new Task<Task>(async () =>
@@ -236,13 +238,15 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
         task.Start();
         task.Wait(); 
         task.Result.Wait();
-
+        
 #endif
     }
 
 
     public void UpdatePlayerSettings(XElement newSettings)
     {
+#if !UNITY_EDITOR && UNITY_METRO
+
         XElement root = LoadFile();
 
         IEnumerable<XElement> oldSettings =
@@ -252,10 +256,14 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
         oldSettings.ElementAt(0).ReplaceWith(newSettings);
         UpdateFile(root);
+
+#endif
     }
 
     public void AddPlayerSettings()
     {
+#if !UNITY_EDITOR && UNITY_METRO
+
         XElement root = LoadFile();
         root.SetAttributeValue("CurrentPlayer", PlayerListSettings.Instance.currentPlayer);
 
@@ -286,25 +294,35 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
 
         root.Add(newPlayer);
         UpdateFile(root);
+
+#endif
     }
 
     public void DeletePlayerSettings(int playerIndex)
     {
+#if !UNITY_EDITOR && UNITY_METRO
+
         XElement root = LoadFile();
 
         IEnumerable<XElement> players =
-                from item in root.Elements("Player")
-                select item;
+            from item in root.Elements("Player")
+            select item;
 
         players.ElementAt(playerIndex).Remove();
         UpdateFile(root);
+
+#endif
     }
 
     public void UpdatePlayerSelectionSettings(int playerIndex)
     {
+#if !UNITY_EDITOR && UNITY_METRO
+
         XElement root = LoadFile();
         root.SetAttributeValue("CurrentPlayer", playerIndex);
         UpdateFile(root);
         LoadCurrentPlayerSettings(playerIndex);
+
+#endif
     }
 }

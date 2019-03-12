@@ -1003,7 +1003,7 @@ MonoBehaviour:
       CrossfadeTime: 0
       CurrentClip: 0
   - Name: Jumping_benfatto
-    Spatialization: 1
+    Spatialization: 2
     RoomSize: 0
     AttenuationCurve:
       serializedVersion: 2
