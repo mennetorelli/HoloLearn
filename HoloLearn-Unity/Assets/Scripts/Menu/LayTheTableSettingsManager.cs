@@ -12,7 +12,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LayTheTableSettingsManager : MonoBehaviour
-{  
+{
+    // Use this for initialization
+    void Start()
+    {
+        RefreshMenu();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void SetNumberOfLevel(int numberOfLevel)
     {

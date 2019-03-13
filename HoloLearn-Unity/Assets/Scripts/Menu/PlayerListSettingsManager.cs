@@ -11,6 +11,18 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
     public GameObject PlayerEntry;
 
+    // Use this for initialization
+    void Start()
+    {
+        RefreshMenu();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void RefreshMenu()
     {
         Transform playersList = GameObject.Find("PlayersList").transform;

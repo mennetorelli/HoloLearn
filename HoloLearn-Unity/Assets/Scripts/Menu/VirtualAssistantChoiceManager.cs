@@ -8,6 +8,18 @@ using UnityEngine;
 public class VirtualAssistantChoiceManager : MonoBehaviour
 {
 
+    // Use this for initialization
+    void Start()
+    {
+        RefreshMenu();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void SetAssistantPresence(int assistantPresence)
     {
         VirtualAssistantChoice.Instance.assistantPresence = assistantPresence;
