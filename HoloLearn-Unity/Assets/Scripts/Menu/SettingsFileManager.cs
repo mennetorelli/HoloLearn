@@ -33,7 +33,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                     StorageFile xmlFile = await storageFolder.GetFileAsync("settings.xml");
                     string xmlText = await FileIO.ReadTextAsync(xmlFile);
                     root = XElement.Parse(xmlText);
-                    Debug.Log(root);
+                    //Debug.Log(root);
                 }
                 catch (Exception e)
                 {
@@ -167,7 +167,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
     public void CreateFileIfNotExists()
     {
 #if !UNITY_EDITOR && UNITY_METRO
-		  
+		
         Task<Task> task = new Task<Task>(async () =>
             {   
                 try
@@ -192,7 +192,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                     new XElement("DressUpSettings",
                                         new XAttribute("NumberOfLevel", 1),
                                         new XAttribute("NumberOfClothes", 3)),
-                                    new XElement("MemorySettinigs",
+                                    new XElement("MemorySettings",
                                         new XAttribute("PlayMode", 0),
                                         new XAttribute("NumberOfBoxes", 6),
                                         new XAttribute("WaitingTime", 3)),
@@ -215,7 +215,7 @@ public class SettingsFileManager : Singleton<SettingsFileManager>
                                     new XElement("DressUpSettings",
                                         new XAttribute("NumberOfLevel", 2),
                                         new XAttribute("NumberOfClothes", 4)),
-                                    new XElement("MemorySettinigs",
+                                    new XElement("MemorySettings",
                                         new XAttribute("PlayMode", 0),
                                         new XAttribute("NumberOfBoxes", 8),
                                         new XAttribute("WaitingTime", 3)),

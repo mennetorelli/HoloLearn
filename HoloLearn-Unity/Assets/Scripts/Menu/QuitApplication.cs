@@ -10,7 +10,7 @@ namespace HoloLearn
         public void Quit()
         {
             //If we are running in a standalone build of the game
-#if UNITY_STANDALONE
+#if WINDOWS_UWP
 		//Quit the application
 		Application.Quit();
 #endif
