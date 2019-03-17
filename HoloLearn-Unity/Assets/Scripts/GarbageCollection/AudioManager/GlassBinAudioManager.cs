@@ -10,6 +10,6 @@ public class GlassBinAudioManager : BinAudioManagerInterface
 
     public override void PlayBinSound()
     {
-        UAudioManager.Instance.PlayEvent(Glass);
+        TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(Glass);
     }
 }

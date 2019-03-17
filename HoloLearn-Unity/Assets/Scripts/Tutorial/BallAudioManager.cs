@@ -18,13 +18,13 @@ public class BallAudioManager : MonoBehaviour
         switch (rnd.Next(0, 2))
         {
             case 0:
-                UAudioManager.Instance.PlayEvent(BallBump1);
+                TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(BallBump1);
                 break;
             case 1:
-                UAudioManager.Instance.PlayEvent(BallBump2);
+                TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(BallBump2);
                 break;
             case 2:
-                UAudioManager.Instance.PlayEvent(BallBump3);
+                TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(BallBump3);
                 break;
         }
     }

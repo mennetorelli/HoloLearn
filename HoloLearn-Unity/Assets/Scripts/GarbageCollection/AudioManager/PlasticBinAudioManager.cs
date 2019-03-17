@@ -10,7 +10,7 @@ public class PlasticBinAudioManager : BinAudioManagerInterface
 
     public override void PlayBinSound()
     {
-        UAudioManager.Instance.PlayEvent(Plastic);
+        TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(Plastic);
     }
 
 }

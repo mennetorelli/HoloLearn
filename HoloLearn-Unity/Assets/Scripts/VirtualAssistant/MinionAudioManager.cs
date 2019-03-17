@@ -11,12 +11,12 @@ public class MinionAudioManager : AssistantAudioManagerInterface
 
     public override void PlayShakingHeadNo()
     {
-        UAudioManager.Instance.PlayEvent(ShakingHeadNo);
+        TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(ShakingHeadNo);
     }
 
     public override void PlayJump()
     {
-        UAudioManager.Instance.PlayEvent(Jump);
+        TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(Jump);
     }
 
     

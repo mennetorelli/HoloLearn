@@ -16,10 +16,10 @@ public class BasketAudioManager : MonoBehaviour
         switch (rnd.Next(0, 1))
         {
             case 0:
-                UAudioManager.Instance.PlayEvent(BasketDunk1);
+                TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(BasketDunk1);
                 break;
             case 1:
-                UAudioManager.Instance.PlayEvent(BasketDunk2);
+                TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(BasketDunk2);
                 break;
         }
     }

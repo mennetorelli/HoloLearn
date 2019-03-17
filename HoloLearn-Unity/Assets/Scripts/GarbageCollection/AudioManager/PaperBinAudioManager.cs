@@ -10,6 +10,6 @@ public class PaperBinAudioManager : BinAudioManagerInterface
 
     public override void PlayBinSound()
     {
-        UAudioManager.Instance.PlayEvent(Paper);
+        TaskManager.Instance.GetComponent<UAudioManager>().PlayEvent(Paper);
     }
 }
