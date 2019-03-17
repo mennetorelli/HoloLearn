@@ -107,12 +107,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4984877466567232}
-  - component: {fileID: 114954493424786172}
-  - component: {fileID: 114656205486049580}
   - component: {fileID: 65320788798006300}
   - component: {fileID: 114659299226994256}
   - component: {fileID: 114827549952090078}
   - component: {fileID: 114140467742893188}
+  - component: {fileID: 114954493424786172}
+  - component: {fileID: 114656205486049580}
   m_Layer: 0
   m_Name: BackAlert
   m_TagString: Untagged
@@ -162,8 +162,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4136828256047012}
-  - component: {fileID: 114752863369190836}
   - component: {fileID: 65301874798760146}
+  - component: {fileID: 114752863369190836}
   - component: {fileID: 114753651348965688}
   - component: {fileID: 114860710209769494}
   m_Layer: 0
@@ -254,8 +254,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4178489390364228}
-  - component: {fileID: 114369160740416396}
   - component: {fileID: 65545518760342548}
+  - component: {fileID: 114369160740416396}
   - component: {fileID: 114247001721633094}
   - component: {fileID: 114809091325000942}
   m_Layer: 0
@@ -1167,7 +1167,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65320788798006300
 BoxCollider:
@@ -1179,7 +1179,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65545518760342548
 BoxCollider:
@@ -1191,7 +1191,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65597961519726628
 BoxCollider:
