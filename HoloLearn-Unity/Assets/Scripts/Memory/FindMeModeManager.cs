@@ -81,12 +81,18 @@ public class FindMeModeManager : PlayModeManager
 
         if (selectedElement.gameObject.name == objectToFind.gameObject.name)
         {
-            VirtualAssistantManager.Instance.Jump();
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.Jump();
+            }
             Counter.Instance.Decrement();
         }
         else
         {
-            VirtualAssistantManager.Instance.ShakeHead();
+            if (VirtualAssistantManager.Instance != null)
+            {
+                VirtualAssistantManager.Instance.ShakeHead();
+            }
             selectedElement.parent.GetChild(0).gameObject.SetActive(true);
             selectedElement.gameObject.SetActive(false);
         }

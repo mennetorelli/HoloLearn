@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d067a05c1292a4a4ab02a90a3b1d3ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantPresence: 0
-  selectedAssistant: 1
+  assistantPresence: 1
+  selectedAssistant: 0
 --- !u!114 &114660743124421476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646b62994fcecdb47a1ec061c7736917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGender: 0
   numberOfLevel: 1
   numberOfClothes: 4
 --- !u!114 &114754659586782750
