@@ -39,7 +39,10 @@ public class ClassicModeManager : PlayModeManager
                 Counter.Instance.Decrement();
                 Counter.Instance.Decrement();
 
-                VirtualAssistantManager.Instance.Jump();
+                if (VirtualAssistantManager.Instance != null)
+                {
+                    VirtualAssistantManager.Instance.Jump();
+                }
 
                 IsBusy = false;
             }
@@ -47,7 +50,10 @@ public class ClassicModeManager : PlayModeManager
             {
                 IsBusy = true;
 
-                VirtualAssistantManager.Instance.ShakeHead();
+                if (VirtualAssistantManager.Instance != null)
+                {
+                    VirtualAssistantManager.Instance.ShakeHead();
+                }
 
                 StartCoroutine(Wait(selectedElement));
             }

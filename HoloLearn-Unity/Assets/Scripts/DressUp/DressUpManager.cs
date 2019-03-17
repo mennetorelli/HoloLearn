@@ -93,9 +93,12 @@ public class DressUpManager : TaskManager
         clothes.Rotate(rotation.eulerAngles);
 
 
+        Transform bag = new GameObject("Bag").transform;
+        bag.tag = "Targets";
+
         Vector3 bagPosition = Vector3.Lerp(Camera.main.transform.position, clothes.position, 0.3f);
         bagPosition.y = floorPosition.y + 0.1f;
-        Instantiate(BagsPrefabs.transform.GetChild(rnd.Next(0, BagsPrefabs.transform.childCount)).gameObject, bagPosition, rotation);
+        Instantiate(BagsPrefabs.transform.GetChild(rnd.Next(0, BagsPrefabs.transform.childCount)).gameObject, bagPosition, rotation, bag);
         Debug.DrawLine(clothesPosition, bagPosition, Color.blue, 30f);
 
 
@@ -169,5 +172,6 @@ public class DressUpManager : TaskManager
         }
         Destroy(GameObject.Find("Weather"));
         Destroy(GameObject.Find("Clothes"));
+        Destroy(GameObject.Find("Bag"));
     }
 }
