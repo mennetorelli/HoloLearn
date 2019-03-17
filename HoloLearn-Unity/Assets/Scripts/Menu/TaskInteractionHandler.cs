@@ -79,9 +79,12 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
 
     public void StartPlay()
     {
-        playing = true;
-        TaskManager.Instance.GenerateObjectsInWorld();
-        readyToPlay = false;
+        if (readyToPlay)
+        {
+            playing = true;
+            TaskManager.Instance.GenerateObjectsInWorld();
+            readyToPlay = false;
+        }
     }
 
     private IEnumerator Wait()
