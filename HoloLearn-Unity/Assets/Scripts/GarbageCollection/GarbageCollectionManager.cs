@@ -25,7 +25,7 @@ public class GarbageCollectionManager : TaskManager
 
     private Transform virtualAssistant;
 
-    public List<string> activeBins = new List<string>();
+    public List<string> activeBins;
 
     // Use this for initialization
     public override void Start()
@@ -74,6 +74,7 @@ public class GarbageCollectionManager : TaskManager
         Transform bins = new GameObject("Bins").transform;
         bins.tag = "Targets";
 
+        activeBins = new List<string>();
         for (int i=1; i<=numberOfBins;)
         {
             Transform bin = BinsPrefabs.transform.GetChild(rnd.Next(0, BinsPrefabs.transform.childCount));
