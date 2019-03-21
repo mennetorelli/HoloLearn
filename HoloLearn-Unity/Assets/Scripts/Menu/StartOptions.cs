@@ -21,6 +21,8 @@ namespace HoloLearn
             {
                 SettingsFileManager.Instance.CreateFileIfNotExists();
                 SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadCurrentPlayerSelection());
+
+                transform.parent = GameObject.Find("WorldRoot").transform;
             }
         }
 
