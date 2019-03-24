@@ -22,3 +22,4 @@
 *.winmd filter=lfs diff=lfs merge=lfs -text
 *.mdb filter=lfs diff=lfs merge=lfs -text
 *.nupkg filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
