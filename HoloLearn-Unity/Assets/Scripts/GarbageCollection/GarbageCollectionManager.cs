@@ -71,10 +71,10 @@ public class GarbageCollectionManager : TaskManager
         rotation.z = 0f;
 
 
-        Transform worldRoot = GameObject.Find("WorldRoot").transform;
+        //Transform sceneRoot = GameObject.Find("Scene Root").transform;
 
         Transform bins = new GameObject("Bins").transform;
-        bins.parent = worldRoot;
+        //bins.parent = sceneRoot;
         bins.tag = "Targets";
 
         activeBins = new List<string>();
@@ -95,7 +95,7 @@ public class GarbageCollectionManager : TaskManager
 
 
         Transform waste = new GameObject("Waste").transform;
-        waste.parent = worldRoot;
+        //waste.parent = sceneRoot;
         waste.tag = "ObjectsToBePlaced";
 
         Vector3 wastePosition = Vector3.Lerp(Camera.main.transform.position, bins.position, 0.5f);
@@ -126,7 +126,8 @@ public class GarbageCollectionManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, worldRoot);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            //Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
 
