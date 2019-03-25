@@ -266,6 +266,9 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - WindowsMR
+  - m_BuildTarget: iOS
+    m_Enabled: 1
+    m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
@@ -288,7 +291,7 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: Camera required for ARKit
+  cameraUsageDescription: Camera required for AR Foundation
   locationUsageDescription: 
   microphoneUsageDescription: 
   switchNetLibKey: 
@@ -506,9 +509,11 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
-  platformArchitecture: {}
+  platformArchitecture:
+    iOS: 1
   scriptingBackend:
     Metro: 1
+    iOS: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
