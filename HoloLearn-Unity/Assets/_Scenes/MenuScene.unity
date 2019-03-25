@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursorWithFeedback
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010024638574, guid: 90749889d87976143a9e21072d2434b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013243965410, guid: 90749889d87976143a9e21072d2434b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
