@@ -40,6 +40,8 @@ sysinfo.txt
 # Other
 HoloLearn-Build/
 HoloLearn-iOSBuild/
+HoloLearn-AndroidBuild/
+HoloLearn-AndroidBuild-1.0-v1.symbols.zip
 
 HoloLearn-Unity/Assets/HoloToolkit-Examples/
 HoloLearn-Unity/Assets/HoloToolkit-Examples.meta
