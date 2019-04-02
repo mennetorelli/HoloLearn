@@ -34,9 +34,9 @@ public class WalkingState : StateMachineBehaviour {
         if (Vector3.Distance(VirtualAssistantManager.Instance.transform.position, targetPosition) > 0.05f)
         {
             Debug.DrawLine(VirtualAssistantManager.Instance.transform.position, targetPosition, Color.blue, 5f);
-            
-            float step = Time.deltaTime * 0.1f;
-            VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, step);
+
+            lerpPercentage += Time.deltaTime * 0.1f;
+            VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, lerpPercentage);
         }
         else
         {      
