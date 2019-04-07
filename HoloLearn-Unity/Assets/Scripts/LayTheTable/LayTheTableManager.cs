@@ -7,7 +7,7 @@ using UnityEngine;
 using System;
 using System.IO;
 using HoloToolkit.Unity.SpatialMapping.Tests;
-using Microsoft.MixedReality.Toolkit;
+//using Microsoft.MixedReality.Toolkit;
 
 public class LayTheTableManager : TaskManager
 {
