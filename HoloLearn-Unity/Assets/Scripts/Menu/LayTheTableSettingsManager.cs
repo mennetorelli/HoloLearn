@@ -1,6 +1,6 @@
 ﻿using HoloLearn;
-using HoloToolkit.Examples.InteractiveElements;
 using HoloToolkit.Unity;
+using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,28 +46,28 @@ public class LayTheTableSettingsManager : MonoBehaviour
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] levelButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in levelButtons)
+        Interactable[] levelButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in levelButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        levelButtons[LayTheTableSettings.Instance.numberOfLevel - 1].SetSelection(true);
+        levelButtons[LayTheTableSettings.Instance.numberOfLevel - 1].SetToggled(true);
 
-        InteractiveToggle[] peopleButtons = gameObject.transform.transform.Find("PeopleButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in peopleButtons)
+        Interactable[] peopleButtons = gameObject.transform.transform.Find("PeopleButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in peopleButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        peopleButtons[LayTheTableSettings.Instance.numberOfPeople - 1].SetSelection(true);
+        peopleButtons[LayTheTableSettings.Instance.numberOfPeople - 1].SetToggled(true);
 
-        InteractiveToggle targetCheckBox = gameObject.transform.Find("TargetCheckBox").GetComponent<InteractiveToggle>();
+        Interactable targetCheckBox = gameObject.transform.Find("TargetCheckBox").GetComponent<Interactable>();
         if (LayTheTableSettings.Instance.targetsVisibility ==1)
         {
-            targetCheckBox.SetSelection(true);
+            targetCheckBox.SetToggled(true);
         }
         else
         {
-            targetCheckBox.SetSelection(false);
+            targetCheckBox.SetToggled(false);
         }
 
     }

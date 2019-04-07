@@ -1,9 +1,8 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommandHandler : MonoBehaviour, ISpeechHandler
+public class CommandHandler : MonoBehaviour
 {
 
 	// Use this for initialization
@@ -17,12 +16,6 @@ public class CommandHandler : MonoBehaviour, ISpeechHandler
     {
 		
 	}
-
-
-    public void OnSpeechKeywordRecognized(SpeechEventData eventData)
-    {
-        //throw new System.NotImplementedException();
-    }
 
 
     public void Help()

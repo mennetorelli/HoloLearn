@@ -1,5 +1,4 @@
-﻿using HoloToolkit.Examples.InteractiveElements;
-using HoloToolkit.UI.Keyboard;
+﻿using Microsoft.MixedReality.Toolkit.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +42,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
         for (int i = 0; i < gameObject.transform.Find("PlayersList").childCount; i++)
         {
-            gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetComponent<InteractiveToggle>().SetSelection(i == PlayerListSettings.Instance.currentPlayer);
+            gameObject.transform.Find("PlayersList").GetChild(i).GetChild(0).GetComponent<Interactable>().SetToggled(i == PlayerListSettings.Instance.currentPlayer);
         }
     }
 
@@ -77,7 +76,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
     public void AddPlayerEntry()
     {
-        string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
+        /*string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
         PlayerListSettings.Instance.listOfPlayers.Add(playerName);
 
         Transform playersList = GameObject.Find("PlayersList").transform;
@@ -99,22 +98,22 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantBehaviour = 1;
         VirtualAssistantSettings.Instance.assistantPatience = 5;
 
-        SettingsFileManager.Instance.AddPlayerSettings();
+        SettingsFileManager.Instance.AddPlayerSettings();*/
     }
 
     public void UpdatePlayerSelection(GameObject selectedEntry)
     {
-        InteractiveToggle[] buttons = gameObject.transform.Find("PlayersList").GetComponentsInChildren<InteractiveToggle>();
+        Interactable[] buttons = gameObject.transform.Find("PlayersList").GetComponentsInChildren<Interactable>();
         for (int i = 0; i < buttons.Length; i++)
         {
             if (buttons[i].gameObject.GetInstanceID() == selectedEntry.transform.GetChild(0).gameObject.GetInstanceID())
             {
-                buttons[i].SetSelection(true);
+                buttons[i].SetToggled(true);
                 PlayerListSettings.Instance.currentPlayer = i;
             }
             else
             {
-                buttons[i].SetSelection(false);
+                buttons[i].SetToggled(false);
             }
         }
 

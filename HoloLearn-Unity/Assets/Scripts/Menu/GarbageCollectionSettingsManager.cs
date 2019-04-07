@@ -1,6 +1,6 @@
 ﻿using HoloLearn;
-using HoloToolkit.Examples.InteractiveElements;
 using HoloToolkit.Unity;
+using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,21 +31,21 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     
     public void SetNumberOfWaste()
     {
-       SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-       GarbageCollectionSettings.Instance.numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
+       //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
+       //GarbageCollectionSettings.Instance.numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
     }
 
  
     public void RefreshMenu()
     {
-        InteractiveToggle[] binsButtons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in binsButtons)
+        Interactable[] binsButtons = gameObject.transform.Find("BinsButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in binsButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        binsButtons[GarbageCollectionSettings.Instance.numberOfBins - 1].SetSelection(true);
+        binsButtons[GarbageCollectionSettings.Instance.numberOfBins - 1].SetToggled(true);
 
-        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(GarbageCollectionSettings.Instance.numberOfWaste);
+        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(GarbageCollectionSettings.Instance.numberOfWaste);
     }
 
     public void SaveSettings()

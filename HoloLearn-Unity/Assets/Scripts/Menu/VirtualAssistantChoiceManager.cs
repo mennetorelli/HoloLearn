@@ -1,4 +1,4 @@
-﻿using HoloToolkit.Examples.InteractiveElements;
+﻿using Microsoft.MixedReality.Toolkit.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +40,10 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
 
     public void RefreshMenu()
     {
-        InteractiveToggle assistantCheckBox = gameObject.transform.Find("AssistantCheckBox").GetComponent<InteractiveToggle>();
+        Interactable assistantCheckBox = gameObject.transform.Find("AssistantCheckBox").GetComponent<Interactable>();
         if (VirtualAssistantChoice.Instance.assistantPresence == 1)
         {
-            assistantCheckBox.SetSelection(true);
+            assistantCheckBox.SetToggled(true);
 
             Animator[] assistants = GameObject.Find("VirtualAssistants").GetComponentsInChildren<Animator>(true);
             for (int i = 0; i < assistants.Length; i++)
@@ -65,7 +65,7 @@ public class VirtualAssistantChoiceManager : MonoBehaviour
         }
         else
         {
-            assistantCheckBox.SetSelection(false);
+            assistantCheckBox.SetToggled(false);
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using HoloToolkit.Examples.InteractiveElements;
+﻿using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,34 +34,34 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
     public void SetAssistantPatience()
     {
-        SliderGestureControl slider = GameObject.Find("PatienceTime").GetComponentInChildren<SliderGestureControl>();
-        VirtualAssistantSettings.Instance.assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
+        //SliderGestureControl slider = GameObject.Find("PatienceTime").GetComponentInChildren<SliderGestureControl>();
+        //VirtualAssistantSettings.Instance.assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
     }
 
 
     public void RefreshMenu()
     {
-        InteractiveToggle targetCheckBox = gameObject.transform.Find("TaskIntroCheckBox").GetComponent<InteractiveToggle>();
+        Interactable targetCheckBox = gameObject.transform.Find("TaskIntroCheckBox").GetComponent<Interactable>();
         if (VirtualAssistantSettings.Instance.explainTaskGoal == 1)
         {
-            targetCheckBox.SetSelection(true);
+            targetCheckBox.SetToggled(true);
         }
         else
         {
-            targetCheckBox.SetSelection(false);
+            targetCheckBox.SetToggled(false);
         }
 
-        InteractiveToggle[] assistantBehaviourButtons = GameObject.Find("AssistantBehaviourButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in assistantBehaviourButtons)
+        Interactable[] assistantBehaviourButtons = GameObject.Find("AssistantBehaviourButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in assistantBehaviourButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        assistantBehaviourButtons[VirtualAssistantSettings.Instance.assistantBehaviour - 1].SetSelection(true);
+        assistantBehaviourButtons[VirtualAssistantSettings.Instance.assistantBehaviour - 1].SetToggled(true);
 
         if (VirtualAssistantSettings.Instance.assistantBehaviour == 2)
         {
             GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).gameObject.SetActive(true);
-            GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).GetComponentInChildren<SliderGestureControl>().SetSliderValue(VirtualAssistantSettings.Instance.assistantPatience);
+            //GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).GetComponentInChildren<SliderGestureControl>().SetSliderValue(VirtualAssistantSettings.Instance.assistantPatience);
         }
         else
         {

@@ -1,5 +1,4 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,10 +12,10 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
         List<GameObject> targets = new List<GameObject>();
         foreach (Rigidbody target in remainingObjects)
         {
-            if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
+            /*if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
             {
                 targets.Add(target.gameObject);
-            }
+            }*/
         }
 
         SortByDistance(targets);

@@ -1,6 +1,6 @@
 ﻿using HoloLearn;
-using HoloToolkit.Examples.InteractiveElements;
 using HoloToolkit.Unity;
+using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,21 +31,21 @@ public class DressUpSettingsManager : MonoBehaviour
 
     public void SetNumberOfClothes()
     {
-        SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-        DressUpSettings.Instance.numberOfClothes = Convert.ToInt32(slider.SliderValue) + 3;
+        //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
+        //DressUpSettings.Instance.numberOfClothes = Convert.ToInt32(slider.SliderValue) + 3;
     }
 
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] levelsButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in levelsButtons)
+        Interactable[] levelsButtons = gameObject.transform.Find("LevelsButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in levelsButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        levelsButtons[DressUpSettings.Instance.numberOfLevel - 1].SetSelection(true);
+        levelsButtons[DressUpSettings.Instance.numberOfLevel - 1].SetToggled(true);
 
-        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
+        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
     }
 
     public void SaveSettings()

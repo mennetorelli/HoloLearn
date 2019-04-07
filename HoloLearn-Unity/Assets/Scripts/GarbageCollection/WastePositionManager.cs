@@ -1,5 +1,4 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,7 +38,7 @@ public class WastePositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
-        transform.GetComponent<CustomHandDraggable>().StopDragging();
+        //transform.GetComponent<CustomHandDraggable>().StopDragging();
         transform.GetComponent<Collider>().enabled = false;
         transform.GetComponent<Rigidbody>().isKinematic = true;
 

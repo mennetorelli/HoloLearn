@@ -1,5 +1,4 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlacementCollisionManager : MonoBehaviour {
@@ -21,7 +20,7 @@ public class PlacementCollisionManager : MonoBehaviour {
     { 
         if (other.gameObject.CompareTag(gameObject.tag))
         {
-            other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
+            //other.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled = false;
 
             Counter.Instance.Decrement();
 

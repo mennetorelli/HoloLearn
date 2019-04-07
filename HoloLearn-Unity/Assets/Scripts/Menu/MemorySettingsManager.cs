@@ -1,6 +1,6 @@
 ﻿using HoloLearn;
-using HoloToolkit.Examples.InteractiveElements;
 using HoloToolkit.Unity;
+using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,28 +37,28 @@ public class MemorySettingsManager : MonoBehaviour
 
     public void SetWaitingTime()
     {
-        SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-        MemorySettings.Instance.waitingTime = Convert.ToInt32(slider.SliderValue) + 3;
+        //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
+        //MemorySettings.Instance.waitingTime = Convert.ToInt32(slider.SliderValue) + 3;
     }
 
 
     public void RefreshMenu()
     {
-        InteractiveToggle[] playModeButtons = gameObject.transform.Find("PlayModeButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in playModeButtons)
+        Interactable[] playModeButtons = gameObject.transform.Find("PlayModeButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in playModeButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        playModeButtons[MemorySettings.Instance.playMode].SetSelection(true);
+        playModeButtons[MemorySettings.Instance.playMode].SetToggled(true);
 
-        InteractiveToggle[] boxesButtons = gameObject.transform.Find("BoxesButtons").GetComponentsInChildren<InteractiveToggle>();
-        foreach (InteractiveToggle button in boxesButtons)
+        Interactable[] boxesButtons = gameObject.transform.Find("BoxesButtons").GetComponentsInChildren<Interactable>();
+        foreach (Interactable button in boxesButtons)
         {
-            button.SetSelection(false);
+            button.SetToggled(false);
         }
-        boxesButtons[(MemorySettings.Instance.numberOfBoxes - 4) / 2 - 1].SetSelection(true);
+        boxesButtons[(MemorySettings.Instance.numberOfBoxes - 4) / 2 - 1].SetToggled(true);
 
-        transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
+        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
     }
 
     public void SaveSettings()

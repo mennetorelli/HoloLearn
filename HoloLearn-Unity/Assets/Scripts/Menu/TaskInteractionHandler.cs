@@ -1,10 +1,10 @@
 ﻿using HoloToolkit.Unity;
-using HoloToolkit.Unity.InputModule;
+using Microsoft.MixedReality.Toolkit.Input;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeechHandler, IInputClickHandler
+public class TaskInteractionHandler : MonoBehaviour, IMixedRealityPointerHandler, IMixedRealitySourceStateHandler
 {
 
     private bool readyToPlay;
@@ -92,14 +92,23 @@ public class TaskInteractionHandler : MonoBehaviour, ISourceStateHandler, ISpeec
         yield return new WaitForSeconds(3f);
         transform.GetChild(1).gameObject.SetActive(false);
     }
+    
 
-    public void OnInputClicked(InputClickedEventData eventData)
+    public void OnPointerUp(MixedRealityPointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPointerDown(MixedRealityPointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
         if (readyToPlay)
         {
             StartPlay();
         }
     }
-
-
 }

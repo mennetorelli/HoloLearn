@@ -1,5 +1,4 @@
-﻿using HoloToolkit.Unity.InputModule;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,7 +38,7 @@ public class ClothesPositionManager : ObjectPositionManager {
 
     public override void HasCollided(Transform target)
     {
-        transform.GetComponent<CustomHandDraggable>().StopDragging();
+        //transform.GetComponent<CustomHandDraggable>().StopDragging();
         transform.GetComponent<Collider>().enabled = false;
 
         targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));

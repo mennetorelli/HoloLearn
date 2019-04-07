@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using HoloToolkit.Unity;
-using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
 using System.Xml.Linq;
 using System.Collections.Generic;
