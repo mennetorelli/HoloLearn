@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 65206553495889064}
   - component: {fileID: 3592029421810932998}
   - component: {fileID: 114189863060389722}
+  - component: {fileID: 4846799896687719430}
   m_Layer: 0
   m_Name: MilkBox
   m_TagString: Paper
@@ -350,6 +351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4846799896687719430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082652177275306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1137470148047314
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +422,7 @@ GameObject:
   - component: {fileID: 65023856952425094}
   - component: {fileID: 7117324678828381022}
   - component: {fileID: 114866224235102432}
+  - component: {fileID: 6723611338844326785}
   m_Layer: 0
   m_Name: GlassJar
   m_TagString: Glass
@@ -549,12 +563,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6723611338844326785}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1189013547056992}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6723611338844326785}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -577,6 +613,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6723611338844326785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189013547056992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1273917634802396
@@ -1714,6 +1762,7 @@ GameObject:
   - component: {fileID: 65796922594677518}
   - component: {fileID: 6101142712091624674}
   - component: {fileID: 114482464087085856}
+  - component: {fileID: 7823199610794521688}
   m_Layer: 0
   m_Name: CanFanta
   m_TagString: Plastic
@@ -1862,6 +1911,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7823199610794521688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384792329083562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1389173371910326
@@ -2669,6 +2730,7 @@ GameObject:
   - component: {fileID: 65317165682018930}
   - component: {fileID: 56400535052650133}
   - component: {fileID: 114230440742181188}
+  - component: {fileID: 1346083835110742766}
   m_Layer: 0
   m_Name: GreenBottle
   m_TagString: Glass
@@ -2789,12 +2851,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1346083835110742766}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1519863293960264}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1346083835110742766}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2817,6 +2901,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1346083835110742766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519863293960264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1521088943141708
@@ -3287,6 +3383,7 @@ GameObject:
   - component: {fileID: 65945930725916442}
   - component: {fileID: 1624740058431764118}
   - component: {fileID: 114538654865646566}
+  - component: {fileID: 4270401040733629216}
   m_Layer: 0
   m_Name: TransparentBottle
   m_TagString: Glass
@@ -3407,12 +3504,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4270401040733629216}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1728138775042574}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4270401040733629216}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3435,6 +3554,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4270401040733629216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728138775042574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1785189051138674
@@ -3911,9 +4042,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711884009601676}
+  - component: {fileID: 65116971379343242}
   - component: {fileID: 54892294888575388}
   - component: {fileID: 3857246803477793949}
-  - component: {fileID: 65116971379343242}
   - component: {fileID: 114866709678976524}
   m_Layer: 0
   m_Name: WaterBottle1
@@ -3939,6 +4070,19 @@ Transform:
   m_Father: {fileID: 4884245105870824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65116971379343242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866522053801354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.25, z: 0.1}
+  m_Center: {x: -0.05, y: 0.125, z: -0.075}
 --- !u!54 &54892294888575388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3998,19 +4142,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!65 &65116971379343242
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866522053801354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.25, z: 0.1}
-  m_Center: {x: -0.05, y: 0.125, z: -0.075}
 --- !u!114 &114866709678976524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4588,6 +4719,7 @@ GameObject:
   - component: {fileID: 65407350783851402}
   - component: {fileID: 5897935059291031600}
   - component: {fileID: 114681655389142618}
+  - component: {fileID: 1850120425375479752}
   m_Layer: 0
   m_Name: GlassBottle1
   m_TagString: Glass
@@ -4728,12 +4860,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1850120425375479752}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1962937550136832}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1850120425375479752}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -4756,5 +4910,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a97603db30b5df45a22fb7d551fc3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1850120425375479752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962937550136832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
