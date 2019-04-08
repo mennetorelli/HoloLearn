@@ -138,7 +138,6 @@ Transform:
   - {fileID: 4136828256047012}
   - {fileID: 4178489390364228}
   - {fileID: 4984877466567232}
-  - {fileID: 4072243667762482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -223,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4984877466567232
 Transform:
   m_ObjectHideFlags: 0
@@ -441,7 +440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4136828256047012
 Transform:
   m_ObjectHideFlags: 0
@@ -827,60 +826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasePixelScale: 2048
   ItemSize: {x: 1100, y: 500, z: 20}
---- !u!1 &1806372442150220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4072243667762482}
-  - component: {fileID: 114050254257109250}
-  m_Layer: 0
-  m_Name: Theme
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4072243667762482
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806372442150220}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.036, z: -0.008000016}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4696506458930910}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114050254257109250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806372442150220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712c11e8f2bf4a64b8dbf460527d0eb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tag: defaultButton
-  Default: {fileID: 2800000, guid: 0b45830975e46a2499d3179da6d542b7, type: 3}
-  Focus: {fileID: 2800000, guid: 4fa13350a256c114a915c57fd08a274b, type: 3}
-  Press: {fileID: 2800000, guid: f453dd21e3655dc449f69bd247302787, type: 3}
-  Selected: {fileID: 2800000, guid: 9c442f4e36c20b542b880de2ee92efdf, type: 3}
-  FocusSelected: {fileID: 2800000, guid: 39b3dc2a3494a224bba193753755aaaf, type: 3}
-  PressSelected: {fileID: 2800000, guid: fb6794dd060564742a6dabfb03dac2e3, type: 3}
-  Disabled: {fileID: 2800000, guid: d6dd904ea52cbdd4a88d1be4e26c3f8b, type: 3}
-  DisabledSelected: {fileID: 2800000, guid: 5166459fcf919314292f7d5b063bd5b2, type: 3}
-  CurrentValue: {fileID: 0}
-  Button: {fileID: 0}
 --- !u!1 &1818559890034960
 GameObject:
   m_ObjectHideFlags: 0
