@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.MixedReality.Toolkit.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ public class WastePositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
-        //transform.GetComponent<CustomHandDraggable>().StopDragging();
+        transform.GetComponent<ManipulationHandler>().enabled = false;
         transform.GetComponent<Collider>().enabled = false;
         transform.GetComponent<Rigidbody>().isKinematic = true;
 

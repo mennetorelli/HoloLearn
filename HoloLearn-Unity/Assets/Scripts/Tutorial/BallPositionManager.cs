@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.MixedReality.Toolkit.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,7 +56,7 @@ public class BallPositionManager : ObjectPositionManager
 
     public override void HasCollided(Transform target)
     {
-        //transform.GetComponent<CustomHandDraggable>().StopDragging();
+        transform.GetComponent<ManipulationHandler>().enabled = false;
         transform.GetComponent<Collider>().enabled = false;
         transform.GetComponent<Rigidbody>().isKinematic = true;
 

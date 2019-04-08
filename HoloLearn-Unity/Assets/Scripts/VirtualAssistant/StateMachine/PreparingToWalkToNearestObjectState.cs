@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.MixedReality.Toolkit.UI;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,10 +13,10 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
         List<GameObject> targets = new List<GameObject>();
         foreach (Rigidbody target in remainingObjects)
         {
-            /*if (target.gameObject.GetComponent<CustomHandDraggable>().IsDraggingEnabled)
+            if (target.gameObject.GetComponent<ManipulationHandler>().enabled == true)
             {
                 targets.Add(target.gameObject);
-            }*/
+            }
         }
 
         SortByDistance(targets);

@@ -17,8 +17,6 @@ public abstract class LayTheTableObjectsPositionManager : ObjectPositionManager 
         transform.rotation = target.rotation;
 
         AdjustTransform();
-
-        gameObject.GetComponent<GravityManager>().IsFixed = true;
     }
 
     public virtual void AdjustTransform()
