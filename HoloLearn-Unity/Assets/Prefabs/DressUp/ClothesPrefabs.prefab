@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 114846652546440590}
   - component: {fileID: 114272287571907572}
   - component: {fileID: 114416053815078474}
+  - component: {fileID: 1868832271350849047}
   m_Layer: 0
   m_Name: DownJacket2
   m_TagString: Untagged
@@ -157,12 +158,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1868832271350849047}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1036901596211898}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1868832271350849047}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -213,6 +236,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1868832271350849047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036901596211898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1074009894978276
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +266,7 @@ GameObject:
   - component: {fileID: 114301987669197614}
   - component: {fileID: 114518747366901444}
   - component: {fileID: 114533425266617560}
+  - component: {fileID: 4913750000207011629}
   m_Layer: 0
   m_Name: Shorts
   m_TagString: Untagged
@@ -372,12 +408,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4913750000207011629}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1074009894978276}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4913750000207011629}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -428,6 +486,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4913750000207011629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074009894978276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091565119860302
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +515,7 @@ GameObject:
   - component: {fileID: 1435881535462307903}
   - component: {fileID: 114921679754886672}
   - component: {fileID: 114063587435157238}
+  - component: {fileID: 4934180622878837848}
   m_Layer: 0
   m_Name: Shoes2
   m_TagString: Untagged
@@ -586,12 +657,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4934180622878837848}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1091565119860302}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4934180622878837848}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -629,6 +722,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4934180622878837848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091565119860302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118317371576620
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +752,7 @@ GameObject:
   - component: {fileID: 114382168231406354}
   - component: {fileID: 114937447080011886}
   - component: {fileID: 114754499247985070}
+  - component: {fileID: 7833090843428383228}
   m_Layer: 0
   m_Name: Scarf
   m_TagString: Untagged
@@ -786,12 +892,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7833090843428383228}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1118317371576620}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7833090843428383228}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -841,6 +969,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7833090843428383228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118317371576620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138452625812860
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +998,7 @@ GameObject:
   - component: {fileID: 8274623534183992227}
   - component: {fileID: 114169209506087488}
   - component: {fileID: 114696641096469418}
+  - component: {fileID: 2361598193962090588}
   m_Layer: 0
   m_Name: Shoes1
   m_TagString: Untagged
@@ -999,12 +1140,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2361598193962090588}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1138452625812860}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2361598193962090588}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -1042,6 +1205,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2361598193962090588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138452625812860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217043411089640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1235,7 @@ GameObject:
   - component: {fileID: 114560152195171056}
   - component: {fileID: 114999973542422528}
   - component: {fileID: 114671223918319210}
+  - component: {fileID: 5848624312016254937}
   m_Layer: 0
   m_Name: Coat
   m_TagString: Untagged
@@ -1228,12 +1404,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5848624312016254937}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1217043411089640}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5848624312016254937}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -1284,6 +1482,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5848624312016254937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217043411089640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338253875767948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1512,7 @@ GameObject:
   - component: {fileID: 114919472756967968}
   - component: {fileID: 114804042325375570}
   - component: {fileID: 114275397998752910}
+  - component: {fileID: 1151466765560899649}
   m_Layer: 0
   m_Name: Trousers2
   m_TagString: Untagged
@@ -1441,12 +1652,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1151466765560899649}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1338253875767948}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1151466765560899649}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -1498,6 +1731,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1151466765560899649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338253875767948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1420454891623944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1761,7 @@ GameObject:
   - component: {fileID: 114625556186695430}
   - component: {fileID: 114210458493465250}
   - component: {fileID: 114525649766666068}
+  - component: {fileID: 5386425565404784477}
   m_Layer: 0
   m_Name: T-shirt
   m_TagString: Untagged
@@ -1655,12 +1901,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386425565404784477}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1420454891623944}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386425565404784477}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -1711,6 +1979,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5386425565404784477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420454891623944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463307467093982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +2008,7 @@ GameObject:
   - component: {fileID: 3684034212150943468}
   - component: {fileID: 114721445998979144}
   - component: {fileID: 114760705088895152}
+  - component: {fileID: 3201721256299542019}
   m_Layer: 0
   m_Name: Hat2
   m_TagString: Untagged
@@ -1868,12 +2149,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3201721256299542019}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1463307467093982}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3201721256299542019}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -1912,6 +2215,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3201721256299542019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463307467093982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499228968962464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,6 +2245,7 @@ GameObject:
   - component: {fileID: 114791683845586470}
   - component: {fileID: 114753416148574252}
   - component: {fileID: 114423453731616462}
+  - component: {fileID: 3542608038364742373}
   m_Layer: 0
   m_Name: Jumper2
   m_TagString: Untagged
@@ -2069,12 +2385,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3542608038364742373}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1499228968962464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3542608038364742373}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2124,6 +2462,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3542608038364742373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499228968962464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503612439910684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2492,7 @@ GameObject:
   - component: {fileID: 114518903764156004}
   - component: {fileID: 114405270757334712}
   - component: {fileID: 114176182610332480}
+  - component: {fileID: 8780766665343795412}
   m_Layer: 0
   m_Name: Jumper1
   m_TagString: Untagged
@@ -2281,12 +2632,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8780766665343795412}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1503612439910684}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8780766665343795412}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2336,6 +2709,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8780766665343795412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503612439910684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536442981496818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,6 +2739,7 @@ GameObject:
   - component: {fileID: 114001416411912906}
   - component: {fileID: 114752145838533150}
   - component: {fileID: 114095047671186728}
+  - component: {fileID: 2671330671772600815}
   m_Layer: 0
   m_Name: Sweater1
   m_TagString: Untagged
@@ -2493,12 +2879,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2671330671772600815}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1536442981496818}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2671330671772600815}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2548,6 +2956,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2671330671772600815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536442981496818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579191066362018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,6 +2985,7 @@ GameObject:
   - component: {fileID: 3659501943144910261}
   - component: {fileID: 114027606508654216}
   - component: {fileID: 114522799279160900}
+  - component: {fileID: 9088705471263682381}
   m_Layer: 0
   m_Name: Gloves
   m_TagString: Untagged
@@ -2704,12 +3125,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9088705471263682381}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1579191066362018}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9088705471263682381}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2748,6 +3191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9088705471263682381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579191066362018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1585762666936568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,6 +3221,7 @@ GameObject:
   - component: {fileID: 114519846280770300}
   - component: {fileID: 114359654679358224}
   - component: {fileID: 114539951581987232}
+  - component: {fileID: 2035496577411253721}
   m_Layer: 0
   m_Name: Trousers1
   m_TagString: Untagged
@@ -2905,12 +3361,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2035496577411253721}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1585762666936568}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2035496577411253721}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -2962,6 +3440,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2035496577411253721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585762666936568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1688404828945622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,6 +3470,7 @@ GameObject:
   - component: {fileID: 114330247558862226}
   - component: {fileID: 114990982958753182}
   - component: {fileID: 114266046987460576}
+  - component: {fileID: 6893194018275018335}
   m_Layer: 0
   m_Name: DownJacket1
   m_TagString: Untagged
@@ -3140,12 +3631,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6893194018275018335}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1688404828945622}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6893194018275018335}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3196,6 +3709,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6893194018275018335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688404828945622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1708555446078566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,6 +3738,7 @@ GameObject:
   - component: {fileID: 3950418265777743518}
   - component: {fileID: 114002506154997630}
   - component: {fileID: 114392410298774178}
+  - component: {fileID: 4954835941287195653}
   m_Layer: 0
   m_Name: Sunglasses
   m_TagString: Untagged
@@ -3353,12 +3879,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4954835941287195653}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1708555446078566}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4954835941287195653}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3397,6 +3945,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4954835941287195653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708555446078566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721171231060102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3414,6 +3974,7 @@ GameObject:
   - component: {fileID: 1906699535807525953}
   - component: {fileID: 114383030203940358}
   - component: {fileID: 114477193846114454}
+  - component: {fileID: 5526276086105337547}
   m_Layer: 0
   m_Name: Hat3
   m_TagString: Untagged
@@ -3555,12 +4116,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5526276086105337547}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1721171231060102}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5526276086105337547}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3599,6 +4182,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5526276086105337547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721171231060102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802304825796400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,6 +4211,7 @@ GameObject:
   - component: {fileID: 3706226941271132779}
   - component: {fileID: 114589118199657174}
   - component: {fileID: 114975289492524416}
+  - component: {fileID: 5438590503332750404}
   m_Layer: 0
   m_Name: Umbrella
   m_TagString: Untagged
@@ -3756,12 +4352,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5438590503332750404}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1802304825796400}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5438590503332750404}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3801,6 +4419,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5438590503332750404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802304825796400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1857390244409256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,6 +4449,7 @@ GameObject:
   - component: {fileID: 114306247941166908}
   - component: {fileID: 114715081179367234}
   - component: {fileID: 114863321262175858}
+  - component: {fileID: 7272153003735794404}
   m_Layer: 0
   m_Name: Sweater2
   m_TagString: Untagged
@@ -3958,12 +4589,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7272153003735794404}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1857390244409256}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7272153003735794404}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -4013,6 +4666,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7272153003735794404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857390244409256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1857520531547112
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4695,7 @@ GameObject:
   - component: {fileID: 8365050210822382874}
   - component: {fileID: 114171286201050598}
   - component: {fileID: 114897325355295042}
+  - component: {fileID: 7100245714767588475}
   m_Layer: 0
   m_Name: Hat1
   m_TagString: Untagged
@@ -4169,12 +4835,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7100245714767588475}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1857520531547112}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7100245714767588475}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -4211,6 +4899,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7100245714767588475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857520531547112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1858990561776124
@@ -4283,6 +4983,7 @@ GameObject:
   - component: {fileID: 114352882000673142}
   - component: {fileID: 114287841336796390}
   - component: {fileID: 114880116825264346}
+  - component: {fileID: 3249991775432310257}
   m_Layer: 0
   m_Name: Sweater3
   m_TagString: Untagged
@@ -4422,12 +5123,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3249991775432310257}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1869889228530226}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3249991775432310257}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -4477,6 +5200,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3249991775432310257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869889228530226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870669812747092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +5229,7 @@ GameObject:
   - component: {fileID: 1932548227417132798}
   - component: {fileID: 114969689144100172}
   - component: {fileID: 114528332505927586}
+  - component: {fileID: 992679470731368673}
   m_Layer: 0
   m_Name: Flipflops
   m_TagString: Untagged
@@ -4634,12 +5370,34 @@ MonoBehaviour:
   smoothingAmountOneHandManip: 0.001
   OnManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 992679470731368673}
+        m_MethodName: ManipulationStarted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1870669812747092}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 992679470731368673}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -4676,5 +5434,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a4b5cd538d4bc43a8791858cf6ed91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &992679470731368673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870669812747092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc41f0caa819b4e42955d289549e978e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
