@@ -20,23 +20,21 @@ namespace HoloLearn
             SettingsFileManager.Instance.LoadCurrentPlayerSettings(SettingsFileManager.Instance.LoadCurrentPlayerSelection());
         }
 
+        public void BackToMainMenu()
+        {
+            TaskManager.Instance.DestroyObjects();
+
+            Destroy(TaskManager.Instance.gameObject);
+            Destroy(GameObject.Find("SpatialMapping"));
+            Destroy(GameObject.Find("SpatialProcessing"));
+
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+
+            GameObject.Find("Menu").SetActive(true);
+        }
+
         public void ChangeScene(int scene)
         {
-            if (scene == 0)
-            {
-                for (int i = 1; i < SceneManager.sceneCount; i++)
-                {
-                    SceneManager.UnloadSceneAsync(i);
-                }
-                if (VirtualAssistantManager.Instance != null)
-                {
-                    Destroy(VirtualAssistantManager.Instance.gameObject);
-                }
-                Destroy(TaskManager.Instance.gameObject);
-                Destroy(GameObject.Find("Settings"));
-                Destroy(GameObject.Find("SpatialMapping"));
-                Destroy(GameObject.Find("SpatialProcessing"));
-            }
             SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
 
