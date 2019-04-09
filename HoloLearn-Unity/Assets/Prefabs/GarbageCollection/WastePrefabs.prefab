@@ -1723,7 +1723,18 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2460400980473130189}
+        m_MethodName: ManipulationStopped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.ManipulationEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnHoverEntered:
@@ -3096,7 +3107,7 @@ MonoBehaviour:
   OnManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 1835913830689863287}
         m_MethodName: ManipulationStarted
         m_Mode: 2
         m_Arguments:
@@ -3112,7 +3123,7 @@ MonoBehaviour:
   OnManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 1835913830689863287}
         m_MethodName: ManipulationStopped
         m_Mode: 1
         m_Arguments:
@@ -4931,7 +4942,7 @@ MonoBehaviour:
   OnManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 8340075541580970791}
         m_MethodName: ManipulationStarted
         m_Mode: 2
         m_Arguments:
@@ -4947,7 +4958,7 @@ MonoBehaviour:
   OnManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 8340075541580970791}
         m_MethodName: ManipulationStopped
         m_Mode: 1
         m_Arguments:
@@ -5364,7 +5375,7 @@ MonoBehaviour:
   OnManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 4405797463277571566}
         m_MethodName: ManipulationStarted
         m_Mode: 2
         m_Arguments:
@@ -5380,7 +5391,7 @@ MonoBehaviour:
   OnManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823199610794521688}
+      - m_Target: {fileID: 4405797463277571566}
         m_MethodName: ManipulationStopped
         m_Mode: 1
         m_Arguments:
