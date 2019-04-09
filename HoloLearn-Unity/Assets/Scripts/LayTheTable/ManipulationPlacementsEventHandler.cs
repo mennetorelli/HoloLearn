@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManipulationEventHandler : MonoBehaviour
+public class ManipulationPlacementsEventHandler : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,17 +19,17 @@ public class ManipulationEventHandler : MonoBehaviour
 
     public void ManipulationStarted(GameObject draggedObject)
     {
-        if (VirtualAssistantManager.Instance != null)
+        if (PlacementsManager.Instance != null)
         {
-            VirtualAssistantManager.Instance.ObjectDragged(draggedObject);
+            PlacementsManager.Instance.MakeLevelPrefabDisappear(draggedObject);
         }
     }
 
     public void ManipulationStopped()
     {
-        if (VirtualAssistantManager.Instance != null)
+        if (PlacementsManager.Instance != null)
         {
-            VirtualAssistantManager.Instance.ObjectDropped();
+            PlacementsManager.Instance.MakeLevelPrefabReapper();
         }
     }
 }
