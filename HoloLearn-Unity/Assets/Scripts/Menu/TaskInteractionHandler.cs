@@ -104,6 +104,11 @@ public class TaskInteractionHandler : MonoBehaviour, IMixedRealityPointerHandler
         //throw new System.NotImplementedException();
     }
 
+    public void OnPointerDragged(MixedRealityPointerEventData eventData)
+    {
+        //throw new System.NotImplementedException();
+    }
+
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
         if (readyToPlay)

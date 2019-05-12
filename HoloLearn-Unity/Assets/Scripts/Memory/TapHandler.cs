@@ -19,12 +19,17 @@ public class TapHandler : MonoBehaviour, IMixedRealityPointerHandler
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+    }
+
+    public void OnPointerDragged(MixedRealityPointerEventData eventData)
+    {
+        //throw new System.NotImplementedException();
     }
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
