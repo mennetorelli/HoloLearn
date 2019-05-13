@@ -12,15 +12,10 @@ public class IdleState : StateMachineBehaviour {
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Vector3 relativePos = Camera.main.transform.position - VirtualAssistantManager.Instance.transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
-        rotation.x = 0f;
-        rotation.z = 0f;
-
-        VirtualAssistantManager.Instance.transform.rotation = Quaternion.Lerp(VirtualAssistantManager.Instance.transform.rotation, rotation, Time.deltaTime * 2f);
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,9 +24,15 @@ public class IdleState : StateMachineBehaviour {
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Vector3 relativePos = Camera.main.transform.position - VirtualAssistantManager.Instance.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(relativePos);
+        rotation.x = 0f;
+        rotation.z = 0f;
+
+        VirtualAssistantManager.Instance.transform.rotation = Quaternion.Lerp(VirtualAssistantManager.Instance.transform.rotation, rotation, Time.deltaTime * 2f);
+    }
 
     // OnStateIK is called right after Animator.OnAnimatorIK(). Code that sets up animation IK (inverse kinematics) should be implemented here.
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

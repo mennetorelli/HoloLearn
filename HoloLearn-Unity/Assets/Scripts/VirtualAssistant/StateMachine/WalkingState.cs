@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WalkingState : StateMachineBehaviour {
 
-    private float lerpPercentage;
+    private float speed = 0.0007f;
     private Vector3 targetPosition;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -19,7 +19,18 @@ public class WalkingState : StateMachineBehaviour {
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//
+	//}
+
+	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
+	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         targetPosition.y = VirtualAssistantManager.Instance.transform.position.y;
 
@@ -35,24 +46,13 @@ public class WalkingState : StateMachineBehaviour {
         {
             Debug.DrawLine(VirtualAssistantManager.Instance.transform.position, targetPosition, Color.blue, 5f);
 
-            lerpPercentage += Time.deltaTime * 0.1f;
-            VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, lerpPercentage);
+            VirtualAssistantManager.Instance.transform.position = Vector3.MoveTowards(VirtualAssistantManager.Instance.transform.position, targetPosition, speed);
         }
         else
-        {      
+        {
             animator.SetTrigger("TargetReached");
         }
     }
-
-	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
-
-	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
-	//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
 
 	// OnStateIK is called right after Animator.OnAnimatorIK(). Code that sets up animation IK (inverse kinematics) should be implemented here.
 	//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
