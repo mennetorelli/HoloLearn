@@ -54,7 +54,8 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
 
     public void RefreshSliderText()
     {
-        wasteSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{GarbageCollectionSettings.Instance.numberOfWaste}";
+        int value = Convert.ToInt32(wasteSlider.SliderValue * 10) + 3;
+        wasteSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{value}";
     }
 
     public void SaveSettings()

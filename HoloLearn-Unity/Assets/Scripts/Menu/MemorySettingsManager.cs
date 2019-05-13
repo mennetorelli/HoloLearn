@@ -67,7 +67,8 @@ public class MemorySettingsManager : MonoBehaviour
 
     public void RefreshSliderText()
     {
-        timeSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{MemorySettings.Instance.waitingTime}";
+        int value = Convert.ToInt32(timeSlider.SliderValue * 10) + 3;
+        timeSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{value}";
     }
 
     public void SaveSettings()

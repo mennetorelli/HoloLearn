@@ -54,7 +54,8 @@ public class DressUpSettingsManager : MonoBehaviour
 
     public void RefreshSliderText()
     {
-        clothesSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{DressUpSettings.Instance.numberOfClothes}";
+        int value = Convert.ToInt32(clothesSlider.SliderValue * 10) + 3;
+        clothesSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{value}";
     }
 
     public void SaveSettings()
