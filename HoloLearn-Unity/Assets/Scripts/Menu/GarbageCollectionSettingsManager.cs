@@ -11,9 +11,13 @@ using UnityEngine;
 
 public class GarbageCollectionSettingsManager : MonoBehaviour
 {
+    private PinchSlider wasteSlider;
+
     // Use this for initialization
     void Start()
     {
+        wasteSlider = gameObject.transform.Find("WastePinchSlider").GetComponentInChildren<PinchSlider>();
+
         RefreshMenu();
     }
 
@@ -31,8 +35,7 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
     
     public void SetNumberOfWaste()
     {
-       //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-       //GarbageCollectionSettings.Instance.numberOfWaste = Convert.ToInt32(slider.SliderValue) + 3;
+       GarbageCollectionSettings.Instance.numberOfWaste = Convert.ToInt32(wasteSlider.SliderValue * 10) + 3;
     }
 
  
@@ -45,7 +48,13 @@ public class GarbageCollectionSettingsManager : MonoBehaviour
         }
         binsButtons[GarbageCollectionSettings.Instance.numberOfBins - 1].SetToggled(true);
 
-        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(GarbageCollectionSettings.Instance.numberOfWaste);
+        wasteSlider.SliderValue = (float)(GarbageCollectionSettings.Instance.numberOfWaste - 3) / 10;
+        RefreshSliderText();
+    }
+
+    public void RefreshSliderText()
+    {
+        wasteSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{GarbageCollectionSettings.Instance.numberOfWaste}";
     }
 
     public void SaveSettings()
