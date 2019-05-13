@@ -30,7 +30,7 @@ namespace HoloLearn
 
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
 
-            GameObject.Find("Menu").SetActive(true);
+            GameObject.Find("MenuPrefab").SetActive(true);
         }
 
         public void ChangeScene(int scene)
