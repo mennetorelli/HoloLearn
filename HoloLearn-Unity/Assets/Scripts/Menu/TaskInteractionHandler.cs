@@ -69,8 +69,6 @@ public class TaskInteractionHandler : MonoBehaviour, IMixedRealityPointerHandler
 
     public void ScanningComplete()
     {
-        readyToPlay = true;
-
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
 
@@ -90,6 +88,7 @@ public class TaskInteractionHandler : MonoBehaviour, IMixedRealityPointerHandler
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
+        readyToPlay = true;
         transform.GetChild(1).gameObject.SetActive(false);
     }
     
