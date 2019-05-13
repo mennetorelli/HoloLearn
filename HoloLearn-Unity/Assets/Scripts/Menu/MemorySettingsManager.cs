@@ -11,9 +11,13 @@ using UnityEngine;
 
 public class MemorySettingsManager : MonoBehaviour
 {
+    private PinchSlider timeSlider;
+
     // Use this for initialization
     void Start()
     {
+        timeSlider = gameObject.transform.Find("TimePinchSlider").GetComponentInChildren<PinchSlider>();
+
         RefreshMenu();
     }
 
@@ -37,8 +41,7 @@ public class MemorySettingsManager : MonoBehaviour
 
     public void SetWaitingTime()
     {
-        //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-        //MemorySettings.Instance.waitingTime = Convert.ToInt32(slider.SliderValue) + 3;
+        MemorySettings.Instance.waitingTime = Convert.ToInt32(timeSlider.SliderValue * 10) + 3;
     }
 
 
@@ -58,7 +61,13 @@ public class MemorySettingsManager : MonoBehaviour
         }
         boxesButtons[(MemorySettings.Instance.numberOfBoxes - 4) / 2 - 1].SetToggled(true);
 
-        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
+        timeSlider.SliderValue = (float)(MemorySettings.Instance.waitingTime - 3) / 10;
+        RefreshSliderText();
+    }
+
+    public void RefreshSliderText()
+    {
+        timeSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{MemorySettings.Instance.waitingTime}";
     }
 
     public void SaveSettings()
