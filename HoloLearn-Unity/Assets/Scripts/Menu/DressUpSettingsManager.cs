@@ -11,9 +11,13 @@ using UnityEngine;
 
 public class DressUpSettingsManager : MonoBehaviour
 {
+    private PinchSlider clothesSlider;
+
     // Use this for initialization
     void Start()
     {
+        clothesSlider = gameObject.transform.Find("ClothesPinchSlider").GetComponentInChildren<PinchSlider>();
+
         RefreshMenu();
     }
 
@@ -31,8 +35,7 @@ public class DressUpSettingsManager : MonoBehaviour
 
     public void SetNumberOfClothes()
     {
-        //SliderGestureControl slider = gameObject.transform.Find("Slider").GetComponentInChildren<SliderGestureControl>();
-        //DressUpSettings.Instance.numberOfClothes = Convert.ToInt32(slider.SliderValue) + 3;
+        DressUpSettings.Instance.numberOfClothes = Convert.ToInt32(clothesSlider.SliderValue * 10) + 3;
     }
 
 
@@ -45,7 +48,13 @@ public class DressUpSettingsManager : MonoBehaviour
         }
         levelsButtons[DressUpSettings.Instance.numberOfLevel - 1].SetToggled(true);
 
-        //transform.Find("Slider").GetComponentInChildren<SliderGestureControl>().SetSliderValue(DressUpSettings.Instance.numberOfClothes);
+        clothesSlider.SliderValue = (float)(DressUpSettings.Instance.numberOfClothes - 3) / 10;
+        RefreshSliderText();
+    }
+
+    public void RefreshSliderText()
+    {
+        clothesSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{DressUpSettings.Instance.numberOfClothes}";
     }
 
     public void SaveSettings()
