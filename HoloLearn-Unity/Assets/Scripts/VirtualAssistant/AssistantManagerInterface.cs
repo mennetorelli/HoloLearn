@@ -6,6 +6,7 @@ using System;
 
 public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManager>
 {
+    public float speed;
     public int patience;
     public bool IsDragging;
     public bool IsBusy;

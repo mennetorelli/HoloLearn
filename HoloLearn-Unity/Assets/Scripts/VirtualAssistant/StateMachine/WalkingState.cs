@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WalkingState : StateMachineBehaviour {
 
-    private float speed = 0.0007f;
+    private float speed;
     private Vector3 targetPosition;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -14,6 +14,7 @@ public class WalkingState : StateMachineBehaviour {
         VirtualAssistantManager.Instance.GetComponent<Animator>().ResetTrigger("DraggingStopped");
 
         targetPosition = VirtualAssistantManager.Instance.targetObject.GetComponent<Rigidbody>().ClosestPointOnBounds(VirtualAssistantManager.Instance.transform.position);
+        speed = VirtualAssistantManager.Instance.speed;
 
         VirtualAssistantManager.Instance.GetComponent<AssistantAudioManagerInterface>().PlayWalking();
     }
