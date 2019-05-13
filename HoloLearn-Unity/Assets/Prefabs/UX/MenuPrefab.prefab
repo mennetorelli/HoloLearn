@@ -6490,7 +6490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944764584103699116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.02, z: 0}
+  m_LocalPosition: {x: -0.142, y: 0.02, z: 0}
   m_LocalScale: {x: 0.005000001, y: 0.005, z: 0.005000001}
   m_Children: []
   m_Father: {fileID: 7946620125398739404}
@@ -6541,9 +6541,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944764584103699116}
-  m_Text: 'Choose the
+  m_Text: 'Number
 
-    number of objects'
+    of waste'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -43842,7 +43842,7 @@ PrefabInstance:
     - target: {fileID: 7307063430618434851, guid: 1093263a89abe47499cccf7dcb08effb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.115
+      value: 0.083
       objectReference: {fileID: 0}
     - target: {fileID: 7307063430618434851, guid: 1093263a89abe47499cccf7dcb08effb,
         type: 3}
@@ -43963,6 +43963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteractionEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307063430618434848, guid: 1093263a89abe47499cccf7dcb08effb,
+        type: 3}
+      propertyPath: sliderEndDistance
+      value: 0.12499998
       objectReference: {fileID: 0}
     - target: {fileID: 7307063430561165487, guid: 1093263a89abe47499cccf7dcb08effb,
         type: 3}
