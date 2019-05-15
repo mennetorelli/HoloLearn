@@ -606,7 +606,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
   platformArchitecture:
-    iOS: 2
+    iOS: 1
   scriptingBackend:
     Android: 1
     Metro: 1
