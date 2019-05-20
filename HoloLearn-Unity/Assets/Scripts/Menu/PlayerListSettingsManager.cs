@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerListSettingsManager : MonoBehaviour {
 
     public GameObject PlayerEntry;
+    public TouchScreenKeyboard keyboard;
 
     // Use this for initialization
     void Start()
@@ -76,14 +77,16 @@ public class PlayerListSettingsManager : MonoBehaviour {
 
     public void AddPlayerEntry()
     {
-        /*string playerName = GameObject.Find("Keyboard").GetComponent<Keyboard>().InputField.text;
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
+
+        string playerName = keyboard.text;
         PlayerListSettings.Instance.listOfPlayers.Add(playerName);
 
         Transform playersList = GameObject.Find("PlayersList").transform;
         Vector3 offset = new Vector3(0f, -0.07f * playersList.childCount, 0f);
         GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
 
-        entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = playerName;
+        entry.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMesh>().text = playerName;
 
         PlayerListSettings.Instance.currentPlayer = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
         SettingsFileManager.Instance.UpdatePlayerSelectionSettings(PlayerListSettings.Instance.currentPlayer);
@@ -98,7 +101,12 @@ public class PlayerListSettingsManager : MonoBehaviour {
         VirtualAssistantSettings.Instance.assistantBehaviour = 1;
         VirtualAssistantSettings.Instance.assistantPatience = 5;
 
-        SettingsFileManager.Instance.AddPlayerSettings();*/
+        SettingsFileManager.Instance.AddPlayerSettings();
+    }
+
+    public void OpenSystemKeyboard()
+    {
+        
     }
 
     public void UpdatePlayerSelection(GameObject selectedEntry)
