@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class PlayerListSettingsManager : MonoBehaviour {
 
     public GameObject PlayerEntry;
-    public TouchScreenKeyboard keyboard;
+    private TouchScreenKeyboard keyboard;
+    private string keyboardText;
 
     // Use this for initialization
     void Start()
@@ -20,7 +21,10 @@ public class PlayerListSettingsManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        if (keyboard != null)
+        {
+            keyboardText = keyboard.text;
+        }
     }
 
     public void RefreshMenu()
@@ -79,7 +83,8 @@ public class PlayerListSettingsManager : MonoBehaviour {
     {
         keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
 
-        string playerName = keyboard.text;
+        string playerName = keyboardText;
+
         PlayerListSettings.Instance.listOfPlayers.Add(playerName);
 
         Transform playersList = GameObject.Find("PlayersList").transform;
