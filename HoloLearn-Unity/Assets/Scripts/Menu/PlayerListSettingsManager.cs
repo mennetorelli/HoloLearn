@@ -37,7 +37,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
             GameObject entry = Instantiate(PlayerEntry, playersList.transform.position + offset, playersList.transform.rotation, playersList);
             offset += new Vector3(0f, -0.07f, 0f);
 
-            entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = PlayerListSettings.Instance.listOfPlayers.ElementAt(i);
+            entry.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMesh>().text = PlayerListSettings.Instance.listOfPlayers.ElementAt(i);
         }
 
         for (int i = 0; i < gameObject.transform.Find("PlayersList").childCount; i++)
@@ -58,7 +58,7 @@ public class PlayerListSettingsManager : MonoBehaviour {
             }
         }
 
-        string playerName = entry.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text;
+        string playerName = entry.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMesh>().text;
 
         int playerIndex = PlayerListSettings.Instance.listOfPlayers.IndexOf(playerName);
         PlayerListSettings.Instance.listOfPlayers.Remove(playerName);
