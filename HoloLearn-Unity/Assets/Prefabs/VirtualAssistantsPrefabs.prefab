@@ -4295,7 +4295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbc72b049ff5b84f94c9a0f6eb22117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 0.003
   patience: 0
   IsDragging: 0
   IsBusy: 0
@@ -10493,7 +10493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a84f455b3371734cab32a3850087072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0007
+  speed: 0.002
   patience: 0
   IsDragging: 0
   IsBusy: 0
@@ -12612,7 +12612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbc72b049ff5b84f94c9a0f6eb22117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0007
+  speed: 0.002
   patience: 0
   IsDragging: 0
   IsBusy: 0
@@ -13566,7 +13566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a84f455b3371734cab32a3850087072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 0.003
   patience: 0
   IsDragging: 0
   IsBusy: 0
