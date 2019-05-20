@@ -1,15 +1,14 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.MarkerDetection;
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.Sharing;
+using Microsoft.MixedReality.Experimental.SpatialAlignment.Common;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Assets.MRTK.MixedRealityToolkit.Extensions.SpectatorView.Scripts.MarkerDetection
+namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.MarkerDetection
 {
     /// <summary>
     /// A marker detection based implementation of <see cref="ISpatialCoordinateService"/>.
@@ -33,16 +32,11 @@ namespace Assets.MRTK.MixedRealityToolkit.Extensions.SpectatorView.Scripts.Marke
                     if (marker != value)
                     {
                         marker = value;
-                        IsLocated = marker != null;
                     }
                 }
             }
 
-            public new bool IsLocated
-            {
-                get => base.IsLocated;
-                set => base.IsLocated = value;
-            }
+            public override LocatedState State => marker == null ? LocatedState.Resolved : LocatedState.Tracking;
 
             public SpatialCoordinate(int id)
                 : base(id) { }
@@ -63,23 +57,37 @@ namespace Assets.MRTK.MixedRealityToolkit.Extensions.SpectatorView.Scripts.Marke
         }
 
         private readonly IMarkerDetector markerDetector;
+        private readonly bool debugLogging;
 
-        public MarkerDetectorCoordinateService(IMarkerDetector markerDetector)
+        public MarkerDetectorCoordinateService(IMarkerDetector markerDetector, bool debugLogging)
         {
             this.markerDetector = markerDetector;
             this.markerDetector.MarkersUpdated += OnMarkersUpdated;
+            this.debugLogging = debugLogging;
+        }
+
+        private void DebugLog(string message)
+        {
+            if (debugLogging)
+            {
+                UnityEngine.Debug.Log($"MarkerDetector: {message}");
+            }
         }
 
         protected override void OnManagedDispose()
         {
+            base.OnManagedDispose();
+
+            DebugLog("Disposed");
             markerDetector.MarkersUpdated -= OnMarkersUpdated;
-            IsTracking = false;
         }
 
         private void OnMarkersUpdated(Dictionary<int, Marker> markers)
         {
+            DebugLog("Markers Updated");
             if (IsDisposed)
             {
+                DebugLog("But we are disposed");
                 return;
             }
 
@@ -88,21 +96,26 @@ namespace Assets.MRTK.MixedRealityToolkit.Extensions.SpectatorView.Scripts.Marke
 
             foreach (KeyValuePair<int, Marker> pair in markers)
             {
+                DebugLog($"Got Marker Id: {pair.Key}");
                 seenIds.Add(pair.Key);
                 if (knownCoordinates.TryGetValue(pair.Key, out ISpatialCoordinate spatialCoordinate))
                 {
+                    DebugLog("We have a coordinate for it, updating marker instance.");
                     ((SpatialCoordinate)spatialCoordinate).Marker = pair.Value;
                 }
                 else
                 {
+                    DebugLog("New coordinate");
                     newCoordinates.Add(new SpatialCoordinate(pair.Value));
                 }
             }
 
+            DebugLog("Processed all markers");
             foreach (var pair in knownCoordinates)
             {
                 if (!seenIds.Remove(pair.Key)) // Shrink as we go
                 {
+                    DebugLog($"Marker {pair.Key} not seen this time.");
                     ((SpatialCoordinate)pair.Value).Marker = null;
                 }
             }
@@ -114,36 +127,56 @@ namespace Assets.MRTK.MixedRealityToolkit.Extensions.SpectatorView.Scripts.Marke
             }
         }
 
-        /// <summary>
-        /// Returns an existingly tracked <see cref="ISpatialCoordinate"/> or a new one that will be used when the marker with the id is seen.
-        /// </summary>
-        public override Task<ISpatialCoordinate> TryGetCoordinateByIdAsync(string markerId, CancellationToken cancellationToken)
-        {
-            ThrowIfDisposed();
+        protected override bool TryParse(string id, out int result) => int.TryParse(id, out result);
 
-            ISpatialCoordinate toReturn = null;
-            if (int.TryParse(markerId, out int id))
+        protected override async Task OnDiscoverCoordinatesAsync(CancellationToken cancellationToken, int[] idsToLocate = null)
+        {
+            DebugLog("Starting detection");
+            markerDetector.StartDetecting();
+            try
             {
-                if (!knownCoordinates.TryGetValue(id, out toReturn))
+                if (idsToLocate != null && idsToLocate.Length > 0)
                 {
-                    SpatialCoordinate spatialCoordinate = new SpatialCoordinate(id);
-                    OnNewCoordinate(id, spatialCoordinate);
-                    toReturn = spatialCoordinate;
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        bool allFound = true;
+                        foreach (int id in idsToLocate)
+                        {
+                            if (!knownCoordinates.TryGetValue(id, out ISpatialCoordinate coordinate) || coordinate.State == LocatedState.Unresolved)
+                            {
+                                DebugLog($"Marker with id: {id} wasn't found yet.");
+                                allFound = false;
+                                break;
+                            }
+                        }
+
+                        if (allFound)
+                        {
+                            DebugLog("Found all markers");
+                            break;
+                        }
+
+                        DebugLog("Waiting another second");
+                        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken).IgnoreCancellation();
+                    }
+
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        DebugLog("We have been told to stop");
+                    }
+                }
+                else
+                {
+                    DebugLog("Just waiting to be told to stop.");
+                    await Task.Delay(-1, cancellationToken).IgnoreCancellation();
+                    DebugLog("Told to stop.");
                 }
             }
-
-            return Task.FromResult(toReturn);
-        }
-
-        protected override async Task RunTrackingAsync(CancellationToken cancellationToken)
-        {
-            ThrowIfDisposed();
-
-            markerDetector.StartDetecting();
-
-            await Task.Delay(-1, cancellationToken).IgnoreCancellation();
-
-            markerDetector.StopDetecting();
+            finally
+            {
+                markerDetector.StopDetecting();
+                DebugLog("Stopped detection");
+            }
         }
     }
 }

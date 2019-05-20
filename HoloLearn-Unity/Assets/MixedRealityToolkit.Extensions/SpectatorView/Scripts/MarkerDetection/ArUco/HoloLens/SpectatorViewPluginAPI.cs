@@ -15,10 +15,18 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
     /// </summary>
     public class SpectatorViewPluginAPI
     {
+#if UNITY_WSA
         [DllImport("SpectatorViewPlugin", EntryPoint = "Initialize")]
+#else
+        [DllImport("SpectatorViewPlugin.Editor", EntryPoint = "Initialize")]
+#endif
         internal static extern bool InitializeNative();
 
+#if UNITY_WSA
         [DllImport("SpectatorViewPlugin", EntryPoint = "DetectMarkers")]
+#else
+        [DllImport("SpectatorViewPlugin.Editor", EntryPoint = "DetectMarkers")]
+#endif
         internal static extern bool DetectMarkersNative(
             byte[] imageData,
             int imageWidth,
@@ -30,13 +38,25 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
             float markerSize,
             int arUcoMarkerDictionaryId);
 
+#if UNITY_WSA
         [DllImport("SpectatorViewPlugin", EntryPoint = "GetDetectedMarkersCount")]
+#else
+        [DllImport("SpectatorViewPlugin.Editor", EntryPoint = "GetDetectedMarkersCount")]
+#endif
         internal static extern int GetDetectedMarkersCountNative();
 
+#if UNITY_WSA
         [DllImport("SpectatorViewPlugin", EntryPoint = "GetDetectedMarkerIds")]
+#else
+        [DllImport("SpectatorViewPlugin.Editor", EntryPoint = "GetDetectedMarkerIds")]
+#endif
         internal static extern bool GetDetectedMarkerIdsNative(int[] detectedIds, int size);
 
+#if UNITY_WSA
         [DllImport("SpectatorViewPlugin", EntryPoint = "GetDetectedMarkerPose")]
+#else
+        [DllImport("SpectatorViewPlugin.Editor", EntryPoint = "GetDetectedMarkerPose")]
+#endif
         internal static extern bool GetDetectedMarkerPoseNative(int detectedId, float[] position, float[] rotation);
 
         /// <summary>
@@ -69,6 +89,11 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
             return false;
         }
 
+        public void SetMarkerSize(float markerSize)
+        {
+            _markerSize = markerSize;
+        }
+        
         /// <summary>
         /// Assesses the provided image for ArUco markers
         /// </summary>
@@ -141,7 +166,7 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
                             var rotation = new float[3];
                             if (GetDetectedMarkerPoseNative(id, position, rotation))
                             {
-                                Vector3 positionInOpenCVCameraSpace = new Vector3(position[0], position[1], position[2]);
+                                Vector3 positionInOpenCVCameraSpace = new Vector3(position[0], -position[1], position[2]);
 
                                 // The below logic ensures the following marker orientation:
                                 // Positive x axis is in the left direction of the observed marker

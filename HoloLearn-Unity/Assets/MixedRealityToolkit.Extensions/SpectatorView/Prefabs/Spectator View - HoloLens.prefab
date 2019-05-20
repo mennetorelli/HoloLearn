@@ -4790,7 +4790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aRFoundationCamera: {fileID: 7276281633834981855}
-  _aRPointCloudManager: {fileID: 7276281633821659278}
   _showDebugVisual: 1
   _debugVisualHelper: {fileID: 7276281634823046365}
   _markerSize: 0.04
@@ -4980,6 +4979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _markerSize: 0.04
+  _markerPositionBehavior: 1
 --- !u!114 &7276281634926089532
 MonoBehaviour:
   m_ObjectHideFlags: 0
