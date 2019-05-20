@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Cold
+  - FreezingCold
 --- !u!114 &114272287571907572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Cold
+  - Warm
+  - Rainy
 --- !u!114 &114063587435157238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,7 +948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Cold
+  - FreezingCold
+  - Snowy
 --- !u!114 &114937447080011886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,7 +1199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Cold
+  - FreezingCold
+  - Rainy
 --- !u!114 &114696641096469418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,6 +1468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Cold
+  - FreezingCold
 --- !u!114 &114999973542422528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Hot
+  - Sunny
 --- !u!114 &114760705088895152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2437,7 +2449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Warm
 --- !u!114 &114753416148574252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,7 +2697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Warm
 --- !u!114 &114405270757334712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,7 +2945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Warm
 --- !u!114 &114752145838533150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,6 +3194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Cold
+  - FreezingCold
+  - Snowy
 --- !u!114 &114522799279160900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3685,6 +3702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Cold
+  - FreezingCold
 --- !u!114 &114990982958753182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,6 +4188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Hot
+  - Sunny
 --- !u!114 &114477193846114454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4641,7 +4660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Warm
 --- !u!114 &114715081179367234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4889,6 +4909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Cold
+  - FreezingCold
+  - Snowy
 --- !u!114 &114897325355295042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5175,7 +5197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7013eb72a4c74fa1404224a4c356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Warm
 --- !u!114 &114287841336796390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5424,6 +5447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Hot
+  - Sunny
 --- !u!114 &114528332505927586
 MonoBehaviour:
   m_ObjectHideFlags: 0
