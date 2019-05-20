@@ -8,9 +8,13 @@ using UnityEngine;
 
 public class VirtualAssistantSettingsManager : MonoBehaviour
 {
+    private PinchSlider timeSlider;
+
     // Use this for initialization
     void Start()
     {
+        timeSlider = transform.GetChild(5).GetChild(1).GetComponentInChildren<PinchSlider>();
+
         RefreshMenu();
     }
 
@@ -34,8 +38,7 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
 
     public void SetAssistantPatience()
     {
-        //SliderGestureControl slider = GameObject.Find("PatienceTime").GetComponentInChildren<SliderGestureControl>();
-        //VirtualAssistantSettings.Instance.assistantPatience = Convert.ToInt32(slider.SliderValue) + 2;
+        VirtualAssistantSettings.Instance.assistantPatience = Convert.ToInt32(timeSlider.SliderValue * 10) + 2;
     }
 
 
@@ -61,12 +64,19 @@ public class VirtualAssistantSettingsManager : MonoBehaviour
         if (VirtualAssistantSettings.Instance.assistantBehaviour == 2)
         {
             GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).gameObject.SetActive(true);
-            //GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).GetComponentInChildren<SliderGestureControl>().SetSliderValue(VirtualAssistantSettings.Instance.assistantPatience);
+            timeSlider.SliderValue = (float)(VirtualAssistantSettings.Instance.assistantPatience - 2) / 10;
+            RefreshSliderText();
         }
         else
         {
             GameObject.Find("VirtualAssistantSettings").transform.GetChild(5).gameObject.SetActive(false);
         }
+    }
+
+    public void RefreshSliderText()
+    {
+        int value = Convert.ToInt32(timeSlider.SliderValue * 10) + 2;
+        timeSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{value}";
     }
 
 

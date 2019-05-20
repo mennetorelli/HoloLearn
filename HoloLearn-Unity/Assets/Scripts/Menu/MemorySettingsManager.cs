@@ -41,7 +41,7 @@ public class MemorySettingsManager : MonoBehaviour
 
     public void SetWaitingTime()
     {
-        MemorySettings.Instance.waitingTime = Convert.ToInt32(timeSlider.SliderValue * 10) + 3;
+        MemorySettings.Instance.waitingTime = Convert.ToInt32(timeSlider.SliderValue * 10);
     }
 
 
@@ -61,13 +61,13 @@ public class MemorySettingsManager : MonoBehaviour
         }
         boxesButtons[(MemorySettings.Instance.numberOfBoxes - 4) / 2 - 1].SetToggled(true);
 
-        timeSlider.SliderValue = (float)(MemorySettings.Instance.waitingTime - 3) / 10;
+        timeSlider.SliderValue = (float)(MemorySettings.Instance.waitingTime) / 10;
         RefreshSliderText();
     }
 
     public void RefreshSliderText()
     {
-        int value = Convert.ToInt32(timeSlider.SliderValue * 10) + 3;
+        int value = Convert.ToInt32(timeSlider.SliderValue * 10);
         timeSlider.transform.GetChild(0).GetChild(1).GetComponent<TextMesh>().text = $"{value}";
     }
 
