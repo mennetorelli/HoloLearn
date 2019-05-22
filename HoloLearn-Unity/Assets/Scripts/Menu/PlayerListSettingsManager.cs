@@ -109,11 +109,6 @@ public class PlayerListSettingsManager : MonoBehaviour {
         SettingsFileManager.Instance.AddPlayerSettings();
     }
 
-    public void OpenSystemKeyboard()
-    {
-        
-    }
-
     public void UpdatePlayerSelection(GameObject selectedEntry)
     {
         Interactable[] buttons = gameObject.transform.Find("PlayersList").GetComponentsInChildren<Interactable>();
