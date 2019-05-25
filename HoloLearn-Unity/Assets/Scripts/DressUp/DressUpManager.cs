@@ -159,7 +159,7 @@ public class DressUpManager : TaskManager
             }
         }
 
-        SortObjectsByDistance(targets);
+        SortByDistance(targets);
 
         return targets[0];
     }
