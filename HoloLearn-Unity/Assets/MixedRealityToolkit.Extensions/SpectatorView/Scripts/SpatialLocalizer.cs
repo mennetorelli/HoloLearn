@@ -14,8 +14,17 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
     /// Helper class to enable spatial localization between two entities on SpectatorView.
     /// </summary>
     /// <remarks>In the future this would move to SpatialLocalization in a better form, abstraction-wise.</remarks>
-    internal abstract class SpatialLocalizationMechanismBase : MonoBehaviour
+    internal abstract class SpatialLocalizer : MonoBehaviour
     {
+        public const string SpatialLocalizationMessageHeader = "LOCALIZE";
+
+        /// <summary>
+        /// The spatial coordinate service for sub class to instantiate and this helper base to rely on.
+        /// </summary>
+        protected abstract ISpatialCoordinateService SpatialCoordinateService { get; }
+
+        protected readonly object lockObject = new object();
+
         private string typeName;
 
         [Tooltip("Toggle to enable troubleshooting logging.")]
@@ -25,7 +34,7 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
         /// <summary>
         /// The type name of this object instance.
         /// </summary>
-        private string TypeName => typeName ?? (typeName = GetType().Name);
+        public string TypeName => typeName ?? (typeName = GetType().Name);
 
         /// <summary>
         /// Helper method for logging troubleshooting information.
@@ -60,17 +69,18 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
         /// </summary>
         /// <param name="role">The role of the requesting entity.</param>
         /// <param name="token">The token representing the session.</param>
+        /// <param name="command">The command associated with the binary reader.</param>
         /// <param name="r">The binary reader for the message.</param>
-        internal abstract void ProcessIncomingMessage(Role role, Guid token, BinaryReader r);
+        internal abstract void ProcessIncomingMessage(Role role, Guid token, string command, BinaryReader r);
 
         /// <summary>
         /// Attempts to localize the given session.
         /// </summary>
         /// <param name="role">The role of the requesting entity.</param>
         /// <param name="token">The token representing the session.</param>
-        /// <param name="sendMessage">The function to create a mesage for sending when provided a callback for writing the contents of the message.</param>
+        /// <param name="writeAndSendMessage">A function that allows the spatialLocalizer to write and send content to other devices.</param>
         /// <param name="cancellationToken">The cancellation token to cancel this async operation.</param>
         /// <returns>The spatial coordinate when this operation is complete.</returns>
-        internal abstract Task<ISpatialCoordinate> LocalizeAsync(Role role, Guid token, Action<Action<BinaryWriter>> sendMessage, CancellationToken cancellationToken);
+        internal abstract Task<ISpatialCoordinate> LocalizeAsync(Role role, Guid token, Action<Action<BinaryWriter>> writeAndSendMessage, CancellationToken cancellationToken);
     }
 }
