@@ -58,7 +58,7 @@ public abstract class TaskManager : Singleton<TaskManager>
     }
 
 
-    public void SortByDistance(List<GameObject> targets)
+    protected void SortByDistance(List<GameObject> targets)
     {
         GameObject temp;
         for (int i = 0; i < targets.Count; i++)

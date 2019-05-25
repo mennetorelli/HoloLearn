@@ -25,6 +25,9 @@ public class DressUpManager : TaskManager
 
     private Transform virtualAssistant;
 
+    private string weathertag;
+    private string temperaturetag;
+
 
     // Use this for initialization
     public override void Start()
@@ -77,8 +80,8 @@ public class DressUpManager : TaskManager
         selectedWeather.GetChild(1).GetComponent<TemperatureGenerator>().GenerateTemperature();
 
 
-        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
-        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
+        weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
+        temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
 
 
         Transform clothes = new GameObject("Clothes").transform;
@@ -146,14 +149,11 @@ public class DressUpManager : TaskManager
         Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
         List<GameObject> targets = new List<GameObject>();
 
-        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
-        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
-
         foreach (Rigidbody target in remainingObjects)
         {
+            List<string> tags = target.gameObject.GetComponent<TagsContainer>().tags;
             if (target.gameObject.GetComponent<ManipulationHandler>().enabled == true &&
-                (target.gameObject.GetComponent<TagsContainer>().tags.Contains(weathertag)
-                || target.gameObject.GetComponent<TagsContainer>().tags.Contains(weathertag)))
+                (tags.Contains(weathertag) || tags.Contains(weathertag)))
             {
                 targets.Add(target.gameObject);
             }
