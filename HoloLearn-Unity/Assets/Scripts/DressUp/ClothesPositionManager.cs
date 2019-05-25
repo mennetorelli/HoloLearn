@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.MixedReality.Toolkit.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,10 +39,11 @@ public class ClothesPositionManager : ObjectPositionManager {
 
     public override void HasCollided(Transform target)
     {
-        //transform.GetComponent<CustomHandDraggable>().StopDragging();
+        transform.GetComponent<ManipulationHandler>().enabled = false;
         transform.GetComponent<Collider>().enabled = false;
+        transform.GetComponent<Rigidbody>().isKinematic = true;
 
-        targetPosition = target.TransformPoint(target.GetComponent<BoxCollider>().center + new Vector3(0f, -0.2f, 0f));
+        targetPosition = target.position;
 
         hasCollided = true;
     }
