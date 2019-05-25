@@ -141,29 +141,6 @@ public class DressUpManager : TaskManager
     }
 
 
-    /// <summary>
-    /// Adjusts the initial position of the object if it is being occluded by the spatial map.
-    /// </summary>
-    /// <param name="position">Position of object to adjust.</param>
-    /// <param name="surfaceNormal">Normal of surface that the object is positioned against.</param>
-    /// <returns></returns>
-    private Vector3 AdjustPositionWithSpatialMap(Vector3 position, Vector3 surfaceNormal)
-    {
-        Vector3 newPosition = position;
-        RaycastHit hitInfo;
-        float distance = 0.5f;
-
-        // Check to see if there is a SpatialMapping mesh occluding the object at its current position.
-        if (Physics.Raycast(position, surfaceNormal, out hitInfo, distance, SpatialMappingManager.Instance.LayerMask))
-        {
-            // If the object is occluded, reset its position.
-            newPosition = hitInfo.point;
-        }
-
-        return newPosition;
-    }
-
-
     public override GameObject GetClosestObject()
     {
         Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
