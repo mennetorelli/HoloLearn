@@ -31,8 +31,8 @@ public class FindMeModeManager : PlayModeManager
         this.selectedElement = selectedElement.GetChild(1);
 
         Transform confirmationMessage = transform.GetChild(1);
-        confirmationMessage.position = GameObject.Find("Elements").transform.position + new Vector3(0f, 0.3f, 0f);
-        confirmationMessage.rotation = Quaternion.LookRotation(GameObject.Find("Elements").transform.position - Camera.main.transform.position);
+        confirmationMessage.position = selectedElement.position + new Vector3(0f, 0.3f, 0f);
+        confirmationMessage.rotation = selectedElement.rotation;
         confirmationMessage.gameObject.SetActive(true);
     }
 
