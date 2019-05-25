@@ -68,6 +68,7 @@ public class FindMeModeManager : PlayModeManager
         objectToFind = elems.GetChild(rnd.Next(0, elems.childCount)).GetChild(1);
         Instantiate(objectToFind, transform.GetChild(0).position + new Vector3(0f, -0.2f, 0f), transform.GetChild(0).rotation, transform.GetChild(0));
         transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
   
         yield return new WaitForSeconds(waitingTime);
 
