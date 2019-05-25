@@ -1,6 +1,7 @@
 ﻿using HoloToolkit.Unity;
 using HoloToolkit.Unity.SpatialMapping;
 using HoloToolkit.Unity.SpatialMapping.Tests;
+using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -150,6 +151,30 @@ public class DressUpManager : TaskManager
         }
 
         return newPosition;
+    }
+
+
+    public override GameObject GetClosestObject()
+    {
+        Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
+        List<GameObject> targets = new List<GameObject>();
+
+        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
+        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
+
+        foreach (Rigidbody target in remainingObjects)
+        {
+            if (target.gameObject.GetComponent<ManipulationHandler>().enabled == true &&
+                (target.gameObject.GetComponent<TagsContainer>().tags.Contains(weathertag)
+                || target.gameObject.GetComponent<TagsContainer>().tags.Contains(weathertag)))
+            {
+                targets.Add(target.gameObject);
+            }
+        }
+
+        SortObjectsByDistance(targets);
+
+        return targets[0];
     }
 
 

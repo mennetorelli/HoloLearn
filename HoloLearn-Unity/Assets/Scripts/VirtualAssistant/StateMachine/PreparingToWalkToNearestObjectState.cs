@@ -9,18 +9,7 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Rigidbody[] remainingObjects = GameObject.FindGameObjectWithTag("ObjectsToBePlaced").GetComponentsInChildren<Rigidbody>();
-        List<GameObject> targets = new List<GameObject>();
-        foreach (Rigidbody target in remainingObjects)
-        {
-            if (target.gameObject.GetComponent<ManipulationHandler>().enabled == true)
-            {
-                targets.Add(target.gameObject);
-            }
-        }
-
-        SortByDistance(targets);
-        VirtualAssistantManager.Instance.targetObject = targets[0].transform;
+        VirtualAssistantManager.Instance.targetObject = TaskManager.Instance.GetClosestObject().transform;
 
         Debug.Log("walking to next object " + VirtualAssistantManager.Instance.targetObject);
         VirtualAssistantManager.Instance.Walk();
@@ -52,24 +41,5 @@ public class PreparingToWalkToNearestObjectState : StateMachineBehaviour {
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
     //
     //}
-
-
-    public void SortByDistance(List<GameObject> targets)
-    {
-        GameObject temp;
-        for (int i = 0; i < targets.Count; i++)
-        {
-            for (int j = 0; j < targets.Count - 1; j++)
-            {
-                if (Vector3.Distance(targets.ElementAt(j).transform.position, VirtualAssistantManager.Instance.transform.position)
-                    > Vector3.Distance(targets.ElementAt(j + 1).transform.position, VirtualAssistantManager.Instance.transform.position))
-                {
-                    temp = targets[j + 1];
-                    targets[j + 1] = targets[j];
-                    targets[j] = temp;
-                }
-            }
-        }
-    }
 
 }
