@@ -32,13 +32,33 @@ public abstract class TaskManager : Singleton<TaskManager>
             }
         }
 
-        SortObjectsByDistance(targets);
+        SortByDistance(targets);
 
         return targets[0];
     }
 
+    public virtual GameObject GetClosestTarget()
+    {
+        GameObject draggedObject = VirtualAssistantManager.Instance.targetObject.gameObject;
+        Debug.Log(draggedObject);
+        string tag = draggedObject.tag;
 
-    public void SortObjectsByDistance(List<GameObject> targets)
+        Rigidbody[] placements = GameObject.FindGameObjectWithTag("Targets").GetComponentsInChildren<Rigidbody>();
+        List<GameObject> targets = new List<GameObject>();
+        foreach (Rigidbody target in placements)
+        {
+            if (target.gameObject.tag == tag)
+            {
+                targets.Add(target.gameObject);
+            }
+        }
+
+        SortByDistance(targets);
+        return targets[0];
+    }
+
+
+    public void SortByDistance(List<GameObject> targets)
     {
         GameObject temp;
         for (int i = 0; i < targets.Count; i++)

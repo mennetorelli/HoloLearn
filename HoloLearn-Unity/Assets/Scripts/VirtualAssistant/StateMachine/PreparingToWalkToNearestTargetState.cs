@@ -9,22 +9,7 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject draggedObject = VirtualAssistantManager.Instance.targetObject.gameObject;
-        Debug.Log(draggedObject);
-        String tag = draggedObject.tag;
-
-        Rigidbody[] placements = GameObject.FindGameObjectWithTag("Targets").GetComponentsInChildren<Rigidbody>();
-        List<GameObject> targets = new List<GameObject>();
-        foreach (Rigidbody target in placements)
-        {
-            if (target.gameObject.tag == tag)
-            {
-                targets.Add(target.gameObject);
-            }
-        }
-
-        SortByDistance(targets);
-        VirtualAssistantManager.Instance.targetObject = targets[0].transform;
+        VirtualAssistantManager.Instance.targetObject = TaskManager.Instance.GetClosestTarget().transform;
 
         Debug.Log("walking to next placement " + VirtualAssistantManager.Instance.targetObject);
         VirtualAssistantManager.Instance.Walk();
@@ -56,23 +41,4 @@ public class PreparingToWalkToNearestTargetState : StateMachineBehaviour {
     //
     //}
 
-    
-
-    public void SortByDistance(List<GameObject> targets)
-    {
-        GameObject temp;
-        for (int i = 0; i < targets.Count; i++)
-        {
-            for (int j = 0; j < targets.Count - 1; j++)
-            {
-                if (Vector3.Distance(targets.ElementAt(j).transform.position, VirtualAssistantManager.Instance.transform.position)
-                    > Vector3.Distance(targets.ElementAt(j + 1).transform.position, VirtualAssistantManager.Instance.transform.position))
-                {
-                    temp = targets[j + 1];
-                    targets[j + 1] = targets[j];
-                    targets[j] = temp;
-                }
-            }
-        }
-    }
 }
