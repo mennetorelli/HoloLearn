@@ -39,12 +39,14 @@ public class BagCollisionManager : MonoBehaviour
 
                     other.transform.GetComponent<ObjectPositionManager>().HasCollided(transform);
                 }
-            }
-
-            if (VirtualAssistantManager.Instance != null && !VirtualAssistantManager.Instance.IsBusy)
-            {
-                VirtualAssistantManager.Instance.ShakeHead();
-            }
+                else
+                {
+                    if (VirtualAssistantManager.Instance != null && !VirtualAssistantManager.Instance.IsBusy)
+                    {
+                        VirtualAssistantManager.Instance.ShakeHead();
+                    }
+                }
+            }         
         }
     }
 
