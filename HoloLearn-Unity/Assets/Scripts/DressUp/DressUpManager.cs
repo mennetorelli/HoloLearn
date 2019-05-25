@@ -77,6 +77,10 @@ public class DressUpManager : TaskManager
         selectedWeather.GetChild(1).GetComponent<TemperatureGenerator>().GenerateTemperature();
 
 
+        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
+        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
+
+
         Transform clothes = new GameObject("Clothes").transform;
         clothes.tag = "ObjectsToBePlaced";
 
@@ -84,11 +88,28 @@ public class DressUpManager : TaskManager
         clothesPosition.y = floorPosition.y + 0.1f;
         Debug.DrawLine(weatherPosition, clothesPosition, Color.red, 30f);
 
+        int counter = 0;
         for (int i = 0; i < numberOfClothes; i++)
         {
             Transform currentClothe = ClothesPrefabs.transform.GetChild(rnd.Next(0, ClothesPrefabs.transform.childCount));
+            List<string> tags = currentClothe.GetComponent<TagsContainer>().tags;
+
+            if (counter <= Math.Floor((double)numberOfClothes / 3))
+            {
+                if (!tags.Contains(weathertag) && !tags.Contains(temperaturetag))
+                {
+                    i--;
+                    continue;
+                }
+            }
             Instantiate(currentClothe.gameObject, currentClothe.position, currentClothe.rotation, clothes);
+            
+            if (tags.Contains(weathertag) || tags.Contains(temperaturetag))
+            {
+                counter++;
+            }
         }
+        Debug.Log("Number of clothes: " + numberOfClothes + ", correct clothes: " + counter);
 
         clothes.Translate(clothesPosition);
         clothes.Rotate(rotation.eulerAngles);
@@ -103,17 +124,6 @@ public class DressUpManager : TaskManager
         Debug.DrawLine(clothesPosition, bagPosition, Color.blue, 30f);
 
 
-        int counter = 0;
-        string weathertag = GameObject.Find("Weather").transform.GetChild(0).GetChild(0).tag;
-        string temperaturetag = GameObject.Find("Weather").transform.GetChild(0).GetChild(1).tag;
-        foreach (Transform obj in clothes)
-        {
-            List<string> tags = obj.GetComponent<TagsContainer>().tags;
-            if (tags.Contains(weathertag) || tags.Contains(temperaturetag))
-            {
-                counter++;
-            }
-        }
         Counter.Instance.InitializeCounter(counter);
 
 
