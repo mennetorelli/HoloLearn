@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114750426120364918, guid: d5e0e8cc740eb134789fd1f6bb5bb80a,
+        type: 3}
+      propertyPath: Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 65169310230401214, guid: d5e0e8cc740eb134789fd1f6bb5bb80a,
         type: 3}
       propertyPath: m_Size.x
