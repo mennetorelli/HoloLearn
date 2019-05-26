@@ -72,7 +72,8 @@ public class MemoryManager : TaskManager
         {
             Transform elem = new GameObject("Element").transform;
             elem.parent = elems;
-            GameObject box = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0f), BoxPrefab.transform.rotation, elem);
+            elem.position = elems.TransformPoint(new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0f));
+            GameObject box = Instantiate(BoxPrefab, elem.position, BoxPrefab.transform.rotation, elem);
             int j = rnd.Next(0, objs.Count);
             Transform obj = Instantiate(objs.ElementAt(j), box.transform.position, box.transform.rotation, elem);
             obj.gameObject.SetActive(false);
@@ -80,18 +81,19 @@ public class MemoryManager : TaskManager
 
             Transform elem2 = new GameObject("Element").transform;
             elem2.parent = elems;
-            GameObject box2 = Instantiate(BoxPrefab, new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0.3f), BoxPrefab.transform.rotation, elem2);
+            elem2.position = elems.TransformPoint(new Vector3((float)Math.Pow(-1, i) * 0.3f * (i / 2), 0f, 0.3f));
+            GameObject box2 = Instantiate(BoxPrefab, elem2.position, BoxPrefab.transform.rotation, elem2);
             int k = rnd.Next(0, objs.Count);
-            Transform obj2 = Instantiate(objs.ElementAt(k), box2.transform.position, box2.transform.rotation, elem2);
+            Transform obj2 = Instantiate(objs.ElementAt(k), elem2.position, box2.transform.rotation, elem2);
             obj2.gameObject.SetActive(false);
             objs.RemoveAt(k);
         }
 
         elems.Translate(boxesPosition);
         elems.Rotate(rotation.eulerAngles);
-        
 
-        Vector3 assistantPosition = elems.TransformPoint(-0.5f, 0f, 0.5f);
+
+        Vector3 assistantPosition = elems.GetChild(elems.childCount - 2).TransformPoint(0.3f * (float)Math.Pow(-1, elems.childCount / 2 % 2), 0f, 0f);
         assistantPosition.y = floor.position.y;
 
         if (assistantPresence != 0)
