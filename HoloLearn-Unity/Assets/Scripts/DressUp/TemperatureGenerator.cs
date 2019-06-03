@@ -24,12 +24,18 @@ public class TemperatureGenerator : MonoBehaviour {
         Transform weather = GameObject.Find("Weather").transform;
         DressUpManager manager = (DressUpManager)TaskManager.Instance;
 
-        Vector3 temperaturePostion = weather.position;
-        Vector3 relativePos = Camera.main.transform.position - temperaturePostion;
+        Vector3 temperaturePostion = weather.TransformPoint(0.7f, 0f, 0f);
+        Vector3 relativePos = temperaturePostion - Camera.main.transform.position;
         Quaternion temperatureRotation = Quaternion.LookRotation(relativePos);
+        temperatureRotation.x = 0f;
+        temperatureRotation.z = 0f;
 
-        int temperature = new System.Random().Next(MinRange, MaxRange);
-        int unit = temperature % 10;
+        Transform temperature = Instantiate(manager.WeatherPrefabs.transform.GetChild(0), temperaturePostion, temperatureRotation, weather.GetChild(0).GetChild(1));
+
+        int temperatureValue = new System.Random().Next(MinRange, MaxRange);
+        temperature.GetComponent<TextMesh>().text = temperatureValue + "°C";
+
+        /*int unit = temperature % 10;
         int dec = (temperature - unit) / 10;
 
         if (dec != 0)
@@ -38,7 +44,7 @@ public class TemperatureGenerator : MonoBehaviour {
         }
         Instantiate(manager.WeatherPrefabs.transform.GetChild(0).GetChild(unit), temperaturePostion + new Vector3(0.1f, 0f, 0f), temperatureRotation, weather.GetChild(0).GetChild(1));
         Instantiate(manager.WeatherPrefabs.transform.GetChild(0).GetChild(manager.WeatherPrefabs.transform.GetChild(0).childCount - 2), temperaturePostion + new Vector3(0.2f, 0f, 0f), temperatureRotation, weather.GetChild(0).GetChild(1));
-        Instantiate(manager.WeatherPrefabs.transform.GetChild(0).GetChild(manager.WeatherPrefabs.transform.GetChild(0).childCount - 1), temperaturePostion + new Vector3(0.3f, 0f, 0f), temperatureRotation, weather.GetChild(0).GetChild(1));
+        Instantiate(manager.WeatherPrefabs.transform.GetChild(0).GetChild(manager.WeatherPrefabs.transform.GetChild(0).childCount - 1), temperaturePostion + new Vector3(0.3f, 0f, 0f), temperatureRotation, weather.GetChild(0).GetChild(1));*/
 
     }
 }
