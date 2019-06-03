@@ -16,6 +16,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: pasted__lambert9
     second: {fileID: 2100000, guid: ca71a829c3ded2a419bf17d9ae8c3bd1, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tweed bump
+    second: {fileID: 2800000, guid: 03ea26411d46976449daa22b20ca239f, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
