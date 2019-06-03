@@ -12558,7 +12558,7 @@ GameObject:
   - component: {fileID: 4342463258778758}
   - component: {fileID: 95203956502073518}
   - component: {fileID: 114206807003662408}
-  - component: {fileID: 114297575383401256}
+  - component: {fileID: 706776926275795260}
   m_Layer: 0
   m_Name: DynamicMinion
   m_TagString: Untagged
@@ -12618,7 +12618,7 @@ MonoBehaviour:
   IsDragging: 0
   IsBusy: 0
   targetObject: {fileID: 0}
---- !u!114 &114297575383401256
+--- !u!114 &706776926275795260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12627,23 +12627,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1907704196838108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216e3f45a758975439013b109bf99490, type: 3}
+  m_Script: {fileID: 11500000, guid: c9f98bda8283d1f4eab0541191b0f1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intro: Intro
-  Walking_daquestaparte: Walking_daquestaparte
-  Walking_seguimi: Walking_seguimi
-  Walking_vieniconme: Walking_vieniconme
-  Pointing_carta: Pointing_carta
-  Pointing_plastica: Pointing_plastica
-  Pointing_vetro: Pointing_vetro
-  Pointing_cartabin: Pointing_cartabin
-  Pointing_plasticabin: Pointing_plasticabin
-  Pointing_vetrobin: Pointing_vetrobin
-  Jumping_benfatto: Jumping_benfatto
-  Jumping_eccellente: Jumping_eccellente
-  ShakingHeadNo_nonono: ShakingHeadNo_nonono
-  ShakingHeadNo_riprova: ShakingHeadNo_riprova
+  ShakingHeadNo: ShakeHeadNo
+  Jump: Jump
 --- !u!1 &1913653946203766
 GameObject:
   m_ObjectHideFlags: 0
