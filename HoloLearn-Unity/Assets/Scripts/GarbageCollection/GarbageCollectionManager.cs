@@ -71,7 +71,7 @@ public class GarbageCollectionManager : TaskManager
         rotation.z = 0f;
 
 
-        Transform sceneRoot = GameObject.Find("Scene Root").transform;
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
 
         Transform bins = new GameObject("Bins").transform;
         bins.parent = sceneRoot;

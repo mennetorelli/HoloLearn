@@ -5,10 +5,7 @@ Spectator View is a MixedRealityToolkit.Extensions component that enables viewin
 * ### [Setup](SpectatorViewSetup.md)
 * ### [Debugging](SpectatorViewDebugging.md)
 
-# Dependencies
-* Native Plugin - [Microsoft/MixedRealityToolkit:feature/spectatorView/SpectatorViewPlugin](https://github.com/Microsoft/MixedRealityToolkit/tree/feature/spectatorView/SpectatorViewPlugin)
-
 # Platform Support
-* iOS - In Progress
-* Android - In Progress
+* Android - Working
+* iOS - In progress
 * DSLR Cameras - Coming soon...

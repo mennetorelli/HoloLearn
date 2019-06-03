@@ -4,75 +4,43 @@
 2. HoloLens
 3. [Visual Studio 2017](https://visualstudio.microsoft.com/vs/) installed on the PC
 4. [Unity](https://unity3d.com/get-unity/download) installed on the PC
-5. [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) Unity Package
-
-### iOS
-1. Mac
-2. ARM64 iOS Device that supports [AR Kit](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html)
-3. [Unity](https://unity3d.com/get-unity/download) installed on the Mac
-4. [XCode](https://developer.apple.com/xcode/) installed on the Mac
-5. Obtain an [apple developer license](https://developer.apple.com/programs/enroll/)
-6. [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) Unity Package
-7. [ARKit XR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.arkit@1.0/manual/index.html) Unity Package
+5. [AzureSpatialAnchors v1.1.1](https://github.com/Azure/azure-spatial-anchors-samples/releases/tag/v1.1.1)
 
 ### Android
-1. Windows PC or Mac
+1. Windows PC
 2. Android Device that supports [AR Core](https://developers.google.com/ar/discover/supported-devices)
 3. [Android Studio](https://developer.android.com/studio)
-4. [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) Unity Package
-5. [ARCore XR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.arcore@1.0/manual/index.html) Unity Package
+4. [ARCore v1.7.0](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.7.0) (Note: only v1.7.0 has been tested, use other versions at your own risk)
+5. [AzureSpatialAnchors v1.1.1](https://github.com/Azure/azure-spatial-anchors-samples/releases/tag/v1.1.1)
 
-# Example Unity Scene
-Spectator View currently has two example scenes. It may be worth compiling and running one of said scenes before attempting to setup your own Spectator View experience.
+## Before building
+1. Obtain your HoloLens's ip address from the settings menu via Settings -> Network & Internet -> Wi-Fi -> Hardware Properties.
+2. Setup an [Azure Spatial Anchors account](https://docs.microsoft.com/en-us/azure/spatial-anchors/quickstarts/get-started-unity-hololens) and obtain the Account Domain, Account ID and the Primary Key.
+3. Import [ARCore v1.7.0](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.7.0) and [AzureSpatialAnchors v1.1.1](https://github.com/Azure/azure-spatial-anchors-samples/releases/tag/v1.1.1) to your Unity project.
+4. In both the Android and WSA unity player settings, add the SPATIALALIGNMENT_ASA preprocessor directive. (This is located via Build Settings -> Player Settings -> Other Settings -> 'Scripting Defined Symbols')
+5. In your Unity project, call Spectator View -> Update All Asset Caches to prepare content for state synchronization.
 
-1) **HoloLensExampleMRTKScene.unity** - An example scene that is configured to use the core MRTK functionality
-2) **HoloLensExampleScene.unity** - An example scene that has no dependencies on the core MRTK functionality
->>Note both scenes can be found at Assets/MixedRealityToolkit.Extensions/SpectatorView/Scenes/
+>> NOTE: Both the HoloLens and android applications should be compiled from the same PC with the same unity project. Updating the asset cache assigns unique identifiers to each item in the unity project. Doing this on different computers can break synchronization.
 
-# Setting Up New Projects
+### HoloLens scene setup
+6. Add the [SpectatorView.ASA.HoloLens prefab](Prefabs/SpectatorView.ASA.HoloLens.prefab) to the scene you intend to run on the HoloLens device.
+7. Add a GameObjectHierarchyBroadcaster to the root game object of the content you want synchronized. 
+8. In the unity inspector, set 'Broadcasted Content' in the Spectator View script to be the root game object that now contains the GameObjectHierarchyBroadcaster.
+9. Add a parent game object to your unity camera.
+10. In the unity inspector, set 'Parent Of Main Camera' in the Spectator View script to be the parent game object you just created.
+11. In the unity inspector, set the Account Domain, Account Id and Account Key for the Spatial Anchors Localizer using values you obtained creating an azure spatial anchors account above.
+12. Press the 'HoloLens' button on the [Platform Switcher](Scripts/Editor/PlatformSwitcherEditor.cs) attached to Spectator View in the unity inspector (This should configure the correct build settings and app capabilities).
+13. Build and deploy the application to your HoloLens device.
 
-## HoloLens
-1) Install the [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) Unity Package through Unity's package manager
-2) Add the 'Spectator View - HoloLens' prefab (Assets/MixedRealityToolkit.Extensions/SpectatorView/Prefabs/Spectator View - HoloLens.prefab) to your unity scene.
-3) Place all content in your scene under an empty parent GameObject
-4) Add the [SceneRoot MonoBehaviour](xref:Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.SceneRoot) to your empty parent GameObject
+### Android scene setup
+14. Open the [SpectatorView.ASA.Android unity scene](Scenes/SpectatorView.ASA.Android.unity) in your unity project.
+15. Again call Spectator View -> Update All Asset Caches to prepare content for state synchronization.
+16. Set the 'User Ip Address' in the Spectator View script to the ip address of your HoloLens device.
+17. In the unity inspector, set the Account Domain, Account Id and Account Key for the Spatial Anchors Localizer using values you obtained creating an azure spatial anchors account above.
+18. Press the 'Android' button on the [Platform Switcher](Scripts/Editor/PlatformSwitcherEditor.cs) attached to Spectator View in the unity inspector (This should configure the correct build settings and app capabilities).
+19. Check 'ARCore Supported' under Build Settings -> Player Settings -> Android -> XR Settings
+20. Build and deploy the application to your android device.
 
-## HoloLens 2
-coming soon...
-
-# Building
-Spectator View contains a [PlatformSwitcherEditor](xref:Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Editor.PlatformSwitcherEditor) Unity editor component that can assist in switching between platforms. Toggling platforms with said component should apply any needed build configuration settings as well as any platform specific capabilities.
-
-![Spectator View Platform Switcher](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/wikiFiles/Documentation/images/spectatorViewPlatformSwitcher.png)
-
-## HoloLens
-### Build the native plugin in Visual Studio
-The HoloLens flavor of spectator view requires building/obtaining SpectatorViewPlugin.dll and all of its dependencies:
-1) Clone https://github.com/Microsoft/MixedRealityToolkit
-2) Checkout feature/spectatorView in the MixedRealityToolkit (not the MixedRealityToolkit-Unity repo)
-3) Compile and obtain the associated opencv dependencies via vcpkg by following these [instructions](https://github.com/Microsoft/MixedRealityToolkit/tree/feature/spectatorView/SpectatorViewPlugin)
-3) Build a x86 Release version of SpectatorViewPlugin in visual studio with [SpectatorViewPlugin.sln](https://github.com/Microsoft/MixedRealityToolkit/blob/feature/spectatorView/SpectatorViewPlugin/SpectatorViewPlugin/SpectatorViewPlugin.sln) after obtaining the opencv dependencies
-4) Copy all output binaries into a Plugins\WSA\x86 directory in your unity assets folder (Typically the output binaries are dropped into MixedRealityToolkit\SpectatorViewPlugin\SpectatorViewPlugin\Release\SpectatorViewPlugin\ by visual studio, but this folder may vary between different local development setups\visual studio configurations)
-
-### Build the unity scene
-First, obtain the [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) Unity Package through Unity's package manager. Then, use the [PlatformSwitcherEditor](xref:Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Editor.PlatformSwitcherEditor) to specify the HoloLens platform, Spectator View shouldn't require any additional customization when compared to other HoloLens projects. To generate a visual studio solution with Unity use File -> Build Settings -> Build. Then open the generated solution in visual studio, compile and deploy.
-
-![Spectator View HoloLens Build Settings](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/wikiFiles/Documentation/images/spectatorViewHoloLensBuildSettings.png)
-
-## iOS
-For iOS, you will need a Mac with both Unity and XCode installed. After opening your Unity project, Install the [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) and [ARKit XR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.arkit@1.0/manual/index.html) Unity Packages using Unity's Package Manager. Then, use the [PlatformSwitcherEditor](xref:Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Editor.PlatformSwitcherEditor) component to configure the project for iOS. Then select File -> Build Settings -> Build. You can then open the generated solution in XCode to compile and deploy.
-
-![Spectator View iOS Build Settings](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/wikiFiles/Documentation/images/spectatorViewIOSBuildSettings.png)
-
-Within XCode, you will need to configure a [signing certificate](https://developer.apple.com/support/code-signing/) for your application before compiling and deploying. You can do this by selecting your Unity generated XCode project and updating the signing information.
-
-## Android
-Unlike iOS, an Android Spectator View experience can be compiled and deployed entirely from a PC. However, for Spectator View's android recording component to work, you will need to export the project from Unity and compile/deploy the experience with Android Studio. Unity did not have an obvious choice for Android screen capture when beginning the Android Spectator View experience. A custom activity, [ScreenRecorderActivity.java](https://github.com/Microsoft/MixedRealityToolkit-Unity/tree/feature/spectatorView/Assets/MixedRealityToolkit.Extensions/ScreenRecording/Plugins/Android), was created to bridge this feature gap. For more information on setting up/using custom android activities, see [Unity's documentation](https://docs.unity3d.com/Manual/AndroidUnityPlayerActivity.html).
-
-First, obtain the [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.0/manual/index.html) and [ARCore XR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.arcore@1.0/manual/index.html) Unity Packages using Unity's Package Manager. Then configure your project for Android, by again using the [PlatformSwitcherEditor](xref:Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Editor.PlatformSwitcherEditor). To build the android studio solution, select File -> Build Settings. Select the 'Export Project' option and press build. 
-
-![Spectator View Android Build Settings](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/wikiFiles/Documentation/images/spectatorViewAndroidBuildSettings.png)
-
-After selecting the Android platform with the platform switcher component, open Unity's build settings. Select in the android build menu to 'Export Project'. Then press the 'Export' button. This will generate an android solution that can be opened, compiled and deployed in Android Studio. However, when building in Android Studio, make sure that your AndroidManifest.xml declares ScreenRecorderActivity as the primary activity compared to the default UnityPlayerActivity. Also ensure that android.permission.RECORD_AUDIO and android.permission.WRITE_EXTERNAL_STORAGE have been added to your AndroidManifest.xml
-
-![Spectator View Android Studio Manifest](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/wikiFiles/Documentation/images/spectatorViewAndroidStudioManifest.png)
+# Example Scenes
+* HoloLens: [SpectatorView.ASA.HoloLens](Scenes/SpectatorView.ASA.HoloLens.unity)
+* Android: [SpectatorView.ASA.Android](Scenes/SpectatorView.ASA.Android.unity)

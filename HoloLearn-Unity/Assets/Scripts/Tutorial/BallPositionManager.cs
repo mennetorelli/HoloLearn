@@ -48,6 +48,7 @@ public class BallPositionManager : ObjectPositionManager
             if (Math.Abs(transform.position.y - floorPosition.y) < 0.2f)
             {
                 transform.GetComponentInChildren<Collider>().enabled = true;
+                transform.GetComponent<ManipulationHandler>().enabled = true;
                 lerpDone = false;
             }
         }
