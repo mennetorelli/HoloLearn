@@ -120,7 +120,7 @@ Material:
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0.5
     - _IridescenceThreshold: 0.05
-    - _Metallic: 1
+    - _Metallic: 0.3
     - _Mode: 3
     - _NearLightFade: 0
     - _NearPlaneFade: 0
@@ -154,7 +154,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 0.23137255, g: 0.8666667, b: 0.6431373, a: 0.14509805}
+    - _Color: {r: 0.42745098, g: 0.594338, b: 0.59607846, a: 0.28627452}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
