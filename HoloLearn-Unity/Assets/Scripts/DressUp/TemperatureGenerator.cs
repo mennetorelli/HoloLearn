@@ -24,7 +24,7 @@ public class TemperatureGenerator : MonoBehaviour {
         Transform weather = GameObject.Find("Weather").transform;
         DressUpManager manager = (DressUpManager)TaskManager.Instance;
 
-        Vector3 temperaturePostion = weather.TransformPoint(0.7f, 0f, 0f);
+        Vector3 temperaturePostion = weather.TransformPoint(0.4f, 0f, 0f);
         Vector3 relativePos = temperaturePostion - Camera.main.transform.position;
         Quaternion temperatureRotation = Quaternion.LookRotation(relativePos);
         temperatureRotation.x = 0f;

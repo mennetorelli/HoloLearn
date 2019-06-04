@@ -77,7 +77,7 @@ public class DressUpManager : TaskManager
 
         Transform selectedLevel = WeatherPrefabs.transform.GetChild(numberOfLevel);
         Transform selectedWeather = selectedLevel.GetChild(rnd.Next(0, selectedLevel.childCount));
-        Instantiate(selectedWeather, weather.position, rotation, weather);
+        Instantiate(selectedWeather, weather.TransformPoint(-0.2f, 0f, 0f), rotation, weather);
 
         selectedWeather.GetChild(1).GetComponent<TemperatureGenerator>().GenerateTemperature();
 
