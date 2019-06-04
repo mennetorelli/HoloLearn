@@ -1,22 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1811402435107438}
-  m_IsPrefabParent: 1
 --- !u!1 &1811402435107438
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4431058214314300}
   - component: {fileID: 114815588423701704}
@@ -31,9 +21,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4431058214314300
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811402435107438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -44,9 +35,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114815588423701704
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811402435107438}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -54,17 +46,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BinsPrefabs: {fileID: 1692875364980988, guid: fd6231651f435b849809fa82cc136cc4,
-    type: 2}
+    type: 3}
   WastePrefabs: {fileID: 1577649011577612, guid: 17edc020684140c4295ebd8ebd436395,
-    type: 2}
+    type: 3}
   VirtualAssistantsPrefabs: {fileID: 1045368810623730, guid: 0edf9946c73504b4eae7d8b331adba23,
-    type: 2}
+    type: 3}
   activeBins: []
+--- !u!114 &114960338499541070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811402435107438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5015be9d8682bc40b4bace7e6949b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114823110946797008
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811402435107438}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -72,21 +77,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultBanks:
-  - {fileID: 11400000, guid: cc4c851e20773a149bf53a39108384d7, type: 2}
+  - {fileID: 11400000, guid: 8b4d3fb8f71e79640b130156557d6b3d, type: 2}
   - {fileID: 11400000, guid: 2f5667efe71ee914395b0e4fe840454a, type: 2}
   - {fileID: 11400000, guid: 3b02197d0d746564c950a895ebbb5f10, type: 2}
   - {fileID: 11400000, guid: c164f17bf58bd944f985921c3c7c182e, type: 2}
   Events: []
   globalEventInstanceLimit: 0
   globalInstanceBehavior: 0
---- !u!114 &114960338499541070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1811402435107438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5015be9d8682bc40b4bace7e6949b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
