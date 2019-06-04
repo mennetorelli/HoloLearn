@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class BagCollisionManager : MonoBehaviour
 {
+    Vector3 floorPosition;
 
     // Use this for initialization
     void Start()
     {
-
+        floorPosition = GameObject.Find("SurfacePlane(Clone)").transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (transform.position.y < floorPosition.y)
+        {
+            transform.position = new Vector3(transform.position.x, floorPosition.y + 0.01f, transform.position.z);
+        }
     }
 
 
