@@ -39,6 +39,7 @@ public class BagCollisionManager : MonoBehaviour
                     if (VirtualAssistantManager.Instance != null)
                     {
                         VirtualAssistantManager.Instance.Jump();
+                        VirtualAssistantManager.Instance.ObjectDropped();
                     }
 
                     other.transform.GetComponent<ObjectPositionManager>().HasCollided(transform);

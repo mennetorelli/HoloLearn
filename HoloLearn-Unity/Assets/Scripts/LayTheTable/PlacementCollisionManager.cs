@@ -27,6 +27,7 @@ public class PlacementCollisionManager : MonoBehaviour {
             if (VirtualAssistantManager.Instance != null)
             {
                 VirtualAssistantManager.Instance.Jump();
+                VirtualAssistantManager.Instance.ObjectDropped();
             }
             
             if (other.gameObject.GetComponent<ObjectPositionManager>() != null)
