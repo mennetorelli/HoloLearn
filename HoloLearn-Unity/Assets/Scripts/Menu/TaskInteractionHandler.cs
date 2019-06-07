@@ -67,6 +67,12 @@ public class TaskInteractionHandler : MonoBehaviour, IMixedRealityPointerHandler
         transform.GetChild(2).gameObject.SetActive(true);
     }
 
+    public void SetMenuInvisible()
+    {
+        playing = true;
+        transform.GetChild(2).gameObject.SetActive(false);
+    }
+
     public void ScanningComplete()
     {
         transform.GetChild(0).gameObject.SetActive(false);

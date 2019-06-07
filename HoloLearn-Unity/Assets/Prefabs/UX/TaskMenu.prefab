@@ -171,9 +171,9 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1235848892982384}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 114104604024637926}
+          m_MethodName: SetMenuInvisible
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1235,16 +1235,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1235848892982384}
+      objectReference: {fileID: 114104604024637926}
     - target: {fileID: 114750426120364918, guid: d5e0e8cc740eb134789fd1f6bb5bb80a,
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: SetMenuInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 114750426120364918, guid: d5e0e8cc740eb134789fd1f6bb5bb80a,
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114750426120364918, guid: d5e0e8cc740eb134789fd1f6bb5bb80a,
         type: 3}
