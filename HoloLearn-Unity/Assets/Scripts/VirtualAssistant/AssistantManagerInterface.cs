@@ -21,6 +21,7 @@ public abstract class VirtualAssistantManager : Singleton<VirtualAssistantManage
     public virtual void Jump()
     {
         gameObject.GetComponent<Animator>().SetTrigger("Jump");
+        ObjectDropped();
     }
 
     public virtual void ShakeHead()
