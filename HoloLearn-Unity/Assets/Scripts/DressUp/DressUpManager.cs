@@ -126,6 +126,7 @@ public class DressUpManager : TaskManager
 
 
         Transform bag = new GameObject("Bag").transform;
+        bag.parent = sceneRoot;
         bag.tag = "Targets";
 
         Vector3 bagPosition = weatherPosition;
