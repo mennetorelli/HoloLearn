@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f18fec9b55c4f818e284af454161962, type: 3}
-  m_Name: New MixedRealitySpeechCommandsProfile
+  m_Name: MixedRealitySpeechCommandsProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   startBehavior: 0
@@ -28,5 +28,26 @@ MonoBehaviour:
     keyCode: 49
     action:
       id: 1
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: Back
+    keyCode: 98
+    action:
+      id: 0
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: Ok
+    keyCode: 111
+    action:
+      id: 0
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: Help Me
+    keyCode: 104
+    action:
+      id: 0
       description: Select
       axisConstraint: 2
