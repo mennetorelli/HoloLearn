@@ -23,3 +23,14 @@
 *.mdb filter=lfs diff=lfs merge=lfs -text
 *.nupkg filter=lfs diff=lfs merge=lfs -text
 *.pdf filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.aartemplate filter=lfs diff=lfs merge=lfs -text
+*.aar filter=lfs diff=lfs merge=lfs -text
+*.dylib filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+
+"HoloLearn-Unity/Assets/GoogleARCore/CLI/augmented_image_cli_linux" filter=lfs diff=lfs merge=lfs -text
+"HoloLearn-Unity/Assets/GoogleARCore/CLI/augmented_image_cli_osx" filter=lfs diff=lfs merge=lfs -text
+"HoloLearn-Unity/Assets/GoogleARCore/SDK/InstantPreview/Plugins/x86_64/arcore_instant_preview_unity_plugin.bundle/Contents/MacOS/arcore_instant_preview_unity_plugin" filter=lfs diff=lfs merge=lfs -text
