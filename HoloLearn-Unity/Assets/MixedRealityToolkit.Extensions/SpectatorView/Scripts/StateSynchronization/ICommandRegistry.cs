@@ -1,11 +1,21 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
+using System;
+using System.IO;
+
+namespace Microsoft.MixedReality.SpectatorView
 {
+    public delegate void ConnectedEventHandler(SocketEndpoint endpoint);
+    public delegate void DisconnectedEventHandler(SocketEndpoint endoint);
+    public delegate void CommandHandler(SocketEndpoint endpoint, string command, BinaryReader reader, int remainingDataSize);
+
     public interface ICommandRegistry
     {
-        void RegisterCommandHandler(string command, ICommandHandler handler);
-        void UnregisterCommandHandler(string command, ICommandHandler handler);
+        event ConnectedEventHandler Connected;
+        event DisconnectedEventHandler Disconnected;
+
+        void RegisterCommandHandler(string command, CommandHandler handler);
+        void UnregisterCommandHandler(string command, CommandHandler handler);
     }
 }

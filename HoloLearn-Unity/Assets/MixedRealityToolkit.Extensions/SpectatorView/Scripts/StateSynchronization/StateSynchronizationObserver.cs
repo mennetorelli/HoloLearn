@@ -1,17 +1,16 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.Socketer;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
+namespace Microsoft.MixedReality.SpectatorView
 {
     /// <summary>
     /// This class observes changes and updates content on a spectator device.
     /// </summary>
-    public class StateSynchronizationObserver : NetworkManager<StateSynchronizationObserver>, ICommandHandler
+    public class StateSynchronizationObserver : NetworkManager<StateSynchronizationObserver>
     {
         public const string SyncCommand = "SYNC";
         public const string CameraCommand = "Camera";
@@ -61,9 +60,9 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
                 Debug.LogError("Connection manager not specified for Observer.");
             }
 
-            RegisterCommandHandler(SyncCommand, this);
-            RegisterCommandHandler(CameraCommand, this);
-            RegisterCommandHandler(PerfCommand, this);
+            RegisterCommandHandler(SyncCommand, HandleSyncCommand);
+            RegisterCommandHandler(CameraCommand, HandleCameraCommand);
+            RegisterCommandHandler(PerfCommand, HandlePerfCommand);
         }
 
         protected void Update()
@@ -95,39 +94,32 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
             hologramSynchronizer.Reset(endpoint);
         }
 
-        public void HandleCommand(SocketEndpoint endpoint, string command, BinaryReader reader, int remainingDataSize)
+        public void HandleCameraCommand(SocketEndpoint endpoint, string command, BinaryReader reader, int remainingDataSize)
         {
-            switch (command)
+            float timeStamp = reader.ReadSingle();
+            hologramSynchronizer.RegisterCameraUpdate(timeStamp);
+            transform.position = reader.ReadVector3();
+            transform.rotation = reader.ReadQuaternion();
+        }
+
+        public void HandleSyncCommand(SocketEndpoint endpoint, string command, BinaryReader reader, int remainingDataSize)
+        {
+            float timeStamp = reader.ReadSingle();
+            hologramSynchronizer.RegisterFrameData(reader.ReadBytes(remainingDataSize), timeStamp);
+        }
+
+        public void HandlePerfCommand(SocketEndpoint endpoint, string command, BinaryReader reader, int remainingDataSize)
+        {
+            int featureCount = reader.ReadInt32();
+
+            if (averageTimePerFeature == null)
             {
-                case CameraCommand:
-                    {
-                        float timeStamp = reader.ReadSingle();
-                        hologramSynchronizer.RegisterCameraUpdate(timeStamp);
-                        transform.position = reader.ReadVector3();
-                        transform.rotation = reader.ReadQuaternion();
-                    }
-                    break;
-                case SyncCommand:
-                    {
-                        float timeStamp = reader.ReadSingle();
-                        hologramSynchronizer.RegisterFrameData(reader.ReadBytes(remainingDataSize), timeStamp);
-                    }
-                    break;
-                case PerfCommand:
-                    {
-                        int featureCount = reader.ReadInt32();
+                averageTimePerFeature = new double[featureCount];
+            }
 
-                        if (averageTimePerFeature == null)
-                        {
-                            averageTimePerFeature = new double[featureCount];
-                        }
-
-                        for (int i = 0; i < featureCount; i++)
-                        {
-                            averageTimePerFeature[i] = reader.ReadSingle();
-                        }
-                    }
-                    break;
+            for (int i = 0; i < featureCount; i++)
+            {
+                averageTimePerFeature[i] = reader.ReadSingle();
             }
         }
 
@@ -167,14 +159,6 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
 
                 return stream.ToArray();
             }
-        }
-
-        void ICommandHandler.OnConnected(SocketEndpoint endpoint)
-        {
-        }
-
-        void ICommandHandler.OnDisconnected(SocketEndpoint endpoint)
-        {
         }
     }
 }

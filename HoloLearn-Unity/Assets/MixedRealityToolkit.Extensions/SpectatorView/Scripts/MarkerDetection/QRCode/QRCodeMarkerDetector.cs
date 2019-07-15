@@ -6,13 +6,8 @@
 #define ENABLE_QRCODES
 #endif
 
-#if QRCODESTRACKER_BINARY_AVAILABLE
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.QRCodesTracker;
-#endif
-
 using UnityEngine;
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.MarkerDetection;
 using System.Collections.Generic;
 using System;
 
@@ -21,7 +16,7 @@ using Windows.Perception.Spatial;
 using Windows.Perception.Spatial.Preview;
 #endif
 
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.MarkerDetection
+namespace Microsoft.MixedReality.SpectatorView
 {
     /// <summary>
     /// QR code detector that implements <see cref="Microsoft.MixedReality.Toolkit.Extensions.MarkerDetection.IVariableSizeMarkerDetector"/>
@@ -102,6 +97,14 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
                 _qrCodesManager.QRCodeRemoved += QRCodeRemoved;
                 _qrCodesManager.QRCodeUpdated += QRCodeUpdated;
             }
+
+            StartTracking();
+        }
+
+        private async void StartTracking()
+        {
+            Windows.Security.Authorization.AppCapabilityAccess.AppCapability cap = Windows.Security.Authorization.AppCapabilityAccess.AppCapability.Create("webcam");
+            var accessStatus = await cap.RequestAccessAsync();
 
             var result = _qrCodesManager.StartQRTracking();
             Debug.Log("Started qr tracker: " + result.ToString());
@@ -191,8 +194,15 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
                         // Spectator view marker detectors should return a positive y axis up the marker,
                         // so, we rotate the marker orientation 180 degrees around its z axis.
                         var rotation = Quaternion.LookRotation(location.GetColumn(2), location.GetColumn(1)) * Quaternion.Euler(0, 0, 180);
-                        var marker = new Marker(markerId, translation, rotation);
-                        markerDictionary[markerId] = marker;
+
+                        if (_markerSizes.TryGetValue(markerId, out var size))
+                        {
+                            var transform = Matrix4x4.TRS(translation, rotation, Vector3.one);
+                            var offset = -1.0f * size / 2.0f;
+                            var markerCenter = transform.MultiplyPoint(new Vector3(offset, offset, 0));
+                            var marker = new Marker(markerId, markerCenter, rotation);
+                            markerDictionary[markerId] = marker;
+                        }
                     }
                 }
             }

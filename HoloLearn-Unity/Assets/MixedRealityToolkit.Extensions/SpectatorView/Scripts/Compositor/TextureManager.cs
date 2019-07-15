@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System;
 using UnityEngine.Rendering;
 
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Compositor
+namespace Microsoft.MixedReality.SpectatorView
 {
     /// <summary>
     /// Manages the textures used for compositing holograms with video, and controls
@@ -212,8 +212,6 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.C
             colorRGBTexture = new RenderTexture(frameWidth, frameHeight, (int)Compositor.TextureDepth);
             alphaTexture = new RenderTexture(frameWidth, frameHeight, (int)Compositor.TextureDepth);
             compositeTexture = new RenderTexture(frameWidth, frameHeight, (int)Compositor.TextureDepth);
-            // this is needed for the shader that converts back to YUV
-            compositeTexture.wrapMode = TextureWrapMode.Repeat;
 
             if (supersampleBuffers.Length > 0)
             {

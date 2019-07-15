@@ -1,11 +1,10 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.Socketer;
 using System.IO;
 using UnityEngine;
 
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
+namespace Microsoft.MixedReality.SpectatorView
 {
     /// <summary>
     /// Types of state changes that may occur for an <see cref="IComponentBroadcaster"/>
@@ -102,7 +101,7 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
         /// <param name="changeType">type of changed that occurred for the specified component</param>
         public void WriteHeader(BinaryWriter message, IComponentBroadcaster component, ComponentBroadcasterChangeType changeType = ComponentBroadcasterChangeType.Updated)
         {
-            StateSynchronizationSceneManager.Instance.WriteHeader(message);
+            StateSynchronizationSceneManager.Instance.WriteSynchronizeCommandHeader(message);
             message.Write(GetID().Value);
             message.Write(component.TransformBroadcaster.Id);
             message.Write((byte)changeType);
@@ -116,7 +115,7 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView
         /// <param name="changeType">type of changed that occurred for the specified component</param>
         public void WriteHeader(BinaryWriter message, TransformObserver TransformObserver, ComponentBroadcasterChangeType changeType = ComponentBroadcasterChangeType.Updated)
         {
-            StateSynchronizationSceneManager.Instance.WriteHeader(message);
+            StateSynchronizationSceneManager.Instance.WriteSynchronizeCommandHeader(message);
             message.Write(GetID().Value);
             message.Write(TransformObserver.Id);
             message.Write((byte)changeType);

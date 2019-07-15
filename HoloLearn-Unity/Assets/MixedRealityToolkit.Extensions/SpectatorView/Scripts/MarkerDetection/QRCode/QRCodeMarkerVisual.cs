@@ -4,14 +4,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.MarkerDetection;
-using System.IO;
-
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.MarkerDetection
+namespace Microsoft.MixedReality.SpectatorView
 {
     public class QRCodeMarkerVisual : MonoBehaviour,
         IMarkerVisual
     {
+        /// <summary>
+        /// Parent GameObject of any marker visual content
+        /// </summary>
+        [Tooltip("Parent GameObject of any marker visual content")]
+        [SerializeField]
+        private GameObject _content;
+
         /// <summary>
         /// RawImage used for displaying the ArUco marker
         /// </summary>
@@ -26,27 +30,10 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
         [SerializeField]
         protected float _markerSize = 0.03f; // meters
 
-        /// <summary>
-        /// Any additional scale factor to account for when displaying the marker
-        /// </summary>
-        [Tooltip("Any additional scale factor to account for when displaying the marker")]
-        [SerializeField]
-        public float _additionalScaleFactor = 1.0f;
-
+        private float _additionalScaleFactor = 1.0f;
         private float _paddingScaling =  200.0f / (200.0f - (2.0f * 24.0f)); // sv*.png images have 24 pixels of padding
         private const string _textureFileName = "sv*";
-
-        /// <inheritdoc />
-        public void SetMarkerSize(float size)
-        {
-            _markerSize = size;
-
-            if (_rawImage != null)
-            {
-                var sizeInPixels = GetMarkerSizeInPixels();
-                _rawImage.rectTransform.sizeDelta = new Vector2(sizeInPixels, sizeInPixels);
-            }
-        }
+        private const int _maxMarkerId = 19;
 
         /// <inheritdoc />
         public void ShowMarker(int id)
@@ -57,7 +44,14 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
                 return;
             }
 
-            gameObject.SetActive(true);
+            if (_content == null)
+            {
+                Debug.LogError("Content not set for QRCodeMarkerVisual. Unable to display marker.");
+                return;
+            }
+
+            _content.SetActive(true);
+
             var textureFileName = _textureFileName.Replace("*", id.ToString());
 
             Texture2D texture;
@@ -83,7 +77,42 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.M
                 return;
             }
 
-            gameObject.SetActive(false);
+            if (_content == null)
+            {
+                Debug.LogError("Content not set for QRCodeMarkerVisual. Unable to display marker.");
+                return;
+            }
+
+            _content.SetActive(false);
+        }
+
+        /// <inheritdoc />
+        public bool TrySetMarkerSize(float size)
+        {
+            _markerSize = size;
+
+            if (_rawImage != null)
+            {
+                var sizeInPixels = GetMarkerSizeInPixels();
+                _rawImage.rectTransform.sizeDelta = new Vector2(sizeInPixels, sizeInPixels);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc />
+        public bool TryGetMaxSupportedMarkerId(out int markerId)
+        {
+            markerId = _maxMarkerId;
+            return true;
+        }
+
+        /// <inheritdoc />
+        public bool TrySetScaleFactor(float scaleFactor)
+        {
+            _additionalScaleFactor = scaleFactor;
+            return true;
         }
 
         private float GetMarkerSizeInPixels()

@@ -3,10 +3,9 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-using Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.Utilities;
-
-namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.UI
+namespace Microsoft.MixedReality.SpectatorView
 {
     /// <summary>
     /// Delegate called to toggle visibility for <see cref="IMobileOverlayVisualChild"/>ren.
@@ -73,6 +72,16 @@ namespace Microsoft.MixedReality.Toolkit.Extensions.Experimental.SpectatorView.U
 
         private void Awake()
         {
+            var canvasScaler = GetComponentInParent<CanvasScaler>();
+            if(canvasScaler != null)
+            {
+                canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            }
+            else
+            {
+                Debug.LogWarning("Unable to obtain canvas scaler in parent, ui may not draw correctly.");
+            }
+
             _overlayChildren = new List<IMobileOverlayVisualChild>();
             foreach (var child in _children)
             {
