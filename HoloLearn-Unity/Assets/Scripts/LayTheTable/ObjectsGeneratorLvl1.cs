@@ -19,8 +19,10 @@ public class ObjectsGeneratorLvl1 : ObjectsGenerator {
 
     public override Transform GenerateObjects(Transform objectsPrefab, int numberOfPeople)
     {
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
 
         Transform objectsToBePlaced = new GameObject("ObjectsToBePlaced").transform;
+        objectsToBePlaced.parent = sceneRoot;
         objectsToBePlaced.tag = "ObjectsToBePlaced";
 
         Transform plates = objectsPrefab.Find("Plates");

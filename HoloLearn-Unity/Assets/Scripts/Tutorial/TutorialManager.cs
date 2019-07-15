@@ -63,7 +63,10 @@ public class TutorialManager : TaskManager
         rotation.z = 0f;
 
 
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
+
         Transform targets = new GameObject("Targets").transform;
+        targets.parent = sceneRoot;
         targets.tag = "Targets";
         Instantiate(Targets.transform.GetChild(0), Targets.transform.GetChild(0).position + new Vector3(0f, 0.2f, 0f), Targets.transform.GetChild(0).rotation, targets);
         targets.Translate(objsPosition);
@@ -71,6 +74,7 @@ public class TutorialManager : TaskManager
 
 
         Transform objs = new GameObject("ObjectsToBePlaced").transform;
+        objs.parent = sceneRoot;
         objs.tag = "ObjectsToBePlaced";
         Instantiate(ObjectsToBePlaced.transform.GetChild(0), ObjectsToBePlaced.transform.GetChild(0).position, ObjectsToBePlaced.transform.GetChild(0).rotation, objs);
         objs.Translate(Vector3.Lerp(objsPosition, Camera.main.transform.position, 0.5f));
@@ -84,7 +88,7 @@ public class TutorialManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }

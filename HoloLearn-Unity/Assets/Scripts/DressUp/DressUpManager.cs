@@ -72,7 +72,11 @@ public class DressUpManager : TaskManager
         rotation.x = 0f;
         rotation.z = 0f;
 
+
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
+
         Transform weather = new GameObject("Weather").transform;
+        weather.parent = sceneRoot;
         weather.position = weatherPosition;
 
         Transform selectedLevel = WeatherPrefabs.transform.GetChild(numberOfLevel);
@@ -87,6 +91,7 @@ public class DressUpManager : TaskManager
 
 
         Transform clothes = new GameObject("Clothes").transform;
+        clothes.parent = sceneRoot;
         clothes.tag = "ObjectsToBePlaced";
 
         Vector3 clothesPosition = weatherPosition;
@@ -138,7 +143,7 @@ public class DressUpManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }

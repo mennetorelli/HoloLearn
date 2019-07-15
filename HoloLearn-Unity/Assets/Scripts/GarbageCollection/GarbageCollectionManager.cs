@@ -126,7 +126,6 @@ public class GarbageCollectionManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            //Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
             Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.patience = assistantPatience;
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);

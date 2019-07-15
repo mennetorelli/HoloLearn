@@ -79,8 +79,10 @@ public class LayTheTableManager : TaskManager
         objectsToBePlaced.Rotate(rotations.ElementAt(0).eulerAngles);
 
 
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
 
         Transform tablePlacements = new GameObject("TableMates").transform;
+        tablePlacements.parent = sceneRoot;
         tablePlacements.tag = "Targets";
 
         Transform tableMatesPlacements = selectedLevel.Find("TableMatePlacement");
@@ -100,7 +102,7 @@ public class LayTheTableManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.patience = assistantPatience;
         }
     }

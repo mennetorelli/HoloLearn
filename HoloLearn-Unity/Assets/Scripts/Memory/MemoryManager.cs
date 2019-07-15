@@ -66,8 +66,11 @@ public class MemoryManager : TaskManager
 
         List<Transform> objs = transform.GetComponentInChildren<PlayModeManager>().GenerateObjects(ObjectsPrefabs, numberOfBoxes);
 
+        Transform sceneRoot = GameObject.Find("Broadcasted Content").transform;
+
         System.Random rnd = new System.Random();
         Transform elems = new GameObject("Elements").transform;
+        elems.parent = sceneRoot;
         for (int i = 1; i <= numberOfBoxes / 2; i++)
         {
             Transform elem = new GameObject("Element").transform;
@@ -98,7 +101,7 @@ public class MemoryManager : TaskManager
 
         if (assistantPresence != 0)
         {
-            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation);
+            Instantiate(virtualAssistant.gameObject, assistantPosition, virtualAssistant.transform.rotation, sceneRoot);
             VirtualAssistantManager.Instance.transform.localScale += new Vector3(0.25f * VirtualAssistantManager.Instance.transform.localScale.x, 0.25f * VirtualAssistantManager.Instance.transform.localScale.y, 0.25f * VirtualAssistantManager.Instance.transform.localScale.z);
         }
 
