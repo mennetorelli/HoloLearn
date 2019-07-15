@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71cb900fa9dec5488df2deb180db58f, type: 3}
-  m_Name: MixedRealityInputSystemProfile
+  m_Name: New MixedRealityInputSystemProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   dataProviderConfigurations:
@@ -75,9 +75,9 @@ MonoBehaviour:
     type: 2}
   inputActionRulesProfile: {fileID: 11400000, guid: 03945385d89102f41855bc8f5116b199,
     type: 2}
-  pointerProfile: {fileID: 11400000, guid: b6a6ad8d3eb7e014cafe1f1c954ef0bb, type: 2}
+  pointerProfile: {fileID: 11400000, guid: e904893216a079145b8400194327e4a9, type: 2}
   gesturesProfile: {fileID: 11400000, guid: bd7829a9b29409045a745b5a18299291, type: 2}
-  speechCommandsProfile: {fileID: 11400000, guid: 21e89b5b39ae4d24b84d87869975e6c8,
+  speechCommandsProfile: {fileID: 11400000, guid: 6d1cb082b76124c46aa152e63c0e11e6,
     type: 2}
   enableControllerMapping: 1
   controllerMappingProfile: {fileID: 11400000, guid: 39ded1fd0711a0c448413d0e1ec4f7f3,
